@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dodnshcgx0tvj"]
+
+[ext_resource type="Script" uid="uid://ccwu2n87bjndt" path="res://scenes/fishing_manager.gd" id="1_ptjo3"]
+
+[node name="FishingScene" type="Node2D" unique_id=1042002354]
+script = ExtResource("1_ptjo3")
+
+[node name="Container" type="Control" parent="." unique_id=1849949674]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 228.0
+offset_top = 184.0
+offset_right = 1030.0
+offset_bottom = 578.0
+
+[node name="ButtonMenu" type="Button" parent="Container" unique_id=792678934]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 138.0
+offset_right = 201.0
+offset_bottom = 228.0
+text = "menu"
+
+[node name="ButtonShop" type="Button" parent="Container" unique_id=410807605]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 141.0
+offset_right = 705.0
+offset_bottom = 231.0
+text = "shop
+"
+
+[connection signal="pressed" from="Container/ButtonMenu" to="." method="_on_button_menu_pressed"]

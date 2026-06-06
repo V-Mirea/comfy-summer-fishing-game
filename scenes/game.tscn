@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b8kmc2hx6jst6" path="res://scripts/game_manager.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cldqo1bstbem8" path="res://scenes/main_menu.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dodnshcgx0tvj" path="res://scenes/fishing_scene.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node" unique_id=1363482211]
 script = ExtResource("1_uwrxv")
 mainMenuScene = ExtResource("2_yqjtg")
+fishingScene = ExtResource("3_lnu2h")
