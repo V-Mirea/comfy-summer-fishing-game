@@ -2,7 +2,11 @@ name: Deploy to itch.io
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - develop
+      - 'feature/dy/**'
+      - 'feature/vm/**'
 
 jobs:
   export-and-upload:
@@ -10,6 +14,34 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Determine deploy target
+        id: target
+        run: |
+          BRANCH="${GITHUB_REF#refs/heads/}"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+          if [[ "$BRANCH" == "main" ]]; then
+            echo "channel=web" >> "$GITHUB_OUTPUT"
+            echo "itch_username=${{ secrets.ITCH_USERNAME_PROD }}" >> "$GITHUB_OUTPUT"
+            echo "game_id=${{ secrets.ITCH_GAME_ID_PROD }}" >> "$GITHUB_OUTPUT"
+            echo "butler_secret=BUTLER_PROD_KEY" >> "$GITHUB_OUTPUT"
+          elif [[ "$BRANCH" == "develop" ]]; then
+            echo "channel=web" >> "$GITHUB_OUTPUT"
+            echo "itch_username=${{ secrets.ITCH_USERNAME_DY }}" >> "$GITHUB_OUTPUT"
+            echo "game_id=${{ secrets.ITCH_GAME_ID_DEV }}" >> "$GITHUB_OUTPUT"
+            echo "butler_secret=BUTLER_KEY_DY" >> "$GITHUB_OUTPUT"
+          elif [[ "$BRANCH" == feature/dy/* ]]; then
+            echo "channel=web" >> "$GITHUB_OUTPUT"
+            echo "itch_username=${{ secrets.ITCH_USERNAME_DY }}" >> "$GITHUB_OUTPUT"
+            echo "game_id=${{ secrets.ITCH_GAME_ID_DY }}" >> "$GITHUB_OUTPUT"
+            echo "butler_secret=BUTLER_KEY_DY" >> "$GITHUB_OUTPUT"
+          elif [[ "$BRANCH" == feature/vm/* ]]; then
+            echo "channel=web" >> "$GITHUB_OUTPUT"
+            echo "itch_username=${{ secrets.ITCH_USERNAME_PROD }}" >> "$GITHUB_OUTPUT"
+            echo "game_id=${{ secrets.ITCH_GAME_ID_VM }}" >> "$GITHUB_OUTPUT"
+            echo "butler_secret=BUTLER_PROD_KEY" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Export game
         id: export
@@ -24,8 +56,8 @@ jobs:
       - name: Upload to itch.io
         uses: KikimoraGames/itch-publish@v0.0.3
         with:
-          butlerApiKey: ${{ secrets.BUTLER_TEST_API_KEY }} #change to BUTLER_API_KEY
-          gameData: ./build/web
-          itchUsername: bowlofbap
-          itchGameId: comfy-summer-test
-          buildChannel: web
+          butlerApiKey: ${{ secrets[steps.target.outputs.butler_secret] }}
+          gameData: ./build/Web
+          itchUsername: ${{ steps.target.outputs.itch_username }}
+          itchGameId: ${{ steps.target.outputs.game_id }}
+          buildChannel: ${{ steps.target.outputs.channel }}
