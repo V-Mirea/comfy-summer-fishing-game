@@ -57,7 +57,7 @@ jobs:
         uses: KikimoraGames/itch-publish@v0.0.3
         with:
           butlerApiKey: ${{ secrets[steps.target.outputs.butler_secret] }}
-          gameData: ./build/web
+          gameData: ./build/Web
           itchUsername: ${{ steps.target.outputs.itch_username }}
           itchGameId: ${{ steps.target.outputs.game_id }}
           buildChannel: ${{ steps.target.outputs.channel }}
