@@ -43,10 +43,14 @@ func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 	
 func _on_action_requested(action: String):
 	match action:
-		"play":
-			state_machine.change_state(State.FISHING)
 		"main_menu":
-			state_machine.change_state(State.MAIN_MENU)			
+			state_machine.change_state(State.MAIN_MENU)
+		"fish":
+			state_machine.change_state(State.FISHING)
+		"sell":
+			state_machine.change_state(State.SELLING)
+		"buy":
+			state_machine.change_state(State.BUYING)			
 			
 func change_screen(state: int):
 	if current_screen:

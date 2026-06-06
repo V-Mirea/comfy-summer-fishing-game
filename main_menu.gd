@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 signal action_requested(action: String)
 
@@ -12,5 +12,5 @@ func _process(delta):
 	pass
 
 
-func _on_button_menu_pressed():
-	action_requested.emit("main_menu")
+func _on_button_play_pressed():
+	action_requested.emit("fish")

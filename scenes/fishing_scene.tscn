@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dodnshcgx0tvj"]
 
-[ext_resource type="Script" uid="uid://ccwu2n87bjndt" path="res://scenes/fishing_manager.gd" id="1_ptjo3"]
+[ext_resource type="Script" uid="uid://ccwu2n87bjndt" path="res://scripts/fishing_manager.gd" id="1_ptjo3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
+font_size = 40
 
 [node name="FishingScene" type="Node2D" unique_id=1042002354]
 script = ExtResource("1_ptjo3")
@@ -21,7 +24,7 @@ offset_right = 201.0
 offset_bottom = 228.0
 text = "menu"
 
-[node name="ButtonShop" type="Button" parent="Container" unique_id=410807605]
+[node name="ButtonSell" type="Button" parent="Container" unique_id=410807605]
 layout_mode = 0
 offset_left = 511.0
 offset_top = 141.0
@@ -30,4 +33,16 @@ offset_bottom = 231.0
 text = "shop
 "
 
+[node name="Title" type="Label" parent="Container" unique_id=1983296633]
+layout_mode = 0
+offset_left = 23.0
+offset_top = -151.0
+offset_right = 736.0
+offset_bottom = -14.0
+text = "Fishing"
+label_settings = SubResource("LabelSettings_ptjo3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Container/ButtonMenu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="Container/ButtonSell" to="." method="_on_button_sell_pressed"]
