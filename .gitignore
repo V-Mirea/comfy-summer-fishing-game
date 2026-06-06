@@ -1,6 +1,6 @@
 .godot/
 /android/
-/build
+/web
 *.translation
 .import/
 export_presets.cfg
