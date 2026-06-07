@@ -5,4 +5,4 @@ class_name FishSpecies
 
 @export var display_name: String = ""
 @export var base_price: int = 0
-@export var pattern: Array[Vector2] = []
+@export var pattern: Array[BubbleStep] = []
