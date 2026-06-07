@@ -1,7 +1,7 @@
-name: Notify Discord on PR Opening
+name: Notify Discord on PR Activity
 on:
   pull_request:
-    types: [opened]
+    types: [opened, closed]
 jobs:
   notify:
     runs-on: ubuntu-latest
@@ -11,7 +11,16 @@ jobs:
           TITLE: ${{ github.event.pull_request.title }}
           AUTHOR: ${{ github.event.pull_request.user.login }}
           URL: ${{ github.event.pull_request.html_url }}
+          MERGED: ${{ github.event.pull_request.merged }}
+          ACTION: ${{ github.event.action }}
           WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          MSG=$(jq -n --arg c "New PR, $AUTHOR: $TITLE"$'\n'"$URL" '{content: $c}')
+          if [ "$ACTION" = "opened" ]; then
+            PREFIX="New PR"
+          elif [ "$MERGED" = "true" ]; then
+            PREFIX="PR Merged"
+          else
+            PREFIX="PR Closed"
+          fi
+          MSG=$(jq -n --arg c "$PREFIX, $AUTHOR: $TITLE"$'\n'"$URL" '{content: $c}')
           curl -fsS -H "Content-Type: application/json" -d "$MSG" "$WEBHOOK"
