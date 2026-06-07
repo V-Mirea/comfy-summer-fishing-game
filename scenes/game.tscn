@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dicoctrsq757s"]
 
-[ext_resource type="Script" uid="uid://b8kmc2hx6jst6" path="res://scripts/game_manager.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://b8kmc2hx6jst6" path="res://scripts/managers/game_manager.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cldqo1bstbem8" path="res://scenes/main_menu.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dodnshcgx0tvj" path="res://scenes/fishing_scene.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cmg53b45ikcyy" path="res://scenes/selling_scene.tscn" id="4_iywne"]

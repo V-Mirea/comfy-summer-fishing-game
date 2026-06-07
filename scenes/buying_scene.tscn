@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lox5kan0hfl5"]
 
-[ext_resource type="Script" uid="uid://by6gijj7kf3fe" path="res://scripts/buying_manager.gd" id="1_b6mu0"]
+[ext_resource type="Script" uid="uid://cvua02n5l4mc5" path="res://scripts/managers/buying_manager.gd" id="1_b6mu0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xpfq"]
 font_size = 40
