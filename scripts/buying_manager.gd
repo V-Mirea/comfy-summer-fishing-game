@@ -1,6 +1,6 @@
 extends Control
 
-signal action_requested(action: String) 
+signal transition_requested(state: Global.State) 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,8 +13,8 @@ func _process(delta):
 
 
 func _on_button_menu_pressed():
-	action_requested.emit("main_menu")
+	transition_requested.emit(Global.State.MAIN_MENU)
 
 
 func _on_button_fish_pressed():
-	action_requested.emit("fish")
+	transition_requested.emit(Global.State.FISHING)
