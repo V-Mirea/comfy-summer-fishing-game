@@ -63,8 +63,12 @@ func _roll_fish() -> void:
 		return  # no fish this roll
 	
 	var species: FishSpecies = FishDatabase.get_random()
+	if species == null:
+		push_error("No fish species available, shouldn't be possible")
+		return
+
 	var new_fish: Fish = Fish.new(species, 50)
-	
+
 	var context = {
 		"species": species.display_name,
 		"pattern": species.pattern,

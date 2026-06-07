@@ -33,10 +33,19 @@ func start_pattern(pattern: Array[BubbleStep]) -> void:
 	goods = 0
 	bads = 0
 	misses = 0
-	bubbles_remaining = pattern.size()
+
+	# Survive partially-loaded data (e.g. null entries from an export
+	# deserialization issue) so the minigame can never hard-freeze.
+	var steps := pattern.filter(func(step): return step != null)
+	bubbles_remaining = steps.size()
 	is_playing = true
-	
-	for entry in pattern:
+
+	if steps.is_empty():
+		push_warning("start_pattern called with no valid steps; resolving immediately.")
+		_finish_pattern()
+		return
+
+	for entry in steps:
 		_schedule_bubble(entry)
 
 func _schedule_bubble(entry: BubbleStep) -> void:
