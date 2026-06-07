@@ -3,7 +3,7 @@ extends Node2D
 class_name BubbleManager
 
 signal pattern_complete(score_data: Dictionary)
-const BubbleScene = preload("res://scenes/fishing/bubble.tscn")
+@export var BubbleScene: PackedScene
 
 # anything clicked outside good is a 'bad'. perfect muST be contained in good window. fractions of the lifetime
 @export_group("Hit Windows")
