@@ -7,10 +7,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40
 
-[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "score_label", "cast_button", "cancel_button", "bubble_manager")]
+[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "cast_button", "cancel_button", "bubble_manager")]
 script = ExtResource("1_ptjo3")
 status_label = NodePath("Container/StatusLabel")
-score_label = NodePath("Container/ScoreLabel")
 cast_button = NodePath("Container/CastButton")
 cancel_button = NodePath("Container/CancelButton")
 bubble_manager = NodePath("BubbleManager")

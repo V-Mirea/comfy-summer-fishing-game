@@ -31,6 +31,10 @@ func remove_fish(fish: Fish) -> void:
 		fish_removed.emit(fish)
 		inventory_changed.emit()
 
+#eventually have functionality to sort this? or would we do that from a consumer perspective
+func get_all_fish() -> Array[Fish]:
+	return data.fish_inventory
+
 func sell_fish(fish: Fish) -> void:
 	add_money(fish.price)
 	remove_fish(fish)
