@@ -27,7 +27,7 @@ func _process(delta):
 		# if there are empty customer slots, roll a chance to spawn a customer
 		if empty_slots.size() > 0 and randi() % 100 < spawn_chance:
 			var random_slot = empty_slots[randi() % empty_slots.size()]
-			spawn_customer(random_slot.center)
+			spawn_customer(random_slot)
 			random_slot.is_occupied = true
 			time_since_last_spawn = -delay_time
 		else:
@@ -50,9 +50,15 @@ func get_empty_customer_slots() -> Array[CustomerArea]:
 	
 	return empty_slots
 
-func spawn_customer(position: Vector2):
-	var customer: Node2D = customer_scene.instantiate();
-	customer.position = position
+func spawn_customer(spawn_slot: CustomerArea):
+	var customer: Customer = customer_scene.instantiate();
+	customer.position = spawn_slot.center
+	customer.slot_index = spawn_slot.index
+	customer.leaving_shop.connect(_on_customer_leaving)
 	
 	request_spawn_customer.emit(customer)
+	
+func _on_customer_leaving(customer: Customer):
+	customer.queue_free()
+	customer_areas[customer.slot_index].is_occupied = false
 	
