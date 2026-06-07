@@ -1,11 +1,10 @@
 extends Node2D
 
-signal transition_requested(state: Global.State) 
+signal transition_requested(state: Global.State)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,3 +17,7 @@ func _on_button_menu_pressed():
 
 func _on_button_buy_pressed():
 	transition_requested.emit(Global.State.BUYING)
+
+func _on_request_spawn_customer(customer: Customer):
+	add_child(customer)
+	
