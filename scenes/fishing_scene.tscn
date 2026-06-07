@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dodnshcgx0tvj"]
 
-[ext_resource type="Script" uid="uid://ccwu2n87bjndt" path="res://scripts/fishing_manager.gd" id="1_ptjo3"]
+[ext_resource type="Script" uid="uid://ex6aq4rfk7tx" path="res://scripts/managers/fishing_manager.gd" id="1_ptjo3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40
