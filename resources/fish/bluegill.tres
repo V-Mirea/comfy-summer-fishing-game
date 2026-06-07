@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FishSpecies" format=3 uid="uid://bpr8dtl6yu4xj"]
+
+[ext_resource type="Script" uid="uid://b3q7jrdgu3akv" path="res://scripts/models/fish_species.gd" id="1_species"]
+
+[resource]
+script = ExtResource("1_species")
+display_name = "Bluegill"
+base_price = 50
+pattern = Array[Vector2]([Vector2(200, 300), Vector2(300, 300), Vector2(400, 300), Vector2(500, 300)])
