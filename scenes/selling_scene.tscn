@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cmg53b45ikcyy"]
 
 [ext_resource type="Script" uid="uid://bcypvgjpjqawc" path="res://scripts/managers/selling_manager.gd" id="1_wmifp"]
+[ext_resource type="Script" uid="uid://hwwp83yvavu2" path="res://scripts/managers/customer_spawner.gd" id="2_1ygfp"]
+[ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://scenes/customer.tscn" id="3_7ehvh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24tig"]
 font_size = 40
@@ -8,22 +10,31 @@ font_size = 40
 [node name="SellingScene" type="Node2D" unique_id=826753257]
 script = ExtResource("1_wmifp")
 
-[node name="ButtonMenu" type="Button" parent="." unique_id=147827414]
-offset_left = 247.0
-offset_top = 319.0
-offset_right = 441.0
-offset_bottom = 409.0
+[node name="Control" type="Control" parent="." unique_id=729090283]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1275.0
+offset_bottom = 717.0
+
+[node name="ButtonMenu" type="Button" parent="Control" unique_id=921605471]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 16.0
+offset_right = 132.0
+offset_bottom = 48.0
 text = "menu"
 
-[node name="ButtonBuy" type="Button" parent="." unique_id=1456218285]
-offset_left = 870.0
-offset_top = 326.0
-offset_right = 1064.0
-offset_bottom = 416.0
+[node name="ButtonBuy" type="Button" parent="Control" unique_id=1800644566]
+layout_mode = 0
+offset_left = 1111.0
+offset_top = 19.0
+offset_right = 1257.0
+offset_bottom = 50.0
 text = "buy
 "
 
-[node name="Title" type="Label" parent="." unique_id=1737353481]
+[node name="Title" type="Label" parent="Control" unique_id=1230235925]
+layout_mode = 0
 offset_left = 267.0
 offset_top = 61.0
 offset_right = 980.0
@@ -33,5 +44,32 @@ label_settings = SubResource("LabelSettings_24tig")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
-[connection signal="pressed" from="ButtonBuy" to="." method="_on_button_buy_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=529498331]
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.4
+anchor_right = 0.9
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1198505258]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.011764706, 1, 1, 1)
+
+[node name="CustomerSpawner" type="Node" parent="." unique_id=1346029056 node_paths=PackedStringArray("customer_area")]
+script = ExtResource("2_1ygfp")
+customer_area = NodePath("../CanvasLayer/Control")
+customer_scene = ExtResource("3_7ehvh")
+
+[connection signal="pressed" from="Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
+[connection signal="request_spawn_customer" from="CustomerSpawner" to="." method="_on_request_spawn_customer"]
