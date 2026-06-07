@@ -5,7 +5,7 @@ signal transition_requested(state: Global.State)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var caught := Fish.new(FishDatabase.get_random(), 100)
-	#Global.fish_inventory.append(caught)
+	Global.fish_inventory.append(caught)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
