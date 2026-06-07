@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ex6aq4rfk7tx" path="res://scripts/managers/fishing_manager.gd" id="1_ptjo3"]
 [ext_resource type="Script" uid="uid://7esw3mv0kkhi" path="res://scripts/managers/bubble_manager.gd" id="2_a8ye1"]
+[ext_resource type="PackedScene" uid="uid://bcmxoaln1cyx4" path="res://scenes/fishing/bubble.tscn" id="3_tkjw3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40
@@ -83,6 +84,7 @@ offset_bottom = -14.0
 
 [node name="BubbleManager" type="Node2D" parent="." unique_id=569624591]
 script = ExtResource("2_a8ye1")
+BubbleScene = ExtResource("3_tkjw3")
 
 [connection signal="pressed" from="Container/MenuButton" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Container/SellButton" to="." method="_on_button_sell_pressed"]
