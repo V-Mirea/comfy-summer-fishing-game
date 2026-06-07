@@ -1,12 +1,5 @@
 .godot/
 /android/
-/web
 *.translation
-.import/
-export_presets.cfg
-.mono/
-data_*/
-mono_crash.*.crash
-*.uid
-.DS_Store
-Thumbs.db
+
+/web
