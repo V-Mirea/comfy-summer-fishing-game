@@ -4,7 +4,7 @@ signal transition_requested(state: Global.State)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var fish_for_sale = PlayerManager.fish_to_sell
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

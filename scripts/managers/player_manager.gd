@@ -7,8 +7,16 @@ signal inventory_changed()
 signal upgrade_changed(upgrade_id: String, new_level: int)
 
 const SAVE_PATH := "user://player_data.tres" #i think this is right? we'll have to figure this out but seems simple enough
+const BASE_SELL_SLOTS: int = 3
+const SLOTS_PER_LEVEL: int = 1
+const MAX_SELL_SLOTS_CAP: int = 8
 
 var data: PlayerData
+var fish_to_sell: Array = []
+
+var max_sell_slots: int:
+	get:
+		return mini(BASE_SELL_SLOTS + data.upgrades.get("shop_level", 0) * SLOTS_PER_LEVEL, MAX_SELL_SLOTS_CAP)
 
 #base funct
 
@@ -32,7 +40,7 @@ func remove_fish(fish: Fish) -> void:
 		inventory_changed.emit()
 
 #eventually have functionality to sort this? or would we do that from a consumer perspective
-func get_all_fish() -> Array[Fish]:
+func get_all_fish() -> Array:
 	return data.fish_inventory
 
 func sell_fish(fish: Fish) -> void:

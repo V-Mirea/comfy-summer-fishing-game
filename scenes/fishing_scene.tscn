@@ -37,7 +37,7 @@ offset_left = 944.0
 offset_top = -159.0
 offset_right = 1013.0
 offset_bottom = -128.0
-text = "shop
+text = "NEXT SCREEN
 "
 
 [node name="Title" type="Label" parent="Container" unique_id=1983296633]
