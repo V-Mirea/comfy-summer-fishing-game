@@ -5,16 +5,15 @@ extends Node
 @export var sellingScene: PackedScene
 @export var buyingScene: PackedScene
 
-enum State {MAIN_MENU, FISHING, SELLING, BUYING}
-var initial_state = State.MAIN_MENU
+var initial_state = Global.State.MAIN_MENU
 var current_screen: Node
 var state_machine: StateMachine
 
 var valid_transitions = {
-	State.MAIN_MENU: [State.FISHING],
-	State.FISHING: [State.SELLING, State.MAIN_MENU],
-	State.SELLING: [State.BUYING, State.MAIN_MENU],
-	State.BUYING: [State.FISHING, State.MAIN_MENU]
+	Global.State.MAIN_MENU: [Global.State.FISHING],
+	Global.State.FISHING: [Global.State.SELLING, Global.State.MAIN_MENU],
+	Global.State.SELLING: [Global.State.BUYING, Global.State.MAIN_MENU],
+	Global.State.BUYING: [Global.State.FISHING, Global.State.MAIN_MENU]
 }
 	
 var state_scenes: Dictionary
@@ -22,35 +21,25 @@ var state_scenes: Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	state_scenes = {
-		State.MAIN_MENU: mainMenuScene,
-		State.FISHING: fishingScene,
-		State.SELLING: sellingScene,
-		State.BUYING: buyingScene
+		Global.State.MAIN_MENU: mainMenuScene,
+		Global.State.FISHING: fishingScene,
+		Global.State.SELLING: sellingScene,
+		Global.State.BUYING: buyingScene
 	}
 
 	state_machine = StateMachine.new(valid_transitions)
 	state_machine.state_changed.connect(_on_state_changed)
 	state_machine.change_state(initial_state)
 
+# The screens are responsible for emitting the signal connected to this method to specify when to
+# switch screens and to which screen to switch
+func _on_transition_requested(state: Global.State):
+	state_machine.change_state(state)	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
+# Once the state machine has verified the transition is valid, it will emit the signal connected to
+# this method to signal to the game manager to make the switch
 func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
-	change_screen(to)
-	
-func _on_action_requested(action: String):
-	match action:
-		"main_menu":
-			state_machine.change_state(State.MAIN_MENU)
-		"fish":
-			state_machine.change_state(State.FISHING)
-		"sell":
-			state_machine.change_state(State.SELLING)
-		"buy":
-			state_machine.change_state(State.BUYING)			
+	change_screen(to)	
 			
 func change_screen(state: int):
 	if current_screen:
@@ -59,4 +48,4 @@ func change_screen(state: int):
 	current_screen = state_scenes[state].instantiate()
 	add_child(current_screen)
 	
-	current_screen.action_requested.connect(_on_action_requested)
+	current_screen.transition_requested.connect(_on_transition_requested)
