@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmg53b45ikcyy"]
 
-[ext_resource type="Script" uid="uid://cyiyxv811gnel" path="res://scripts/selling_manager.gd" id="1_wmifp"]
+[ext_resource type="Script" uid="uid://bcypvgjpjqawc" path="res://scripts/managers/selling_manager.gd" id="1_wmifp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24tig"]
 font_size = 40
