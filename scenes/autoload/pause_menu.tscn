@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://c7wjqhddut7hi"]
+[gd_scene format=3 uid="uid://i8dndk787jkg"]
 
-[ext_resource type="Script" path="res://scripts/managers/pause_menu.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://c44smfmcdrab" path="res://scripts/managers/pause_menu.gd" id="1_script"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1736017532 node_paths=PackedStringArray("money_label", "upgrades_list", "fish_list", "resume_button")]
 process_mode = 3

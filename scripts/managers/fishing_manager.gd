@@ -17,6 +17,7 @@ const FISH_CHANCE: float = 0.20 #should be variable later
 @export var money_label: Label
 @export var cast_button: Button
 @export var cancel_button: Button
+@export var pause_button: Button
 @export var bubble_manager: BubbleManager
 
 # Called when the node enters the scene tree for the first time.
@@ -37,6 +38,7 @@ func _ready():
 	
 	cast_button.pressed.connect(state_machine.change_state.bind(State.WAITING_FOR_BITE))
 	cancel_button.pressed.connect(state_machine.change_state.bind(State.IDLE))
+	pause_button.pressed.connect(_on_button_pause_pressed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -131,9 +133,11 @@ func _on_pattern_complete(score_data: Dictionary) -> void:
 	print(PlayerManager.get_all_fish())
 	state_machine.change_state(State.RESOLVED)
 
-
 func _on_button_menu_pressed():
 	transition_requested.emit(Global.State.MAIN_MENU)
 
 func _on_button_sell_pressed():
 	transition_requested.emit(Global.State.SELECT_SELLING)
+
+func _on_button_pause_pressed():
+	PauseMenu.toggle()
