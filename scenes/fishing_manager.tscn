@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dgkbx3r6d7t7c"]
-
-[ext_resource type="Script" uid="uid://7l1frtj6cy3f" path="res://scripts/models/fish_database.gd" id="1_vh8jf"]
-
-[node name="FishingManager" type="Node2D" unique_id=1938327175]
-script = ExtResource("1_vh8jf")
