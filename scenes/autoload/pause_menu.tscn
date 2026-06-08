@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://i8dndk787jkg"]
+
+[ext_resource type="Script" uid="uid://c44smfmcdrab" path="res://scripts/managers/pause_menu.gd" id="1_script"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1736017532 node_paths=PackedStringArray("money_label", "upgrades_list", "fish_list", "resume_button")]
+process_mode = 3
+layer = 100
+visible = false
+script = ExtResource("1_script")
+money_label = NodePath("Panel/MarginContainer/VBox/MoneyLabel")
+upgrades_list = NodePath("Panel/MarginContainer/VBox/UpgradesList")
+fish_list = NodePath("Panel/MarginContainer/VBox/FishList")
+resume_button = NodePath("Panel/MarginContainer/VBox/ResumeButton")
+
+[node name="Darken" type="ColorRect" parent="." unique_id=1432399640]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=674956615]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=737232827]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=158215001]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBox" unique_id=1900182897]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=1423100496]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="Panel/MarginContainer/VBox" unique_id=758842710]
+layout_mode = 2
+text = "Money: 0"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=827154382]
+layout_mode = 2
+
+[node name="UpgradesHeader" type="Label" parent="Panel/MarginContainer/VBox" unique_id=1619852164]
+layout_mode = 2
+text = "Upgrades"
+horizontal_alignment = 1
+
+[node name="UpgradesList" type="VBoxContainer" parent="Panel/MarginContainer/VBox" unique_id=657796813]
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=1737605276]
+layout_mode = 2
+
+[node name="FishHeader" type="Label" parent="Panel/MarginContainer/VBox" unique_id=540206952]
+layout_mode = 2
+text = "Fish Inventory"
+horizontal_alignment = 1
+
+[node name="FishList" type="VBoxContainer" parent="Panel/MarginContainer/VBox" unique_id=720831022]
+layout_mode = 2
+
+[node name="HSeparator4" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=1148851314]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="Panel/MarginContainer/VBox" unique_id=2032420336]
+layout_mode = 2
+text = "Resume"
