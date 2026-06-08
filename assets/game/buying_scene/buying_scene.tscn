@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://lox5kan0hfl5"]
+
+[ext_resource type="Script" uid="uid://cvua02n5l4mc5" path="res://assets/game/buying_scene/buying_manager.gd" id="1_b6mu0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2xpfq"]
+font_size = 40
+
+[node name="BuyingScene" type="Control" unique_id=1376025545]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b6mu0")
+
+[node name="Title" type="Label" parent="." unique_id=1950715427]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 61.0
+offset_right = 980.0
+offset_bottom = 198.0
+text = "Buy upgrades"
+label_settings = SubResource("LabelSettings_2xpfq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMenu" type="Button" parent="." unique_id=792557303]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 319.0
+offset_right = 441.0
+offset_bottom = 409.0
+text = "menu"
+
+[node name="ButtonFish" type="Button" parent="." unique_id=1024119867]
+layout_mode = 0
+offset_left = 870.0
+offset_top = 326.0
+offset_right = 1064.0
+offset_bottom = 416.0
+text = "fish
+"
+
+[connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
