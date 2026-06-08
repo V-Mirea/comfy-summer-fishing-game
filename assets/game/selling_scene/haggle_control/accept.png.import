@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5y8k254xl3tx"
-path="res://.godot/imported/accept.png-20cb8fbb25168228091f811248f8cd8b.ctex"
+path="res://.godot/imported/accept.png-42bcadd7cb5e69edf2cd777eb2965c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/accept.png"
-dest_files=["res://.godot/imported/accept.png-20cb8fbb25168228091f811248f8cd8b.ctex"]
+source_file="res://assets/game/selling_scene/haggle_control/accept.png"
+dest_files=["res://.godot/imported/accept.png-42bcadd7cb5e69edf2cd777eb2965c21.ctex"]
 
 [params]
 

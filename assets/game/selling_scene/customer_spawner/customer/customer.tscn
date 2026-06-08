@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://stuev6gp1q3v"]
 
 [ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="1_ktfjk"]
-[ext_resource type="Script" uid="uid://c8pvhubgo6r4d" path="res://scripts/models/customer.gd" id="1_xss0h"]
-[ext_resource type="Script" uid="uid://t1jfhreuijp8" path="res://scripts/nodes/patience_bar.gd" id="3_8qg4y"]
+[ext_resource type="Script" uid="uid://c8pvhubgo6r4d" path="res://assets/game/selling_scene/customer_spawner/customer/customer.gd" id="1_xss0h"]
+[ext_resource type="Script" uid="uid://t1jfhreuijp8" path="res://assets/game/selling_scene/customer_spawner/customer/patience_bar.gd" id="3_8qg4y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ktfjk"]
 font_size = 11
