@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://u2kl2fl6vlrw"]
 
-[ext_resource type="Script" uid="uid://dqp0nysdui6v3" path="res://scripts/managers/select_selling_manager.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://dqp0nysdui6v3" path="res://assets/game/select_selling_scene/select_selling_manager.gd" id="1_script"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
 font_size = 40

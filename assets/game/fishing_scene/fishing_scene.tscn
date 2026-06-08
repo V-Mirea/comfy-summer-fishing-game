@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dodnshcgx0tvj"]
 
-[ext_resource type="Script" uid="uid://ex6aq4rfk7tx" path="res://scripts/managers/fishing_manager.gd" id="1_ptjo3"]
-[ext_resource type="Script" uid="uid://7esw3mv0kkhi" path="res://scripts/managers/bubble_manager.gd" id="2_a8ye1"]
-[ext_resource type="PackedScene" uid="uid://bcmxoaln1cyx4" path="res://scenes/fishing/bubble.tscn" id="3_tkjw3"]
+[ext_resource type="Script" uid="uid://ex6aq4rfk7tx" path="res://assets/game/fishing_scene/fishing_manager.gd" id="1_ptjo3"]
+[ext_resource type="Script" uid="uid://7esw3mv0kkhi" path="res://assets/game/fishing_scene/bubble_manager/bubble_manager.gd" id="2_a8ye1"]
+[ext_resource type="PackedScene" uid="uid://bcmxoaln1cyx4" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble.tscn" id="3_tkjw3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40

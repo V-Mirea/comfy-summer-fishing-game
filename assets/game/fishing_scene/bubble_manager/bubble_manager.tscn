@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://snnjff1irjib"]
 
-[ext_resource type="Script" uid="uid://7esw3mv0kkhi" path="res://scripts/managers/bubble_manager.gd" id="1_em3b1"]
+[ext_resource type="Script" uid="uid://7esw3mv0kkhi" path="res://assets/game/fishing_scene/bubble_manager/bubble_manager.gd" id="1_em3b1"]
 
 [node name="BubbleManager" type="Node2D" unique_id=1909832497]
 script = ExtResource("1_em3b1")

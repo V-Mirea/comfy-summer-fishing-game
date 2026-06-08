@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://uhprip06vr4a"]
 
-[ext_resource type="Script" uid="uid://7l1frtj6cy3f" path="res://scripts/models/fish_database.gd" id="1_db"]
-[ext_resource type="Script" uid="uid://b3q7jrdgu3akv" path="res://scripts/models/fish_species.gd" id="2_species"]
-[ext_resource type="Script" uid="uid://cn0vq1ud73bn5" path="res://scripts/models/bubble_step.gd" id="3_ppmxa"]
+[ext_resource type="Script" uid="uid://7l1frtj6cy3f" path="res://assets/global/fish_database/fish_database.gd" id="1_db"]
+[ext_resource type="Script" uid="uid://b3q7jrdgu3akv" path="res://assets/game/shared/fish/species/fish_species.gd" id="2_species"]
+[ext_resource type="Script" uid="uid://cn0vq1ud73bn5" path="res://assets/game/shared/fish/bubble_step.gd" id="3_ppmxa"]
 
 [sub_resource type="Resource" id="Resource_bbkmv"]
 script = ExtResource("3_ppmxa")

@@ -4,7 +4,8 @@ extends Label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerManager.money_changed.connect(func(newValue) -> void:
-		text = newValue
+		#text = newValue  ## this was erroring because it wasnt connected to anything. im using a local money label script for the selling screen currently and we can hook this up later
+		pass
 	)
 
 
