@@ -41,6 +41,14 @@ func _ready():
 	cast_button.pressed.connect(state_machine.change_state.bind(State.WAITING_FOR_BITE))
 	cancel_button.pressed.connect(state_machine.change_state.bind(State.IDLE))
 	pause_button.pressed.connect(_on_button_pause_pressed)
+	
+	## test code to avoid skip having to fish ##
+	for i in 10:
+		var fish: Fish = Fish.new()
+		fish.quality = randi() % 100
+		fish.species = FishDatabase.get_random()
+		PlayerManager.add_fish(fish)
+	###
 
 >>>>>>> develop
 

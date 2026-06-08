@@ -2,7 +2,7 @@ extends Resource
 
 class_name PlayerData
 
-@export var fish_inventory: Array = []
+@export var fish_inventory: Array[Fish] = []
 @export var money: int = 0
 @export var upgrades: Dictionary = {
 	"rod": 0,
