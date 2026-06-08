@@ -7,8 +7,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_24tig"]
 font_size = 40
 
-[node name="SellingScene" type="Node2D" unique_id=826753257]
+[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("pause_button")]
 script = ExtResource("1_wmifp")
+pause_button = NodePath("Control/PauseButton")
 
 [node name="Control" type="Control" parent="." unique_id=729090283]
 layout_mode = 3
@@ -43,6 +44,15 @@ text = "Sell your fish"
 label_settings = SubResource("LabelSettings_24tig")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PauseButton" type="Button" parent="Control" unique_id=1489979418]
+layout_mode = 0
+offset_left = 928.0
+offset_top = 20.0
+offset_right = 1094.0
+offset_bottom = 48.0
+text = "Pause
+"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
 visible = false

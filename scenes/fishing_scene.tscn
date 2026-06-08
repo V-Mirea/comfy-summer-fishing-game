@@ -7,12 +7,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40
 
-[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "score_label", "cast_button", "cancel_button", "bubble_manager")]
+[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "cast_button", "cancel_button", "pause_button", "bubble_manager")]
 script = ExtResource("1_ptjo3")
 status_label = NodePath("Container/StatusLabel")
-score_label = NodePath("Container/ScoreLabel")
 cast_button = NodePath("Container/CastButton")
 cancel_button = NodePath("Container/CancelButton")
+pause_button = NodePath("Container/PauseButton")
 bubble_manager = NodePath("BubbleManager")
 
 [node name="Container" type="Control" parent="." unique_id=1849949674]
@@ -38,7 +38,7 @@ offset_left = 944.0
 offset_top = -159.0
 offset_right = 1013.0
 offset_bottom = -128.0
-text = "shop
+text = "NEXT SCREEN
 "
 
 [node name="Title" type="Label" parent="Container" unique_id=1983296633]
@@ -81,6 +81,15 @@ offset_left = 202.0
 offset_top = -60.0
 offset_right = 524.0
 offset_bottom = -14.0
+
+[node name="PauseButton" type="Button" parent="Container" unique_id=681437805]
+layout_mode = 0
+offset_left = 816.0
+offset_top = -166.0
+offset_right = 924.0
+offset_bottom = -139.0
+text = "Pause
+"
 
 [node name="BubbleManager" type="Node2D" parent="." unique_id=569624591]
 script = ExtResource("2_a8ye1")

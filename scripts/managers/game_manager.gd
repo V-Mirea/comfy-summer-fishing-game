@@ -2,6 +2,7 @@ extends Node
 
 @export var mainMenuScene: PackedScene
 @export var fishingScene: PackedScene
+@export var selectSellingScene: PackedScene
 @export var sellingScene: PackedScene
 @export var buyingScene: PackedScene
 
@@ -11,7 +12,8 @@ var state_machine: StateMachine
 
 var valid_transitions = {
 	Global.State.MAIN_MENU: [Global.State.FISHING],
-	Global.State.FISHING: [Global.State.SELLING, Global.State.MAIN_MENU],
+	Global.State.FISHING: [Global.State.SELECT_SELLING, Global.State.MAIN_MENU],
+	Global.State.SELECT_SELLING: [Global.State.SELLING, Global.State.MAIN_MENU],
 	Global.State.SELLING: [Global.State.BUYING, Global.State.MAIN_MENU],
 	Global.State.BUYING: [Global.State.FISHING, Global.State.MAIN_MENU]
 }
@@ -23,6 +25,7 @@ func _ready():
 	state_scenes = {
 		Global.State.MAIN_MENU: mainMenuScene,
 		Global.State.FISHING: fishingScene,
+		Global.State.SELECT_SELLING: selectSellingScene,
 		Global.State.SELLING: sellingScene,
 		Global.State.BUYING: buyingScene
 	}
