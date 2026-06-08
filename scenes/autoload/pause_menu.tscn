@@ -56,10 +56,7 @@ layout_mode = 2
 [node name="MoneyLabel" type="Label" parent="Panel/MarginContainer/VBox" unique_id=758842710]
 layout_mode = 2
 text = "Money: 0"
-<<<<<<< HEAD
 script = ExtResource("2_j4ds5")
-=======
->>>>>>> develop
 
 [node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=827154382]
 layout_mode = 2
@@ -89,8 +86,5 @@ layout_mode = 2
 [node name="ResumeButton" type="Button" parent="Panel/MarginContainer/VBox" unique_id=2032420336]
 layout_mode = 2
 text = "Resume"
-<<<<<<< HEAD
 
 [connection signal="pressed" from="Panel/MarginContainer/VBox/ResumeButton" to="." method="_on_resume_button_pressed"]
-=======
->>>>>>> develop
