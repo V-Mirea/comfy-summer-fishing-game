@@ -24,8 +24,8 @@ func _process(delta):
 	time_since_last_spawn += delta
 	if time_since_last_spawn > spawn_timer:
 		var empty_slots = get_empty_customer_slots()
-		# if there are empty customer slots, roll a chance to spawn a customer
-		if empty_slots.size() > 0 and randi() % 100 < spawn_chance:
+		# if there are empty customer slots and fish to sell, roll a chance to spawn a customer
+		if empty_slots.size() > 0 and PlayerManager.fish_to_sell.size() > 0 and randi() % 100 < spawn_chance:
 			var random_slot = empty_slots[randi() % empty_slots.size()]
 			spawn_customer(random_slot)
 			random_slot.is_occupied = true
@@ -54,6 +54,7 @@ func spawn_customer(spawn_slot: CustomerArea):
 	var customer: Customer = customer_scene.instantiate();
 	customer.position = spawn_slot.center
 	customer.slot_index = spawn_slot.index
+	customer.fish_wanted = PlayerManager.fish_to_sell[randi() % PlayerManager.fish_to_sell.size()]
 	customer.leaving_shop.connect(_on_customer_leaving)
 	
 	request_spawn_customer.emit(customer)

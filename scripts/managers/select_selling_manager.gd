@@ -7,8 +7,8 @@ signal transition_requested(state: Global.State)
 @export var proceed_button: Button
 @export var slots_label: Label
 
-var caught_fish: Array = []
-var selling_fish: Array = []
+var caught_fish: Array[Fish] = []
+var selling_fish: Array[Fish] = []
 
 func _ready():
 	caught_fish = PlayerManager.get_all_fish().duplicate()

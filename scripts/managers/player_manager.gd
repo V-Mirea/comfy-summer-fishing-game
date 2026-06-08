@@ -3,6 +3,7 @@ extends Node
 signal money_changed(new_amount: int)
 signal fish_added(fish: Fish)
 signal fish_removed(fish: Fish)
+signal selling_fish_changed(fish_to_sell: Array[Fish])
 signal inventory_changed()
 signal upgrade_changed(upgrade_id: String, new_level: int)
 
@@ -12,7 +13,7 @@ const SLOTS_PER_LEVEL: int = 1
 const MAX_SELL_SLOTS_CAP: int = 8
 
 var data: PlayerData
-var fish_to_sell: Array = []
+var fish_to_sell: Array[Fish] = []
 
 var max_sell_slots: int:
 	get:
@@ -40,12 +41,24 @@ func remove_fish(fish: Fish) -> void:
 		inventory_changed.emit()
 
 #eventually have functionality to sort this? or would we do that from a consumer perspective
-func get_all_fish() -> Array:
+func get_all_fish() -> Array[Fish]:
 	return data.fish_inventory
 
-func sell_fish(fish: Fish) -> void:
-	add_money(fish.price)
-	remove_fish(fish)
+func remove_selling_fish(fish: Fish):
+	var idx := fish_to_sell.find(fish)
+	if idx >= 0:
+		fish_to_sell.remove_at(idx)
+		selling_fish_changed.emit(fish_to_sell)
+
+func sell_fish(fish: Fish, price: int = -1) -> void:
+	var money_received
+	if price == -1:
+		money_received = fish.price
+	else:
+		money_received = price
+	
+	add_money(money_received)
+	remove_selling_fish(fish)
 
 func sell_all_fish() -> void:
 	var total := 0
