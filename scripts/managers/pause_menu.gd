@@ -8,7 +8,6 @@ extends CanvasLayer
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
-	resume_button.pressed.connect(toggle)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -56,3 +55,6 @@ func _refresh() -> void:
 			var label := Label.new()
 			label.text = "%s (Quality: %d)" % [fish.species.display_name, fish.quality]
 			fish_list.add_child(label)
+
+func _on_resume_button_pressed() -> void:
+	toggle()

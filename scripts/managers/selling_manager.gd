@@ -18,7 +18,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_button_menu_pressed():
 	transition_requested.emit(Global.State.MAIN_MENU)
 
@@ -32,7 +31,7 @@ func _on_request_spawn_customer(customer: Customer):
 	fish_sold.connect(customer._on_fish_sold)
 	haggle_ui.offer_declined.connect(customer._on_offer_declined)
 
-func _on_pause_button_pressed():
+func _on_pause_button_pressed() -> void:
 	PauseMenu.toggle()
 	
 func _on_customer_selected(customer: Customer, toggled_on: bool):

@@ -18,7 +18,9 @@ func _ready():
 	selling_list.item_clicked.connect(_on_selling_item_clicked)
 	proceed_button.pressed.connect(_on_proceed)
 
-func _on_caught_item_clicked(index: int, _at_position: Vector2, _mouse_button_index: int):
+func _on_caught_item_clicked(index: int, _at_position: Vector2, mouse_button_index: int):
+	if mouse_button_index != MOUSE_BUTTON_LEFT:
+		return
 	if selling_fish.size() >= PlayerManager.max_sell_slots:
 		return
 	var fish = caught_fish[index]
@@ -26,7 +28,9 @@ func _on_caught_item_clicked(index: int, _at_position: Vector2, _mouse_button_in
 	selling_fish.append(fish)
 	_refresh_lists()
 
-func _on_selling_item_clicked(index: int, _at_position: Vector2, _mouse_button_index: int):
+func _on_selling_item_clicked(index: int, _at_position: Vector2, mouse_button_index: int):
+	if mouse_button_index != MOUSE_BUTTON_LEFT:
+		return
 	var fish = selling_fish[index]
 	selling_fish.remove_at(index)
 	caught_fish.append(fish)
