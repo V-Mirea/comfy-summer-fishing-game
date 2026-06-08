@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://stuev6gp1q3v"]
+
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="1_ktfjk"]
+[ext_resource type="Script" uid="uid://c8pvhubgo6r4d" path="res://scripts/models/customer.gd" id="1_xss0h"]
+[ext_resource type="Script" uid="uid://t1jfhreuijp8" path="res://scripts/nodes/patience_bar.gd" id="3_8qg4y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktfjk"]
+font_size = 11
+font_color = Color(0, 0, 0, 1)
+
+[node name="Customer" type="Node2D" unique_id=357713427 node_paths=PackedStringArray("offer_label", "clickbox")]
+script = ExtResource("1_xss0h")
+offer_label = NodePath("OfferControl/OfferLabel")
+clickbox = NodePath("Clickbox")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2062455435]
+texture = ExtResource("1_ktfjk")
+
+[node name="OfferControl" type="Control" parent="." unique_id=1625784259]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -62.0
+offset_top = -149.0
+offset_right = 60.0
+offset_bottom = -109.0
+
+[node name="BackgroundColorRect" type="ColorRect" parent="OfferControl" unique_id=1518735919]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OfferLabel" type="Label" parent="OfferControl" unique_id=1974434448]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bluegill (100) - $500"
+label_settings = SubResource("LabelSettings_ktfjk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PatienceBar" type="ProgressBar" parent="." unique_id=1334510968]
+offset_left = -61.0
+offset_top = -98.0
+offset_right = 61.0
+offset_bottom = -71.0
+value = 100.0
+script = ExtResource("3_8qg4y")
+
+[node name="Clickbox" type="Button" parent="." unique_id=58128259]
+offset_left = -70.0
+offset_top = -154.0
+offset_right = 70.0
+offset_bottom = 69.0
+toggle_mode = true
+
+[connection signal="patience_changed" from="." to="PatienceBar" method="_on_customer_patience_changed"]
+[connection signal="toggled" from="Clickbox" to="." method="_on_clickbox_toggled"]
