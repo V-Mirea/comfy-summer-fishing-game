@@ -82,4 +82,5 @@ customer_scene = ExtResource("3_7ehvh")
 
 [connection signal="pressed" from="Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="request_spawn_customer" from="CustomerSpawner" to="." method="_on_request_spawn_customer"]

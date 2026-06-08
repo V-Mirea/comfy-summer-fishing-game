@@ -35,11 +35,6 @@ func _ready():
 	state_machine.state_changed.connect(_on_state_changed)
 	state_machine.change_state(State.IDLE)
 	bubble_manager.pattern_complete.connect(_on_pattern_complete)
-	
-	cast_button.pressed.connect(state_machine.change_state.bind(State.WAITING_FOR_BITE))
-	cancel_button.pressed.connect(state_machine.change_state.bind(State.IDLE))
-	pause_button.pressed.connect(_on_button_pause_pressed)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -68,7 +63,7 @@ func _roll_fish() -> void:
 		push_error("No fish species available, shouldn't be possible")
 		return
 
-	hooked_fish = Fish.new(species, 100)
+	hooked_fish = Fish.new(species, randi_range(0, 100))
 	state_machine.change_state(State.CONFIRM_BITE)
 	
 func _process_confirm_bite(delta: float) -> void:
@@ -139,5 +134,11 @@ func _on_button_menu_pressed():
 func _on_button_sell_pressed():
 	transition_requested.emit(Global.State.SELECT_SELLING)
 
-func _on_button_pause_pressed():
+func _on_pause_button_pressed() -> void:
 	PauseMenu.toggle()
+
+func _on_cancel_button_pressed() -> void:
+	state_machine.change_state.bind(State.IDLE)
+
+func _on_cast_button_pressed() -> void:
+	cast_button.pressed.connect(state_machine.change_state.bind(State.WAITING_FOR_BITE))
