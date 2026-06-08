@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://ltw1bdxt8jjj" path="res://scenes/haggle_control.gd" id="2_5u6u6"]
 [ext_resource type="Script" uid="uid://dn6jc4vvv1clx" path="res://scripts/nodes/selling_scene_fish_list.gd" id="2_piidd"]
 [ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://scenes/selling/customer.tscn" id="3_7ehvh"]
+[ext_resource type="Texture2D" uid="uid://c5y8k254xl3tx" path="res://resources/sprites/accept.png" id="3_sxqe7"]
 [ext_resource type="Script" uid="uid://dadrap2dtvhow" path="res://scripts/nodes/selling_scene_money_label.gd" id="3_x3q4f"]
+[ext_resource type="Texture2D" uid="uid://d0si60437xphd" path="res://resources/sprites/decline.png" id="4_q00g2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24tig"]
 font_size = 40
@@ -75,7 +77,6 @@ text = "Pause
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
 
 [node name="HaggleControl" type="Control" parent="CanvasLayer" unique_id=1550050499 node_paths=PackedStringArray("price_label")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 127.0
@@ -118,7 +119,9 @@ offset_left = 750.0
 offset_top = 22.0
 offset_right = 838.0
 offset_bottom = 65.0
-text = "✅"
+icon = ExtResource("3_sxqe7")
+icon_alignment = 1
+expand_icon = true
 
 [node name="DeclineButton" type="Button" parent="CanvasLayer/HaggleControl" unique_id=2071703029]
 layout_mode = 0
@@ -126,7 +129,9 @@ offset_left = 877.0
 offset_top = 22.0
 offset_right = 965.0
 offset_bottom = 65.0
-text = "❌"
+icon = ExtResource("4_q00g2")
+icon_alignment = 1
+expand_icon = true
 
 [node name="CustomerSpawnArea" type="Control" parent="CanvasLayer" unique_id=529498331]
 layout_mode = 3
