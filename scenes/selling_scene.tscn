@@ -2,14 +2,33 @@
 
 [ext_resource type="Script" uid="uid://bcypvgjpjqawc" path="res://scripts/managers/selling_manager.gd" id="1_wmifp"]
 [ext_resource type="Script" uid="uid://hwwp83yvavu2" path="res://scripts/managers/customer_spawner.gd" id="2_1ygfp"]
-[ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://scenes/customer.tscn" id="3_7ehvh"]
+[ext_resource type="Script" uid="uid://ltw1bdxt8jjj" path="res://scenes/haggle_control.gd" id="2_5u6u6"]
+[ext_resource type="Script" uid="uid://dn6jc4vvv1clx" path="res://scripts/nodes/selling_scene_fish_list.gd" id="2_piidd"]
+[ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://scenes/selling/customer.tscn" id="3_7ehvh"]
+[ext_resource type="Texture2D" uid="uid://c5y8k254xl3tx" path="res://resources/sprites/accept.png" id="3_sxqe7"]
+[ext_resource type="Script" uid="uid://dadrap2dtvhow" path="res://scripts/nodes/selling_scene_money_label.gd" id="3_x3q4f"]
+[ext_resource type="Texture2D" uid="uid://d0si60437xphd" path="res://resources/sprites/decline.png" id="4_q00g2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24tig"]
 font_size = 40
 
-[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("pause_button")]
+[sub_resource type="LabelSettings" id="LabelSettings_7ehvh"]
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_piidd"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3q4f"]
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_5u6u6"]
+font_size = 40
+
+[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("pause_button", "haggle_ui")]
 script = ExtResource("1_wmifp")
 pause_button = NodePath("Control/PauseButton")
+haggle_ui = NodePath("CanvasLayer/HaggleControl")
 
 [node name="Control" type="Control" parent="." unique_id=729090283]
 layout_mode = 3
@@ -19,22 +38,23 @@ offset_bottom = 717.0
 
 [node name="ButtonMenu" type="Button" parent="Control" unique_id=921605471]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 16.0
-offset_right = 132.0
-offset_bottom = 48.0
+offset_left = 18.0
+offset_top = 672.0
+offset_right = 128.0
+offset_bottom = 704.0
 text = "menu"
 
 [node name="ButtonBuy" type="Button" parent="Control" unique_id=1800644566]
 layout_mode = 0
-offset_left = 1111.0
-offset_top = 19.0
-offset_right = 1257.0
-offset_bottom = 50.0
+offset_left = 1119.0
+offset_top = 674.0
+offset_right = 1265.0
+offset_bottom = 705.0
 text = "buy
 "
 
 [node name="Title" type="Label" parent="Control" unique_id=1230235925]
+visible = false
 layout_mode = 0
 offset_left = 267.0
 offset_top = 61.0
@@ -47,26 +67,85 @@ vertical_alignment = 1
 
 [node name="PauseButton" type="Button" parent="Control" unique_id=1489979418]
 layout_mode = 0
-offset_left = 928.0
-offset_top = 20.0
-offset_right = 1094.0
-offset_bottom = 48.0
+offset_left = 6.0
+offset_top = 635.0
+offset_right = 172.0
+offset_bottom = 666.0
 text = "Pause
 "
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
-visible = false
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=529498331]
+[node name="HaggleControl" type="Control" parent="CanvasLayer" unique_id=1550050499 node_paths=PackedStringArray("price_label")]
+visible = false
 layout_mode = 3
-anchor_left = 0.1
-anchor_top = 0.4
-anchor_right = 0.9
-anchor_bottom = 0.6
+anchors_preset = 0
+offset_left = 127.0
+offset_top = 243.0
+offset_right = 1151.0
+offset_bottom = 333.0
+script = ExtResource("2_5u6u6")
+price_label = NodePath("Label")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HaggleControl" unique_id=591644612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1198505258]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/HaggleControl" unique_id=540554321]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 150.0
+offset_right = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HaggleControl" unique_id=1132781469]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 19.0
+offset_right = 112.0
+offset_bottom = 68.0
+text = "$500"
+label_settings = SubResource("LabelSettings_7ehvh")
+
+[node name="AcceptButton" type="Button" parent="CanvasLayer/HaggleControl" unique_id=538134666]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 22.0
+offset_right = 838.0
+offset_bottom = 65.0
+icon = ExtResource("3_sxqe7")
+icon_alignment = 1
+expand_icon = true
+
+[node name="DeclineButton" type="Button" parent="CanvasLayer/HaggleControl" unique_id=2071703029]
+layout_mode = 0
+offset_left = 877.0
+offset_top = 22.0
+offset_right = 965.0
+offset_bottom = 65.0
+icon = ExtResource("4_q00g2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="CustomerSpawnArea" type="Control" parent="CanvasLayer" unique_id=529498331]
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.6
+anchor_right = 0.9
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/CustomerSpawnArea" unique_id=1198505258]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,11 +154,71 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.011764706, 1, 1, 1)
 
+[node name="FishPanel" type="VBoxContainer" parent="CanvasLayer" unique_id=2075231069]
+offset_left = 201.0
+offset_top = 17.0
+offset_right = 1153.0
+offset_bottom = 193.0
+size_flags_vertical = 3
+
+[node name="FishLabel" type="Label" parent="CanvasLayer/FishPanel" unique_id=1167204912]
+layout_mode = 2
+text = "Fish to Sell"
+label_settings = SubResource("LabelSettings_piidd")
+horizontal_alignment = 1
+
+[node name="FishList" type="ItemList" parent="CanvasLayer/FishPanel" unique_id=1946857980]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+allow_search = false
+max_columns = 5
+same_column_width = true
+script = ExtResource("2_piidd")
+
+[node name="MoneyControl" type="Control" parent="CanvasLayer" unique_id=341884173]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 181.0
+offset_bottom = 173.0
+
+[node name="MoneyHeader" type="Label" parent="CanvasLayer/MoneyControl" unique_id=553837889]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+text = "MONEY"
+label_settings = SubResource("LabelSettings_x3q4f")
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/MoneyControl" unique_id=1958658374]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -27.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "$0"
+label_settings = SubResource("LabelSettings_5u6u6")
+horizontal_alignment = 1
+script = ExtResource("3_x3q4f")
+
 [node name="CustomerSpawner" type="Node" parent="." unique_id=1346029056 node_paths=PackedStringArray("customer_area")]
 script = ExtResource("2_1ygfp")
-customer_area = NodePath("../CanvasLayer/Control")
+customer_area = NodePath("../CanvasLayer/CustomerSpawnArea")
 customer_scene = ExtResource("3_7ehvh")
 
+[connection signal="bartering_started" from="." to="CanvasLayer/HaggleControl" method="_on_customer_bartering"]
 [connection signal="pressed" from="Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="offer_accepted" from="CanvasLayer/HaggleControl" to="." method="_on_haggle_control_offer_accepted"]
+[connection signal="pressed" from="CanvasLayer/HaggleControl/AcceptButton" to="CanvasLayer/HaggleControl" method="_on_accept_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HaggleControl/DeclineButton" to="CanvasLayer/HaggleControl" method="_on_decline_button_pressed"]
 [connection signal="request_spawn_customer" from="CustomerSpawner" to="." method="_on_request_spawn_customer"]
