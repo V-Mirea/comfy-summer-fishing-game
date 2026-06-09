@@ -10,9 +10,9 @@ const POP_FRAME_DURATION: float = 0.05
 @export var bubble_scale: float = 3.0
 
 @export_group("Zone Colors")
-@export var color_bad: Color = Color(0.853, 0.82, 0.792, 1.0)
-@export var color_good: Color = Color(0.427, 0.371, 1.0, 1.0)
-@export var color_perfect: Color = Color(0.816, 0.063, 0.0, 1.0)
+@export var color_bad: Color = Color('#D1505B')
+@export var color_good: Color = Color('#D2EC99')
+@export var color_perfect: Color = Color('#FBC697')
 
 var lifetime: float = 1.0
 var perfect_start: float = 0.0
