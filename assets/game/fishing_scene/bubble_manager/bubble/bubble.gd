@@ -24,6 +24,7 @@ var resolved: bool = false
 var popping: bool = false
 var pop_frame: int = 3
 var pop_timer: float = 0.0
+var _result: String
 
 #TODO, lets have a bubble spawning animation
 
@@ -58,6 +59,7 @@ func _process_pop(delta: float) -> void:
 		pop_timer -= POP_FRAME_DURATION
 		pop_frame += 1
 		if pop_frame > 6:
+			bubble_hit.emit(_result)
 			queue_free()
 			return
 		timing_ring.frame = pop_frame
@@ -90,10 +92,11 @@ func _get_zone_color(progress: float) -> Color:
 
 func _resolve(result: String) -> void:
 	resolved = true
-	bubble_hit.emit(result)
+	_result = result
 
 	if result == "miss":
-		queue_free() #or should we just go to process pop and pop normally? animation wise
+		bubble_hit.emit(result)
+		queue_free()
 		return
 
 	bubble_sprite.visible = false
