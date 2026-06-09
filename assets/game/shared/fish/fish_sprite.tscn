@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://assets/game/shared/fish/fish_sprite.gd" id="1_script"]
+
+[node name="FishSprite" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_script")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

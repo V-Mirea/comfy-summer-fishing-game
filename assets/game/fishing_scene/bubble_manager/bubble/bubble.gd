@@ -3,6 +3,8 @@ extends Node2D
 signal bubble_hit(result: String)
 
 const RING_START_SCALE: float = 3.0
+const RING_END_SCALE: float = 2.0
+#need a defined end scale, ring doesn't end right otherwise
 const POP_FRAME_DURATION: float = 0.05
 
 @export var timing_ring: Sprite2D
@@ -10,9 +12,9 @@ const POP_FRAME_DURATION: float = 0.05
 @export var bubble_scale: float = 3.0
 
 @export_group("Zone Colors")
-@export var color_bad: Color = Color(0.853, 0.82, 0.792, 1.0)
-@export var color_good: Color = Color(0.427, 0.371, 1.0, 1.0)
-@export var color_perfect: Color = Color(0.816, 0.063, 0.0, 1.0)
+@export var color_bad: Color = Color('#D1505B')
+@export var color_good: Color = Color('#D2EC99')
+@export var color_perfect: Color = Color("ffffffff")
 
 var lifetime: float = 1.0
 var perfect_start: float = 0.0
@@ -24,6 +26,7 @@ var resolved: bool = false
 var popping: bool = false
 var pop_frame: int = 3
 var pop_timer: float = 0.0
+var _result: String
 
 #TODO, lets have a bubble spawning animation
 
@@ -44,12 +47,13 @@ func _process(delta: float) -> void:
 	elapsed_lifetime += delta
 	var progress := elapsed_lifetime / lifetime
 
-	var ring_scale = lerp(RING_START_SCALE, bubble_scale, progress)
+	var visual_progress := minf(progress, 1.0)
+	var ring_scale = lerp(RING_START_SCALE, RING_END_SCALE, visual_progress)
 	timing_ring.scale = Vector2.ONE * ring_scale
-	timing_ring.frame = clampi(int(progress * 3), 0, 2)
+	timing_ring.frame = clampi(int(visual_progress * 3), 0, 2)
 	timing_ring.modulate = _get_zone_color(progress)
 
-	if elapsed_lifetime >= lifetime:
+	if elapsed_lifetime >= lifetime * perfect_end:
 		_resolve("miss")
 
 func _process_pop(delta: float) -> void:
@@ -58,6 +62,7 @@ func _process_pop(delta: float) -> void:
 		pop_timer -= POP_FRAME_DURATION
 		pop_frame += 1
 		if pop_frame > 6:
+			bubble_hit.emit(_result)
 			queue_free()
 			return
 		timing_ring.frame = pop_frame
@@ -90,10 +95,11 @@ func _get_zone_color(progress: float) -> Color:
 
 func _resolve(result: String) -> void:
 	resolved = true
-	bubble_hit.emit(result)
+	_result = result
 
 	if result == "miss":
-		queue_free() #or should we just go to process pop and pop normally? animation wise
+		bubble_hit.emit(result)
+		queue_free()
 		return
 
 	bubble_sprite.visible = false

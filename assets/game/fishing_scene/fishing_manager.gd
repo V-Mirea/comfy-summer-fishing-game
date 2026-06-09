@@ -99,9 +99,7 @@ func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 		State.MINIGAME:
 			bubble_manager.start_pattern(hooked_fish.species.pattern, hooked_fish.species.bubble_lifetime)
 		State.RESOLVED:
-			await get_tree().create_timer(2.0).timeout
-			if state_machine.current_state == State.RESOLVED:
-				state_machine.change_state(State.IDLE)
+			state_machine.change_state(State.IDLE)
 
 func _update_ui(state: State, context: Dictionary):
 	status_label.text = _get_status_text_for_state(state, context)
@@ -125,7 +123,8 @@ func _get_status_text_for_state(state: State, context: Dictionary) -> String:
 
 func _on_pattern_complete(score_data: Dictionary) -> void:
 	PlayerManager.add_fish(hooked_fish)
-	print(PlayerManager.get_all_fish())
+	FishCaughtScreen.open(hooked_fish)
+	await FishCaughtScreen.closed
 	state_machine.change_state(State.RESOLVED)
 
 func _on_button_menu_pressed():
