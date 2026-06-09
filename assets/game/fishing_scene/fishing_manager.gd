@@ -2,7 +2,7 @@ extends Node2D
 
 signal transition_requested(state: Global.State)
 
-enum State { IDLE, WAITING_FOR_BITE, MISSED_BITE, EARLY_BITE, CONFIRM_BITE, MINIGAME, RESOLVED }
+enum State { IDLE, WAITING_FOR_BITE, MISSED_BITE, CONFIRM_BITE, MINIGAME, RESOLVED }
 var state: State = State.IDLE
 var time_since_last_roll: float = 0.0
 var time_since_bite: float = 0.0
@@ -15,8 +15,6 @@ const FISH_CHANCE: float = 0.20 #should be variable later
 
 @export var status_label: Label
 @export var money_label: Label
-@export var cast_button: Button
-@export var cancel_button: Button
 @export var pause_button: Button
 @export var bubble_manager: BubbleManager
 
@@ -24,18 +22,17 @@ const FISH_CHANCE: float = 0.20 #should be variable later
 func _ready():
 	var valid_transitions = {
 		State.IDLE: [State.WAITING_FOR_BITE],
-		State.WAITING_FOR_BITE: [State.IDLE, State.CONFIRM_BITE, State.EARLY_BITE],
+		State.WAITING_FOR_BITE: [State.IDLE, State.CONFIRM_BITE],
 		State.MISSED_BITE: [State.IDLE],
-		State.EARLY_BITE: [State.IDLE],
 		State.CONFIRM_BITE: [State.MINIGAME, State.WAITING_FOR_BITE, State.MISSED_BITE, State.IDLE],
 		State.MINIGAME: [State.RESOLVED],
-		State.RESOLVED: [State.IDLE] #maybe go back to waiting for bite automatically?
+		State.RESOLVED: [State.IDLE]
 	}
 	state_machine = StateMachine.new(valid_transitions)
 	state_machine.state_changed.connect(_on_state_changed)
 	state_machine.change_state(State.IDLE)
 	bubble_manager.pattern_complete.connect(_on_pattern_complete)
-	
+
 	## test code to avoid skip having to fish ##
 	for i in 10:
 		var fish: Fish = Fish.new()
@@ -48,21 +45,24 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	match state_machine.current_state:
+		State.IDLE:
+			if Input.is_action_just_pressed("set_hook"):
+				state_machine.change_state(State.WAITING_FOR_BITE)
 		State.WAITING_FOR_BITE:
 			_process_waiting_for_bite(delta)
 		State.CONFIRM_BITE:
 			_process_confirm_bite(delta)
-			
-			
+
+
 func _process_waiting_for_bite(delta: float) -> void:
 	time_since_last_roll += delta
 	if Input.is_action_just_pressed("set_hook"):
-		state_machine.change_state(State.EARLY_BITE)
+		state_machine.change_state(State.IDLE)
 		return
 	if time_since_last_roll >= ROLL_INTERVAL:
 		time_since_last_roll = 0.0
 		_roll_fish()
-		
+
 func _roll_fish() -> void:
 	if randf() >= FISH_CHANCE:
 		return  # no fish this roll
@@ -74,14 +74,14 @@ func _roll_fish() -> void:
 
 	hooked_fish = Fish.new(species, randi_range(0, 100))
 	state_machine.change_state(State.CONFIRM_BITE)
-	
+
 func _process_confirm_bite(delta: float) -> void:
 	time_since_bite += delta
 	if Input.is_action_just_pressed("set_hook"):
 		state_machine.change_state(State.MINIGAME)
 	elif time_since_bite >= bite_window:
 		state_machine.change_state(State.MISSED_BITE)
-	
+
 func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 	_update_ui(to, context)
 	match to:
@@ -94,10 +94,6 @@ func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 			await get_tree().create_timer(2.0).timeout
 			if state_machine.current_state == State.MISSED_BITE:
 				state_machine.change_state(State.IDLE)
-		State.EARLY_BITE:
-			await get_tree().create_timer(2.0).timeout
-			if state_machine.current_state == State.EARLY_BITE:
-				state_machine.change_state(State.IDLE)
 		State.CONFIRM_BITE:
 			time_since_bite = 0
 		State.MINIGAME:
@@ -106,13 +102,10 @@ func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 			await get_tree().create_timer(2.0).timeout
 			if state_machine.current_state == State.RESOLVED:
 				state_machine.change_state(State.IDLE)
-	
+
 func _update_ui(state: State, context: Dictionary):
 	status_label.text = _get_status_text_for_state(state, context)
-	#update score..? probably not here, after catch is complete
-	cast_button.visible = state == State.IDLE
-	cancel_button.visible = state in [State.WAITING_FOR_BITE, State.CONFIRM_BITE]
-	
+
 func _get_status_text_for_state(state: State, context: Dictionary) -> String:
 	match state:
 		State.IDLE:
@@ -121,8 +114,6 @@ func _get_status_text_for_state(state: State, context: Dictionary) -> String:
 			return "Waiting for bite..."
 		State.MISSED_BITE:
 			return "Darn it, too slow!"
-		State.EARLY_BITE:
-			return "Whoa there, ain't no fish yet!"
 		State.CONFIRM_BITE:
 			return "There's a bite! Press SPACE to set the hook!"
 		State.MINIGAME:
@@ -131,7 +122,7 @@ func _get_status_text_for_state(state: State, context: Dictionary) -> String:
 			return "Caught a %s!" % hooked_fish.species.display_name
 		_:
 			return ""
-	
+
 func _on_pattern_complete(score_data: Dictionary) -> void:
 	PlayerManager.add_fish(hooked_fish)
 	print(PlayerManager.get_all_fish())
@@ -145,9 +136,3 @@ func _on_button_sell_pressed():
 
 func _on_pause_button_pressed() -> void:
 	PauseMenu.toggle()
-
-func _on_cancel_button_pressed() -> void:
-	state_machine.change_state(State.IDLE)
-
-func _on_cast_button_pressed() -> void:
-	state_machine.change_state(State.WAITING_FOR_BITE)
