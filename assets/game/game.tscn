@@ -6,6 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://u2kl2fl6vlrw" path="res://assets/game/select_selling_scene/select_selling_scene.tscn" id="4_select"]
 [ext_resource type="PackedScene" uid="uid://cmg53b45ikcyy" path="res://assets/game/selling_scene/selling_scene.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://lox5kan0hfl5" path="res://assets/game/buying_scene/buying_scene.tscn" id="5_p57ef"]
+[ext_resource type="Script" uid="uid://mpub31iptkbi" path="res://assets/game/shared/money_control.gd" id="7_faf0w"]
+[ext_resource type="Script" uid="uid://dadrap2dtvhow" path="res://assets/game/selling_scene/money_label.gd" id="7_pdf2x"]
+[ext_resource type="Script" uid="uid://bfy2euwe0xian" path="res://assets/game/pause_button.gd" id="9_k08a3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pg74i"]
+font_size = 23
+
+[sub_resource type="LabelSettings" id="LabelSettings_faf0w"]
+font_size = 40
 
 [node name="Game" type="Node" unique_id=1363482211]
 script = ExtResource("1_uwrxv")
@@ -14,3 +23,55 @@ fishingScene = ExtResource("3_lnu2h")
 selectSellingScene = ExtResource("4_select")
 sellingScene = ExtResource("5_iywne")
 buyingScene = ExtResource("5_p57ef")
+
+[node name="MoneyControl" type="Control" parent="." unique_id=1454216210]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -164.0
+offset_bottom = 158.0
+grow_horizontal = 0
+script = ExtResource("7_faf0w")
+
+[node name="MoneyHeader" type="Label" parent="MoneyControl" unique_id=1233499408]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+text = "MONEY"
+label_settings = SubResource("LabelSettings_pg74i")
+horizontal_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="MoneyControl" unique_id=1888553632]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -27.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "$0"
+label_settings = SubResource("LabelSettings_faf0w")
+horizontal_alignment = 1
+script = ExtResource("7_pdf2x")
+
+[node name="PauseButton" type="Button" parent="." unique_id=1005989799]
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.1
+anchor_bottom = 0.02
+offset_right = 5.0
+offset_bottom = 39.8
+text = "Pause
+"
+script = ExtResource("9_k08a3")
+
+[connection signal="toggle_global_controls" from="." to="MoneyControl" method="_on_toggle_global_controls"]
+[connection signal="toggle_global_controls" from="." to="PauseButton" method="_on_toggle_global_controls"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
