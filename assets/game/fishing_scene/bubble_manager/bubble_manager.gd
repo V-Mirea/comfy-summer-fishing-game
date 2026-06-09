@@ -47,7 +47,10 @@ func start_pattern(pattern: Array[BubbleStep], passedLifetime: float = 1.0) -> v
 
 	var offset := _calculate_spawn_offset(steps)
 	for entry in steps:
-		_schedule_bubble(entry, offset)
+		 #remove the await if we want to have an overall time schedule, but awaiting lets us define specific delays in between bubbles
+		 # therefore, if a player clisk a bubble early, te next one still shows up at a good defined delay
+		 # TODO: playtest required to see which one feels better
+		await _schedule_bubble(entry, offset)
 
 func _calculate_spawn_offset(steps: Array) -> Vector2:
 	if spawn_area == null:
