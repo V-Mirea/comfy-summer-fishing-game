@@ -1,19 +1,79 @@
 [gd_scene format=3 uid="uid://bcmxoaln1cyx4"]
 
 [ext_resource type="Script" uid="uid://8c5xt8eapw1q" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble.gd" id="1_by70g"]
-[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="2_3rjy8"]
+[ext_resource type="Texture2D" uid="uid://sm6v47bw2ewh" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble_pop.png" id="2_pop"]
+[ext_resource type="Texture2D" uid="uid://0uidpc3ekiyn" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble_base.png" id="3_base"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0"]
+atlas = ExtResource("3_base")
+region = Rect2(0, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1"]
+atlas = ExtResource("3_base")
+region = Rect2(45, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2"]
+atlas = ExtResource("3_base")
+region = Rect2(90, 0, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3"]
+atlas = ExtResource("3_base")
+region = Rect2(0, 45, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4"]
+atlas = ExtResource("3_base")
+region = Rect2(45, 45, 45, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5"]
+atlas = ExtResource("3_base")
+region = Rect2(90, 45, 45, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_by70g"]
+radius = 22.0
 
-[node name="Bubble" type="Node2D" unique_id=2139113272]
+[node name="Bubble" type="Node2D" unique_id=2139113272 node_paths=PackedStringArray("timing_ring", "bubble_sprite")]
 script = ExtResource("1_by70g")
+timing_ring = NodePath("TimingRing")
+bubble_sprite = NodePath("BubbleSprite")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=51493630]
+[node name="TimingRing" type="Sprite2D" parent="." unique_id=1294902405]
+texture = ExtResource("2_pop")
+hframes = 3
+vframes = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=667008731]
-scale = Vector2(4, 4)
+[node name="BubbleSprite" type="AnimatedSprite2D" parent="." unique_id=1755167517]
+sprite_frames = SubResource("SpriteFrames_idle")
+animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1642664375]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=220019639]
 shape = SubResource("CircleShape2D_by70g")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1262865668]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_3rjy8")
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -6,13 +6,10 @@ signal pattern_complete(score_data: Dictionary)
 @export var BubbleScene: PackedScene
 @export var spawn_area: Control
 
-# anything clicked outside good is a 'bad'. perfect muST be contained in good window. fractions of the lifetime
 @export_group("Hit Windows")
-@export var perfect_start: float = 0.45
-@export var perfect_end: float = 0.65
 @export var good_start: float = 0.25
-@export var good_end: float = 0.85
-@export var max_scale: float = 1.0
+@export var perfect_start: float = 0.65
+@export var perfect_end: float = 0.85
 
 var perfects: int = 0
 var goods: int = 0
@@ -20,11 +17,12 @@ var bads: int = 0
 var misses: int = 0
 var bubbles_remaining: int = 0
 var is_playing: bool = false
+var lifetime: float = 1.0
 
 func _ready() -> void:
 	pass
 
-func start_pattern(pattern: Array[BubbleStep]) -> void:
+func start_pattern(pattern: Array[BubbleStep], passedLifetime: float = 1.0) -> void:
 	if is_playing:
 		push_warning("Spawner asked to start a pattern while one is already playing.")
 		return
@@ -39,6 +37,7 @@ func start_pattern(pattern: Array[BubbleStep]) -> void:
 	# deserialization issue) so the minigame can never hard-freeze.
 	var steps := pattern.filter(func(step): return step != null)
 	bubbles_remaining = steps.size()
+	lifetime = passedLifetime
 	is_playing = true
 
 	if steps.is_empty():
@@ -56,7 +55,7 @@ func _calculate_spawn_offset(steps: Array) -> Vector2:
 		return Vector2.ZERO
 
 	var rect := spawn_area.get_rect()
-	var radius := max_scale * 32.0 # icon is 128px, sprite scale 0.5, so half = 32
+	var radius := 44.0 # 22px base radius * 2.0 bubble_scale
 
 	# find bounding box of all step positions
 	var first_pos: Vector2 = steps[0].position
@@ -83,6 +82,7 @@ func _calculate_spawn_offset(steps: Array) -> Vector2:
 	if origin_min_y > origin_max_y:
 		origin_min_y = (origin_min_y + origin_max_y) / 2.0
 		origin_max_y = origin_min_y
+	#TODO: maybe change it to be a sum of multiple rects, and bump up/around bubbles to fit in the bounding boxes
 
 	var origin_x := randf_range(origin_min_x, origin_max_x)
 	var origin_y := randf_range(origin_min_y, origin_max_y)
@@ -96,12 +96,10 @@ func _schedule_bubble(entry: BubbleStep, offset: Vector2) -> void:
 
 	var bubble = BubbleScene.instantiate()
 	bubble.position = entry.position + offset
-	bubble.lifetime = entry.lifetime
-	bubble.max_scale = max_scale
+	bubble.lifetime = lifetime
 	bubble.perfect_start = perfect_start
 	bubble.perfect_end = perfect_end
 	bubble.good_start = good_start
-	bubble.good_end = good_end
 
 	bubble.bubble_hit.connect(_on_bubble_hit)
 

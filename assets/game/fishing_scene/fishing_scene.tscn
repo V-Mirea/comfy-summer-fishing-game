@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ex6aq4rfk7tx" path="res://assets/game/fishing_scene/fishing_manager.gd" id="1_ptjo3"]
 [ext_resource type="Script" uid="uid://7esw3mv0kkhi" path="res://assets/game/fishing_scene/bubble_manager/bubble_manager.gd" id="2_a8ye1"]
 [ext_resource type="PackedScene" uid="uid://bcmxoaln1cyx4" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble.tscn" id="3_tkjw3"]
+[ext_resource type="Texture2D" uid="uid://uqddvgsdaeac" path="res://assets/game/fishing_scene/Lake_Enclosed_1.PNG" id="4_fi2us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40
@@ -94,16 +95,21 @@ text = "Pause
 [node name="BubbleSpawnArea" type="Control" parent="." unique_id=2017732665]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 576.0
-offset_top = 212.0
-offset_right = 1269.0
-offset_bottom = 492.0
+offset_left = 394.0
+offset_top = 135.0
+offset_right = 1070.0
+offset_bottom = 582.0
 mouse_filter = 2
 
 [node name="BubbleManager" type="Node2D" parent="." unique_id=569624591 node_paths=PackedStringArray("spawn_area")]
 script = ExtResource("2_a8ye1")
 BubbleScene = ExtResource("3_tkjw3")
 spawn_area = NodePath("../BubbleSpawnArea")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=762271306]
+z_index = -1
+texture = ExtResource("4_fi2us")
+centered = false
 
 [connection signal="pressed" from="Container/MenuButton" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Container/SellButton" to="." method="_on_button_sell_pressed"]
