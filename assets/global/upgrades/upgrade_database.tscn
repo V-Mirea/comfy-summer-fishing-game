@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://l181qmk0p3o6"]
+
+[ext_resource type="Script" uid="uid://dclwc5vy3ohyd" path="res://assets/global/upgrades/upgrade_database.gd" id="1_s6vli"]
+[ext_resource type="Script" uid="uid://di55dj1abu15e" path="res://assets/global/upgrades/upgrade.gd" id="2_u2oq7"]
+[ext_resource type="Resource" uid="uid://dxa1qhaglw0qw" path="res://assets/global/upgrades/rod_upgrades/rod_1.tres" id="3_htyh0"]
+[ext_resource type="Resource" uid="uid://btfhjppgpqm4s" path="res://assets/global/upgrades/rod_upgrades/rod_0.tres" id="3_urnvp"]
+[ext_resource type="Resource" uid="uid://bebk3qh1uv37c" path="res://assets/global/upgrades/rod_upgrades/rod_2.tres" id="4_urnvp"]
+[ext_resource type="Resource" uid="uid://d1fpnmsx14xyq" path="res://assets/global/upgrades/rod_upgrades/rod_3.tres" id="5_wla2w"]
+[ext_resource type="Resource" uid="uid://b1qmar30vmpo2" path="res://assets/global/upgrades/reel_upgrades/reel_1.tres" id="6_glhnm"]
+[ext_resource type="Resource" uid="uid://bldfrrhaq83t2" path="res://assets/global/upgrades/bait_upgrades/bait_1.tres" id="7_4wjjm"]
+[ext_resource type="Resource" uid="uid://d4g0et10w41m4" path="res://assets/global/upgrades/reel_upgrades/reel_0.tres" id="7_wla2w"]
+[ext_resource type="Resource" uid="uid://dfe2whn6gih02" path="res://assets/global/upgrades/bait_upgrades/bait_0.tres" id="9_glhnm"]
+
+[node name="UpgradeDatabase" type="Node" unique_id=1868595722]
+script = ExtResource("1_s6vli")
+rod_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("3_urnvp"), ExtResource("3_htyh0"), ExtResource("4_urnvp"), ExtResource("5_wla2w")])
+reel_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("7_wla2w"), ExtResource("6_glhnm")])
+bait_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("9_glhnm"), ExtResource("7_4wjjm")])
