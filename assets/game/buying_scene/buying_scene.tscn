@@ -1,22 +1,21 @@
 [gd_scene format=3 uid="uid://lox5kan0hfl5"]
 
 [ext_resource type="Script" uid="uid://cvua02n5l4mc5" path="res://assets/game/buying_scene/buying_manager.gd" id="1_b6mu0"]
+[ext_resource type="Script" uid="uid://vgcqo6qthcdr" path="res://assets/game/buying_scene/character.gd" id="2_5l2yu"]
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="2_n2sg0"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://assets/game/buying_scene/virtual_joystick/virtual_joystick_scene.tscn" id="3_5l2yu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xpfq"]
 font_size = 40
 
-[node name="BuyingScene" type="Control" unique_id=1376025545]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpvk7"]
+size = Vector2(129.5, 130.5)
+
+[node name="BuyingScene" type="Node2D" unique_id=71390660]
 script = ExtResource("1_b6mu0")
 
 [node name="Title" type="Label" parent="." unique_id=1950715427]
-layout_mode = 0
+visible = false
 offset_left = 267.0
 offset_top = 61.0
 offset_right = 980.0
@@ -27,21 +26,39 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonMenu" type="Button" parent="." unique_id=792557303]
-layout_mode = 0
-offset_left = 247.0
-offset_top = 319.0
-offset_right = 441.0
-offset_bottom = 409.0
+offset_left = 11.0
+offset_top = 650.0
+offset_right = 171.0
+offset_bottom = 702.0
 text = "menu"
 
 [node name="ButtonFish" type="Button" parent="." unique_id=1024119867]
-layout_mode = 0
-offset_left = 870.0
-offset_top = 326.0
-offset_right = 1064.0
-offset_bottom = 416.0
+offset_left = 1115.0
+offset_top = 646.0
+offset_right = 1253.0
+offset_bottom = 701.0
 text = "fish
 "
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1378911832 node_paths=PackedStringArray("joystick_left")]
+motion_mode = 1
+script = ExtResource("2_5l2yu")
+joystick_left = NodePath("../Virtual Joystick")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=858446672]
+position = Vector2(658, 585)
+texture = ExtResource("2_n2sg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=238570841]
+position = Vector2(658.25, 585.75)
+shape = SubResource("RectangleShape2D_hpvk7")
+
+[node name="Virtual Joystick" parent="." unique_id=1087925395 instance=ExtResource("3_5l2yu")]
+offset_left = 897.0
+offset_top = 378.0
+offset_right = 1197.0
+offset_bottom = 678.0
+visibility_mode = 1
 
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
