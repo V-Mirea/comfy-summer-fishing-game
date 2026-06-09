@@ -3,15 +3,14 @@
 [ext_resource type="Script" uid="uid://ex6aq4rfk7tx" path="res://assets/game/fishing_scene/fishing_manager.gd" id="1_ptjo3"]
 [ext_resource type="Script" uid="uid://7esw3mv0kkhi" path="res://assets/game/fishing_scene/bubble_manager/bubble_manager.gd" id="2_a8ye1"]
 [ext_resource type="PackedScene" uid="uid://bcmxoaln1cyx4" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble.tscn" id="3_tkjw3"]
+[ext_resource type="Texture2D" uid="uid://uqddvgsdaeac" path="res://assets/game/fishing_scene/Lake_Enclosed_1.PNG" id="4_fi2us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40
 
-[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "cast_button", "cancel_button", "pause_button", "bubble_manager")]
+[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "pause_button", "bubble_manager")]
 script = ExtResource("1_ptjo3")
 status_label = NodePath("Container/StatusLabel")
-cast_button = NodePath("Container/CastButton")
-cancel_button = NodePath("Container/CancelButton")
 pause_button = NodePath("")
 bubble_manager = NodePath("BubbleManager")
 
@@ -52,22 +51,6 @@ label_settings = SubResource("LabelSettings_ptjo3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CastButton" type="Button" parent="Container" unique_id=1818471005]
-layout_mode = 0
-offset_left = -99.0
-offset_top = 374.0
-offset_right = -8.0
-offset_bottom = 406.0
-text = "Cast"
-
-[node name="CancelButton" type="Button" parent="Container" unique_id=396984058]
-layout_mode = 0
-offset_left = 813.0
-offset_top = 384.0
-offset_right = 897.0
-offset_bottom = 415.0
-text = "Cancel"
-
 [node name="ScoreLabel" type="Label" parent="Container" unique_id=1350937200]
 layout_mode = 0
 offset_left = 723.0
@@ -82,11 +65,25 @@ offset_top = -60.0
 offset_right = 524.0
 offset_bottom = -14.0
 
-[node name="BubbleManager" type="Node2D" parent="." unique_id=569624591]
+[node name="BubbleSpawnArea" type="Control" parent="." unique_id=2017732665]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 394.0
+offset_top = 135.0
+offset_right = 1070.0
+offset_bottom = 582.0
+mouse_filter = 2
+
+[node name="BubbleManager" type="Node2D" parent="." unique_id=569624591 node_paths=PackedStringArray("spawn_area")]
+
 script = ExtResource("2_a8ye1")
 BubbleScene = ExtResource("3_tkjw3")
+spawn_area = NodePath("../BubbleSpawnArea")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=762271306]
+z_index = -1
+texture = ExtResource("4_fi2us")
+centered = false
 
 [connection signal="pressed" from="Container/MenuButton" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Container/SellButton" to="." method="_on_button_sell_pressed"]
-[connection signal="pressed" from="Container/CastButton" to="." method="_on_cast_button_pressed"]
-[connection signal="pressed" from="Container/CancelButton" to="." method="_on_cancel_button_pressed"]
