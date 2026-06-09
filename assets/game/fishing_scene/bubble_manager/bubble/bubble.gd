@@ -7,7 +7,7 @@ const POP_FRAME_DURATION: float = 0.05
 
 @export var timing_ring: Sprite2D
 @export var bubble_sprite: AnimatedSprite2D
-@export var bubble_scale: float = 2.0
+@export var bubble_scale: float = 3.0
 
 @export_group("Zone Colors")
 @export var color_bad: Color = Color(0.853, 0.82, 0.792, 1.0)
@@ -30,7 +30,7 @@ var pop_timer: float = 0.0
 func _ready() -> void:
 	timing_ring.scale = Vector2.ONE * RING_START_SCALE
 	bubble_sprite.scale = Vector2.ONE * bubble_scale
-	$Area2D/CollisionShape2D.shape.radius = 22.0 * bubble_scale
+	$Area2D/CollisionShape2D.shape.radius = 15.0 * bubble_scale
 	bubble_sprite.play("idle")
 
 func _process(delta: float) -> void:
