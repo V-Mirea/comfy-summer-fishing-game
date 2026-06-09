@@ -101,7 +101,7 @@ func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 		State.CONFIRM_BITE:
 			time_since_bite = 0
 		State.MINIGAME:
-			bubble_manager.start_pattern(hooked_fish.species.pattern)
+			bubble_manager.start_pattern(hooked_fish.species.pattern, hooked_fish.species.bubble_lifetime)
 		State.RESOLVED:
 			await get_tree().create_timer(2.0).timeout
 			if state_machine.current_state == State.RESOLVED:
