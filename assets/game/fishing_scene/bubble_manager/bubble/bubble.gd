@@ -3,7 +3,6 @@ extends Node2D
 signal bubble_hit(result: String)
 
 const RING_START_SCALE: float = 3.0
-const RING_END_SCALE: float = 1.0
 const POP_FRAME_DURATION: float = 0.05
 
 @export var timing_ring: Sprite2D
@@ -12,8 +11,8 @@ const POP_FRAME_DURATION: float = 0.05
 
 @export_group("Zone Colors")
 @export var color_bad: Color = Color(0.853, 0.82, 0.792, 1.0)
-@export var color_good: Color = Color(0.535, 0.535, 0.0, 1.0)
-@export var color_perfect: Color = Color(0.0, 0.566, 0.0, 1.0)
+@export var color_good: Color = Color(0.427, 0.371, 1.0, 1.0)
+@export var color_perfect: Color = Color(0.816, 0.063, 0.0, 1.0)
 
 var lifetime: float = 1.0
 var perfect_start: float = 0.0
@@ -31,7 +30,7 @@ var pop_timer: float = 0.0
 func _ready() -> void:
 	timing_ring.scale = Vector2.ONE * RING_START_SCALE
 	bubble_sprite.scale = Vector2.ONE * bubble_scale
-	$Area2D/CollisionShape2D.shape.radius = 22.0 * bubble_scale #set the radius of the hitbox
+	$Area2D/CollisionShape2D.shape.radius = 22.0 * bubble_scale
 	bubble_sprite.play("idle")
 
 func _process(delta: float) -> void:
@@ -45,7 +44,7 @@ func _process(delta: float) -> void:
 	elapsed_lifetime += delta
 	var progress := elapsed_lifetime / lifetime
 
-	var ring_scale = lerp(RING_START_SCALE, RING_END_SCALE, progress)
+	var ring_scale = lerp(RING_START_SCALE, bubble_scale, progress)
 	timing_ring.scale = Vector2.ONE * ring_scale
 	timing_ring.frame = clampi(int(progress * 3), 0, 2)
 	timing_ring.modulate = _get_zone_color(progress)
@@ -71,11 +70,23 @@ func _classify(progress: float) -> String:
 	return "bad"
 
 func _get_zone_color(progress: float) -> Color:
-	if progress >= perfect_start and progress <= perfect_end:
+	if progress < good_start:
+		# bad -> good transition
+		# maybe we could pull it out because i basically just c/p this over and over but just to lerp the colors to smoothen it
+		var t := progress / good_start if good_start > 0.0 else 1.0 
+		return color_bad.lerp(color_good, t)
+	elif progress < perfect_start:
+		# good -> perfect transition
+		var zone_length := perfect_start - good_start
+		var t := (progress - good_start) / zone_length if zone_length > 0.0 else 1.0
+		return color_good.lerp(color_perfect, t)
+	elif progress <= perfect_end:
 		return color_perfect
-	if progress >= good_start and progress < perfect_start:
-		return color_good
-	return color_bad
+	else:
+		# perfect -> bad transition
+		var zone_length := 1.0 - perfect_end
+		var t := (progress - perfect_end) / zone_length if zone_length > 0.0 else 1.0
+		return color_perfect.lerp(color_bad, t)
 
 func _resolve(result: String) -> void:
 	resolved = true
