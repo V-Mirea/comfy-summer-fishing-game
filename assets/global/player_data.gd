@@ -5,11 +5,13 @@ class_name PlayerData
 @export var fish_inventory: Array[Fish] = []
 @export var money: int = 0
 @export var upgrades: Dictionary = {
-	"rod": 0,
-	"reel": 0,
-	"line": 0,
-	"bait": 0,
-	"shop_level": 0,
-	"advertising": 0,
+	Upgrade.UpgradeType.ROD: 0,
+	Upgrade.UpgradeType.REEL: 0,
+	Upgrade.UpgradeType.LINE: 0,
+	Upgrade.UpgradeType.BAIT: 0,
+	Upgrade.UpgradeType.SHOP_LEVEL: 0,
+	Upgrade.UpgradeType.ADVERTISING: 0,
+	Upgrade.UpgradeType.POLLUTION: 0,
+	Upgrade.UpgradeType.CONSERVATION: 0
 }
 @export var day: int = 1
