@@ -4,6 +4,8 @@ extends Resource
 class_name FishSpecies
 
 @export var display_name: String = ""
+@export var description: String = ""
 @export var base_price: int = 0
+@export var sprite_sheet: Texture2D
 @export var bubble_lifetime: float = 1.0
 @export var pattern: Array[BubbleStep] = []
