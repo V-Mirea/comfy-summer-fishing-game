@@ -6,6 +6,8 @@ extends Node
 @export var sellingScene: PackedScene
 @export var buyingScene: PackedScene
 
+signal toggle_global_controls
+
 var initial_state = Global.State.MAIN_MENU
 var current_screen: Node
 var state_machine: StateMachine
@@ -42,7 +44,10 @@ func _on_transition_requested(state: Global.State):
 # Once the state machine has verified the transition is valid, it will emit the signal connected to
 # this method to signal to the game manager to make the switch
 func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
-	change_screen(to)	
+	change_screen(to)
+	
+	if from == Global.State.MAIN_MENU or to == Global.State.MAIN_MENU:
+		toggle_global_controls.emit()
 			
 func change_screen(state: int):
 	if current_screen:
@@ -52,3 +57,6 @@ func change_screen(state: int):
 	add_child(current_screen)
 	
 	current_screen.transition_requested.connect(_on_transition_requested)
+
+func _on_pause_button_pressed():
+	PauseMenu.toggle()
