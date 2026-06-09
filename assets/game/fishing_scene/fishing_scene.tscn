@@ -91,9 +91,19 @@ offset_bottom = -139.0
 text = "Pause
 "
 
-[node name="BubbleManager" type="Node2D" parent="." unique_id=569624591]
+[node name="BubbleSpawnArea" type="Control" parent="." unique_id=2017732665]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 576.0
+offset_top = 212.0
+offset_right = 1269.0
+offset_bottom = 492.0
+mouse_filter = 2
+
+[node name="BubbleManager" type="Node2D" parent="." unique_id=569624591 node_paths=PackedStringArray("spawn_area")]
 script = ExtResource("2_a8ye1")
 BubbleScene = ExtResource("3_tkjw3")
+spawn_area = NodePath("../BubbleSpawnArea")
 
 [connection signal="pressed" from="Container/MenuButton" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Container/SellButton" to="." method="_on_button_sell_pressed"]

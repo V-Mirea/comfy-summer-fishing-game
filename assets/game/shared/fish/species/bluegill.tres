@@ -5,24 +5,24 @@
 
 [sub_resource type="Resource" id="Resource_bbkmv"]
 script = ExtResource("1_vwouw")
-position = Vector2(200, 300)
+position = Vector2(0, 0)
 metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
 
 [sub_resource type="Resource" id="Resource_ur8m7"]
 script = ExtResource("1_vwouw")
-position = Vector2(300, 300)
+position = Vector2(100, 0)
 delay = 0.5
 metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
 
 [sub_resource type="Resource" id="Resource_5gfxi"]
 script = ExtResource("1_vwouw")
-position = Vector2(400, 300)
+position = Vector2(200, 0)
 delay = 1.0
 metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
 
 [sub_resource type="Resource" id="Resource_xx5dn"]
 script = ExtResource("1_vwouw")
-position = Vector2(500, 300)
+position = Vector2(300, 0)
 delay = 1.5
 metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
 
