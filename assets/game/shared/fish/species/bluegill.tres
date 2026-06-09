@@ -32,4 +32,5 @@ display_name = "Bluegill"
 description = "Small but mighty, always biting when nothing else will."
 base_price = 50
 sprite_sheet = ExtResource("3_sheet")
+bubble_lifetime = 0.5
 pattern = Array[ExtResource("1_vwouw")]([SubResource("Resource_bbkmv"), SubResource("Resource_ur8m7"), SubResource("Resource_5gfxi"), SubResource("Resource_xx5dn")])

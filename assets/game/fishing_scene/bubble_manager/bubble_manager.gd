@@ -7,9 +7,9 @@ signal pattern_complete(score_data: Dictionary)
 @export var spawn_area: Control
 
 @export_group("Hit Windows")
-@export var good_start: float = 0.25
-@export var perfect_start: float = 0.65
-@export var perfect_end: float = 0.85
+@export var good_start: float = 0.45
+@export var perfect_start: float = 0.95
+@export var perfect_end: float = 1.1
 
 var perfects: int = 0
 var goods: int = 0
