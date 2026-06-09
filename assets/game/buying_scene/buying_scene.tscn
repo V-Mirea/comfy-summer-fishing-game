@@ -9,7 +9,22 @@
 font_size = 40
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpvk7"]
-size = Vector2(129.5, 130.5)
+size = Vector2(95.5, 90.5)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5l2yu"]
+normal = Vector2(1, 0)
+distance = -1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hpvk7"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3s4dn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vsnuv"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l2yu"]
+size = Vector2(365.5, 86)
 
 [node name="BuyingScene" type="Node2D" unique_id=71390660]
 script = ExtResource("1_b6mu0")
@@ -40,18 +55,83 @@ offset_bottom = 701.0
 text = "fish
 "
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1378911832 node_paths=PackedStringArray("joystick_left")]
+[node name="Character" type="CharacterBody2D" parent="." unique_id=1378911832 node_paths=PackedStringArray("joystick_left")]
 motion_mode = 1
 script = ExtResource("2_5l2yu")
 joystick_left = NodePath("../Virtual Joystick")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=858446672]
-position = Vector2(658, 585)
+[node name="Sprite2D" type="Sprite2D" parent="Character" unique_id=858446672]
+position = Vector2(641.5, 566)
+scale = Vector2(0.7421875, 0.703125)
 texture = ExtResource("2_n2sg0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=238570841]
-position = Vector2(658.25, 585.75)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character" unique_id=238570841]
+position = Vector2(641.25, 565.75)
 shape = SubResource("RectangleShape2D_hpvk7")
+
+[node name="WallBoundaries" type="StaticBody2D" parent="." unique_id=89566812]
+
+[node name="LeftCollisionShape" type="CollisionShape2D" parent="WallBoundaries" unique_id=2067268805]
+shape = SubResource("WorldBoundaryShape2D_5l2yu")
+
+[node name="TopCollisionShape" type="CollisionShape2D" parent="WallBoundaries" unique_id=1596924476]
+shape = SubResource("WorldBoundaryShape2D_hpvk7")
+
+[node name="BottomCollisionShape" type="CollisionShape2D" parent="WallBoundaries" unique_id=219119547]
+position = Vector2(1280, 720)
+shape = SubResource("WorldBoundaryShape2D_3s4dn")
+
+[node name="RightCollisionShape" type="CollisionShape2D" parent="WallBoundaries" unique_id=1772879099]
+position = Vector2(1280, 720)
+shape = SubResource("WorldBoundaryShape2D_vsnuv")
+
+[node name="Aisle" type="StaticBody2D" parent="." unique_id=2100932732]
+position = Vector2(166, 153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aisle" unique_id=1787468683]
+position = Vector2(183.25, 44)
+shape = SubResource("RectangleShape2D_5l2yu")
+
+[node name="ColorRect" type="ColorRect" parent="Aisle" unique_id=797264004]
+offset_right = 365.0
+offset_bottom = 85.0
+color = Color(1, 0, 1, 1)
+
+[node name="Aisle2" type="StaticBody2D" parent="." unique_id=1570795826]
+position = Vector2(766, 150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aisle2" unique_id=1985697442]
+position = Vector2(183.25, 44)
+shape = SubResource("RectangleShape2D_5l2yu")
+
+[node name="ColorRect" type="ColorRect" parent="Aisle2" unique_id=368557224]
+offset_right = 365.0
+offset_bottom = 85.0
+color = Color(1, 0, 1, 1)
+
+[node name="Aisle3" type="StaticBody2D" parent="." unique_id=1986346492]
+position = Vector2(162, 460)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aisle3" unique_id=954469539]
+position = Vector2(183.25, 44)
+shape = SubResource("RectangleShape2D_5l2yu")
+
+[node name="ColorRect" type="ColorRect" parent="Aisle3" unique_id=1916611534]
+offset_right = 365.0
+offset_bottom = 85.0
+color = Color(1, 0, 1, 1)
+
+[node name="Aisle4" type="StaticBody2D" parent="." unique_id=1256011935]
+position = Vector2(776, 473)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aisle4" unique_id=507696320]
+position = Vector2(183.25, 44)
+shape = SubResource("RectangleShape2D_5l2yu")
+
+[node name="ColorRect" type="ColorRect" parent="Aisle4" unique_id=736653568]
+offset_right = 365.0
+offset_bottom = 85.0
+color = Color(1, 0, 1, 1)
 
 [node name="Virtual Joystick" parent="." unique_id=1087925395 instance=ExtResource("3_5l2yu")]
 offset_left = 897.0
