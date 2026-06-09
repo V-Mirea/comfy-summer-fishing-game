@@ -147,7 +147,7 @@ func _on_pause_button_pressed() -> void:
 	PauseMenu.toggle()
 
 func _on_cancel_button_pressed() -> void:
-	state_machine.change_state.bind(State.IDLE)
+	state_machine.change_state(State.IDLE)
 
 func _on_cast_button_pressed() -> void:
-	cast_button.pressed.connect(state_machine.change_state.bind(State.WAITING_FOR_BITE))
+	state_machine.change_state(State.WAITING_FOR_BITE)
