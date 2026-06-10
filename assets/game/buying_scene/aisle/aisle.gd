@@ -15,12 +15,19 @@ func _process(delta):
 	pass
 
 func _unhandled_input(event):
-	if player_in_range and event.is_action_pressed("ui_select"):
+	if player_in_range and event.is_action_pressed("interact"):
 		shop_opened.emit(upgrades_sold)
 
-func _on_player_entered():
+func _on_player_entered_interaction_area():
 	player_in_range = true
 
-
-func _on_player_exited():
+func _on_player_exited_interaction_area():
 	player_in_range = false
+
+func _on_transparency_area_body_entered(body):
+	if body is CharacterBody2D:
+		modulate.a = .3
+
+func _on_transparency_area_body_exited(body):
+	if body is CharacterBody2D:
+		modulate.a = 1

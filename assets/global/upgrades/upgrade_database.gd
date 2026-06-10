@@ -9,5 +9,7 @@ var upgrades_dictionary
 
 func _ready():
 	upgrades_dictionary = {
-		Upgrade.UpgradeType.ROD: rod_upgrades
+		Upgrade.UpgradeType.ROD: rod_upgrades,
+		Upgrade.UpgradeType.REEL: reel_upgrades,
+		Upgrade.UpgradeType.BAIT: bait_upgrades
 	}
