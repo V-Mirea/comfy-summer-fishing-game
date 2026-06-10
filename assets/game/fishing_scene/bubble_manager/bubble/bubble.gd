@@ -3,7 +3,7 @@ extends Node2D
 signal bubble_hit(result: String)
 
 const RING_START_SCALE: float = 3.0
-const RING_END_SCALE: float = 2.0
+const RING_END_SCALE: float = 1.5
 #need a defined end scale, ring doesn't end right otherwise
 const POP_FRAME_DURATION: float = 0.05
 
@@ -50,7 +50,6 @@ func _process(delta: float) -> void:
 	var visual_progress := minf(progress, 1.0)
 	var ring_scale = lerp(RING_START_SCALE, RING_END_SCALE, visual_progress)
 	timing_ring.scale = Vector2.ONE * ring_scale
-	timing_ring.frame = clampi(int(visual_progress * 3), 0, 2)
 	timing_ring.modulate = _get_zone_color(progress)
 
 	if elapsed_lifetime >= lifetime * perfect_end:
