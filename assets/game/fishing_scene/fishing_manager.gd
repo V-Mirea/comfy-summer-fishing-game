@@ -11,7 +11,6 @@ var hooked_fish: Fish
 var bite_window: float = 1.0
 
 const ROLL_INTERVAL: float = 0.5 #change later per rod, or other stuff
-const FISH_CHANCE: float = 0.20 #should be variable later
 
 @export var status_label: Label
 @export var money_label: Label
@@ -64,10 +63,10 @@ func _process_waiting_for_bite(delta: float) -> void:
 		_roll_fish()
 
 func _roll_fish() -> void:
-	if randf() >= FISH_CHANCE:
+	if randf() >= PlayerManager.get_fishing_roll_chance():
 		return  # no fish this roll
 
-	var species: FishSpecies = FishDatabase.get_random()
+	var species: FishSpecies = FishDatabase.get_random() #TODO calc this in player manager too 
 	if species == null:
 		push_error("No fish species available, shouldn't be possible")
 		return
