@@ -1,10 +1,12 @@
-extends ColorRect
+extends Sprite2D
 
-var original_color
+@export var interactable_sprite: Texture2D
+
+var default_sprite: Texture2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	original_color = color
+	default_sprite = texture
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,8 +15,8 @@ func _process(delta):
 
 
 func _on_interaction_area_player_entered():
-	color = Color(0.0, 151.798, 24.984, 1.0)
+	texture = interactable_sprite
 
 
 func _on_interaction_area_player_exited():
-	color = original_color
+	texture = default_sprite

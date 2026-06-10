@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://1nd0b3qwm2t1"]
+
+[ext_resource type="Script" uid="uid://di55dj1abu15e" path="res://assets/global/upgrades/upgrade.gd" id="1_2d2kn"]
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="2_sp1mx"]
+
+[resource]
+script = ExtResource("1_2d2kn")
+type = 1
+level = 4
+price = 400
+name = "Reel 4"
+description = "a description for reel 4"
+sprite = ExtResource("2_sp1mx")
+metadata/_custom_type_script = "uid://di55dj1abu15e"

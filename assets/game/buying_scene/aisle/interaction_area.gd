@@ -12,11 +12,9 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_body_entered(body):
 	if body is CharacterBody2D:
 		player_entered.emit()
-
 
 func _on_body_exited(body):
 	if body is CharacterBody2D:
