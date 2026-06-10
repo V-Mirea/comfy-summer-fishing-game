@@ -37,7 +37,7 @@ func _ready():
 	for i in 10:
 		var fish: Fish = Fish.new()
 		fish.quality = randi() % 100
-		fish.species = FishDatabase.get_random()
+		fish.species = FishDatabase.get_random(PlayerManager.get_upgrade_level(Upgrade.UpgradeType.ROD))
 		PlayerManager.add_fish(fish)
 	###
 
@@ -67,7 +67,8 @@ func _roll_fish() -> void:
 	if randf() >= PlayerManager.get_fishing_roll_chance():
 		return  # no fish this roll
 
-	var species: FishSpecies = FishDatabase.get_random() #TODO calc this in player manager too 
+	var rod_level: int = PlayerManager.get_upgrade_level(Upgrade.UpgradeType.ROD)
+	var species: FishSpecies = FishDatabase.get_random(rod_level)
 	if species == null:
 		push_error("No fish species available, shouldn't be possible")
 		return
