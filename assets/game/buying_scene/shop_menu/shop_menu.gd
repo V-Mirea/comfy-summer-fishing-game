@@ -44,6 +44,7 @@ func _on_exit_button_pressed():
 	get_tree().paused = false
 	visible = false
 	
+	description_label.text = ""
 	# remove all items from the shop since we will repopulate on open
 	for child in items_container.get_children():
 		child.queue_free()
