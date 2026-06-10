@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cqudc2q6k3bd1" path="res://assets/game/money_label.gd" id="2_j4ds5"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1736017532 node_paths=PackedStringArray("money_label", "upgrades_list", "fish_list", "resume_button")]
-process_mode = 3
+process_mode = 2
 layer = 100
 visible = false
 script = ExtResource("1_script")
