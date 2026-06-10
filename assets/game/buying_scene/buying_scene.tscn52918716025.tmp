@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvua02n5l4mc5" path="res://assets/game/buying_scene/buying_manager.gd" id="1_b6mu0"]
 [ext_resource type="Script" uid="uid://vgcqo6qthcdr" path="res://assets/game/buying_scene/character/character.gd" id="2_5l2yu"]
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="2_n2sg0"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://assets/game/buying_scene/virtual_joystick/virtual_joystick_scene.tscn" id="3_5l2yu"]
 [ext_resource type="Texture2D" uid="uid://6meot84eofxj" path="res://assets/game/buying_scene/character/Character_Sprite.PNG" id="4_eoi11"]
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/aisle/interaction_area.gd" id="4_hpvk7"]
@@ -49,7 +50,6 @@ size = Vector2(32, 21)
 script = ExtResource("1_b6mu0")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1150295774]
-z_index = -1
 texture = ExtResource("10_7tnhv")
 centered = false
 
@@ -191,6 +191,26 @@ horizontal_alignment = 1
 [node name="HSeparator2" type="HSeparator" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=827154382]
 layout_mode = 2
 
+[node name="ItemList" type="ItemList" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=296921015]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 6
+max_columns = 3
+same_column_width = true
+icon_mode = 0
+item_0/text = "A rod"
+item_0/icon = ExtResource("2_n2sg0")
+item_1/text = "Rod 2"
+item_1/icon = ExtResource("2_n2sg0")
+item_2/text = "another rod"
+item_2/icon = ExtResource("2_n2sg0")
+item_3/text = "rod 4"
+item_3/icon = ExtResource("2_n2sg0")
+item_4/text = "rod 5"
+item_4/icon = ExtResource("2_n2sg0")
+item_5/icon = ExtResource("2_n2sg0")
+
 [node name="GridContainer" type="GridContainer" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=888565875]
 layout_mode = 2
 size_flags_vertical = 3
@@ -214,13 +234,15 @@ alignment = 1
 [node name="PurchaseButton" type="Button" parent="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer" unique_id=1292305574]
 layout_mode = 2
 size_flags_horizontal = 3
-disabled = true
 text = "Purchase"
 
 [node name="ExitButton" type="Button" parent="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer" unique_id=2032420336]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
+
+[node name="Panel" type="Panel" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1992157756]
+layout_mode = 2
 
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
