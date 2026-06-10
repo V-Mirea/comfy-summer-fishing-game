@@ -34,9 +34,9 @@ func _update_stars(quality: int) -> void:
 	#it's possible later on we extract this into its own scene if we think we'll use ratings elsewhere? doubtful though
 	var star_value := quality / 20.0
 	for i in stars_container.get_child_count():
-		var star = stars_container.get_child(i)
+		var star: QualityStar  = stars_container.get_child(i)
 		var fill_amount := clampf(star_value - i, 0.0, 1.0)
-		var clip: Control = star.get_node("ClipContainer")
+		var clip: Control = star.clip_container
 		clip.size.x = star.size.x * fill_amount
 
 func _on_next_button_pressed() -> void:
