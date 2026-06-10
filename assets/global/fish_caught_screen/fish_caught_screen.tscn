@@ -1,0 +1,238 @@
+[gd_scene format=3 uid="uid://cwbmt7oxblvg6"]
+
+[ext_resource type="Script" uid="uid://cunfcmslkj6co" path="res://assets/global/fish_caught_screen/fish_caught_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://uxlo6yusxn8u" path="res://assets/global/fish_caught_screen/emptystar.png" id="2_empty"]
+[ext_resource type="Texture2D" uid="uid://sj6pcn6idgxo" path="res://assets/global/fish_caught_screen/filledstar.png" id="3_filled"]
+[ext_resource type="PackedScene" path="res://assets/game/shared/fish/fish_sprite.tscn" id="4_fish_sprite"]
+
+[node name="FishCaughtScreen" type="CanvasLayer" unique_id=948028816 node_paths=PackedStringArray("fish_name_label", "fish_icon", "stars_container", "next_button")]
+process_mode = 3
+layer = 101
+visible = false
+script = ExtResource("1_script")
+fish_name_label = NodePath("Panel/MarginContainer/VBox/FishNameLabel")
+fish_icon = NodePath("Panel/MarginContainer/VBox/FishIconContainer/FishIcon")
+stars_container = NodePath("Panel/MarginContainer/VBox/StarsContainer")
+next_button = NodePath("Panel/MarginContainer/VBox/NextButton")
+
+[node name="Darken" type="ColorRect" parent="." unique_id=1634033380]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1234133932]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -220.0
+offset_right = 200.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=501334679]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=369408146]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="FishNameLabel" type="Label" parent="Panel/MarginContainer/VBox" unique_id=98490004]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=247483205]
+layout_mode = 2
+
+[node name="FishIconContainer" type="CenterContainer" parent="Panel/MarginContainer/VBox" unique_id=536278429]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="FishIcon" parent="Panel/MarginContainer/VBox/FishIconContainer" unique_id=179340313 instance=ExtResource("4_fish_sprite")]
+scale = Vector2(3, 3)
+
+[node name="StarsContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBox" unique_id=6839762]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Star1" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer" unique_id=467834386]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="EmptyStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star1" unique_id=1305260858]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_empty")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ClipContainer" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer/Star1" unique_id=982455863]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star1/ClipContainer" unique_id=830663679]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_filled")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star2" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer" unique_id=1716776867]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="EmptyStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star2" unique_id=205498679]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_empty")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ClipContainer" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer/Star2" unique_id=1336929966]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star2/ClipContainer" unique_id=1985100656]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_filled")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star3" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer" unique_id=658874219]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="EmptyStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star3" unique_id=272158737]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_empty")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ClipContainer" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer/Star3" unique_id=1475593984]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star3/ClipContainer" unique_id=1878141407]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_filled")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star4" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer" unique_id=236609126]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="EmptyStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star4" unique_id=2072896567]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_empty")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ClipContainer" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer/Star4" unique_id=375480783]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star4/ClipContainer" unique_id=1295771931]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_filled")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star5" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer" unique_id=1826546343]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="EmptyStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star5" unique_id=107821701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_empty")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ClipContainer" type="Control" parent="Panel/MarginContainer/VBox/StarsContainer/Star5" unique_id=1936364287]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullStar" type="TextureRect" parent="Panel/MarginContainer/VBox/StarsContainer/Star5/ClipContainer" unique_id=2101332130]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_filled")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NextButton" type="Button" parent="Panel/MarginContainer/VBox" unique_id=228029035]
+layout_mode = 2
+text = "Next"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBox/NextButton" to="." method="_on_next_button_pressed"]
