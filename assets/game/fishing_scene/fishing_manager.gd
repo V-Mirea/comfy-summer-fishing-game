@@ -2,7 +2,7 @@ extends Node2D
 
 signal transition_requested(state: Global.State)
 
-enum State { IDLE, WAITING_FOR_BITE, MISSED_BITE, CONFIRM_BITE, MINIGAME, RESOLVED }
+enum State { IDLE, WAITING_FOR_BITE, MISSED_BITE, CONFIRM_BITE, MINIGAME, RESOLVED, MISSED_FISH }
 var state: State = State.IDLE
 var time_since_last_roll: float = 0.0
 var time_since_bite: float = 0.0
@@ -24,7 +24,8 @@ func _ready():
 		State.WAITING_FOR_BITE: [State.IDLE, State.CONFIRM_BITE],
 		State.MISSED_BITE: [State.IDLE],
 		State.CONFIRM_BITE: [State.MINIGAME, State.WAITING_FOR_BITE, State.MISSED_BITE, State.IDLE],
-		State.MINIGAME: [State.RESOLVED],
+		State.MINIGAME: [State.RESOLVED, State.MISSED_FISH],
+		State.MISSED_FISH: [State.IDLE],
 		State.RESOLVED: [State.IDLE]
 	}
 	state_machine = StateMachine.new(valid_transitions)
@@ -36,7 +37,7 @@ func _ready():
 	for i in 10:
 		var fish: Fish = Fish.new()
 		fish.quality = randi() % 100
-		fish.species = FishDatabase.get_random()
+		fish.species = FishDatabase.get_random(PlayerManager.get_upgrade_level(Upgrade.UpgradeType.ROD))
 		PlayerManager.add_fish(fish)
 	###
 
@@ -66,12 +67,13 @@ func _roll_fish() -> void:
 	if randf() >= PlayerManager.get_fishing_roll_chance():
 		return  # no fish this roll
 
-	var species: FishSpecies = FishDatabase.get_random() #TODO calc this in player manager too 
+	var rod_level: int = PlayerManager.get_upgrade_level(Upgrade.UpgradeType.ROD)
+	var species: FishSpecies = FishDatabase.get_random(rod_level)
 	if species == null:
 		push_error("No fish species available, shouldn't be possible")
 		return
 
-	hooked_fish = Fish.new(species, randi_range(0, 100))
+	hooked_fish = Fish.new(species)
 	state_machine.change_state(State.CONFIRM_BITE)
 
 func _process_confirm_bite(delta: float) -> void:
@@ -96,7 +98,12 @@ func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 		State.CONFIRM_BITE:
 			time_since_bite = 0
 		State.MINIGAME:
+			await get_tree().create_timer(0.5).timeout
 			bubble_manager.start_pattern(hooked_fish.species.pattern, hooked_fish.species.bubble_lifetime)
+		State.MISSED_FISH:
+			await get_tree().create_timer(2.0).timeout
+			if state_machine.current_state == State.MISSED_FISH:
+				state_machine.change_state(State.IDLE)
 		State.RESOLVED:
 			state_machine.change_state(State.IDLE)
 
@@ -115,12 +122,18 @@ func _get_status_text_for_state(state: State, context: Dictionary) -> String:
 			return "There's a bite! Press SPACE to set the hook!"
 		State.MINIGAME:
 			return "Hooooo weee, fish on!"
+		State.MISSED_FISH:
+			return "The fish got away!"
 		State.RESOLVED:
 			return "Caught a %s!" % hooked_fish.species.display_name
 		_:
 			return ""
 
 func _on_pattern_complete(score_data: Dictionary) -> void:
+	if not PlayerManager.did_catch_fish(score_data):
+		state_machine.change_state(State.MISSED_FISH)
+		return
+	hooked_fish.quality = PlayerManager.calculate_total_quality(score_data)
 	PlayerManager.add_fish(hooked_fish)
 	FishCaughtScreen.open(hooked_fish)
 	await FishCaughtScreen.closed
