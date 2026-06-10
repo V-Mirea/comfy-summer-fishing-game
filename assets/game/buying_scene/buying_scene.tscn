@@ -65,10 +65,10 @@ offset_bottom = 702.0
 text = "menu"
 
 [node name="ButtonFish" type="Button" parent="." unique_id=1024119867]
-offset_left = 1115.0
-offset_top = 646.0
-offset_right = 1253.0
-offset_bottom = 701.0
+offset_left = 571.0
+offset_top = 649.0
+offset_right = 709.0
+offset_bottom = 704.0
 text = "fish
 "
 
@@ -123,10 +123,10 @@ shape = SubResource("RectangleShape2D_hpvk7")
 
 [node name="Virtual Joystick" parent="." unique_id=1087925395 instance=ExtResource("3_5l2yu")]
 z_index = 10
-offset_left = 897.0
-offset_top = 378.0
-offset_right = 1197.0
-offset_bottom = 678.0
+offset_left = 973.0
+offset_top = 444.0
+offset_right = 1273.0
+offset_bottom = 744.0
 visibility_mode = 1
 
 [node name="ShopMenu" type="CanvasLayer" parent="." unique_id=1736017532 node_paths=PackedStringArray("items_container", "description_label", "purchase_button")]

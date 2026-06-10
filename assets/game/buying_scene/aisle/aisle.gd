@@ -15,7 +15,7 @@ func _process(delta):
 	pass
 
 func _unhandled_input(event):
-	if player_in_range and event.is_action_pressed("ui_select"):
+	if player_in_range and event.is_action_pressed("interact"):
 		shop_opened.emit(upgrades_sold)
 
 func _on_player_entered_interaction_area():
