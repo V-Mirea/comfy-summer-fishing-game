@@ -32,7 +32,7 @@ func _ready():
 	state_machine.change_state(State.IDLE)
 	bubble_manager.pattern_complete.connect(_on_pattern_complete)
 
-	## test code to avoid skip having to fish ##
+	## test code to avoid having to fish ##
 	for i in 10:
 		var fish: Fish = Fish.new()
 		fish.quality = randi() % 100

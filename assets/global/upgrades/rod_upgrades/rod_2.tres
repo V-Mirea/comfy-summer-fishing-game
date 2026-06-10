@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bebk3qh1uv37c"]
 
 [ext_resource type="Script" uid="uid://di55dj1abu15e" path="res://assets/global/upgrades/upgrade.gd" id="1_j2pwx"]
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="2_hapky"]
 
 [resource]
 script = ExtResource("1_j2pwx")
 level = 2
 price = 50
+name = "another rod"
+description = "yet another description"
+sprite = ExtResource("2_hapky")
 metadata/_custom_type_script = "uid://di55dj1abu15e"

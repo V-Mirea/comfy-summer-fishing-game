@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/aisle/interaction_area.gd" id="4_hpvk7"]
 [ext_resource type="Script" uid="uid://dys1cv4mma5ta" path="res://assets/game/buying_scene/aisle/aisle.gd" id="4_vsnuv"]
 [ext_resource type="Script" uid="uid://cewu6chnl35ii" path="res://assets/game/buying_scene/shop_menu/shop_menu.gd" id="8_7sq2k"]
-[ext_resource type="Script" uid="uid://dfai5sadc2bju" path="res://assets/game/buying_scene/shop_menu/cart_header.gd" id="9_7sq2k"]
+[ext_resource type="PackedScene" uid="uid://hl7y71r6xpw8" path="res://assets/game/buying_scene/shop_menu/upgrade_button/upgrade_button.tscn" id="9_7sq2k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xpfq"]
 font_size = 40
@@ -158,13 +158,15 @@ offset_right = 1197.0
 offset_bottom = 678.0
 visibility_mode = 1
 
-[node name="ShopMenu" type="CanvasLayer" parent="." unique_id=1736017532 node_paths=PackedStringArray("upgrades_list", "cart_list")]
+[node name="ShopMenu" type="CanvasLayer" parent="." unique_id=1736017532 node_paths=PackedStringArray("items_container", "description_label", "purchase_button")]
 process_mode = 3
 layer = 100
 visible = false
 script = ExtResource("8_7sq2k")
-upgrades_list = NodePath("Panel/MarginContainer/VBox/UpgradesList")
-cart_list = NodePath("Panel/MarginContainer/VBox/CartList")
+items_container = NodePath("Panel/MarginContainer/VBox/GridContainer")
+description_label = NodePath("Panel/MarginContainer/VBox/DescriptionLabel")
+purchase_button = NodePath("Panel/MarginContainer/VBox/HBoxContainer/PurchaseButton")
+upgrade_button_scene = ExtResource("9_7sq2k")
 
 [node name="Darken" type="ColorRect" parent="ShopMenu" unique_id=1432399640]
 anchors_preset = 15
@@ -202,27 +204,38 @@ horizontal_alignment = 1
 [node name="HSeparator2" type="HSeparator" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=827154382]
 layout_mode = 2
 
-[node name="UpgradesHeader" type="Label" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1619852164]
+[node name="ItemList" type="ItemList" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=296921015]
+visible = false
 layout_mode = 2
-text = "Upgrades"
-horizontal_alignment = 1
+size_flags_vertical = 3
+item_count = 6
+max_columns = 3
+same_column_width = true
+icon_mode = 0
+item_0/text = "A rod"
+item_0/icon = ExtResource("2_n2sg0")
+item_1/text = "Rod 2"
+item_1/icon = ExtResource("2_n2sg0")
+item_2/text = "another rod"
+item_2/icon = ExtResource("2_n2sg0")
+item_3/text = "rod 4"
+item_3/icon = ExtResource("2_n2sg0")
+item_4/text = "rod 5"
+item_4/icon = ExtResource("2_n2sg0")
+item_5/icon = ExtResource("2_n2sg0")
 
-[node name="UpgradesList" type="ItemList" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=71621534]
+[node name="GridContainer" type="GridContainer" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=888565875]
 layout_mode = 2
-auto_height = true
+size_flags_vertical = 3
+columns = 3
 
-[node name="HSeparator3" type="HSeparator" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1737605276]
+[node name="HSeparator3" type="HSeparator" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1536110282]
 layout_mode = 2
 
-[node name="CartHeader" type="Label" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=540206952]
+[node name="DescriptionLabel" type="Label" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1089868823]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-text = "Cart - $0"
-horizontal_alignment = 1
-script = ExtResource("9_7sq2k")
-
-[node name="CartList" type="ItemList" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1796072905]
-layout_mode = 2
-auto_height = true
+autowrap_mode = 2
 
 [node name="HSeparator4" type="HSeparator" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1148851314]
 layout_mode = 2
@@ -241,6 +254,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
+[node name="Panel" type="Panel" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1992157756]
+layout_mode = 2
+
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
 [connection signal="shop_opened" from="Aisle" to="ShopMenu" method="_on_shop_opened"]
@@ -250,8 +266,5 @@ text = "Exit"
 [connection signal="player_entered" from="Aisle/InteractionArea" to="Aisle/ColorRect" method="_on_interaction_area_player_entered"]
 [connection signal="player_exited" from="Aisle/InteractionArea" to="Aisle" method="_on_player_exited"]
 [connection signal="player_exited" from="Aisle/InteractionArea" to="Aisle/ColorRect" method="_on_interaction_area_player_exited"]
-[connection signal="cart_price_changed" from="ShopMenu" to="ShopMenu/Panel/MarginContainer/VBox/CartHeader" method="_on_cart_price_changed"]
-[connection signal="item_selected" from="ShopMenu/Panel/MarginContainer/VBox/UpgradesList" to="ShopMenu" method="_on_upgrades_list_item_selected"]
-[connection signal="item_selected" from="ShopMenu/Panel/MarginContainer/VBox/CartList" to="ShopMenu" method="_on_cart_list_item_selected"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/PurchaseButton" to="ShopMenu" method="_on_purchase_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/ExitButton" to="ShopMenu" method="_on_exit_button_pressed"]
