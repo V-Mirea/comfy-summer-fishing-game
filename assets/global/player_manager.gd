@@ -83,6 +83,21 @@ func get_fishing_roll_chance() -> float:
 	var bait_level := get_upgrade_level(Upgrade.UpgradeType.BAIT)
 	return .2 + (bait_level/5 * .2)
 	
+# goes from 0 -> 2.5, the other 2.5 wlil come from catching the fish portion
+# weights are the following: 
+# rod (6) + reel (2) + line (1) + bait (1)
+func get_base_quality() -> float:
+	var rod_level := get_upgrade_level(Upgrade.UpgradeType.ROD)
+	var reel_level := get_upgrade_level(Upgrade.UpgradeType.REEL)
+	var line_level := get_upgrade_level(Upgrade.UpgradeType.LINE)
+	var bait_level := get_upgrade_level(Upgrade.UpgradeType.BAIT)
+	var weighted_sum := (float(rod_level) / 4) * 6 \
+					  + (float(reel_level) / 4) * 2 \
+					  + (float(line_level) / 4) \
+					  + (float(bait_level) / 4)
+	#currently dividing by 4 as a predetermined "max level". we might want todefined a max level per upgrade
+	return weighted_sum * (2.5 / 10.0)
+	
 func get_upgrade_level(type: Upgrade.UpgradeType) -> int:
 	return data.upgrades.get(type, 0) #i mean, do we need this? or can we just do data.upgrades.get from the consumer. maybe we keep this just in case for calcs later, safest option
 
