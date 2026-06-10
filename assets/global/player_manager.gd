@@ -17,7 +17,7 @@ var fish_to_sell: Array[Fish] = []
 
 var max_sell_slots: int:
 	get:
-		return mini(BASE_SELL_SLOTS + data.upgrades.get(Upgrade.UpgradeType.SHOP_LEVEL, 0) * SLOTS_PER_LEVEL, MAX_SELL_SLOTS_CAP)
+		return mini(BASE_SELL_SLOTS + get_upgrade_level(Upgrade.UpgradeType.SHOP_LEVEL) * SLOTS_PER_LEVEL, MAX_SELL_SLOTS_CAP)
 
 #base funct
 
@@ -78,7 +78,11 @@ func spend_money(amount: int) -> bool:
 	data.money -= amount
 	money_changed.emit(data.money)
 	return true
-
+	
+func get_fishing_roll_chance() -> float:
+	var bait_level := get_upgrade_level(Upgrade.UpgradeType.BAIT)
+	return .2 + (bait_level/5 * .2)
+	
 func get_upgrade_level(type: Upgrade.UpgradeType) -> int:
 	return data.upgrades.get(type, 0) #i mean, do we need this? or can we just do data.upgrades.get from the consumer. maybe we keep this just in case for calcs later, safest option
 
