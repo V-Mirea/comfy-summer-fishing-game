@@ -49,6 +49,7 @@ size = Vector2(32, 21)
 script = ExtResource("1_b6mu0")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1150295774]
+z_index = -1
 texture = ExtResource("10_7tnhv")
 centered = false
 
@@ -213,6 +214,7 @@ alignment = 1
 [node name="PurchaseButton" type="Button" parent="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer" unique_id=1292305574]
 layout_mode = 2
 size_flags_horizontal = 3
+disabled = true
 text = "Purchase"
 
 [node name="ExitButton" type="Button" parent="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer" unique_id=2032420336]
