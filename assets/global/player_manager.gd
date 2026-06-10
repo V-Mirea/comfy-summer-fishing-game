@@ -5,7 +5,7 @@ signal fish_added(fish: Fish)
 signal fish_removed(fish: Fish)
 signal selling_fish_changed(fish_to_sell: Array[Fish])
 signal inventory_changed()
-signal upgrade_changed(upgrade_id: String, new_level: int)
+signal upgrade_changed(upgrade_type: Upgrade.UpgradeType, new_level: int)
 
 const SAVE_PATH := "user://player_data.tres" #i think this is right? we'll have to figure this out but seems simple enough
 const BASE_SELL_SLOTS: int = 5
@@ -17,7 +17,7 @@ var fish_to_sell: Array[Fish] = []
 
 var max_sell_slots: int:
 	get:
-		return mini(BASE_SELL_SLOTS + data.upgrades.get("shop_level", 0) * SLOTS_PER_LEVEL, MAX_SELL_SLOTS_CAP)
+		return mini(BASE_SELL_SLOTS + data.upgrades.get(Upgrade.UpgradeType.SHOP_LEVEL, 0) * SLOTS_PER_LEVEL, MAX_SELL_SLOTS_CAP)
 
 #base funct
 
@@ -79,12 +79,12 @@ func spend_money(amount: int) -> bool:
 	money_changed.emit(data.money)
 	return true
 
-func get_upgrade_level(upgrade_id: String) -> int:
-	return data.upgrades.get(upgrade_id, 0)
+func get_upgrade_level(type: Upgrade.UpgradeType) -> int:
+	return data.upgrades.get(type, 0)
 
-func set_upgrade_level(upgrade_id: String, level: int) -> void:
-	data.upgrades[upgrade_id] = level
-	upgrade_changed.emit(upgrade_id, level)
+func set_upgrade_level(type: Upgrade.UpgradeType, level: int) -> void:
+	data.upgrades[type] = level
+	upgrade_changed.emit(type, level)
 	
 #save functionality
 

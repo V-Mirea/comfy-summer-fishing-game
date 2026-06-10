@@ -37,9 +37,9 @@ func _refresh() -> void:
 	# not reactive
 	for child in upgrades_list.get_children():
 		child.queue_free()
-	for upgrade_id in PlayerManager.data.upgrades:
+	for upgrade_type in PlayerManager.data.upgrades:
 		var label := Label.new()
-		label.text = "%s: Lv %d" % [upgrade_id.capitalize(), PlayerManager.data.upgrades[upgrade_id]]
+		label.text = "%s: Lv %d" % [Upgrade.UpgradeType.keys()[upgrade_type].capitalize(), PlayerManager.data.upgrades[upgrade_type]]
 		upgrades_list.add_child(label)
 
 	#same goes for fish
