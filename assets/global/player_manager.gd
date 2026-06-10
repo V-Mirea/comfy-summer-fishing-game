@@ -80,7 +80,7 @@ func spend_money(amount: int) -> bool:
 	return true
 
 func get_upgrade_level(type: Upgrade.UpgradeType) -> int:
-	return data.upgrades.get(type, 0)
+	return data.upgrades.get(type, 0) #i mean, do we need this? or can we just do data.upgrades.get from the consumer. maybe we keep this just in case for calcs later, safest option
 
 func set_upgrade_level(type: Upgrade.UpgradeType, level: int) -> void:
 	data.upgrades[type] = level
