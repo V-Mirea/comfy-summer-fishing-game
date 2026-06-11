@@ -239,7 +239,6 @@ position = Vector2(46, 288)
 shape = SubResource("SegmentShape2D_o1x55")
 
 [node name="Virtual Joystick" parent="." unique_id=1087925395 instance=ExtResource("3_5l2yu")]
-visible = false
 z_index = 10
 offset_left = 973.0
 offset_top = 444.0
