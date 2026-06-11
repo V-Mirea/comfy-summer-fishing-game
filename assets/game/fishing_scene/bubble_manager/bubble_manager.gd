@@ -8,7 +8,7 @@ signal pattern_complete(score_data: Dictionary)
 
 @export_group("Hit Windows")
 @export var good_start: float = 0.45
-@export var perfect_start: float = 0.95
+@export var perfect_start: float = 0.90
 @export var perfect_end: float = 1.1
 
 var perfects: int = 0
@@ -60,15 +60,16 @@ func _calculate_spawn_offset(steps: Array) -> Vector2:
 	var rect := spawn_area.get_rect()
 	var radius := 44.0 # 22px base radius * 2.0 bubble_scale
 
-	# find bounding box of all step positions
-	var first_pos: Vector2 = steps[0].position
+	# find bounding box of all step positions (negated X for right-to-left)
+	var first_pos := Vector2(-steps[0].position.x, steps[0].position.y)
 	var min_x: float = first_pos.x
 	var max_x: float = first_pos.x
 	var min_y: float = first_pos.y
 	var max_y: float = first_pos.y
 	for step in steps:
-		min_x = minf(min_x, step.position.x)
-		max_x = maxf(max_x, step.position.x)
+		var flipped_x = -step.position.x
+		min_x = minf(min_x, flipped_x)
+		max_x = maxf(max_x, flipped_x)
 		min_y = minf(min_y, step.position.y)
 		max_y = maxf(max_y, step.position.y)
 
@@ -98,7 +99,7 @@ func _schedule_bubble(entry: BubbleStep, offset: Vector2) -> void:
 		return
 
 	var bubble = BubbleScene.instantiate()
-	bubble.position = entry.position + offset
+	bubble.position = Vector2(-entry.position.x, entry.position.y) + offset
 	bubble.lifetime = lifetime
 	bubble.perfect_start = perfect_start
 	bubble.perfect_end = perfect_end
