@@ -8,7 +8,7 @@ signal pattern_complete(score_data: Dictionary)
 
 @export_group("Hit Windows")
 @export var good_start: float = 0.45
-@export var perfect_start: float = 0.95
+@export var perfect_start: float = 0.90
 @export var perfect_end: float = 1.1
 
 var perfects: int = 0
