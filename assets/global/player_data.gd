@@ -8,7 +8,8 @@ enum GameEvent {
 	GAVE_POLLUTED_FISH,
 	FOUND_MAGIC_FISH,
 	GAVE_MAGIC_FISH,
-	BOUGHT_UPGRADE ## test event
+	BOUGHT_UPGRADE, ## test event,
+	GOT_MONEY_FROM_LOUIS ## test event
 }
 
 @export var fish_inventory: Array[Fish] = []
