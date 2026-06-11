@@ -9,16 +9,25 @@ signal selected(customer: Customer, toggled_on: bool)
 @export var offer_label: Label
 @export var clickbox: Button
 
+@export var decline_sprite: Sprite2D
+
 enum State { ENTERING, SHOPPING, LEAVING }
 var state_machine: StateMachine
 
+enum Reaction { ACCEPT, DECLINE, ANGRY }
+
 var patience_interval: float = 0.3 # Time in seconds it takes the patience meter to go down 1%
+var minimum_accept_chance: float = 0.2 # 0-1 chance customer accepts at the max possible counter offer
+var max_angry_chance: float = 0.8 # 0-1 chance after they dont accept that customer leaves at the max possible counter offer
 
 var patience: int = 100 # 0-100. Customer leaves at 0
 
 var slot_index: int
 var fish_wanted: Fish
-var timer: Timer
+var patience_timer: Timer
+
+var chat_bubble_duration: int = 3
+var chat_bubble_timer: Timer
 
 func _ready():
 	var valid_transitions = {
@@ -32,10 +41,47 @@ func _ready():
 	
 	offer_label.text = "%s (%d) - $%d" % [fish_wanted.species.display_name, fish_wanted.quality, fish_wanted.price]
 	
-	timer = Timer.new()
-	add_child(timer)
-	timer.start(patience_interval)
-	timer.timeout.connect(_patience_timer_triggered)
+	patience_timer = Timer.new()
+	add_child(patience_timer)
+	patience_timer.start(patience_interval)
+	patience_timer.timeout.connect(_patience_timer_triggered)
+
+# takes a counter offer from the player and accepts it, declines, or walks away
+func consider_offer(offer_price: int, max_price: int) -> Reaction:
+	var price_increase: int = offer_price - fish_wanted.price
+	var price_range: float = max_price - fish_wanted.price
+	var price_increase_ratio: float = float(price_increase) / price_range
+
+	var accept_chance_range: float = 1.0 - minimum_accept_chance
+	var offer_similarity_ratio: float = 1.0 - price_increase_ratio
+	var accept_chance: float = (offer_similarity_ratio * accept_chance_range) + minimum_accept_chance
+	
+	if randf() <= accept_chance:
+		return Reaction.ACCEPT
+	else:
+		var angry_chance: float = price_increase_ratio * max_angry_chance
+		if randf() <= angry_chance:
+			return Reaction.ANGRY
+		else:
+			return Reaction.DECLINE
+
+func show_decline_bubble():
+	decline_sprite.visible = true
+	
+	if chat_bubble_timer != null:
+		chat_bubble_timer.queue_free()
+		
+	chat_bubble_timer = Timer.new()
+	add_child(chat_bubble_timer)
+	chat_bubble_timer.one_shot = true
+	chat_bubble_timer.start(chat_bubble_duration)
+	chat_bubble_timer.timeout.connect(_chat_bubble_timer_triggered)
+
+func _chat_bubble_timer_triggered():
+	chat_bubble_timer.queue_free()
+	chat_bubble_timer = null
+	
+	decline_sprite.visible = false
 
 func leave_shop():
 	leaving_shop.emit(self)
@@ -58,8 +104,4 @@ func _on_some_customer_bartering(customer: Customer):
 
 func _on_fish_sold(fish: Fish):
 	if fish == fish_wanted:
-		leave_shop()
-
-func _on_offer_declined(customer: Customer):
-	if customer == self:
 		leave_shop()

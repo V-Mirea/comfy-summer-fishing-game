@@ -70,7 +70,7 @@ vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
 
-[node name="HaggleControl" type="Control" parent="CanvasLayer" unique_id=1550050499 node_paths=PackedStringArray("price_label")]
+[node name="HaggleControl" type="Control" parent="CanvasLayer" unique_id=1550050499 node_paths=PackedStringArray("price_label", "price_slider")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -80,7 +80,8 @@ offset_right = 915.0
 offset_bottom = 161.0
 mouse_filter = 2
 script = ExtResource("2_o8g2t")
-price_label = NodePath("Label")
+price_label = NodePath("PriceLabel")
+price_slider = NodePath("PriceSlider")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/HaggleControl" unique_id=591644612]
 layout_mode = 1
@@ -90,7 +91,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/HaggleControl" unique_id=540554321]
+[node name="PriceSlider" type="HSlider" parent="CanvasLayer/HaggleControl" unique_id=540554321]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -100,7 +101,7 @@ offset_right = -300.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/HaggleControl" unique_id=1132781469]
+[node name="PriceLabel" type="Label" parent="CanvasLayer/HaggleControl" unique_id=1132781469]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 19.0
@@ -185,6 +186,8 @@ customer_scene = ExtResource("8_830pu")
 [connection signal="pressed" from="Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
 [connection signal="offer_accepted" from="CanvasLayer/HaggleControl" to="." method="_on_haggle_control_offer_accepted"]
+[connection signal="offer_declined" from="CanvasLayer/HaggleControl" to="." method="_on_offer_declined"]
+[connection signal="value_changed" from="CanvasLayer/HaggleControl/PriceSlider" to="CanvasLayer/HaggleControl" method="_on_price_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/HaggleControl/AcceptButton" to="CanvasLayer/HaggleControl" method="_on_accept_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HaggleControl/DeclineButton" to="CanvasLayer/HaggleControl" method="_on_decline_button_pressed"]
 [connection signal="request_spawn_customer" from="CustomerSpawner" to="." method="_on_request_spawn_customer"]

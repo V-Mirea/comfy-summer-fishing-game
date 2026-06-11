@@ -29,7 +29,6 @@ func _on_request_spawn_customer(customer: Customer):
 	customer.selected.connect(_on_customer_selected)
 	bartering_started.connect(customer._on_some_customer_bartering)
 	fish_sold.connect(customer._on_fish_sold)
-	haggle_ui.offer_declined.connect(customer._on_offer_declined)
 
 func _on_pause_button_pressed() -> void:
 	PauseMenu.toggle()
@@ -42,4 +41,7 @@ func _on_customer_selected(customer: Customer, toggled_on: bool):
 func _on_offer_accepted(customer: Customer, price: int):
 	PlayerManager.sell_fish(customer.fish_wanted, price)
 	fish_sold.emit(customer.fish_wanted)
+	customer.leave_shop()
+
+func _on_offer_declined(customer):
 	customer.leave_shop()
