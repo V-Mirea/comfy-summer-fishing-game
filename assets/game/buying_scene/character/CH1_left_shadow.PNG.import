@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cawbj20otrk28"
-path="res://.godot/imported/CH1_left_shadow.PNG-ca077c9bcedb7edc7a069decbd4b1b5e.ctex"
+uid="uid://cnw4oel1hhj5u"
+path="res://.godot/imported/CH1_left_shadow.png-cff463d6e01fcdeb302bc476b718b35f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/character/CH1_left_shadow.PNG"
-dest_files=["res://.godot/imported/CH1_left_shadow.PNG-ca077c9bcedb7edc7a069decbd4b1b5e.ctex"]
+source_file="res://assets/game/buying_scene/character/CH1_left_shadow.png"
+dest_files=["res://.godot/imported/CH1_left_shadow.png-cff463d6e01fcdeb302bc476b718b35f.ctex"]
 
 [params]
 

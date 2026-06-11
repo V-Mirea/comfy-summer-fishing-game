@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bckgy2rx84xwk" path="res://assets/game/buying_scene/aisle/aisle.tscn" id="3_7o44q"]
 [ext_resource type="Texture2D" uid="uid://ixg6yjt305sy" path="res://assets/game/buying_scene/box_fort/Fort.PNG" id="3_7tnhv"]
 [ext_resource type="Script" uid="uid://cy3y7ib68st7c" path="res://assets/game/buying_scene/box_fort/box_fort.gd" id="3_ig6k8"]
-[ext_resource type="Texture2D" uid="uid://6meot84eofxj" path="res://assets/game/buying_scene/character/Character_Sprite.PNG" id="4_eoi11"]
 [ext_resource type="Texture2D" uid="uid://b3eix3x2js8ql" path="res://assets/game/buying_scene/Items_only.PNG" id="4_i6cjn"]
 [ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactable_sprite.gd" id="4_ig6k8"]
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/aisle/interaction_area.gd" id="4_uhb6p"]
@@ -15,20 +14,21 @@
 [ext_resource type="Script" uid="uid://cewu6chnl35ii" path="res://assets/game/buying_scene/shop_menu/shop_menu.gd" id="8_7sq2k"]
 [ext_resource type="PackedScene" uid="uid://hl7y71r6xpw8" path="res://assets/game/buying_scene/shop_menu/upgrade_button/upgrade_button.tscn" id="9_7sq2k"]
 [ext_resource type="Texture2D" uid="uid://ekaglpfeqr3r" path="res://assets/game/buying_scene/character/CH1_front.PNG" id="12_8l74v"]
+[ext_resource type="Texture2D" uid="uid://bgqygmq6kgpbn" path="res://assets/game/buying_scene/character/CH1_Shadow_static.png" id="12_jx1gg"]
 [ext_resource type="Texture2D" uid="uid://cmts02n62b7in" path="res://assets/game/buying_scene/character/CH1_left.PNG" id="13_kq7pi"]
 [ext_resource type="Script" uid="uid://bdk7wb8u2stjc" path="res://assets/game/buying_scene/dialogue_window.gd" id="13_o1x55"]
-[ext_resource type="Texture2D" uid="uid://116ude3xxioh" path="res://assets/game/buying_scene/character/CH1_front_shadow.PNG" id="13_tiwff"]
+[ext_resource type="Texture2D" uid="uid://c6kcbcv0ckuu6" path="res://assets/game/buying_scene/character/CH1_front_shadow.png" id="13_tiwff"]
 [ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="13_yc5v8"]
-[ext_resource type="Texture2D" uid="uid://cawbj20otrk28" path="res://assets/game/buying_scene/character/CH1_left_shadow.PNG" id="14_lh478"]
 [ext_resource type="Texture2D" uid="uid://dre3pca1u07i1" path="res://assets/game/buying_scene/character/CH1_right.PNG" id="14_tiwff"]
 [ext_resource type="Texture2D" uid="uid://che7c6xixa63i" path="res://assets/game/buying_scene/character/CH1_back.PNG" id="15_4bdme"]
+[ext_resource type="Texture2D" uid="uid://cnw4oel1hhj5u" path="res://assets/game/buying_scene/character/CH1_left_shadow.png" id="15_exdl5"]
 [ext_resource type="PackedScene" uid="uid://dv560mmlqyjes" path="res://assets/game/buying_scene/dialogue/dialogue_manager.tscn" id="15_t6itr"]
-[ext_resource type="Texture2D" uid="uid://dmptmaj34spqg" path="res://assets/game/buying_scene/character/CH1_right_shadow.PNG" id="16_jx1gg"]
 [ext_resource type="Script" uid="uid://bhka1ncrybm0n" path="res://assets/game/buying_scene/dialogue/lines/dialogue_line.gd" id="16_r1xhn"]
 [ext_resource type="Resource" uid="uid://bcdaoma1fe23h" path="res://assets/game/buying_scene/dialogue/lines/louis_greeting.tres" id="17_2lxbu"]
-[ext_resource type="Texture2D" uid="uid://b3pt71mv5ci36" path="res://assets/game/buying_scene/character/CH1_back_shadow.PNG" id="18_exdl5"]
+[ext_resource type="Texture2D" uid="uid://c0rm24mc40r4w" path="res://assets/game/buying_scene/character/CH1_right_shadow.png" id="17_katif"]
 [ext_resource type="Resource" uid="uid://cqjdk62gq5tat" path="res://assets/game/buying_scene/dialogue/lines/upgrade_line.tres" id="18_r1xhn"]
 [ext_resource type="Resource" uid="uid://dvj1i78atnlne" path="res://assets/game/shared/fish/species/crappie.tres" id="19_fuumq"]
+[ext_resource type="Texture2D" uid="uid://bh6r0vxj8jbe1" path="res://assets/game/buying_scene/character/CH1_back_shadow.png" id="19_hcrup"]
 [ext_resource type="Script" uid="uid://dcc3s3rmx43so" path="res://assets/game/buying_scene/dialogue/lines/dialogue_condition.gd" id="20_utamy"]
 [ext_resource type="Script" uid="uid://bqk3yaifei62j" path="res://assets/game/buying_scene/dialogue/lines/give_polluted_fish.gd" id="21_utamy"]
 [ext_resource type="Script" uid="uid://bhciiix4yoeep" path="res://assets/game/buying_scene/dialogue/lines/trigger_event.gd" id="22_omqis"]
@@ -43,8 +43,8 @@ size = Vector2(206.25, 56)
 size = Vector2(68.5, 99)
 
 [sub_resource type="Gradient" id="Gradient_kq7pi"]
-offsets = PackedFloat32Array(0.15669014, 1)
-colors = PackedColorArray(0, 0, 0, 0.7921569, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.22007042, 0.40669015)
+colors = PackedColorArray(0, 0, 0, 0.6039216, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tiwff"]
 gradient = SubResource("Gradient_kq7pi")
@@ -56,9 +56,9 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpvk7"]
 size = Vector2(40, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_55ig4"]
-atlas = ExtResource("12_8l74v")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_amxth"]
+atlas = ExtResource("12_jx1gg")
+region = Rect2(0, 0, 57, 65)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bdme"]
 atlas = ExtResource("13_tiwff")
@@ -92,20 +92,20 @@ region = Rect2(0, 71, 64, 71)
 atlas = ExtResource("12_8l74v")
 region = Rect2(64, 71, 64, 71)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_amxth"]
-atlas = ExtResource("14_lh478")
+[sub_resource type="AtlasTexture" id="AtlasTexture_svc6x"]
+atlas = ExtResource("15_exdl5")
 region = Rect2(0, 0, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_svc6x"]
-atlas = ExtResource("14_lh478")
+[sub_resource type="AtlasTexture" id="AtlasTexture_imu8t"]
+atlas = ExtResource("15_exdl5")
 region = Rect2(57, 0, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_imu8t"]
-atlas = ExtResource("14_lh478")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ov4r"]
+atlas = ExtResource("15_exdl5")
 region = Rect2(0, 65, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ov4r"]
-atlas = ExtResource("14_lh478")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ice6t"]
+atlas = ExtResource("15_exdl5")
 region = Rect2(57, 65, 57, 65)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lh478"]
@@ -124,20 +124,20 @@ region = Rect2(0, 71, 64, 71)
 atlas = ExtResource("13_kq7pi")
 region = Rect2(64, 71, 64, 71)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ice6t"]
-atlas = ExtResource("16_jx1gg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_38621"]
+atlas = ExtResource("17_katif")
 region = Rect2(0, 0, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_38621"]
-atlas = ExtResource("16_jx1gg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_epj27"]
+atlas = ExtResource("17_katif")
 region = Rect2(57, 0, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_epj27"]
-atlas = ExtResource("16_jx1gg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa8ky"]
+atlas = ExtResource("17_katif")
 region = Rect2(0, 65, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aa8ky"]
-atlas = ExtResource("16_jx1gg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw7vv"]
+atlas = ExtResource("17_katif")
 region = Rect2(57, 65, 57, 65)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hcrup"]
@@ -156,20 +156,20 @@ region = Rect2(0, 71, 64, 71)
 atlas = ExtResource("14_tiwff")
 region = Rect2(64, 71, 64, 71)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pw7vv"]
-atlas = ExtResource("18_exdl5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k6ug"]
+atlas = ExtResource("19_hcrup")
 region = Rect2(0, 0, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3k6ug"]
-atlas = ExtResource("18_exdl5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pxiv"]
+atlas = ExtResource("19_hcrup")
 region = Rect2(57, 0, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2pxiv"]
-atlas = ExtResource("18_exdl5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lplsn"]
+atlas = ExtResource("19_hcrup")
 region = Rect2(0, 65, 57, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lplsn"]
-atlas = ExtResource("18_exdl5")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay42m"]
+atlas = ExtResource("19_hcrup")
 region = Rect2(57, 65, 57, 65)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_csvjf"]
@@ -192,7 +192,7 @@ region = Rect2(64, 71, 64, 71)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_55ig4")
+"texture": SubResource("AtlasTexture_amxth")
 }],
 "loop": true,
 "name": &"idle",
@@ -234,9 +234,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_amxth")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_svc6x")
 }, {
 "duration": 1.0,
@@ -244,6 +241,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ov4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ice6t")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -268,9 +268,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ice6t")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_38621")
 }, {
 "duration": 1.0,
@@ -278,6 +275,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aa8ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw7vv")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -302,9 +302,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pw7vv")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_3k6ug")
 }, {
 "duration": 1.0,
@@ -312,6 +309,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lplsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay42m")
 }],
 "loop": true,
 "name": &"walk_up",
@@ -477,14 +477,8 @@ sprite_node = NodePath("AnimatedSprite2D")
 
 [node name="Sprite2D2" type="Sprite2D" parent="YSorted/Character" unique_id=842962081]
 visible = false
-position = Vector2(0, 11)
+position = Vector2(0, -2)
 texture = SubResource("GradientTexture2D_tiwff")
-
-[node name="Sprite2D" type="Sprite2D" parent="YSorted/Character" unique_id=858446672]
-visible = false
-position = Vector2(0.2960205, -28)
-scale = Vector2(1.056, 1)
-texture = ExtResource("4_eoi11")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/Character" unique_id=238570841]
 position = Vector2(0.5, -5.75)
@@ -494,8 +488,9 @@ shape = SubResource("RectangleShape2D_hpvk7")
 position = Vector2(1.5, -39.25)
 scale = Vector2(1.359375, 1.3450705)
 sprite_frames = SubResource("SpriteFrames_4bdme")
-animation = &"walk_right"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.5545916
 
 [node name="Title" type="Label" parent="." unique_id=1950715427]
 visible = false

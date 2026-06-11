@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lpy4wv7jay4a"
-path="res://.godot/imported/Fort_Outline.PNG-fdae5e213523b2a3c5e2d967693b48a5.ctex"
+uid="uid://bgqygmq6kgpbn"
+path="res://.godot/imported/CH1_Shadow_static.png-d3ff88b090d9d92c2bf381c2b6b2c548.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/box_fort/Fort_Outline.PNG"
-dest_files=["res://.godot/imported/Fort_Outline.PNG-fdae5e213523b2a3c5e2d967693b48a5.ctex"]
+source_file="res://assets/game/buying_scene/character/CH1_Shadow_static.png"
+dest_files=["res://.godot/imported/CH1_Shadow_static.png-d3ff88b090d9d92c2bf381c2b6b2c548.ctex"]
 
 [params]
 
