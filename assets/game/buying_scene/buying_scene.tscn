@@ -16,6 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://hl7y71r6xpw8" path="res://assets/game/buying_scene/shop_menu/upgrade_button/upgrade_button.tscn" id="9_7sq2k"]
 [ext_resource type="Script" uid="uid://bdk7wb8u2stjc" path="res://assets/game/buying_scene/dialogue_window.gd" id="13_o1x55"]
 [ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="13_yc5v8"]
+[ext_resource type="PackedScene" uid="uid://dv560mmlqyjes" path="res://assets/game/buying_scene/dialog/dialogue_manager.tscn" id="15_t6itr"]
+[ext_resource type="Script" uid="uid://bhka1ncrybm0n" path="res://assets/game/buying_scene/dialog/lines/dialogue_line.gd" id="16_r1xhn"]
+[ext_resource type="Resource" uid="uid://bcdaoma1fe23h" path="res://assets/game/buying_scene/dialog/lines/louis_greeting.tres" id="17_2lxbu"]
+[ext_resource type="Resource" uid="uid://cqjdk62gq5tat" path="res://assets/game/buying_scene/dialog/lines/upgrade_line.tres" id="18_r1xhn"]
+[ext_resource type="Resource" uid="uid://dvj1i78atnlne" path="res://assets/game/shared/fish/species/crappie.tres" id="19_fuumq"]
+[ext_resource type="Script" uid="uid://dcc3s3rmx43so" path="res://assets/game/buying_scene/dialog/lines/dialogue_condition.gd" id="20_utamy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eoi11"]
 size = Vector2(267, 77)
@@ -56,6 +62,23 @@ b = Vector2(194, 104)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yc5v8"]
 font_size = 29
+
+[sub_resource type="Resource" id="Resource_t6itr"]
+script = ExtResource("16_r1xhn")
+text = "Woah, fancy meeting you again!"
+required_flags = Array[int]([0])
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
+
+[sub_resource type="Resource" id="Resource_omqis"]
+script = ExtResource("20_utamy")
+fish_specie = ExtResource("19_fuumq")
+metadata/_custom_type_script = "uid://dcc3s3rmx43so"
+
+[sub_resource type="Resource" id="Resource_r1xhn"]
+script = ExtResource("16_r1xhn")
+text = "Woah dawg is that a crappie??"
+extra_condition = SubResource("Resource_omqis")
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [node name="BuyingScene" type="Node2D" unique_id=71390660]
 script = ExtResource("1_b6mu0")
@@ -182,10 +205,12 @@ offset_right = 1273.0
 offset_bottom = 744.0
 visibility_mode = 1
 
-[node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421]
+[node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421 node_paths=PackedStringArray("dialogue_label", "dialogue_manager")]
 process_mode = 2
 visible = false
 script = ExtResource("13_o1x55")
+dialogue_label = NodePath("Panel/MarginContainer/HBoxContainer/MarginContainer/Label")
+dialogue_manager = NodePath("DialogueManager")
 
 [node name="Darken" type="ColorRect" parent="DialogueWindow" unique_id=1851289861]
 anchors_preset = 15
@@ -245,7 +270,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1883158584]
+[node name="ConfirmButton" type="Button" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1883158584]
 layout_mode = 2
 text = "Confirm"
 
@@ -256,6 +281,9 @@ theme_override_constants/margin_top = 21
 [node name="ExitButton" type="Button" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1696530472]
 layout_mode = 2
 text = "Exit"
+
+[node name="DialogueManager" parent="DialogueWindow" unique_id=412198772 instance=ExtResource("15_t6itr")]
+dialogue_lines = Array[ExtResource("16_r1xhn")]([ExtResource("17_2lxbu"), SubResource("Resource_t6itr"), ExtResource("18_r1xhn"), SubResource("Resource_r1xhn")])
 
 [node name="ShopMenu" type="CanvasLayer" parent="." unique_id=1736017532 node_paths=PackedStringArray("items_container", "description_label", "purchase_button")]
 process_mode = 3
@@ -345,6 +373,7 @@ text = "Exit"
 [connection signal="shop_opened" from="YSorted/ReelAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
+[connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ConfirmButton" to="DialogueWindow" method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="DialogueWindow" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/PurchaseButton" to="ShopMenu" method="_on_purchase_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/ExitButton" to="ShopMenu" method="_on_exit_button_pressed"]

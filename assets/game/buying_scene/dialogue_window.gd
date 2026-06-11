@@ -1,14 +1,7 @@
 extends CanvasLayer
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@export var dialogue_label: Label
+@export var dialogue_manager: DialogueManager
 	
 func close_window():
 	get_tree().paused = false
@@ -25,3 +18,9 @@ func _on_exit_button_pressed():
 func _on_open_dialogue_box():
 	get_tree().paused = true
 	visible = true
+	
+	dialogue_label.text = dialogue_manager.get_dialogue().text
+
+func _on_confirm_button_pressed():
+	PlayerManager.trigger_event(PlayerData.GameEvent.MET_LOUIS)
+	close_window()
