@@ -18,9 +18,8 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_piidd"]
 font_size = 20
 
-[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("pause_button", "haggle_ui")]
+[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui")]
 script = ExtResource("1_w1ejd")
-pause_button = NodePath("")
 haggle_ui = NodePath("CanvasLayer/HaggleControl")
 
 [node name="Control" type="Control" parent="." unique_id=729090283]
