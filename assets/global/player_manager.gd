@@ -8,9 +8,9 @@ signal inventory_changed()
 signal upgrade_changed(upgrade_type: Upgrade.UpgradeType, new_level: int)
 
 const SAVE_PATH := "user://player_data.tres" #i think this is right? we'll have to figure this out but seems simple enough
-const BASE_SELL_SLOTS: int = 5
+const BASE_SELL_SLOTS: int = 20
 const SLOTS_PER_LEVEL: int = 1
-const MAX_SELL_SLOTS_CAP: int = 8
+const MAX_SELL_SLOTS_CAP: int = 20
 
 # not sure if we should hold these here? 
 const PERFECT_POINTS: float = 2.0
