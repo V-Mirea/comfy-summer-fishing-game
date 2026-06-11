@@ -4,26 +4,50 @@
 [ext_resource type="Script" uid="uid://cn0vq1ud73bn5" path="res://assets/game/shared/fish/bubble_step.gd" id="1_vwouw"]
 [ext_resource type="Texture2D" uid="uid://cnsiewo17a4h8" path="res://assets/game/shared/fish/species/bluegill_sheet.png" id="3_sheet"]
 
-[sub_resource type="Resource" id="Resource_bbkmv"]
+[sub_resource type="Resource" id="Resource_jq5wp"]
 script = ExtResource("1_vwouw")
 metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
 
-[sub_resource type="Resource" id="Resource_ur8m7"]
+[sub_resource type="Resource" id="Resource_k2kx8"]
 script = ExtResource("1_vwouw")
-position = Vector2(100, 0)
-delay = 1.0
+position = Vector2(50, 100)
+delay = 0.5
 metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
 
-[sub_resource type="Resource" id="Resource_5gfxi"]
+[sub_resource type="Resource" id="Resource_jmhpe"]
 script = ExtResource("1_vwouw")
-position = Vector2(200, 0)
-delay = 1.0
+position = Vector2(100, -100)
+delay = 2.0
 metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
 
-[sub_resource type="Resource" id="Resource_xx5dn"]
+[sub_resource type="Resource" id="Resource_kcmsm"]
 script = ExtResource("1_vwouw")
-position = Vector2(300, 0)
-delay = 1.0
+position = Vector2(150, 100)
+delay = 2.5
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_yr2f2"]
+script = ExtResource("1_vwouw")
+position = Vector2(200, -100)
+delay = 4.0
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_vqqeq"]
+script = ExtResource("1_vwouw")
+position = Vector2(250, 100)
+delay = 4.5
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_0thrx"]
+script = ExtResource("1_vwouw")
+position = Vector2(300, -100)
+delay = 6.0
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_he3mg"]
+script = ExtResource("1_vwouw")
+position = Vector2(350, 100)
+delay = 6.5
 metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
 
 [resource]
@@ -32,5 +56,6 @@ display_name = "Bluegill"
 description = "Small but mighty, always biting when nothing else will."
 base_price = 50
 sprite_sheet = ExtResource("3_sheet")
-bubble_lifetime = 0.5
-pattern = Array[ExtResource("1_vwouw")]([SubResource("Resource_bbkmv"), SubResource("Resource_ur8m7"), SubResource("Resource_5gfxi"), SubResource("Resource_xx5dn")])
+bubble_lifetime = 2.0
+pattern = Array[ExtResource("1_vwouw")]([SubResource("Resource_jq5wp"), SubResource("Resource_k2kx8"), SubResource("Resource_jmhpe"), SubResource("Resource_kcmsm"), SubResource("Resource_yr2f2"), SubResource("Resource_vqqeq"), SubResource("Resource_0thrx"), SubResource("Resource_he3mg")])
+catch_weight = 7

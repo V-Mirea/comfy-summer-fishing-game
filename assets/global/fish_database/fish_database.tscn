@@ -2,7 +2,65 @@
 
 [ext_resource type="Script" uid="uid://7l1frtj6cy3f" path="res://assets/global/fish_database/fish_database.gd" id="1_db"]
 [ext_resource type="Resource" uid="uid://bpr8dtl6yu4xj" path="res://assets/game/shared/fish/species/bluegill.tres" id="2_bluegill"]
+[ext_resource type="Script" uid="uid://b3q7jrdgu3akv" path="res://assets/game/shared/fish/species/fish_species.gd" id="2_species"]
+[ext_resource type="Script" uid="uid://cn0vq1ud73bn5" path="res://assets/game/shared/fish/bubble_step.gd" id="3_ppmxa"]
+[ext_resource type="Texture2D" uid="uid://cnsiewo17a4h8" path="res://assets/game/shared/fish/species/bluegill_sheet.png" id="5_j34ii"]
+
+[sub_resource type="Resource" id="Resource_ldgvn"]
+script = ExtResource("3_ppmxa")
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_81gbo"]
+script = ExtResource("3_ppmxa")
+position = Vector2(60, 10)
+delay = 0.5
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_lsq4e"]
+script = ExtResource("3_ppmxa")
+position = Vector2(120, 20)
+delay = 1.0
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_gfevr"]
+script = ExtResource("3_ppmxa")
+position = Vector2(180, 30)
+delay = 1.5
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_1ho5u"]
+script = ExtResource("3_ppmxa")
+position = Vector2(300, 100)
+delay = 3.0
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_wde6l"]
+script = ExtResource("3_ppmxa")
+position = Vector2(400, 200)
+delay = 3.5
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_6f35w"]
+script = ExtResource("3_ppmxa")
+position = Vector2(480, 250)
+delay = 5.0
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_px8iq"]
+script = ExtResource("3_ppmxa")
+position = Vector2(560, 300)
+delay = 5.5
+metadata/_custom_type_script = "uid://cn0vq1ud73bn5"
+
+[sub_resource type="Resource" id="Resource_f287b"]
+script = ExtResource("2_species")
+display_name = "Crappie"
+base_price = 75
+sprite_sheet = ExtResource("5_j34ii")
+bubble_lifetime = 2.0
+pattern = Array[ExtResource("3_ppmxa")]([SubResource("Resource_ldgvn"), SubResource("Resource_81gbo"), SubResource("Resource_lsq4e"), SubResource("Resource_gfevr"), SubResource("Resource_1ho5u"), SubResource("Resource_wde6l"), SubResource("Resource_6f35w"), SubResource("Resource_px8iq")])
+catch_weight = 3
 
 [node name="FishDatabase" type="Node" unique_id=1702441677]
 script = ExtResource("1_db")
-species = Array[Resource]([ExtResource("2_bluegill")])
+species = Array[ExtResource("2_species")]([ExtResource("2_bluegill"), SubResource("Resource_f287b")])

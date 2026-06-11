@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bckgy2rx84xwk"]
+
+[ext_resource type="Script" uid="uid://dys1cv4mma5ta" path="res://assets/game/buying_scene/aisle/aisle.gd" id="1_3aoq8"]
+[ext_resource type="Texture2D" uid="uid://ddmbegyt3xpwo" path="res://assets/game/buying_scene/aisle/Shelf.PNG" id="2_b2ge7"]
+[ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/aisle/sprite_2d.gd" id="3_sy2aq"]
+[ext_resource type="Texture2D" uid="uid://covfbjv2uiufl" path="res://assets/game/buying_scene/aisle/Shelf_Outline.PNG" id="4_0mlmo"]
+[ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/aisle/interaction_area.gd" id="5_0fpow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l2yu"]
+size = Vector2(207.75, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s4dn"]
+size = Vector2(262.5, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tnhv"]
+size = Vector2(185, 112)
+
+[node name="Aisle" type="StaticBody2D" unique_id=543733618]
+y_sort_enabled = true
+script = ExtResource("1_3aoq8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1917228821]
+texture = ExtResource("2_b2ge7")
+script = ExtResource("3_sy2aq")
+interactable_sprite = ExtResource("4_0mlmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=308502004]
+position = Vector2(-0.875, 58)
+shape = SubResource("RectangleShape2D_5l2yu")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1507720211]
+position = Vector2(-31, -38)
+script = ExtResource("5_0fpow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1362044921]
+position = Vector2(31.75, 98)
+shape = SubResource("RectangleShape2D_3s4dn")
+
+[node name="TransparencyArea" type="Area2D" parent="." unique_id=1033181804]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransparencyArea" unique_id=901909200]
+position = Vector2(-0.5, -7)
+shape = SubResource("RectangleShape2D_7tnhv")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
+[connection signal="player_entered" from="InteractionArea" to="." method="_on_player_entered_interaction_area"]
+[connection signal="player_entered" from="InteractionArea" to="Sprite2D" method="_on_interaction_area_player_entered"]
+[connection signal="player_exited" from="InteractionArea" to="." method="_on_player_exited_interaction_area"]
+[connection signal="player_exited" from="InteractionArea" to="Sprite2D" method="_on_interaction_area_player_exited"]
+[connection signal="body_entered" from="TransparencyArea" to="." method="_on_transparency_area_body_entered"]
+[connection signal="body_exited" from="TransparencyArea" to="." method="_on_transparency_area_body_exited"]

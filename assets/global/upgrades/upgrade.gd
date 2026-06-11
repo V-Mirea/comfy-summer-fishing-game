@@ -9,4 +9,4 @@ enum UpgradeType { ROD, REEL, LINE, BAIT, SHOP_LEVEL, ADVERTISING, POLLUTION, CO
 
 @export var name: String
 @export var description: String
-#@export var sprite
+@export var sprite: Texture2D

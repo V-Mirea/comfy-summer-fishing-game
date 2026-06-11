@@ -9,3 +9,5 @@ class_name FishSpecies
 @export var sprite_sheet: Texture2D
 @export var bubble_lifetime: float = 1.0
 @export var pattern: Array[BubbleStep] = []
+@export var minimum_rod_level = 0
+@export var catch_weight = 0
