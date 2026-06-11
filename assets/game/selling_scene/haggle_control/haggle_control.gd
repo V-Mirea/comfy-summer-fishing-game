@@ -34,7 +34,6 @@ func _on_accept_button_pressed():
 		Customer.Reaction.ANGRY:
 			offer_declined.emit(customer) # this signal tells the customer to leave. this might not be the right way to handle it.
 		Customer.Reaction.DECLINE:
-			customer.show_decline_bubble()
 			price_slider.max_value = price
 
 func _on_decline_button_pressed():

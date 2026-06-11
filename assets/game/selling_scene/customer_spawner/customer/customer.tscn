@@ -11,10 +11,12 @@
 font_size = 11
 font_color = Color(0, 0, 0, 1)
 
-[node name="Customer" type="Node2D" unique_id=357713427 node_paths=PackedStringArray("offer_label", "clickbox", "decline_sprite")]
+[node name="Customer" type="Node2D" unique_id=357713427 node_paths=PackedStringArray("offer_label", "clickbox", "accept_sprite", "angry_sprite", "decline_sprite")]
 script = ExtResource("1_xss0h")
 offer_label = NodePath("OfferControl/OfferLabel")
 clickbox = NodePath("Clickbox")
+accept_sprite = NodePath("AcceptSprite")
+angry_sprite = NodePath("AngrySprite")
 decline_sprite = NodePath("DeclineSprite")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2062455435]
