@@ -22,6 +22,7 @@ var max_angry_chance: float = 0.8 # 0-1 chance after they dont accept that custo
 
 var patience: int = 100 # 0-100. Customer leaves at 0
 
+var slot_position: Vector2 # where the customer should end up after walking in
 var slot_index: int
 var fish_wanted: Fish
 var patience_timer: Timer
@@ -96,7 +97,7 @@ func _patience_timer_triggered():
 		leave_shop()
 	
 func _on_clickbox_toggled(toggled_on):
-	selected.emit(self, toggled_on)
+	selected.emit(self, toggled_on) # connected to selling manager to toggle haggle control and unselect other customers
 	
 func _on_some_customer_bartering(customer: Customer):
 	if customer != self:
