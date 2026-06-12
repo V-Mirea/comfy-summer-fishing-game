@@ -16,7 +16,7 @@ func can_transition_to(new_state: int) -> bool:
 
 func change_state(new_state: int, context: Dictionary = {}) -> bool:
 	if not current_state == -1 and not can_transition_to(new_state):
-		print("Illegal transition: %d -> %d" % [current_state, new_state])
+		printerr("Illegal transition: %d -> %d" % [current_state, new_state])
 		return false
 	var old_state = current_state
 	current_state = new_state

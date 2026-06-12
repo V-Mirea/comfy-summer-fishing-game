@@ -36,7 +36,7 @@ var chat_bubble_timer: Timer
 
 func _ready():
 	var valid_transitions = {
-		State.ENTERING: [State.SHOPPING],
+		State.ENTERING: [State.SHOPPING, State.LEAVING],
 		State.SHOPPING: [State.LEAVING],
 		State.LEAVING: []
 	}
@@ -125,5 +125,5 @@ func _on_some_customer_bartering(customer: Customer):
 		clickbox.set_pressed_no_signal(false)
 
 func _on_fish_sold(fish: Fish):
-	if fish == fish_wanted:
+	if state_machine.current_state != State.LEAVING and fish == fish_wanted:
 		start_leaving()

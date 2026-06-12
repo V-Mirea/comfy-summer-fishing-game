@@ -40,8 +40,8 @@ func _on_customer_selected(customer: Customer, toggled_on: bool):
 
 func _on_offer_accepted(customer: Customer, price: int):
 	PlayerManager.sell_fish(customer.fish_wanted, price)
-	fish_sold.emit(customer.fish_wanted) # connected to other customers to make them leave if they want the same fish
 	customer.start_leaving()
+	fish_sold.emit(customer.fish_wanted) # connected to other customers to make them leave if they want the same fish
 
 func _on_offer_declined(customer: Customer):
 	customer.start_leaving()
