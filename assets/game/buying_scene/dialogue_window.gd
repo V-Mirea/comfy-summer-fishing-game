@@ -17,6 +17,9 @@ func _input(event):
 		
 func start_conversation():
 	current_line = dialogue_manager.get_dialogue()
+	if current_line == null:
+		printerr("Tried to start a conversation with no dialogue available in manager")
+		return
 	
 	if !current_line.dialogue_scripts.is_empty():
 		for script in current_line.dialogue_scripts:

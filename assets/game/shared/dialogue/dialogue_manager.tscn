@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv560mmlqyjes"]
 
-[ext_resource type="Script" uid="uid://ccomcmkiywa0m" path="res://assets/game/buying_scene/dialogue/dialogue_manager.gd" id="1_djqle"]
+[ext_resource type="Script" uid="uid://ccomcmkiywa0m" path="res://assets/game/shared/dialogue/dialogue_manager.gd" id="1_djqle"]
 
 [node name="DialogueManager" type="Node" unique_id=412198772]
 script = ExtResource("1_djqle")
