@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://covfbjv2uiufl"
-path="res://.godot/imported/Shelf_Outline.PNG-ec59af28b6769e4ef8fb0524d5e0defc.ctex"
+uid="uid://dirs2qkcxfxo8"
+path="res://.godot/imported/tick.png-e9d2daa590a04a55ed86ab1fc4cb55fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/aisle/Shelf_Outline.PNG"
-dest_files=["res://.godot/imported/Shelf_Outline.PNG-ec59af28b6769e4ef8fb0524d5e0defc.ctex"]
+source_file="res://assets/game/selling_scene/customer_spawner/customer/tick.png"
+dest_files=["res://.godot/imported/tick.png-e9d2daa590a04a55ed86ab1fc4cb55fa.ctex"]
 
 [params]
 
