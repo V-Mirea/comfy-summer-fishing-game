@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0rm24mc40r4w"
-path="res://.godot/imported/CH1_right_shadow.png-389e9d072dfa8de063fe059ed5a54947.ctex"
+uid="uid://bvymvnc7dik4v"
+path="res://.godot/imported/Shelf_thick_outline.PNG-f4176f8dbcecd3c5aed89c17560b1e64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/character/CH1_right_shadow.png"
-dest_files=["res://.godot/imported/CH1_right_shadow.png-389e9d072dfa8de063fe059ed5a54947.ctex"]
+source_file="res://assets/game/buying_scene/interactables/aisle/Shelf_thick_outline.PNG"
+dest_files=["res://.godot/imported/Shelf_thick_outline.PNG-f4176f8dbcecd3c5aed89c17560b1e64.ctex"]
 
 [params]
 
