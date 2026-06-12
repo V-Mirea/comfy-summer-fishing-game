@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://cmg53b45ikcyy"]
 
 [ext_resource type="Script" uid="uid://bcypvgjpjqawc" path="res://assets/game/selling_scene/selling_manager.gd" id="1_w1ejd"]
-[ext_resource type="Texture2D" uid="uid://cu3akrrnbsbli" path="res://assets/game/selling_scene/Selling_stall.PNG" id="2_lr7ye"]
+[ext_resource type="Texture2D" uid="uid://dy7gck1p1nhk3" path="res://assets/game/selling_scene/Sell_screen_BG.png" id="2_lr7ye"]
 [ext_resource type="Script" uid="uid://ltw1bdxt8jjj" path="res://assets/game/selling_scene/haggle_control/haggle_control.gd" id="2_o8g2t"]
-[ext_resource type="Texture2D" uid="uid://b51juuwb4au5g" path="res://assets/game/selling_scene/Sign_3.PNG" id="3_6hwc8"]
 [ext_resource type="Texture2D" uid="uid://c5y8k254xl3tx" path="res://assets/game/selling_scene/haggle_control/accept.png" id="3_lr7ye"]
 [ext_resource type="Texture2D" uid="uid://d0si60437xphd" path="res://assets/game/selling_scene/haggle_control/decline.png" id="4_6hwc8"]
-[ext_resource type="Script" uid="uid://dn6jc4vvv1clx" path="res://assets/game/selling_scene/fish_list.gd" id="5_iyhom"]
 [ext_resource type="Script" uid="uid://hwwp83yvavu2" path="res://assets/game/selling_scene/customer_spawner/customer_spawner.gd" id="7_q6wlo"]
 [ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://assets/game/selling_scene/customer_spawner/customer/customer.tscn" id="8_830pu"]
+[ext_resource type="PackedScene" uid="uid://dfftaretwk450" path="res://assets/game/selling_scene/stall/small_stall/small_stall.tscn" id="8_w1ejd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24tig"]
 font_size = 40
@@ -17,21 +16,14 @@ font_size = 40
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_piidd"]
-font_size = 20
-
 [node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui")]
 texture_filter = 1
 script = ExtResource("1_w1ejd")
 haggle_ui = NodePath("CanvasLayer/HaggleControl")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1442556545]
+[node name="Background" type="Sprite2D" parent="." unique_id=1442556545]
 texture = ExtResource("2_lr7ye")
 centered = false
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1821902243]
-position = Vector2(1106, 340)
-texture = ExtResource("3_6hwc8")
 
 [node name="Control" type="Control" parent="." unique_id=729090283]
 layout_mode = 3
@@ -151,37 +143,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.011764706, 1, 1, 1)
 
-[node name="FishPanel" type="VBoxContainer" parent="CanvasLayer" unique_id=2075231069]
-anchors_preset = -1
-anchor_left = 0.15
-anchor_top = 0.033
-anchor_right = 0.85
-anchor_bottom = 0.3
-offset_left = 852.0
-offset_top = 157.24
-offset_right = 151.0
-offset_bottom = 281.0
-size_flags_vertical = 3
-
-[node name="FishLabel" type="Label" parent="CanvasLayer/FishPanel" unique_id=1167204912]
-layout_mode = 2
-text = "Fish to Sell"
-label_settings = SubResource("LabelSettings_piidd")
-horizontal_alignment = 1
-
-[node name="FishList" type="ItemList" parent="CanvasLayer/FishPanel" unique_id=1946857980]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 16
-allow_search = false
-max_columns = 5
-same_column_width = true
-script = ExtResource("5_iyhom")
-
 [node name="CustomerSpawner" type="Node" parent="." unique_id=1346029056 node_paths=PackedStringArray("customer_area")]
 script = ExtResource("7_q6wlo")
 customer_area = NodePath("../CanvasLayer/CustomerSpawnArea")
 customer_scene = ExtResource("8_830pu")
+
+[node name="SmallStall" parent="." unique_id=338772597 instance=ExtResource("8_w1ejd")]
+position = Vector2(640, 360)
 
 [connection signal="bartering_started" from="." to="CanvasLayer/HaggleControl" method="_on_customer_bartering"]
 [connection signal="pressed" from="Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
