@@ -60,7 +60,6 @@ layout_mode = 2
 [node name="MoneyLabel" type="Label" parent="Panel/MarginContainer/VBox" unique_id=758842710]
 layout_mode = 2
 text = "Money: 0"
-script = ExtResource("2_j4ds5")
 
 [node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=827154382]
 layout_mode = 2

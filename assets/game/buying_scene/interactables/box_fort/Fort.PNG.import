@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0rm24mc40r4w"
-path="res://.godot/imported/CH1_right_shadow.png-389e9d072dfa8de063fe059ed5a54947.ctex"
+uid="uid://ixg6yjt305sy"
+path="res://.godot/imported/Fort.PNG-8a4b437b55cc87961ed315d9e50ae33c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/character/CH1_right_shadow.png"
-dest_files=["res://.godot/imported/CH1_right_shadow.png-389e9d072dfa8de063fe059ed5a54947.ctex"]
+source_file="res://assets/game/buying_scene/interactables/box_fort/Fort.PNG"
+dest_files=["res://.godot/imported/Fort.PNG-8a4b437b55cc87961ed315d9e50ae33c.ctex"]
 
 [params]
 

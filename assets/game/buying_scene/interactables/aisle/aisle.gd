@@ -17,6 +17,10 @@ func _process(delta):
 func _unhandled_input(event):
 	if player_in_range and event.is_action_pressed("interact"):
 		shop_opened.emit(upgrades_sold)
+		
+func _on_interact_button_pressed():
+	if player_in_range:
+		shop_opened.emit(upgrades_sold)
 
 func _on_player_entered_interaction_area():
 	player_in_range = true

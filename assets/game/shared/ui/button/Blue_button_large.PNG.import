@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddmbegyt3xpwo"
-path="res://.godot/imported/Shelf.PNG-78ee316b63de293eba2284b54de9e38e.ctex"
+uid="uid://c4ni27o2xegci"
+path="res://.godot/imported/Blue_button_large.PNG-3cbd2ca9964d58e1c020f36752cadbee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/aisle/Shelf.PNG"
-dest_files=["res://.godot/imported/Shelf.PNG-78ee316b63de293eba2284b54de9e38e.ctex"]
+source_file="res://assets/game/shared/ui/button/Blue_button_large.PNG"
+dest_files=["res://.godot/imported/Blue_button_large.PNG-3cbd2ca9964d58e1c020f36752cadbee.ctex"]
 
 [params]
 

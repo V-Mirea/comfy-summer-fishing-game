@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmg53b45ikcyy" path="res://assets/game/selling_scene/selling_scene.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://lox5kan0hfl5" path="res://assets/game/buying_scene/buying_scene.tscn" id="5_p57ef"]
 [ext_resource type="Script" uid="uid://mpub31iptkbi" path="res://assets/game/shared/money_control.gd" id="7_faf0w"]
-[ext_resource type="Script" uid="uid://dadrap2dtvhow" path="res://assets/game/selling_scene/money_label.gd" id="7_pdf2x"]
+[ext_resource type="Script" uid="uid://dadrap2dtvhow" path="res://assets/game/money_label.gd" id="7_pdf2x"]
 [ext_resource type="Script" uid="uid://bfy2euwe0xian" path="res://assets/game/pause_button.gd" id="9_k08a3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pg74i"]

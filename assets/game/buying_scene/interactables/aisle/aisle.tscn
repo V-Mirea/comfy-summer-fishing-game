@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bckgy2rx84xwk"]
 
-[ext_resource type="Script" uid="uid://dys1cv4mma5ta" path="res://assets/game/buying_scene/aisle/aisle.gd" id="1_3aoq8"]
-[ext_resource type="Texture2D" uid="uid://ddmbegyt3xpwo" path="res://assets/game/buying_scene/aisle/Shelf.PNG" id="2_b2ge7"]
-[ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactable_sprite.gd" id="3_sy2aq"]
-[ext_resource type="Texture2D" uid="uid://bvymvnc7dik4v" path="res://assets/game/buying_scene/aisle/Shelf_thick_outline.PNG" id="4_3aoq8"]
-[ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/aisle/interaction_area.gd" id="5_0fpow"]
+[ext_resource type="Script" uid="uid://dys1cv4mma5ta" path="res://assets/game/buying_scene/interactables/aisle/aisle.gd" id="1_3aoq8"]
+[ext_resource type="Texture2D" uid="uid://ddmbegyt3xpwo" path="res://assets/game/buying_scene/interactables/aisle/Shelf.PNG" id="2_b2ge7"]
+[ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactables/interactable_sprite.gd" id="3_sy2aq"]
+[ext_resource type="Texture2D" uid="uid://bvymvnc7dik4v" path="res://assets/game/buying_scene/interactables/aisle/Shelf_thick_outline.PNG" id="4_3aoq8"]
+[ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/interactables/interaction_area.gd" id="5_0fpow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l2yu"]
 size = Vector2(207.75, 60)

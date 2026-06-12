@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0luw26ytkmjr"
-path="res://.godot/imported/Fort_thick_outline.PNG-21ba1efd32211376d81a70b23698b309.ctex"
+uid="uid://cpn8nhgpdc7me"
+path="res://.godot/imported/Blue_button_large_pressed.PNG-3a9e820a3786ea7a2c2dab8e083f7d99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/box_fort/Fort_thick_outline.PNG"
-dest_files=["res://.godot/imported/Fort_thick_outline.PNG-21ba1efd32211376d81a70b23698b309.ctex"]
+source_file="res://assets/game/shared/ui/button/Blue_button_large_pressed.PNG"
+dest_files=["res://.godot/imported/Blue_button_large_pressed.PNG-3a9e820a3786ea7a2c2dab8e083f7d99.ctex"]
 
 [params]
 
