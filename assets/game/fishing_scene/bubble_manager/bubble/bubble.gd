@@ -10,6 +10,9 @@ const POP_FRAME_DURATION: float = 0.05
 @export var timing_ring: Sprite2D
 @export var bubble_sprite: AnimatedSprite2D
 @export var bubble_scale: float = 3.0
+@export var sfx_perfect: SfxEvent
+@export var sfx_good: SfxEvent
+@export var sfx_bad: SfxEvent
 
 @export_group("Zone Colors")
 @export var color_bad: Color = Color('#D1505B')
@@ -107,6 +110,14 @@ func _resolve(result: String) -> void:
 		queue_free()
 		return
 
+	match result:
+		"perfect":
+			AudioManager.play_sfx(sfx_perfect)
+		"good":
+			AudioManager.play_sfx(sfx_good)
+		"bad":
+			AudioManager.play_sfx(sfx_bad)
+
 	bubble_sprite.visible = false
 	timing_ring.modulate = Color.WHITE
 	timing_ring.scale = Vector2.ONE
@@ -116,7 +127,7 @@ func _resolve(result: String) -> void:
 	popping = true
 
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if resolved:
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

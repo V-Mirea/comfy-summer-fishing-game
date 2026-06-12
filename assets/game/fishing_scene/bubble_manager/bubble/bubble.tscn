@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://8c5xt8eapw1q" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble.gd" id="1_by70g"]
 [ext_resource type="Texture2D" uid="uid://sm6v47bw2ewh" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble_pop.png" id="2_pop"]
 [ext_resource type="Texture2D" uid="uid://0uidpc3ekiyn" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble_base.png" id="3_base"]
+[ext_resource type="Resource" path="res://assets/audio/sfx/bubble_perfect.tres" id="4_perfect"]
+[ext_resource type="Resource" path="res://assets/audio/sfx/bubble_good.tres" id="5_good"]
+[ext_resource type="Resource" path="res://assets/audio/sfx/bubble_bad.tres" id="6_bad"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f0"]
 atlas = ExtResource("3_base")
@@ -61,6 +64,9 @@ radius = 22.0
 script = ExtResource("1_by70g")
 timing_ring = NodePath("TimingRing")
 bubble_sprite = NodePath("BubbleSprite")
+sfx_perfect = ExtResource("4_perfect")
+sfx_good = ExtResource("5_good")
+sfx_bad = ExtResource("6_bad")
 
 [node name="TimingRing" type="Sprite2D" parent="." unique_id=1294902405]
 texture = ExtResource("2_pop")

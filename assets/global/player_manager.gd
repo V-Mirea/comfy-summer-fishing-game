@@ -12,7 +12,7 @@ const BASE_SELL_SLOTS: int = 5
 const SLOTS_PER_LEVEL: int = 1
 const MAX_SELL_SLOTS_CAP: int = 8
 
-# not sure if we should hold these here? 
+# TODO: move these around and the calculations to fishign scene/manager rename
 const PERFECT_POINTS: float = 2.0
 const GOOD_POINTS: float = 1.0
 const BAD_POINTS: float = 0.0
