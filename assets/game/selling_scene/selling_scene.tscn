@@ -21,6 +21,7 @@ font_color = Color(0, 0, 0, 1)
 font_size = 20
 
 [node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui")]
+texture_filter = 1
 script = ExtResource("1_w1ejd")
 haggle_ui = NodePath("CanvasLayer/HaggleControl")
 

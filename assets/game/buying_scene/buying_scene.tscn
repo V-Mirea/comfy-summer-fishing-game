@@ -267,6 +267,7 @@ dialogue_scripts = Array[Resource]([SubResource("Resource_tiwff"), SubResource("
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [node name="BuyingScene" type="Node2D" unique_id=71390660]
+texture_filter = 1
 script = ExtResource("1_b6mu0")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2087782272]
