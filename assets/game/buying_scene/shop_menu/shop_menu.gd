@@ -11,8 +11,12 @@ var selected_upgrade: Upgrade
 func _ready():
 	pass
 
-# BUG: the buttons are being pushed off the menu when reopening the shop 
 func populate_shop(upgrades_sold: Upgrade.UpgradeType):
+	# clear item shop to populate on a clean slate
+	description_label.text = ""
+	for child in items_container.get_children():
+		child.queue_free()
+		
 	var button_group: ButtonGroup = ButtonGroup.new()
 	for upgrade: Upgrade in UpgradeDatabase.upgrades_dictionary[upgrades_sold]:
 		var upgrade_button: UpgradeButton = upgrade_button_scene.instantiate() as UpgradeButton
@@ -54,8 +58,3 @@ func _on_purchase_button_pressed():
 func _on_exit_button_pressed():
 	get_tree().paused = false
 	visible = false
-	
-	description_label.text = ""
-	# remove all items from the shop since we will repopulate on open
-	for child in items_container.get_children():
-		child.queue_free()

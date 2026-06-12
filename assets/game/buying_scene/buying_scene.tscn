@@ -2,12 +2,40 @@
 
 [ext_resource type="Script" uid="uid://cvua02n5l4mc5" path="res://assets/game/buying_scene/buying_manager.gd" id="1_b6mu0"]
 [ext_resource type="Script" uid="uid://vgcqo6qthcdr" path="res://assets/game/buying_scene/character/character.gd" id="2_5l2yu"]
+[ext_resource type="Texture2D" uid="uid://big2lprwdx5s0" path="res://assets/game/buying_scene/Shop_no items.PNG" id="2_7sq2k"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://assets/game/buying_scene/virtual_joystick/virtual_joystick_scene.tscn" id="3_5l2yu"]
 [ext_resource type="PackedScene" uid="uid://bckgy2rx84xwk" path="res://assets/game/buying_scene/aisle/aisle.tscn" id="3_7o44q"]
+[ext_resource type="Texture2D" uid="uid://ixg6yjt305sy" path="res://assets/game/buying_scene/box_fort/Fort.PNG" id="3_7tnhv"]
+[ext_resource type="Script" uid="uid://cy3y7ib68st7c" path="res://assets/game/buying_scene/box_fort/box_fort.gd" id="3_ig6k8"]
 [ext_resource type="Texture2D" uid="uid://6meot84eofxj" path="res://assets/game/buying_scene/character/Character_Sprite.PNG" id="4_eoi11"]
+[ext_resource type="Texture2D" uid="uid://b3eix3x2js8ql" path="res://assets/game/buying_scene/Items_only.PNG" id="4_i6cjn"]
+[ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactable_sprite.gd" id="4_ig6k8"]
+[ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/aisle/interaction_area.gd" id="4_uhb6p"]
+[ext_resource type="Texture2D" uid="uid://lpy4wv7jay4a" path="res://assets/game/buying_scene/box_fort/Fort_Outline.PNG" id="5_uhb6p"]
 [ext_resource type="Script" uid="uid://cewu6chnl35ii" path="res://assets/game/buying_scene/shop_menu/shop_menu.gd" id="8_7sq2k"]
 [ext_resource type="PackedScene" uid="uid://hl7y71r6xpw8" path="res://assets/game/buying_scene/shop_menu/upgrade_button/upgrade_button.tscn" id="9_7sq2k"]
-[ext_resource type="Texture2D" uid="uid://bekf0mnmf50k1" path="res://assets/game/buying_scene/Shop_items.PNG" id="10_7tnhv"]
+[ext_resource type="Script" uid="uid://bdk7wb8u2stjc" path="res://assets/game/buying_scene/dialogue_window.gd" id="13_o1x55"]
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="13_yc5v8"]
+[ext_resource type="PackedScene" uid="uid://dv560mmlqyjes" path="res://assets/game/buying_scene/dialogue/dialogue_manager.tscn" id="15_t6itr"]
+[ext_resource type="Script" uid="uid://bhka1ncrybm0n" path="res://assets/game/buying_scene/dialogue/lines/dialogue_line.gd" id="16_r1xhn"]
+[ext_resource type="Resource" uid="uid://bcdaoma1fe23h" path="res://assets/game/buying_scene/dialogue/lines/louis_greeting.tres" id="17_2lxbu"]
+[ext_resource type="Resource" uid="uid://cqjdk62gq5tat" path="res://assets/game/buying_scene/dialogue/lines/upgrade_line.tres" id="18_r1xhn"]
+[ext_resource type="Resource" uid="uid://dvj1i78atnlne" path="res://assets/game/shared/fish/species/crappie.tres" id="19_fuumq"]
+[ext_resource type="Script" uid="uid://dcc3s3rmx43so" path="res://assets/game/buying_scene/dialogue/lines/dialogue_condition.gd" id="20_utamy"]
+[ext_resource type="Script" uid="uid://bqk3yaifei62j" path="res://assets/game/buying_scene/dialogue/lines/give_polluted_fish.gd" id="21_utamy"]
+[ext_resource type="Script" uid="uid://bhciiix4yoeep" path="res://assets/game/buying_scene/dialogue/lines/trigger_event.gd" id="22_omqis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoi11"]
+size = Vector2(267, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig6k8"]
+size = Vector2(206.25, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tnhv"]
+size = Vector2(68.5, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpvk7"]
+size = Vector2(32, 21)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2xpfq"]
 font_size = 40
@@ -34,17 +62,129 @@ b = Vector2(8, 102)
 a = Vector2(199, -50)
 b = Vector2(194, 104)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpvk7"]
-size = Vector2(32, 21)
+[sub_resource type="LabelSettings" id="LabelSettings_yc5v8"]
+font_size = 29
+
+[sub_resource type="Resource" id="Resource_t6itr"]
+script = ExtResource("16_r1xhn")
+text = "Woah, fancy meeting you again!"
+required_flags = Array[int]([0])
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
+
+[sub_resource type="Resource" id="Resource_omqis"]
+script = ExtResource("20_utamy")
+fish_specie = ExtResource("19_fuumq")
+metadata/_custom_type_script = "uid://dcc3s3rmx43so"
+
+[sub_resource type="Resource" id="Resource_r1xhn"]
+script = ExtResource("16_r1xhn")
+text = "Woah dawg is that a crappie??"
+extra_condition = SubResource("Resource_omqis")
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
+
+[sub_resource type="Resource" id="Resource_utamy"]
+script = ExtResource("16_r1xhn")
+text = "this is the end of conversation"
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
+
+[sub_resource type="Resource" id="Resource_tdlj6"]
+script = ExtResource("16_r1xhn")
+text = "This is line 2 option a"
+button_text = "option a"
+next_lines = Array[ExtResource("16_r1xhn")]([SubResource("Resource_utamy")])
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
+
+[sub_resource type="Resource" id="Resource_8l74v"]
+script = ExtResource("16_r1xhn")
+text = "this is line 2 option b"
+button_text = "option b"
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
+
+[sub_resource type="Resource" id="Resource_5xi53"]
+script = ExtResource("16_r1xhn")
+text = "This is line 1"
+next_lines = Array[ExtResource("16_r1xhn")]([SubResource("Resource_tdlj6"), SubResource("Resource_8l74v")])
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
+
+[sub_resource type="Resource" id="Resource_kq7pi"]
+script = ExtResource("21_utamy")
+metadata/_custom_type_script = "uid://bqk3yaifei62j"
+
+[sub_resource type="Resource" id="Resource_tiwff"]
+script = ExtResource("22_omqis")
+event = 6
+metadata/_custom_type_script = "uid://bhciiix4yoeep"
+
+[sub_resource type="Resource" id="Resource_fuumq"]
+script = ExtResource("16_r1xhn")
+text = "Here's $5000 kid, have fun"
+excluded_flags = Array[int]([6])
+dialogue_scripts = Array[Resource]([SubResource("Resource_kq7pi"), SubResource("Resource_tiwff")])
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [node name="BuyingScene" type="Node2D" unique_id=71390660]
-y_sort_enabled = true
 script = ExtResource("1_b6mu0")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1150295774]
-z_index = -1
-texture = ExtResource("10_7tnhv")
+[node name="Background" type="Sprite2D" parent="." unique_id=2087782272]
+texture = ExtResource("2_7sq2k")
 centered = false
+
+[node name="BoxFort" type="StaticBody2D" parent="." unique_id=430621453]
+position = Vector2(372, 219)
+script = ExtResource("3_ig6k8")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxFort" unique_id=1865806437]
+texture = ExtResource("3_7tnhv")
+script = ExtResource("4_ig6k8")
+interactable_sprite = ExtResource("5_uhb6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxFort" unique_id=2113221798]
+position = Vector2(0.5, 52.5)
+shape = SubResource("RectangleShape2D_eoi11")
+
+[node name="InteractionArea" type="Area2D" parent="BoxFort" unique_id=1369099062]
+position = Vector2(-31, -38)
+script = ExtResource("4_uhb6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxFort/InteractionArea" unique_id=1198270136]
+position = Vector2(38, 129)
+shape = SubResource("RectangleShape2D_ig6k8")
+
+[node name="BackgroundItems" type="StaticBody2D" parent="." unique_id=1473549544]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundItems" unique_id=190439731]
+texture = ExtResource("4_i6cjn")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundItems" unique_id=1508113832]
+position = Vector2(480.75, 475.5)
+shape = SubResource("RectangleShape2D_7tnhv")
+
+[node name="YSorted" type="Node2D" parent="." unique_id=1382759860]
+y_sort_enabled = true
+
+[node name="RodAisle" parent="YSorted" unique_id=543733618 instance=ExtResource("3_7o44q")]
+position = Vector2(693, 403)
+
+[node name="ReelAisle" parent="YSorted" unique_id=312801464 instance=ExtResource("3_7o44q")]
+position = Vector2(938, 403)
+upgrades_sold = 1
+
+[node name="Character" type="CharacterBody2D" parent="YSorted" unique_id=1378911832 node_paths=PackedStringArray("joystick_left")]
+y_sort_enabled = true
+position = Vector2(405, 545)
+motion_mode = 1
+script = ExtResource("2_5l2yu")
+joystick_left = NodePath("../../Virtual Joystick")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/Character" unique_id=858446672]
+position = Vector2(0.2960205, -28)
+scale = Vector2(1.056, 1)
+texture = ExtResource("4_eoi11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/Character" unique_id=238570841]
+position = Vector2(-0.20397949, 0.5)
+shape = SubResource("RectangleShape2D_hpvk7")
 
 [node name="Title" type="Label" parent="." unique_id=1950715427]
 visible = false
@@ -98,36 +238,95 @@ shape = SubResource("SegmentShape2D_yc5v8")
 position = Vector2(46, 288)
 shape = SubResource("SegmentShape2D_o1x55")
 
-[node name="RodAisle" parent="." unique_id=543733618 instance=ExtResource("3_7o44q")]
-position = Vector2(693, 403)
-
-[node name="ReelAisle" parent="." unique_id=312801464 instance=ExtResource("3_7o44q")]
-position = Vector2(938, 403)
-upgrades_sold = 1
-
-[node name="Character" type="CharacterBody2D" parent="." unique_id=1378911832 node_paths=PackedStringArray("joystick_left")]
-y_sort_enabled = true
-position = Vector2(556, 544)
-motion_mode = 1
-script = ExtResource("2_5l2yu")
-joystick_left = NodePath("../Virtual Joystick")
-
-[node name="Sprite2D" type="Sprite2D" parent="Character" unique_id=858446672]
-position = Vector2(0.2960205, -28)
-scale = Vector2(1.056, 1)
-texture = ExtResource("4_eoi11")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character" unique_id=238570841]
-position = Vector2(-0.20397949, 0.5)
-shape = SubResource("RectangleShape2D_hpvk7")
-
 [node name="Virtual Joystick" parent="." unique_id=1087925395 instance=ExtResource("3_5l2yu")]
+visible = false
 z_index = 10
 offset_left = 973.0
 offset_top = 444.0
 offset_right = 1273.0
 offset_bottom = 744.0
 visibility_mode = 1
+
+[node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421 node_paths=PackedStringArray("dialogue_label", "button_container", "dialogue_manager")]
+process_mode = 2
+visible = false
+script = ExtResource("13_o1x55")
+dialogue_label = NodePath("Panel/MarginContainer/HBoxContainer/MarginContainer/Label")
+button_container = NodePath("Panel/MarginContainer/HBoxContainer/VBoxContainer")
+dialogue_manager = NodePath("DialogueManager")
+
+[node name="Darken" type="ColorRect" parent="DialogueWindow" unique_id=1851289861]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Panel" type="Panel" parent="DialogueWindow" unique_id=1762719333]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.65
+anchor_right = 0.95
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueWindow/Panel" unique_id=390425308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogueWindow/Panel/MarginContainer" unique_id=1604108513]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer" unique_id=658956011]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer/CenterContainer" unique_id=1933389051]
+layout_mode = 2
+texture = ExtResource("13_yc5v8")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer" unique_id=1851868902]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_right = 35
+
+[node name="Label" type="Label" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer/MarginContainer" unique_id=1541831370]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "a whole bunch of dialogue text will go here. this is the character talking."
+label_settings = SubResource("LabelSettings_yc5v8")
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer" unique_id=1520067935]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1883158584]
+layout_mode = 2
+text = "Confirm"
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=235215398]
+layout_mode = 2
+theme_override_constants/margin_top = 21
+
+[node name="ExitButton" type="Button" parent="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1696530472]
+layout_mode = 2
+text = "Exit"
+
+[node name="DialogueManager" parent="DialogueWindow" unique_id=412198772 instance=ExtResource("15_t6itr")]
+dialogue_lines = Array[ExtResource("16_r1xhn")]([ExtResource("17_2lxbu"), SubResource("Resource_t6itr"), ExtResource("18_r1xhn"), SubResource("Resource_r1xhn"), SubResource("Resource_5xi53"), SubResource("Resource_fuumq")])
 
 [node name="ShopMenu" type="CanvasLayer" parent="." unique_id=1736017532 node_paths=PackedStringArray("items_container", "description_label", "purchase_button")]
 process_mode = 3
@@ -206,9 +405,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
+[connection signal="open_dialogue_box" from="BoxFort" to="DialogueWindow" method="_on_open_dialogue_box"]
+[connection signal="body_entered" from="BoxFort/InteractionArea" to="BoxFort/InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="BoxFort/InteractionArea" to="BoxFort/InteractionArea" method="_on_body_exited"]
+[connection signal="player_entered" from="BoxFort/InteractionArea" to="BoxFort" method="_on_interaction_area_player_entered"]
+[connection signal="player_entered" from="BoxFort/InteractionArea" to="BoxFort/Sprite2D" method="_on_interaction_area_player_entered"]
+[connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort" method="_on_interaction_area_player_exited"]
+[connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort/Sprite2D" method="_on_interaction_area_player_exited"]
+[connection signal="shop_opened" from="YSorted/RodAisle" to="ShopMenu" method="_on_shop_opened"]
+[connection signal="shop_opened" from="YSorted/ReelAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
-[connection signal="shop_opened" from="RodAisle" to="ShopMenu" method="_on_shop_opened"]
-[connection signal="shop_opened" from="ReelAisle" to="ShopMenu" method="_on_shop_opened"]
+[connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ConfirmButton" to="DialogueWindow" method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="DialogueWindow" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/PurchaseButton" to="ShopMenu" method="_on_purchase_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/ExitButton" to="ShopMenu" method="_on_exit_button_pressed"]

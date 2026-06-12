@@ -13,7 +13,7 @@ const POP_FRAME_DURATION: float = 0.05
 
 @export_group("Zone Colors")
 @export var color_bad: Color = Color('#D1505B')
-@export var color_good: Color = Color('#D2EC99')
+@export var color_good: Color = Color("7a923cff")
 @export var color_perfect: Color = Color("ffffffff")
 
 var lifetime: float = 1.0
@@ -73,24 +73,30 @@ func _classify(progress: float) -> String:
 		return "good"
 	return "bad"
 
+func _step_hold(t: float, transition_point: float = 0.7) -> float:
+	if t <= transition_point:
+		return 0.0
+	var remap := (t - transition_point) / (1.0 - transition_point)
+	return remap * remap * (3.0 - 2.0 * remap)
+
 func _get_zone_color(progress: float) -> Color:
 	if progress < good_start:
 		# bad -> good transition
 		# maybe we could pull it out because i basically just c/p this over and over but just to lerp the colors to smoothen it
 		var t := progress / good_start if good_start > 0.0 else 1.0 
-		return color_bad.lerp(color_good, t)
+		return color_bad.lerp(color_good, _step_hold(t))
 	elif progress < perfect_start:
 		# good -> perfect transition
 		var zone_length := perfect_start - good_start
 		var t := (progress - good_start) / zone_length if zone_length > 0.0 else 1.0
-		return color_good.lerp(color_perfect, t)
+		return color_good.lerp(color_perfect, _step_hold(t))
 	elif progress <= perfect_end:
 		return color_perfect
 	else:
 		# perfect -> bad transition
 		var zone_length := 1.0 - perfect_end
 		var t := (progress - perfect_end) / zone_length if zone_length > 0.0 else 1.0
-		return color_perfect.lerp(color_bad, t)
+		return color_perfect.lerp(color_bad, _step_hold(t))
 
 func _resolve(result: String) -> void:
 	resolved = true

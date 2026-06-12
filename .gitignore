@@ -1,5 +1,6 @@
 .godot/
 /android/
 *.translation
+*.tmp
 
 /web

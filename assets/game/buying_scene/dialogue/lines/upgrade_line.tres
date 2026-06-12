@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://cqjdk62gq5tat"]
+
+[ext_resource type="Script" uid="uid://bhka1ncrybm0n" path="res://assets/game/buying_scene/dialogue/lines/dialogue_line.gd" id="1_y70ir"]
+
+[resource]
+script = ExtResource("1_y70ir")
+text = "Hey, nice upgrade you got there!"
+required_flags = Array[int]([5])
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"

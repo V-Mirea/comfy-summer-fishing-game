@@ -145,6 +145,14 @@ func set_upgrade_level(type: Upgrade.UpgradeType, level: int) -> void:
 	data.upgrades[type] = level
 	upgrade_changed.emit(type, level)
 	
+	trigger_event(PlayerData.GameEvent.BOUGHT_UPGRADE) ## test event
+	
+func trigger_event(event: PlayerData.GameEvent):
+	data.events_triggered[event] = null # value is meaningless. we will just be checking that key exists
+	
+func has_event_triggered(event: PlayerData.GameEvent) -> bool:
+	return data.events_triggered.has(event)
+	
 #save functionality
 
 func save_to_disk() -> void:

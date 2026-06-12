@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dys1cv4mma5ta" path="res://assets/game/buying_scene/aisle/aisle.gd" id="1_3aoq8"]
 [ext_resource type="Texture2D" uid="uid://ddmbegyt3xpwo" path="res://assets/game/buying_scene/aisle/Shelf.PNG" id="2_b2ge7"]
-[ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/aisle/sprite_2d.gd" id="3_sy2aq"]
+[ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactable_sprite.gd" id="3_sy2aq"]
 [ext_resource type="Texture2D" uid="uid://covfbjv2uiufl" path="res://assets/game/buying_scene/aisle/Shelf_Outline.PNG" id="4_0mlmo"]
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/aisle/interaction_area.gd" id="5_0fpow"]
 
