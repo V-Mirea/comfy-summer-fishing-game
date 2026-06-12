@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://df17xaabych0m"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://5ri2xeweusk8" path="res://assets/audio/sfx/files/SFX_Fishing_Splash_1.wav" id="2_p3so7"]
+
+[resource]
+script = ExtResource("1")
+stream = ExtResource("2_p3so7")

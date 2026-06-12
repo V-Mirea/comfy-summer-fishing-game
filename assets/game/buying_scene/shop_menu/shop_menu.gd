@@ -37,7 +37,6 @@ func update_locked_and_purchased_items():
 		purchase_button.text = "Purchase"
 
 func _on_shop_opened(upgrades_sold: Upgrade.UpgradeType):
-	get_tree().paused = true
 	visible = true
 	
 	populate_shop(upgrades_sold)
@@ -56,5 +55,4 @@ func _on_purchase_button_pressed():
 		update_locked_and_purchased_items()
 
 func _on_exit_button_pressed():
-	get_tree().paused = false
 	visible = false

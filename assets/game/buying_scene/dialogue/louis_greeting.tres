@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueLine" format=3 uid="uid://bcdaoma1fe23h"]
+
+[ext_resource type="Script" uid="uid://bhka1ncrybm0n" path="res://assets/game/shared/dialogue/dialogue_line.gd" id="1_x3sfx"]
+
+[resource]
+script = ExtResource("1_x3sfx")
+text = "Howdy there partner, I'm not a cowboy but this is a placeholder line!"
+excluded_flags = Array[int]([0])
+metadata/_custom_type_script = "uid://bhka1ncrybm0n"
