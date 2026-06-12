@@ -52,7 +52,9 @@ func get_empty_customer_slots() -> Array[CustomerArea]:
 
 func spawn_customer(spawn_slot: CustomerArea):
 	var customer: Customer = customer_scene.instantiate();
-	customer.position = spawn_slot.center
+	customer.slot_position = spawn_slot.center
+	customer.enter_exit_postition = Vector2(spawn_slot.center.x, get_viewport().get_visible_rect().size.y) # position at bottom of screen below assigned slot
+	customer.position = customer.enter_exit_postition
 	customer.slot_index = spawn_slot.index
 	customer.fish_wanted = PlayerManager.fish_to_sell[randi() % PlayerManager.fish_to_sell.size()]
 	customer.leaving_shop.connect(_on_customer_leaving)
