@@ -87,5 +87,5 @@ func _get_idle_sfx_player() -> AudioStreamPlayer:
 			return player
 	var player := _sfx_pool[_sfx_next_idx]
 	_sfx_next_idx = (_sfx_next_idx + 1) % SFX_POOL_SIZE
-	# just output when theres too many audio palying at once
+	print("AudioManager had to kick out a current player")
 	return player
