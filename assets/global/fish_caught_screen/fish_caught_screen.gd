@@ -6,6 +6,7 @@ signal closed
 @export var fish_icon: FishSprite
 @export var stars_container: HBoxContainer
 @export var next_button: Button
+@export var fish_caught_sfx: SfxEvent
 
 var was_paused: bool = false
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 	visible = false
 
 func open(fish: Fish) -> void:
+	AudioManager.play_sfx(fish_caught_sfx)
 	was_paused = get_tree().paused
 	get_tree().paused = true
 	fish_name_label.text = fish.species.display_name

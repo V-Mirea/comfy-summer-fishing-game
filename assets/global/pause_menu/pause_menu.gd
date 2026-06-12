@@ -4,6 +4,8 @@ extends CanvasLayer
 @export var upgrades_list: VBoxContainer
 @export var fish_list: VBoxContainer
 @export var resume_button: Button
+@export var pause_open_sfx: SfxEvent
+@export var pause_closed_sfx: SfxEvent
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -21,11 +23,13 @@ func toggle() -> void:
 		close()
 
 func open() -> void:
+	AudioManager.play_sfx(pause_open_sfx)
 	_refresh()
 	visible = true
 	get_tree().paused = true
 
 func close() -> void:
+	AudioManager.play_sfx(pause_closed_sfx)
 	visible = false
 	get_tree().paused = false
 

@@ -3,7 +3,6 @@ extends Node2D
 signal transition_requested(state: Global.State)
 
 enum State { IDLE, WAITING_FOR_BITE, MISSED_BITE, CONFIRM_BITE, MINIGAME, RESOLVED, MISSED_FISH }
-var state: State = State.IDLE
 var time_since_last_roll: float = 0.0
 var time_since_bite: float = 0.0
 var state_machine: StateMachine
@@ -16,6 +15,10 @@ const ROLL_INTERVAL: float = 0.5 #change later per rod, or other stuff
 @export var money_label: Label
 @export var pause_button: Button
 @export var bubble_manager: BubbleManager
+@export var cast_sfx: SfxEvent
+@export var bite_sfx: SfxEvent
+@export var fish_missed_sfx: SfxEvent
+@export var fish_on_sfx: SfxEvent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -83,24 +86,27 @@ func _process_confirm_bite(delta: float) -> void:
 	elif time_since_bite >= bite_window:
 		state_machine.change_state(State.MISSED_BITE)
 
-func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
+func _on_state_changed(_from: int, to: int, context: Dictionary) -> void:
 	_update_ui(to, context)
 	match to:
 		State.IDLE:
 			time_since_last_roll = 0.0
 			hooked_fish = null
 		State.WAITING_FOR_BITE:
-			pass
+			AudioManager.play_sfx(cast_sfx)
 		State.MISSED_BITE:
 			await get_tree().create_timer(2.0).timeout
 			if state_machine.current_state == State.MISSED_BITE:
 				state_machine.change_state(State.IDLE)
 		State.CONFIRM_BITE:
+			AudioManager.play_sfx(bite_sfx)
 			time_since_bite = 0
 		State.MINIGAME:
+			AudioManager.play_sfx(fish_on_sfx)
 			await get_tree().create_timer(0.5).timeout
 			bubble_manager.start_pattern(hooked_fish.species.pattern, hooked_fish.species.bubble_lifetime)
 		State.MISSED_FISH:
+			AudioManager.play_sfx(fish_missed_sfx)
 			await get_tree().create_timer(2.0).timeout
 			if state_machine.current_state == State.MISSED_FISH:
 				state_machine.change_state(State.IDLE)
@@ -110,7 +116,7 @@ func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 func _update_ui(state: State, context: Dictionary):
 	status_label.text = _get_status_text_for_state(state, context)
 
-func _get_status_text_for_state(state: State, context: Dictionary) -> String:
+func _get_status_text_for_state(state: State, _context: Dictionary) -> String:
 	match state:
 		State.IDLE:
 			return "Ready to cast"
