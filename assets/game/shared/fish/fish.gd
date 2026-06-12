@@ -18,3 +18,7 @@ var price: int:
 			return 0
 		var factor := 0.8 + (quality / 100.0) * 0.4
 		return roundi(species.base_price * factor)
+		
+var max_counter_offer: int:
+	get:
+		return price * 1.5

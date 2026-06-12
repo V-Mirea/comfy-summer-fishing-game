@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cmg53b45ikcyy"]
 
 [ext_resource type="Script" uid="uid://bcypvgjpjqawc" path="res://assets/game/selling_scene/selling_manager.gd" id="1_w1ejd"]
+[ext_resource type="Texture2D" uid="uid://cu3akrrnbsbli" path="res://assets/game/selling_scene/Selling_stall.PNG" id="2_lr7ye"]
 [ext_resource type="Script" uid="uid://ltw1bdxt8jjj" path="res://assets/game/selling_scene/haggle_control/haggle_control.gd" id="2_o8g2t"]
+[ext_resource type="Texture2D" uid="uid://b51juuwb4au5g" path="res://assets/game/selling_scene/Sign_3.PNG" id="3_6hwc8"]
 [ext_resource type="Texture2D" uid="uid://c5y8k254xl3tx" path="res://assets/game/selling_scene/haggle_control/accept.png" id="3_lr7ye"]
 [ext_resource type="Texture2D" uid="uid://d0si60437xphd" path="res://assets/game/selling_scene/haggle_control/decline.png" id="4_6hwc8"]
 [ext_resource type="Script" uid="uid://dn6jc4vvv1clx" path="res://assets/game/selling_scene/fish_list.gd" id="5_iyhom"]
@@ -21,6 +23,14 @@ font_size = 20
 [node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui")]
 script = ExtResource("1_w1ejd")
 haggle_ui = NodePath("CanvasLayer/HaggleControl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1442556545]
+texture = ExtResource("2_lr7ye")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1821902243]
+position = Vector2(1106, 340)
+texture = ExtResource("3_6hwc8")
 
 [node name="Control" type="Control" parent="." unique_id=729090283]
 layout_mode = 3
@@ -60,17 +70,18 @@ vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
 
-[node name="HaggleControl" type="Control" parent="CanvasLayer" unique_id=1550050499 node_paths=PackedStringArray("price_label")]
+[node name="HaggleControl" type="Control" parent="CanvasLayer" unique_id=1550050499 node_paths=PackedStringArray("price_label", "price_slider")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = 127.0
-offset_top = 243.0
-offset_right = 1151.0
-offset_bottom = 333.0
+offset_left = 313.0
+offset_top = 71.0
+offset_right = 915.0
+offset_bottom = 161.0
 mouse_filter = 2
 script = ExtResource("2_o8g2t")
-price_label = NodePath("Label")
+price_label = NodePath("PriceLabel")
+price_slider = NodePath("PriceSlider")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/HaggleControl" unique_id=591644612]
 layout_mode = 1
@@ -80,7 +91,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/HaggleControl" unique_id=540554321]
+[node name="PriceSlider" type="HSlider" parent="CanvasLayer/HaggleControl" unique_id=540554321]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -90,7 +101,7 @@ offset_right = -300.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/HaggleControl" unique_id=1132781469]
+[node name="PriceLabel" type="Label" parent="CanvasLayer/HaggleControl" unique_id=1132781469]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 19.0
@@ -101,19 +112,19 @@ label_settings = SubResource("LabelSettings_7ehvh")
 
 [node name="AcceptButton" type="Button" parent="CanvasLayer/HaggleControl" unique_id=538134666]
 layout_mode = 0
-offset_left = 750.0
-offset_top = 22.0
-offset_right = 838.0
-offset_bottom = 65.0
+offset_left = 365.0
+offset_top = 23.0
+offset_right = 453.0
+offset_bottom = 66.0
 icon = ExtResource("3_lr7ye")
 icon_alignment = 1
 expand_icon = true
 
 [node name="DeclineButton" type="Button" parent="CanvasLayer/HaggleControl" unique_id=2071703029]
 layout_mode = 0
-offset_left = 877.0
+offset_left = 480.0
 offset_top = 22.0
-offset_right = 965.0
+offset_right = 568.0
 offset_bottom = 65.0
 icon = ExtResource("4_6hwc8")
 icon_alignment = 1
@@ -122,9 +133,9 @@ expand_icon = true
 [node name="CustomerSpawnArea" type="Control" parent="CanvasLayer" unique_id=529498331]
 layout_mode = 3
 anchor_left = 0.1
-anchor_top = 0.6
+anchor_top = 0.65
 anchor_right = 0.9
-anchor_bottom = 0.8
+anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -145,6 +156,10 @@ anchor_left = 0.15
 anchor_top = 0.033
 anchor_right = 0.85
 anchor_bottom = 0.3
+offset_left = 852.0
+offset_top = 157.24
+offset_right = 151.0
+offset_bottom = 281.0
 size_flags_vertical = 3
 
 [node name="FishLabel" type="Label" parent="CanvasLayer/FishPanel" unique_id=1167204912]
@@ -171,6 +186,8 @@ customer_scene = ExtResource("8_830pu")
 [connection signal="pressed" from="Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
 [connection signal="offer_accepted" from="CanvasLayer/HaggleControl" to="." method="_on_haggle_control_offer_accepted"]
+[connection signal="offer_declined" from="CanvasLayer/HaggleControl" to="." method="_on_offer_declined"]
+[connection signal="value_changed" from="CanvasLayer/HaggleControl/PriceSlider" to="CanvasLayer/HaggleControl" method="_on_price_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/HaggleControl/AcceptButton" to="CanvasLayer/HaggleControl" method="_on_accept_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/HaggleControl/DeclineButton" to="CanvasLayer/HaggleControl" method="_on_decline_button_pressed"]
 [connection signal="request_spawn_customer" from="CustomerSpawner" to="." method="_on_request_spawn_customer"]

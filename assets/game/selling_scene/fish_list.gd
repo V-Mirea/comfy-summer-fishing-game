@@ -14,4 +14,4 @@ func _process(delta):
 func _on_fish_for_sale_changed(fish_to_sell: Array[Fish]):
 	clear()
 	for fish in fish_to_sell:
-		add_item("    %s - QUALITY: %d    " % [fish.species.display_name, fish.quality], null, false)
+		add_item("%s (%d)" % [fish.species.display_name, fish.quality], null, false)

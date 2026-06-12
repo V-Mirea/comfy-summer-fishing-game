@@ -24,7 +24,9 @@ selectSellingScene = ExtResource("4_select")
 sellingScene = ExtResource("5_iywne")
 buyingScene = ExtResource("5_p57ef")
 
-[node name="MoneyControl" type="Control" parent="." unique_id=1454216210]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1361972796]
+
+[node name="MoneyControl" type="Control" parent="CanvasLayer" unique_id=1454216210]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -34,7 +36,7 @@ offset_bottom = 158.0
 grow_horizontal = 0
 script = ExtResource("7_faf0w")
 
-[node name="MoneyHeader" type="Label" parent="MoneyControl" unique_id=1233499408]
+[node name="MoneyHeader" type="Label" parent="CanvasLayer/MoneyControl" unique_id=1233499408]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.1
@@ -45,7 +47,7 @@ text = "MONEY"
 label_settings = SubResource("LabelSettings_pg74i")
 horizontal_alignment = 1
 
-[node name="MoneyLabel" type="Label" parent="MoneyControl" unique_id=1888553632]
+[node name="MoneyLabel" type="Label" parent="CanvasLayer/MoneyControl" unique_id=1888553632]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -60,18 +62,18 @@ label_settings = SubResource("LabelSettings_faf0w")
 horizontal_alignment = 1
 script = ExtResource("7_pdf2x")
 
-[node name="PauseButton" type="Button" parent="." unique_id=1005989799]
+[node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=1005989799]
 anchors_preset = -1
 anchor_left = 0.02
 anchor_top = 0.02
 anchor_right = 0.1
 anchor_bottom = 0.02
 offset_right = 5.0
-offset_bottom = 39.8
+offset_bottom = 39.799995
 text = "Pause
 "
 script = ExtResource("9_k08a3")
 
-[connection signal="toggle_global_controls" from="." to="MoneyControl" method="_on_toggle_global_controls"]
-[connection signal="toggle_global_controls" from="." to="PauseButton" method="_on_toggle_global_controls"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="toggle_global_controls" from="." to="CanvasLayer/MoneyControl" method="_on_toggle_global_controls"]
+[connection signal="toggle_global_controls" from="." to="CanvasLayer/PauseButton" method="_on_toggle_global_controls"]
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="." method="_on_pause_button_pressed"]
