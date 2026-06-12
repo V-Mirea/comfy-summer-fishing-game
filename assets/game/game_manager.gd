@@ -5,6 +5,7 @@ extends Node
 @export var selectSellingScene: PackedScene
 @export var sellingScene: PackedScene
 @export var buyingScene: PackedScene
+@export var gameplay_music: AudioStream
 
 signal toggle_global_controls
 
@@ -21,6 +22,7 @@ var valid_transitions = {
 }
 	
 var state_scenes: Dictionary
+var state_music: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,14 @@ func _ready():
 		Global.State.SELECT_SELLING: selectSellingScene,
 		Global.State.SELLING: sellingScene,
 		Global.State.BUYING: buyingScene
+	}
+
+	state_music = {
+		Global.State.MAIN_MENU: null,
+		Global.State.FISHING: gameplay_music,
+		Global.State.SELECT_SELLING: gameplay_music,
+		Global.State.SELLING: gameplay_music,
+		Global.State.BUYING: null
 	}
 
 	state_machine = StateMachine.new(valid_transitions)
@@ -45,7 +55,8 @@ func _on_transition_requested(state: Global.State):
 # this method to signal to the game manager to make the switch
 func _on_state_changed(from: int, to: int, context: Dictionary) -> void:
 	change_screen(to)
-	
+	AudioManager.play_music(state_music[to])
+
 	if from == Global.State.MAIN_MENU or to == Global.State.MAIN_MENU:
 		toggle_global_controls.emit()
 			

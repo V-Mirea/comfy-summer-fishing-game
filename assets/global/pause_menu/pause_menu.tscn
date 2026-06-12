@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://c7wjqhddut7hi"]
 
 [ext_resource type="Script" uid="uid://c44smfmcdrab" path="res://assets/global/pause_menu/pause_menu.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cqudc2q6k3bd1" path="res://assets/game/money_label.gd" id="2_j4ds5"]
+[ext_resource type="Resource" uid="uid://chnbgcgq7mm80" path="res://assets/audio/sfx/pause_closed.tres" id="3_47ya3"]
+[ext_resource type="Resource" uid="uid://cwkxm2e0nqb3r" path="res://assets/audio/sfx/pause_open.tres" id="3_pause"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1736017532 node_paths=PackedStringArray("money_label", "upgrades_list", "fish_list", "resume_button")]
 process_mode = 2
@@ -11,6 +14,8 @@ money_label = NodePath("Panel/MarginContainer/VBox/MoneyLabel")
 upgrades_list = NodePath("Panel/MarginContainer/VBox/UpgradesList")
 fish_list = NodePath("Panel/MarginContainer/VBox/FishList")
 resume_button = NodePath("Panel/MarginContainer/VBox/ResumeButton")
+pause_open_sfx = ExtResource("3_pause")
+pause_closed_sfx = ExtResource("3_47ya3")
 
 [node name="Darken" type="ColorRect" parent="." unique_id=1432399640]
 anchors_preset = 15

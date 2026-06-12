@@ -23,6 +23,7 @@ PlayerManager="*res://assets/global/player_manager.gd"
 PauseMenu="*res://assets/global/pause_menu/pause_menu.tscn"
 UpgradeDatabase="*uid://l181qmk0p3o6"
 FishCaughtScreen="*res://assets/global/fish_caught_screen/fish_caught_screen.tscn"
+AudioManager="*res://assets/global/audio_manager.gd"
 
 [display]
 
