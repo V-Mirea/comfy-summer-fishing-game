@@ -19,8 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="13_yc5v8"]
 [ext_resource type="Texture2D" uid="uid://dre3pca1u07i1" path="res://assets/game/buying_scene/character/CH1_right.PNG" id="14_tiwff"]
 [ext_resource type="Texture2D" uid="uid://che7c6xixa63i" path="res://assets/game/buying_scene/character/CH1_back.PNG" id="15_4bdme"]
+[ext_resource type="Texture2D" uid="uid://c4ni27o2xegci" path="res://assets/game/shared/ui/button/Blue_button_large.PNG" id="15_8l74v"]
 [ext_resource type="PackedScene" uid="uid://dv560mmlqyjes" path="res://assets/game/shared/dialogue/dialogue_manager.tscn" id="15_t6itr"]
 [ext_resource type="Script" uid="uid://bhka1ncrybm0n" path="res://assets/game/shared/dialogue/dialogue_line.gd" id="16_r1xhn"]
+[ext_resource type="Texture2D" uid="uid://cpn8nhgpdc7me" path="res://assets/game/shared/ui/button/Blue_button_large_pressed.PNG" id="16_tdlj6"]
+[ext_resource type="Script" uid="uid://gtjk3o5fwq1i" path="res://assets/game/buying_scene/interact_button.gd" id="17_tdlj6"]
 [ext_resource type="Script" uid="uid://bqk3yaifei62j" path="res://assets/game/buying_scene/dialogue/give_polluted_fish.gd" id="20_utamy"]
 [ext_resource type="Script" uid="uid://bhciiix4yoeep" path="res://assets/game/buying_scene/dialogue/trigger_event.gd" id="21_omqis"]
 
@@ -216,6 +219,10 @@ b = Vector2(8, 102)
 a = Vector2(199, -50)
 b = Vector2(194, 104)
 
+[sub_resource type="LabelSettings" id="LabelSettings_5xi53"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_yc5v8"]
 font_size = 29
 
@@ -370,7 +377,27 @@ shape = SubResource("SegmentShape2D_yc5v8")
 position = Vector2(46, 288)
 shape = SubResource("SegmentShape2D_o1x55")
 
+[node name="InteractButton" type="TextureButton" parent="." unique_id=1312260220]
+modulate = Color(1, 1, 1, 0.83137256)
+offset_left = 126.0
+offset_top = 574.0
+offset_right = 286.0
+offset_bottom = 632.0
+texture_normal = ExtResource("15_8l74v")
+texture_pressed = ExtResource("16_tdlj6")
+script = ExtResource("17_tdlj6")
+
+[node name="Label" type="Label" parent="InteractButton" unique_id=953619706]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 8.0
+offset_right = 130.0
+offset_bottom = 43.0
+text = "Interact"
+label_settings = SubResource("LabelSettings_5xi53")
+
 [node name="Virtual Joystick" parent="." unique_id=1087925395 instance=ExtResource("3_5l2yu")]
+modulate = Color(0.3529412, 0.7254902, 0.63529414, 0.83137256)
 z_index = 10
 offset_left = 973.0
 offset_top = 444.0
@@ -379,7 +406,7 @@ offset_bottom = 744.0
 visibility_mode = 1
 
 [node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421 node_paths=PackedStringArray("dialogue_label", "button_container", "dialogue_manager")]
-process_mode = 2
+process_mode = 1
 visible = false
 script = ExtResource("13_o1x55")
 dialogue_label = NodePath("Panel/MarginContainer/HBoxContainer/MarginContainer/Label")
@@ -547,6 +574,9 @@ text = "Exit"
 [connection signal="shop_opened" from="YSorted/ReelAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
+[connection signal="pressed" from="InteractButton" to="BoxFort" method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton" to="YSorted/RodAisle" method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton" to="YSorted/ReelAisle" method="_on_interact_button_pressed"]
 [connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ConfirmButton" to="DialogueWindow" method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="DialogueWindow" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/PurchaseButton" to="ShopMenu" method="_on_purchase_button_pressed"]

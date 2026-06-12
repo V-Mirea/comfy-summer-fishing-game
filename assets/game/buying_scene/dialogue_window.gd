@@ -7,15 +7,14 @@ extends CanvasLayer
 var current_line: DialogueLine
 	
 func close_window():
-	get_tree().paused = false
 	visible = false
-	
-func _input(event):
-	if event.is_action_pressed("ui_cancel") and visible:
-		get_viewport().set_input_as_handled()
-		close_window()
 		
 func start_conversation():
+	# we set make the panel visible after conversation has started
+	# so if it is already visible, it means we're already in a conversation and should not proceed
+	if visible:
+		return
+	
 	current_line = dialogue_manager.get_dialogue()
 	if current_line == null:
 		printerr("Tried to start a conversation with no dialogue available in manager")
@@ -70,8 +69,6 @@ func _on_exit_button_pressed():
 
 func _on_open_dialogue_box():
 	start_conversation()
-	
-	get_tree().paused = true
 	visible = true
 
 func _on_confirm_button_pressed():
