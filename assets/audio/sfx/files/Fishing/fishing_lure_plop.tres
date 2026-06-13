@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dgsv66faoth8k" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_LurePlop_4.wav" id="5_q4q5t"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gau0l"]
-random_pitch = 1.122462
+random_pitch = 1.0293022
 streams_count = 4
 stream_0/stream = ExtResource("2_h0yin")
 stream_1/stream = ExtResource("3_p70bp")

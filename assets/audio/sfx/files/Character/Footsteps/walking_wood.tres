@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://ds0bmnqj1avpn" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Wood_4.wav" id="5_ga2fk"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tkc3l"]
-random_pitch = 1.1892071
+random_pitch = 1.0293022
 streams_count = 4
 stream_0/stream = ExtResource("2_8ugx0")
 stream_1/stream = ExtResource("3_jij7l")
