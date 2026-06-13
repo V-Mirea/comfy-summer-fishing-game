@@ -311,9 +311,9 @@ y_sort_enabled = true
 [node name="RodAisle" parent="YSorted" unique_id=543733618 instance=ExtResource("3_7o44q")]
 position = Vector2(693, 403)
 
-[node name="ReelAisle" parent="YSorted" unique_id=312801464 instance=ExtResource("3_7o44q")]
+[node name="ShopAisle" parent="YSorted" unique_id=312801464 instance=ExtResource("3_7o44q")]
 position = Vector2(938, 403)
-upgrades_sold = 1
+upgrades_sold = 4
 
 [node name="Character" type="CharacterBody2D" parent="YSorted" unique_id=1378911832 node_paths=PackedStringArray("joystick_left", "sprite_node")]
 position = Vector2(400, 529)
@@ -572,12 +572,12 @@ text = "Exit"
 [connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort" method="_on_interaction_area_player_exited"]
 [connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort/Sprite2D" method="_on_interaction_area_player_exited"]
 [connection signal="shop_opened" from="YSorted/RodAisle" to="ShopMenu" method="_on_shop_opened"]
-[connection signal="shop_opened" from="YSorted/ReelAisle" to="ShopMenu" method="_on_shop_opened"]
+[connection signal="shop_opened" from="YSorted/ShopAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
 [connection signal="pressed" from="InteractButton" to="BoxFort" method="_on_interact_button_pressed"]
 [connection signal="pressed" from="InteractButton" to="YSorted/RodAisle" method="_on_interact_button_pressed"]
-[connection signal="pressed" from="InteractButton" to="YSorted/ReelAisle" method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton" to="YSorted/ShopAisle" method="_on_interact_button_pressed"]
 [connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ConfirmButton" to="DialogueWindow" method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="DialogueWindow" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/PurchaseButton" to="ShopMenu" method="_on_purchase_button_pressed"]
