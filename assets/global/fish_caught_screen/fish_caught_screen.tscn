@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://sj6pcn6idgxo" path="res://assets/global/fish_caught_screen/filledstar.png" id="3_filled"]
 [ext_resource type="Script" uid="uid://br6yrhno0ks41" path="res://assets/global/fish_caught_screen/quality_star.gd" id="3_u4b45"]
 [ext_resource type="PackedScene" path="res://assets/game/shared/fish/fish_sprite.tscn" id="4_fish_sprite"]
-[ext_resource type="Resource" path="res://assets/audio/sfx/fish_caught.tres" id="5_caught"]
+[ext_resource type="Resource" uid="uid://df17xaabych0m" path="res://assets/audio/sfx/files/Fishing/fish_caught.tres" id="5_caught"]
 
 [node name="FishCaughtScreen" type="CanvasLayer" unique_id=948028816 node_paths=PackedStringArray("fish_name_label", "fish_icon", "stars_container", "next_button")]
 process_mode = 3

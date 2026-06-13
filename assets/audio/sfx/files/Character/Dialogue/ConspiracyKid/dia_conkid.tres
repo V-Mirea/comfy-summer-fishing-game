@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://dft2qgh5cumd5"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_pe8bx"]
+[ext_resource type="AudioStream" uid="uid://mql8utdxxryb" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_A.wav" id="2_nufej"]
+[ext_resource type="AudioStream" uid="uid://b0t60kcu5l134" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_B.wav" id="3_bkj8p"]
+[ext_resource type="AudioStream" uid="uid://clg7papbrhjd0" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_L.wav" id="4_bst7d"]
+[ext_resource type="AudioStream" uid="uid://noyjecns4kxb" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_M.wav" id="5_gxt2i"]
+[ext_resource type="AudioStream" uid="uid://17vdpko4shxh" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_N.wav" id="6_6pgu5"]
+[ext_resource type="AudioStream" uid="uid://cpvv76tnml1gu" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_O.wav" id="7_c5r1a"]
+[ext_resource type="AudioStream" uid="uid://cgq53hobdjd50" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_P.wav" id="8_r4v8i"]
+[ext_resource type="AudioStream" uid="uid://bxken4hju85v1" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_Q.wav" id="9_a2dgy"]
+[ext_resource type="AudioStream" uid="uid://b36gbkms4ipoy" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_R.wav" id="10_y3tw5"]
+[ext_resource type="AudioStream" uid="uid://dpjfl4micohps" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_S.wav" id="11_dt6d1"]
+[ext_resource type="AudioStream" uid="uid://bgeyksb4jft11" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_T.wav" id="12_fpc87"]
+[ext_resource type="AudioStream" uid="uid://dt2vdl4u6vb8r" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_U.wav" id="13_jqiwq"]
+[ext_resource type="AudioStream" uid="uid://dm27g6hjr4e45" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_C.wav" id="14_67lqs"]
+[ext_resource type="AudioStream" uid="uid://cqyu8f85y1ko2" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_V.wav" id="15_qxbxu"]
+[ext_resource type="AudioStream" uid="uid://dw3fjqhghtnhu" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_D.wav" id="16_v3kbu"]
+[ext_resource type="AudioStream" uid="uid://cgy5rndrs0qlq" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_E.wav" id="17_sjkmu"]
+[ext_resource type="AudioStream" uid="uid://bmvfo2um4ur24" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_F.wav" id="18_18bax"]
+[ext_resource type="AudioStream" uid="uid://dgt4lx8l5gi7i" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_G.wav" id="19_6blt2"]
+[ext_resource type="AudioStream" uid="uid://73uowdsso63j" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_H.wav" id="20_pwu5y"]
+[ext_resource type="AudioStream" uid="uid://dacr4swuvmeun" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_I.wav" id="21_xat2f"]
+[ext_resource type="AudioStream" uid="uid://bcsbgerkfkmq0" path="res://assets/audio/sfx/files/Character/Dialogue/ConspiracyKid/Dia_ConKid_J.wav" id="22_qbhhg"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rg2c1"]
+random_pitch = 1.4142135
+streams_count = 21
+stream_0/stream = ExtResource("2_nufej")
+stream_1/stream = ExtResource("3_bkj8p")
+stream_2/stream = ExtResource("14_67lqs")
+stream_3/stream = ExtResource("16_v3kbu")
+stream_4/stream = ExtResource("17_sjkmu")
+stream_5/stream = ExtResource("18_18bax")
+stream_6/stream = ExtResource("19_6blt2")
+stream_7/stream = ExtResource("20_pwu5y")
+stream_8/stream = ExtResource("21_xat2f")
+stream_9/stream = ExtResource("22_qbhhg")
+stream_10/stream = ExtResource("4_bst7d")
+stream_11/stream = ExtResource("5_gxt2i")
+stream_12/stream = ExtResource("6_6pgu5")
+stream_13/stream = ExtResource("7_c5r1a")
+stream_14/stream = ExtResource("8_r4v8i")
+stream_15/stream = ExtResource("9_a2dgy")
+stream_16/stream = ExtResource("10_y3tw5")
+stream_17/stream = ExtResource("11_dt6d1")
+stream_18/stream = ExtResource("12_fpc87")
+stream_19/stream = ExtResource("13_jqiwq")
+stream_20/stream = ExtResource("15_qxbxu")
+
+[resource]
+script = ExtResource("1_pe8bx")
+streams = Array[AudioStream]([SubResource("AudioStreamRandomizer_rg2c1")])
