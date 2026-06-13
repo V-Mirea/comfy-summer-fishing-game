@@ -10,6 +10,15 @@ var selected_upgrade: Upgrade
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+	
+func _input(event):
+	if visible and event.is_action_pressed("ui_close_dialog"):
+		close_window()
+		get_viewport().set_input_as_handled()
+		
+func close_window():
+	visible = false
+	get_tree().paused = false
 
 func populate_shop(upgrades_sold: Upgrade.UpgradeType):
 	# clear item shop to populate on a clean slate
@@ -38,6 +47,7 @@ func update_locked_and_purchased_items():
 
 func _on_shop_opened(upgrades_sold: Upgrade.UpgradeType):
 	visible = true
+	get_tree().paused = true
 	
 	populate_shop(upgrades_sold)
 	
@@ -55,4 +65,4 @@ func _on_purchase_button_pressed():
 		update_locked_and_purchased_items()
 
 func _on_exit_button_pressed():
-	visible = false
+	close_window()
