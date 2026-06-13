@@ -97,7 +97,7 @@ shader_parameter/width = 0.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = false
-shader_parameter/number_of_images = Vector2(1, 1)
+shader_parameter/number_of_images = Vector2(4, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gk6fu"]
 atlas = ExtResource("2_k6x6e")
@@ -626,7 +626,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_kjerj")
 sprite_frames = SubResource("SpriteFrames_5cw5f")
 animation = &"idle"
-frame_progress = 0.64899725
+frame_progress = 0.5655154
 script = ExtResource("2_i8vkf")
 sprite_variations = Array[SpriteFrames]([SubResource("SpriteFrames_5cw5f"), SubResource("SpriteFrames_mv1rr"), SubResource("SpriteFrames_06wtu"), SubResource("SpriteFrames_ytcji"), SubResource("SpriteFrames_a83bg")])
 

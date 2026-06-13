@@ -515,7 +515,7 @@ position = Vector2(1.5, -39.25)
 scale = Vector2(1.359375, 1.3450705)
 sprite_frames = SubResource("SpriteFrames_4bdme")
 animation = &"idle_up"
-autoplay = "idle_down"
+autoplay = "idle_up"
 script = ExtResource("14_3iabx")
 
 [node name="RodAisle" parent="YSorted" unique_id=543733618 instance=ExtResource("3_7o44q")]
@@ -704,6 +704,7 @@ position = Vector2(986, 674)
 shape = SubResource("SegmentShape2D_muwim")
 
 [node name="InteractButton" type="TextureButton" parent="." unique_id=1312260220]
+visible = false
 modulate = Color(1, 1, 1, 0.83137256)
 offset_left = 268.0
 offset_top = 591.0
