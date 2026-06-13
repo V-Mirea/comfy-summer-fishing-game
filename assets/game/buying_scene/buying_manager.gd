@@ -15,6 +15,6 @@ func _process(delta):
 func _on_button_menu_pressed():
 	transition_requested.emit(Global.State.MAIN_MENU)
 
-
-func _on_button_fish_pressed():
-	transition_requested.emit(Global.State.FISHING)
+func _on_exit_area_body_entered(body):
+	if body is CharacterBody2D:
+		transition_requested.emit(Global.State.FISHING)

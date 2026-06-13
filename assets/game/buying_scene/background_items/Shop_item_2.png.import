@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://big2lprwdx5s0"
-path="res://.godot/imported/Shop_no items.PNG-1605aa234a027c29fd72689d4768c8d1.ctex"
+uid="uid://brsp8vsbk7pf5"
+path="res://.godot/imported/Shop_item_2.png-c502bd2b76b3b8087c72b2da67bb64cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/Shop_no items.PNG"
-dest_files=["res://.godot/imported/Shop_no items.PNG-1605aa234a027c29fd72689d4768c8d1.ctex"]
+source_file="res://assets/game/buying_scene/background_items/Shop_item_2.png"
+dest_files=["res://.godot/imported/Shop_item_2.png-c502bd2b76b3b8087c72b2da67bb64cf.ctex"]
 
 [params]
 
