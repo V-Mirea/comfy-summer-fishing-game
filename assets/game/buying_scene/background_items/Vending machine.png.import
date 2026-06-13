@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3eix3x2js8ql"
-path="res://.godot/imported/Items_only.PNG-084dc363ecaabe5b5aface37962668bb.ctex"
+uid="uid://dvxktrcfvx0ar"
+path="res://.godot/imported/Vending machine.png-9e4566617bc356a0e916929bc09e7cc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/Items_only.PNG"
-dest_files=["res://.godot/imported/Items_only.PNG-084dc363ecaabe5b5aface37962668bb.ctex"]
+source_file="res://assets/game/buying_scene/background_items/Vending machine.png"
+dest_files=["res://.godot/imported/Vending machine.png-9e4566617bc356a0e916929bc09e7cc4.ctex"]
 
 [params]
 
