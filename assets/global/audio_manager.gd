@@ -49,10 +49,10 @@ func stop_music(fade: bool = true) -> void:
 		_music_player.stop()
 
 func play_sfx(event: SfxEvent) -> void:
-	if event == null or event.stream == null:
+	if event == null or event.streams.is_empty():
 		return
 	var player := _get_idle_sfx_player()
-	player.stream = event.stream
+	player.stream = event.streams.pick_random()
 	player.volume_db = event.volume_db
 	player.pitch_scale = randf_range(event.pitch_min, event.pitch_max)
 	player.play()

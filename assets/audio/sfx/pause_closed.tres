@@ -5,4 +5,4 @@
 
 [resource]
 script = ExtResource("1_o3djr")
-stream = ExtResource("2_syv7b")
+streams = Array[AudioStream]([ExtResource("2_syv7b")])
