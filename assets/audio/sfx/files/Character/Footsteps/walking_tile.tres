@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cbn2k8jnwjp6x" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Tile_5.wav" id="6_mep3f"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n1nun"]
-random_pitch = 1.1892071
+random_pitch = 1.0293022
 streams_count = 5
 stream_0/stream = ExtResource("2_uhfii")
 stream_1/stream = ExtResource("3_o3i4d")

@@ -28,7 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://bhv7thl3a7vaq" path="res://assets/audio/sfx/files/Character/Dialogue/Main1/Dia_Main1_J.wav" id="26_k1nyt"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gikpo"]
-random_pitch = 1.4142135
+random_pitch = 1.1892071
 streams_count = 25
 stream_0/stream = ExtResource("2_cdx7t")
 stream_1/stream = ExtResource("3_8hkpw")

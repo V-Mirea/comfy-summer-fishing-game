@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://cy7t4l2v46ae0"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_f35ir"]
+[ext_resource type="AudioStream" uid="uid://bl2luymbyopx8" path="res://assets/audio/sfx/files/UI/SFX_UI_Scroll_1.wav" id="2_yiucg"]
+[ext_resource type="AudioStream" uid="uid://dq45h12pti7af" path="res://assets/audio/sfx/files/UI/SFX_UI_Scroll_2.wav" id="3_qvraw"]
+[ext_resource type="AudioStream" uid="uid://bvmjyslgqs8fs" path="res://assets/audio/sfx/files/UI/SFX_UI_Scroll_3.wav" id="4_rwvuq"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rva78"]
+streams_count = 3
+stream_0/stream = ExtResource("2_yiucg")
+stream_1/stream = ExtResource("3_qvraw")
+stream_2/stream = ExtResource("4_rwvuq")
+
+[resource]
+script = ExtResource("1_f35ir")
+streams = Array[AudioStream]([SubResource("AudioStreamRandomizer_rva78")])

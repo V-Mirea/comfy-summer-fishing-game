@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://bhmop2hg6p6vl"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_dfm6s"]
+[ext_resource type="AudioStream" uid="uid://bg0mqos83kp3v" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_Footstep_WalkUp_1.wav" id="2_t75v2"]
+[ext_resource type="AudioStream" uid="uid://dw72fee2t02tu" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_Footstep_WalkUp_2.wav" id="3_tjp6u"]
+[ext_resource type="AudioStream" uid="uid://d3uyoi85rg3nm" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_Footstep_WalkUp_3.wav" id="4_d7t28"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qumwr"]
+random_pitch = 1.0594631
+streams_count = 3
+stream_0/stream = ExtResource("2_t75v2")
+stream_1/stream = ExtResource("3_tjp6u")
+stream_2/stream = ExtResource("4_d7t28")
+
+[resource]
+script = ExtResource("1_dfm6s")
+streams = Array[AudioStream]([SubResource("AudioStreamRandomizer_qumwr")])
