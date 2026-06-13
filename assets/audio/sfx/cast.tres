@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://dlp8m6max7w7m"]
-
-[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1"]
-[ext_resource type="AudioStream" uid="uid://y3t7ls2xmt6y" path="res://assets/audio/sfx/files/SFX_Fishing_Cast_1.wav" id="2_se3af"]
-[ext_resource type="AudioStream" uid="uid://cdf55gff3p4ce" path="res://assets/audio/sfx/files/SFX_Fishing_Cast_2.wav" id="3_s0q4m"]
-
-[resource]
-script = ExtResource("1")
-streams = Array[AudioStream]([ExtResource("2_se3af"), ExtResource("3_s0q4m")])
