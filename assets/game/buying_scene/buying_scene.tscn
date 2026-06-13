@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/interactables/interaction_area.gd" id="4_uhb6p"]
 [ext_resource type="Script" uid="uid://cewu6chnl35ii" path="res://assets/game/buying_scene/shop_menu/shop_menu.gd" id="8_7sq2k"]
 [ext_resource type="PackedScene" uid="uid://hl7y71r6xpw8" path="res://assets/game/buying_scene/shop_menu/upgrade_button/upgrade_button.tscn" id="9_7sq2k"]
+[ext_resource type="Texture2D" uid="uid://bnvhy4ot7vjso" path="res://assets/game/buying_scene/character/Ch1 front idle.png" id="9_ctvkh"]
 [ext_resource type="Texture2D" uid="uid://cmsxfut857jye" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Rod_upgrade_tag.png" id="10_5xi53"]
 [ext_resource type="Texture2D" uid="uid://dvgb1ct5h7lbq" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Stall_upgrade_tag.png" id="11_kq7pi"]
 [ext_resource type="Texture2D" uid="uid://cio1pjyrh7ll4" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Reel_upgrade_tag.png" id="11_lh478"]
@@ -21,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cmts02n62b7in" path="res://assets/game/buying_scene/character/CH1_left.PNG" id="13_kq7pi"]
 [ext_resource type="Script" uid="uid://bdk7wb8u2stjc" path="res://assets/game/buying_scene/dialogue_window.gd" id="13_o1x55"]
 [ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="13_yc5v8"]
+[ext_resource type="Script" uid="uid://ubea103vcskb" path="res://assets/game/buying_scene/character/animated_sprite_2d.gd" id="14_3iabx"]
 [ext_resource type="Texture2D" uid="uid://c23h75bu8amt6" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Pollution_ magic fish_upgrade_tag.png" id="14_katif"]
 [ext_resource type="Texture2D" uid="uid://dre3pca1u07i1" path="res://assets/game/buying_scene/character/CH1_right.PNG" id="14_tiwff"]
 [ext_resource type="Texture2D" uid="uid://che7c6xixa63i" path="res://assets/game/buying_scene/character/CH1_back.PNG" id="15_4bdme"]
@@ -73,9 +75,21 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpvk7"]
 size = Vector2(40, 15)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bdme"]
-atlas = ExtResource("12_8l74v")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_amxth"]
+atlas = ExtResource("9_ctvkh")
+region = Rect2(0, 0, 114, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svc6x"]
+atlas = ExtResource("9_ctvkh")
+region = Rect2(114, 0, 114, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imu8t"]
+atlas = ExtResource("9_ctvkh")
+region = Rect2(0, 130, 114, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ov4r"]
+atlas = ExtResource("9_ctvkh")
+region = Rect2(114, 130, 114, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3iabx"]
 atlas = ExtResource("13_kq7pi")
@@ -157,7 +171,16 @@ region = Rect2(64, 71, 64, 71)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4bdme")
+"texture": SubResource("AtlasTexture_amxth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svc6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imu8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ov4r")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -421,11 +444,13 @@ position = Vector2(0.5, -5.75)
 shape = SubResource("RectangleShape2D_hpvk7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="YSorted/Character" unique_id=1421509192]
+process_mode = 3
 position = Vector2(1.5, -39.25)
 scale = Vector2(1.359375, 1.3450705)
 sprite_frames = SubResource("SpriteFrames_4bdme")
 animation = &"idle_down"
 autoplay = "idle_down"
+script = ExtResource("14_3iabx")
 
 [node name="RodAisle" parent="YSorted" unique_id=543733618 instance=ExtResource("3_7o44q")]
 position = Vector2(1126, 485)
@@ -641,7 +666,7 @@ offset_bottom = 744.0
 visibility_mode = 1
 
 [node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421 node_paths=PackedStringArray("dialogue_label", "button_container", "dialogue_manager")]
-process_mode = 1
+process_mode = 2
 visible = false
 script = ExtResource("13_o1x55")
 dialogue_label = NodePath("Panel/MarginContainer/HBoxContainer/MarginContainer/Label")
@@ -722,7 +747,7 @@ text = "Exit"
 dialogue_lines = Array[ExtResource("16_r1xhn")]([SubResource("Resource_kq7pi"), SubResource("Resource_55ig4")])
 
 [node name="ShopMenu" type="CanvasLayer" parent="." unique_id=1736017532 node_paths=PackedStringArray("items_container", "description_label", "purchase_button")]
-process_mode = 3
+process_mode = 2
 layer = 100
 visible = false
 script = ExtResource("8_7sq2k")
