@@ -19,12 +19,12 @@ script = ExtResource("1_ptjo3")
 status_label = NodePath("UILayer/Container/StatusLabel")
 bubble_manager = NodePath("BubbleManager")
 character = NodePath("FishingCharacter")
-sell_button = NodePath("UILayer/Container/SellButton")
-leave_early_popup = NodePath("LeaveEarlyPopup")
 cast_sfx = ExtResource("5_cast")
 bite_sfx = ExtResource("6_bite")
 fish_missed_sfx = ExtResource("7_missed")
 fish_on_sfx = ExtResource("5_3rbgy")
+sell_button = NodePath("UILayer/Container/SellButton")
+leave_early_popup = NodePath("LeaveEarlyPopup")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1849949675]
 
@@ -102,7 +102,7 @@ process_mode = 3
 title = "Leave early?"
 initial_position = 3
 size = Vector2i(561, 145)
-visible = false
+current_screen = 0
 always_on_top = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LeaveEarlyPopup" unique_id=725216889]
