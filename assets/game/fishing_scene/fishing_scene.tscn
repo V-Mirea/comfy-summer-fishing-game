@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bcmxoaln1cyx4" path="res://assets/game/fishing_scene/bubble_manager/bubble/bubble.tscn" id="3_tkjw3"]
 [ext_resource type="Texture2D" uid="uid://uqddvgsdaeac" path="res://assets/game/fishing_scene/Lake_Enclosed_1.PNG" id="4_fi2us"]
 [ext_resource type="Resource" uid="uid://rlt1oxv2of68" path="res://assets/audio/sfx/fish_on.tres" id="5_3rbgy"]
-[ext_resource type="Resource" uid="uid://dlp8m6max7w7m" path="res://assets/audio/sfx/cast.tres" id="5_cast"]
+[ext_resource type="Resource" uid="uid://dlp8m6max7w7m" path="res://assets/audio/sfx/files/Fishing/cast.tres" id="5_cast"]
 [ext_resource type="Resource" uid="uid://h8nn8ck2y6m3" path="res://assets/audio/sfx/bite.tres" id="6_bite"]
-[ext_resource type="Resource" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
+[ext_resource type="Resource" uid="uid://dqgiocviad8hm" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40

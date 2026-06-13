@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://br7i7cvbffvgw"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_so3yd"]
+[ext_resource type="AudioStream" uid="uid://caf25t55n3fds" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_LurePlop_1.wav" id="2_h0yin"]
+[ext_resource type="AudioStream" uid="uid://dr5o0eouo1kjn" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_LurePlop_2.wav" id="3_p70bp"]
+[ext_resource type="AudioStream" uid="uid://didhhaqr1ts8v" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_LurePlop_3.wav" id="4_36g10"]
+[ext_resource type="AudioStream" uid="uid://dgsv66faoth8k" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_LurePlop_4.wav" id="5_q4q5t"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gau0l"]
+random_pitch = 1.122462
+streams_count = 4
+stream_0/stream = ExtResource("2_h0yin")
+stream_1/stream = ExtResource("3_p70bp")
+stream_2/stream = ExtResource("4_36g10")
+stream_3/stream = ExtResource("5_q4q5t")
+
+[resource]
+script = ExtResource("1_so3yd")
+streams = Array[AudioStream]([SubResource("AudioStreamRandomizer_gau0l")])

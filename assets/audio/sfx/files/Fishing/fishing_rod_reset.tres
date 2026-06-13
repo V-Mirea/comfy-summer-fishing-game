@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://bj0jxej0g2wx"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_751s6"]
+[ext_resource type="AudioStream" uid="uid://d1m8eideghudw" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Reset_1.wav" id="2_xd5e1"]
+[ext_resource type="AudioStream" uid="uid://b8hhe0mbrap3t" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Reset_2.wav" id="3_lmnbx"]
+
+[resource]
+script = ExtResource("1_751s6")
+streams = Array[AudioStream]([ExtResource("2_xd5e1"), ExtResource("3_lmnbx")])
+pitch_min = 0.8
+pitch_max = 1.2

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://df6qm8yb36b34"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_yty7t"]
+[ext_resource type="AudioStream" uid="uid://tavx42hibi64" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Wood_1.wav" id="2_8ugx0"]
+[ext_resource type="AudioStream" uid="uid://brxw0c3mmhm4t" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Wood_2.wav" id="3_jij7l"]
+[ext_resource type="AudioStream" uid="uid://l3w6wy7k66c7" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Wood_3.wav" id="4_jpfnq"]
+[ext_resource type="AudioStream" uid="uid://ds0bmnqj1avpn" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Wood_4.wav" id="5_ga2fk"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tkc3l"]
+random_pitch = 1.1892071
+streams_count = 4
+stream_0/stream = ExtResource("2_8ugx0")
+stream_1/stream = ExtResource("3_jij7l")
+stream_2/stream = ExtResource("4_jpfnq")
+stream_3/stream = ExtResource("5_ga2fk")
+
+[resource]
+script = ExtResource("1_yty7t")
+streams = Array[AudioStream]([SubResource("AudioStreamRandomizer_tkc3l")])

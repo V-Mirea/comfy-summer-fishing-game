@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://giov8arqup53"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_idmht"]
+[ext_resource type="AudioStream" uid="uid://coitsfba7dtij" path="res://assets/audio/sfx/files/Ambience/SFX_Amb3_BadLake_Loop.wav" id="2_d6lib"]
+[ext_resource type="AudioStream" uid="uid://bnvcs5068w0c8" path="res://assets/audio/sfx/files/Ambience/SFX_Amb2_MidLake_Loop.wav" id="3_esjkc"]
+[ext_resource type="AudioStream" uid="uid://bb6260bop0bja" path="res://assets/audio/sfx/files/Ambience/SFX_Amb1_GoodLake_Loop.wav" id="4_kuees"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_x51ha"]
+stream_count = 3
+stream_0/stream = ExtResource("2_d6lib")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("3_esjkc")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("4_kuees")
+stream_2/volume = 0.0
+
+[resource]
+script = ExtResource("1_idmht")
+streams = Array[AudioStream]([SubResource("AudioStreamSynchronized_x51ha")])

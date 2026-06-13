@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://d2ypt2sgc3wus"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_ld1id"]
+[ext_resource type="AudioStream" uid="uid://d2223k7gsr0fm" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Tile_1.wav" id="2_uhfii"]
+[ext_resource type="AudioStream" uid="uid://cg1itxhdcwyh" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Tile_2.wav" id="3_o3i4d"]
+[ext_resource type="AudioStream" uid="uid://foyc57n8tjtf" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Tile_3.wav" id="4_4f6xk"]
+[ext_resource type="AudioStream" uid="uid://ce1h7bkuruhed" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Tile_4.wav" id="5_4humj"]
+[ext_resource type="AudioStream" uid="uid://cbn2k8jnwjp6x" path="res://assets/audio/sfx/files/Character/Footsteps/SFX_Cha_FootStep_Tile_5.wav" id="6_mep3f"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_n1nun"]
+random_pitch = 1.1892071
+streams_count = 5
+stream_0/stream = ExtResource("2_uhfii")
+stream_1/stream = ExtResource("3_o3i4d")
+stream_2/stream = ExtResource("4_4f6xk")
+stream_3/stream = ExtResource("5_4humj")
+stream_4/stream = ExtResource("6_mep3f")
+
+[resource]
+script = ExtResource("1_ld1id")
+streams = Array[AudioStream]([SubResource("AudioStreamRandomizer_n1nun")])

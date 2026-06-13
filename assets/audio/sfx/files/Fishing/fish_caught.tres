@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://df17xaabych0m"]
+
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1_ahe8f"]
+[ext_resource type="AudioStream" uid="uid://5ri2xeweusk8" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Splash_1.wav" id="2_8ob23"]
+[ext_resource type="AudioStream" uid="uid://b04cjlv2nfw21" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Splash_2.wav" id="3_e6ojf"]
+[ext_resource type="AudioStream" uid="uid://bljojktfvu7xn" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Splash_3.wav" id="4_k24ut"]
+[ext_resource type="AudioStream" uid="uid://cn54lfgnnreny" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Splash_4.wav" id="5_damew"]
+[ext_resource type="AudioStream" uid="uid://d2i3eyq7jybhs" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Splash_5.wav" id="6_vi11v"]
+[ext_resource type="AudioStream" uid="uid://ceycryl5u1vn4" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Splash_6.wav" id="7_hdc14"]
+[ext_resource type="AudioStream" uid="uid://61tjgkpmi4as" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Splash_7.wav" id="8_haxyw"]
+[ext_resource type="AudioStream" uid="uid://dv0n4y0sdvgo3" path="res://assets/audio/sfx/files/Fishing/SFX_Fishing_Splash_8.wav" id="9_l00yg"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6pdrw"]
+random_pitch = 1.0594631
+streams_count = 8
+stream_0/stream = ExtResource("2_8ob23")
+stream_1/stream = ExtResource("3_e6ojf")
+stream_2/stream = ExtResource("4_k24ut")
+stream_3/stream = ExtResource("5_damew")
+stream_4/stream = ExtResource("6_vi11v")
+stream_5/stream = ExtResource("7_hdc14")
+stream_6/stream = ExtResource("8_haxyw")
+stream_7/stream = ExtResource("9_l00yg")
+
+[resource]
+script = ExtResource("1_ahe8f")
+streams = Array[AudioStream]([SubResource("AudioStreamRandomizer_6pdrw")])
