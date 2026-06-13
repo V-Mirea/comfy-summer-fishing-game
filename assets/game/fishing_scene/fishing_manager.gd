@@ -8,6 +8,8 @@ var time_since_bite: float = 0.0
 var state_machine: StateMachine
 var hooked_fish: Fish
 var can_fish: bool = false # gated until the character finishes walking onto the dock
+var day_over_pending: bool = false # 4pm hit, waiting for idle to leave
+var leaving: bool = false # guard so we only transition out once
 
 const ROLL_INTERVAL: float = 0.5 #change later per rod, or other stuff
 
@@ -20,6 +22,8 @@ const ROLL_INTERVAL: float = 0.5 #change later per rod, or other stuff
 @export var bite_sfx: SfxEvent
 @export var fish_missed_sfx: SfxEvent
 @export var fish_on_sfx: SfxEvent
+@export var sell_button: Button # disabled unless idle, so you can't leave mid-fish
+@export var leave_early_popup: Popup # warns that leaving skips to 4pm
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +41,10 @@ func _ready():
 	state_machine.change_state(State.IDLE)
 	bubble_manager.pattern_complete.connect(_on_pattern_complete)
 
+	# fresh day every time we walk into fishing. clock starts after the walk-in
+	TimeManager.begin_fishing_day()
+	TimeManager.fishing_day_over.connect(_on_fishing_day_over)
+
 	## test code to avoid having to fish ##
 	for i in 10:
 		var fish: Fish = Fish.new()
@@ -46,12 +54,24 @@ func _ready():
 	###
 
 
+# set_hook goes through _unhandled_input so a click that the ui (the next screen
+# button etc) already handled won't also fire a cast. _process only runs the timers.
+func _unhandled_input(event: InputEvent) -> void:
+	if not event.is_action_pressed("set_hook"):
+		return
+	match state_machine.current_state:
+		State.IDLE:
+			if can_fish:
+				state_machine.change_state(State.WAITING_FOR_BITE)
+		State.WAITING_FOR_BITE:
+			state_machine.change_state(State.IDLE)
+		State.CONFIRM_BITE:
+			state_machine.change_state(State.MINIGAME)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	match state_machine.current_state:
-		State.IDLE:
-			if can_fish and Input.is_action_just_pressed("set_hook"):
-				state_machine.change_state(State.WAITING_FOR_BITE)
 		State.WAITING_FOR_BITE:
 			_process_waiting_for_bite(delta)
 		State.CONFIRM_BITE:
@@ -60,9 +80,6 @@ func _process(delta):
 
 func _process_waiting_for_bite(delta: float) -> void:
 	time_since_last_roll += delta
-	if Input.is_action_just_pressed("set_hook"):
-		state_machine.change_state(State.IDLE)
-		return
 	if time_since_last_roll >= ROLL_INTERVAL:
 		time_since_last_roll = 0.0
 		_roll_fish()
@@ -82,18 +99,19 @@ func _roll_fish() -> void:
 
 func _process_confirm_bite(delta: float) -> void:
 	time_since_bite += delta
-	if Input.is_action_just_pressed("set_hook"):
-		state_machine.change_state(State.MINIGAME)
-	elif time_since_bite >= FishingRules.get_bite_window():
+	if time_since_bite >= FishingRules.get_bite_window():
 		state_machine.change_state(State.MISSED_BITE)
 
 func _on_state_changed(_from: int, to: int, context: Dictionary) -> void:
 	_update_ui(to, context)
+	sell_button.disabled = to != State.IDLE # can only leave early when idle
 	match to:
 		State.IDLE:
 			time_since_last_roll = 0.0
 			hooked_fish = null
 			character.to_idle()
+			if day_over_pending:
+				_leave_for_selling() # 4pm came in mid-fish, now we're safe to go
 		State.WAITING_FOR_BITE:
 			AudioManager.play_sfx(cast_sfx)
 			character.cast() # cells 1-3, then auto-chains into the fishing loop
@@ -153,12 +171,39 @@ func _on_pattern_complete(score_data: Dictionary) -> void:
 
 func _on_character_walk_in_finished() -> void:
 	can_fish = true
+	TimeManager.start_clock() # don't count the walk-in, start now
 
 func _on_button_menu_pressed():
 	transition_requested.emit(Global.State.MAIN_MENU)
 
-func _on_button_sell_pressed():
+# 4pm. if we're idle leave now, otherwise wait til the current fish wraps up
+func _on_fishing_day_over() -> void:
+	day_over_pending = true
+	if state_machine.current_state == State.IDLE:
+		_leave_for_selling()
+
+func _leave_for_selling() -> void:
+	if leaving:
+		return
+	leaving = true
+	can_fish = false # kill any last-frame cast
 	transition_requested.emit(Global.State.SELECT_SELLING)
+
+# leave-early button, but only only fires when idle (button is disabled otherwise)
+func _on_button_sell_pressed():
+	get_tree().paused = true # also freezes the clock while the popup is up
+	leave_early_popup.show()
+
+func _on_leave_early_popup_popup_hide():
+	get_tree().paused = false
+
+func _on_leave_confirm_pressed():
+	leave_early_popup.hide() 
+	TimeManager.skip_to_fishing_end()
+	transition_requested.emit(Global.State.SELECT_SELLING)
+
+func _on_leave_cancel_pressed():
+	leave_early_popup.hide() 
 
 func _on_pause_button_pressed() -> void:
 	PauseMenu.toggle()

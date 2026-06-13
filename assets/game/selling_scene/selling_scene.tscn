@@ -10,29 +10,35 @@
 [ext_resource type="Script" uid="uid://hwwp83yvavu2" path="res://assets/game/selling_scene/customer_spawner/customer_spawner.gd" id="7_q6wlo"]
 [ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://assets/game/selling_scene/customer_spawner/customer/customer.tscn" id="8_830pu"]
 [ext_resource type="PackedScene" uid="uid://dsonopfqsqudn" path="res://assets/game/selling_scene/stall/picnic_stall/picnic_stall.tscn" id="8_w1ejd"]
+[ext_resource type="PackedScene" uid="uid://b7y2mqd3wn0xv" path="res://assets/game/shared/day_tint.tscn" id="9_dytnt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ehvh"]
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
-[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui")]
+[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui", "customer_spawner")]
 texture_filter = 1
 script = ExtResource("1_w1ejd")
-haggle_ui = NodePath("CanvasLayer/HaggleControl")
 fish_stalls = Array[PackedScene]([ExtResource("8_w1ejd"), ExtResource("3_6hwc8"), ExtResource("4_iyhom")])
+haggle_ui = NodePath("CanvasLayer/HaggleControl")
+customer_spawner = NodePath("CustomerSpawner")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1442556545]
 texture = ExtResource("2_lr7ye")
 centered = false
 
-[node name="Control" type="Control" parent="." unique_id=729090283]
+[node name="DayTint" parent="." unique_id=1897089150 instance=ExtResource("9_dytnt")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=729090283]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 
-[node name="ButtonBuy" type="Button" parent="Control" unique_id=1800644566]
+[node name="ButtonBuy" type="Button" parent="CanvasLayer/Control" unique_id=1800644566]
 layout_mode = 0
 offset_left = 1119.0
 offset_top = 674.0
@@ -40,8 +46,6 @@ offset_right = 1265.0
 offset_bottom = 705.0
 text = "buy
 "
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
 
 [node name="HaggleControl" type="Control" parent="CanvasLayer" unique_id=1550050499 node_paths=PackedStringArray("price_label", "price_slider")]
 visible = false
@@ -129,7 +133,7 @@ customer_area = NodePath("../CanvasLayer/CustomerSpawnArea")
 customer_scene = ExtResource("8_830pu")
 
 [connection signal="bartering_started" from="." to="CanvasLayer/HaggleControl" method="_on_customer_bartering"]
-[connection signal="pressed" from="Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
 [connection signal="offer_accepted" from="CanvasLayer/HaggleControl" to="." method="_on_haggle_control_offer_accepted"]
 [connection signal="offer_declined" from="CanvasLayer/HaggleControl" to="." method="_on_offer_declined"]
 [connection signal="value_changed" from="CanvasLayer/HaggleControl/PriceSlider" to="CanvasLayer/HaggleControl" method="_on_price_slider_value_changed"]
