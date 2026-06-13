@@ -1,9 +1,15 @@
-[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cstruj2u7xpad"]
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bah5xhq5v1c16"]
 
-[ext_resource type="Script" uid="uid://di55dj1abu15e" path="res://assets/global/upgrades/upgrade.gd" id="1_yl7o7"]
+[ext_resource type="Script" uid="uid://di55dj1abu15e" path="res://assets/global/upgrades/upgrade.gd" id="1_line3"]
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="2_line3"]
 
 [resource]
-script = ExtResource("1_yl7o7")
+script = ExtResource("1_line3")
 type = 2
 level = 3
+price = 250
+value = 0.4
+name = "Line 3"
+description = "a description for line 3"
+sprite = ExtResource("2_line3")
 metadata/_custom_type_script = "uid://di55dj1abu15e"
