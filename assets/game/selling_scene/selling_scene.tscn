@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://bcypvgjpjqawc" path="res://assets/game/selling_scene/selling_manager.gd" id="1_w1ejd"]
 [ext_resource type="Texture2D" uid="uid://dy7gck1p1nhk3" path="res://assets/game/selling_scene/Sell_screen_BG.png" id="2_lr7ye"]
 [ext_resource type="Script" uid="uid://ltw1bdxt8jjj" path="res://assets/game/selling_scene/haggle_control/haggle_control.gd" id="2_o8g2t"]
+[ext_resource type="PackedScene" uid="uid://dfftaretwk450" path="res://assets/game/selling_scene/stall/small_stall/small_stall.tscn" id="3_6hwc8"]
 [ext_resource type="Texture2D" uid="uid://c5y8k254xl3tx" path="res://assets/game/selling_scene/haggle_control/accept.png" id="3_lr7ye"]
 [ext_resource type="Texture2D" uid="uid://d0si60437xphd" path="res://assets/game/selling_scene/haggle_control/decline.png" id="4_6hwc8"]
+[ext_resource type="PackedScene" uid="uid://bet78kt7e645x" path="res://assets/game/selling_scene/stall/big_stall/big_stall.tscn" id="4_iyhom"]
 [ext_resource type="Script" uid="uid://hwwp83yvavu2" path="res://assets/game/selling_scene/customer_spawner/customer_spawner.gd" id="7_q6wlo"]
 [ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://assets/game/selling_scene/customer_spawner/customer/customer.tscn" id="8_830pu"]
-[ext_resource type="PackedScene" uid="uid://dfftaretwk450" path="res://assets/game/selling_scene/stall/small_stall/small_stall.tscn" id="8_w1ejd"]
+[ext_resource type="PackedScene" uid="uid://dsonopfqsqudn" path="res://assets/game/selling_scene/stall/picnic_stall/picnic_stall.tscn" id="8_w1ejd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24tig"]
 font_size = 40
@@ -20,6 +22,7 @@ font_color = Color(0, 0, 0, 1)
 texture_filter = 1
 script = ExtResource("1_w1ejd")
 haggle_ui = NodePath("CanvasLayer/HaggleControl")
+fish_stalls = Array[PackedScene]([ExtResource("8_w1ejd"), ExtResource("3_6hwc8"), ExtResource("4_iyhom")])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1442556545]
 texture = ExtResource("2_lr7ye")
@@ -147,9 +150,6 @@ color = Color(0.011764706, 1, 1, 1)
 script = ExtResource("7_q6wlo")
 customer_area = NodePath("../CanvasLayer/CustomerSpawnArea")
 customer_scene = ExtResource("8_830pu")
-
-[node name="SmallStall" parent="." unique_id=338772597 instance=ExtResource("8_w1ejd")]
-position = Vector2(640, 360)
 
 [connection signal="bartering_started" from="." to="CanvasLayer/HaggleControl" method="_on_customer_bartering"]
 [connection signal="pressed" from="Control/ButtonMenu" to="." method="_on_button_menu_pressed"]

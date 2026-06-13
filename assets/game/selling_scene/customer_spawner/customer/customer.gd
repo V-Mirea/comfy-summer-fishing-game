@@ -105,12 +105,14 @@ func _chat_bubble_timer_triggered():
 	decline_sprite.visible = false
 
 func start_leaving():
+	# changes state so that customer starts walking to leave
 	state_machine.change_state(State.LEAVING)
 	if clickbox.button_pressed:
 		selected.emit(self, false)
+		toggle_outline.emit(false)
 
 func leave_shop():
-	leaving_shop.emit(self)
+	leaving_shop.emit(self) #connected to customer spawner to free the node and spawn slot
 	
 func _patience_timer_triggered():
 	if state_machine.current_state == State.SHOPPING:
@@ -121,8 +123,9 @@ func _patience_timer_triggered():
 			start_leaving()
 	
 func _on_clickbox_toggled(toggled_on):
-	selected.emit(self, toggled_on) # connected to selling manager to toggle haggle control and unselect other customers
-	toggle_outline.emit(toggled_on) # connected to the VariantSprite to tell it to turn the outline on/off
+	if state_machine.current_state == State.SHOPPING:
+		selected.emit(self, toggled_on) # connected to selling manager to toggle haggle control and unselect other customers
+		toggle_outline.emit(toggled_on) # connected to the VariantSprite to tell it to turn the outline on/off
 	
 func _on_some_customer_bartering(customer: Customer):
 	if customer != self:
