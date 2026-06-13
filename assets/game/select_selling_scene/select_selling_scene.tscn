@@ -14,6 +14,13 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_panel"]
 font_size = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hryq"]
+content_margin_left = 26.0
+bg_color = Color(0.6, 0.6, 0.6, 0.09019608)
+
+[sub_resource type="Theme" id="Theme_1ddue"]
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_0hryq")
+
 [sub_resource type="LabelSettings" id="LabelSettings_ux6l5"]
 font_size = 28
 
@@ -65,7 +72,7 @@ layout_mode = 0
 offset_left = 130.0
 offset_top = 211.0
 offset_right = 1159.0
-offset_bottom = 606.0
+offset_bottom = 603.0
 
 [node name="TopPanel" type="VBoxContainer" parent="HSplitContainer" unique_id=74036727]
 layout_mode = 2
@@ -80,6 +87,7 @@ horizontal_alignment = 1
 [node name="CaughtList" type="ItemList" parent="HSplitContainer/TopPanel" unique_id=1175813109]
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_1ddue")
 
 [node name="BottomPanel" type="VBoxContainer" parent="HSplitContainer" unique_id=1960955440]
 layout_mode = 2
@@ -94,6 +102,7 @@ horizontal_alignment = 1
 [node name="SellingList" type="ItemList" parent="HSplitContainer/BottomPanel" unique_id=466547935]
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_1ddue")
 
 [node name="ProceedButton" type="TextureButton" parent="." unique_id=890188191]
 layout_mode = 0
