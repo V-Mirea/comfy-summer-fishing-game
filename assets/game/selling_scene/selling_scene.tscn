@@ -16,17 +16,18 @@
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
-[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui")]
+[node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui", "customer_spawner")]
 texture_filter = 1
 script = ExtResource("1_w1ejd")
-haggle_ui = NodePath("CanvasLayer/HaggleControl")
 fish_stalls = Array[PackedScene]([ExtResource("8_w1ejd"), ExtResource("3_6hwc8"), ExtResource("4_iyhom")])
+haggle_ui = NodePath("CanvasLayer/HaggleControl")
+customer_spawner = NodePath("CustomerSpawner")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1442556545]
 texture = ExtResource("2_lr7ye")
 centered = false
 
-[node name="DayTint" parent="." instance=ExtResource("9_dytnt")]
+[node name="DayTint" parent="." unique_id=1897089150 instance=ExtResource("9_dytnt")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
 

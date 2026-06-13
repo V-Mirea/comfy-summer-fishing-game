@@ -7,25 +7,26 @@
 [ext_resource type="Resource" uid="uid://rlt1oxv2of68" path="res://assets/audio/sfx/fish_on.tres" id="5_3rbgy"]
 [ext_resource type="Resource" uid="uid://dlp8m6max7w7m" path="res://assets/audio/sfx/files/Fishing/cast.tres" id="5_cast"]
 [ext_resource type="Resource" uid="uid://h8nn8ck2y6m3" path="res://assets/audio/sfx/bite.tres" id="6_bite"]
-[ext_resource type="Resource" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
+[ext_resource type="Resource" uid="uid://dqgiocviad8hm" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
 [ext_resource type="PackedScene" uid="uid://cgeqmhoibypi2" path="res://assets/game/fishing_scene/character/fishing_character.tscn" id="8_fchar"]
 [ext_resource type="PackedScene" uid="uid://b7y2mqd3wn0xv" path="res://assets/game/shared/day_tint.tscn" id="9_dytnt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40
 
-[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "bubble_manager", "character")]
+[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "bubble_manager", "character", "sell_button", "leave_early_popup")]
 script = ExtResource("1_ptjo3")
 status_label = NodePath("UILayer/Container/StatusLabel")
 bubble_manager = NodePath("BubbleManager")
 character = NodePath("FishingCharacter")
+sell_button = NodePath("UILayer/Container/SellButton")
+leave_early_popup = NodePath("LeaveEarlyPopup")
 cast_sfx = ExtResource("5_cast")
 bite_sfx = ExtResource("6_bite")
 fish_missed_sfx = ExtResource("7_missed")
 fish_on_sfx = ExtResource("5_3rbgy")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1849949675]
-layer = 1
 
 [node name="Container" type="Control" parent="UILayer" unique_id=1849949674]
 layout_mode = 3
@@ -84,7 +85,8 @@ script = ExtResource("2_a8ye1")
 BubbleScene = ExtResource("3_tkjw3")
 spawn_area = NodePath("../BubbleSpawnArea")
 
-[node name="DayTint" parent="." instance=ExtResource("9_dytnt")]
+[node name="DayTint" parent="." unique_id=680008374 instance=ExtResource("9_dytnt")]
+color = Color(0.89540815, 0.58489025, 0.54700786, 1)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=762271306]
 z_index = -1
@@ -95,5 +97,63 @@ centered = false
 position = Vector2(-200, 280)
 dock_position = Vector2(360, 280)
 
+[node name="LeaveEarlyPopup" type="Popup" parent="." unique_id=213549208]
+process_mode = 3
+title = "Leave early?"
+initial_position = 3
+size = Vector2i(561, 145)
+visible = false
+always_on_top = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaveEarlyPopup" unique_id=725216889]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="LeaveEarlyPopup/VBoxContainer" unique_id=284778316]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaveEarlyPopup/VBoxContainer/MarginContainer" unique_id=1922447504]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LeaveEarlyPopup/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1017120337]
+layout_mode = 2
+text = "Leave early and skip ahead?"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="LeaveEarlyPopup/VBoxContainer/MarginContainer/VBoxContainer" unique_id=399944097]
+layout_mode = 2
+text = "Time will skip straight to 4 PM."
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="LeaveEarlyPopup/VBoxContainer" unique_id=1974258861]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LeaveEarlyPopup/VBoxContainer/MarginContainer2" unique_id=1519522694]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="LeaveEarlyPopup/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1956789894]
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="ConfirmButton" type="Button" parent="LeaveEarlyPopup/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer" unique_id=1790590670]
+layout_mode = 2
+text = "Leave"
+
+[node name="CancelButton" type="Button" parent="LeaveEarlyPopup/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1125617681]
+layout_mode = 2
+text = "Keep fishing"
+
 [connection signal="pressed" from="UILayer/Container/SellButton" to="." method="_on_button_sell_pressed"]
 [connection signal="walk_in_finished" from="FishingCharacter" to="." method="_on_character_walk_in_finished"]
+[connection signal="popup_hide" from="LeaveEarlyPopup" to="." method="_on_leave_early_popup_popup_hide"]
+[connection signal="pressed" from="LeaveEarlyPopup/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ConfirmButton" to="." method="_on_leave_confirm_pressed"]
+[connection signal="pressed" from="LeaveEarlyPopup/VBoxContainer/MarginContainer2/HBoxContainer/CancelButton" to="." method="_on_leave_cancel_pressed"]
