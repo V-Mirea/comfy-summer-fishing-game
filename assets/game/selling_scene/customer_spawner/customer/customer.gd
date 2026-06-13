@@ -5,6 +5,8 @@ class_name Customer
 signal leaving_shop(customer: Customer)
 signal patience_changed(patience: int)
 signal selected(customer: Customer, toggled_on: bool)
+signal toggle_outline(toggled_on: bool)
+signal state_changed(state: State)
 
 @export var offer_label: Label
 @export var clickbox: Button
@@ -42,6 +44,7 @@ func _ready():
 	}
 	
 	state_machine = StateMachine.new(valid_transitions)
+	state_machine.state_changed.connect(_on_state_changed)
 	state_machine.change_state(State.ENTERING)
 	
 	offer_label.text = "%s (%d) - $%d" % [fish_wanted.species.display_name, fish_wanted.quality, fish_wanted.price]
@@ -102,12 +105,14 @@ func _chat_bubble_timer_triggered():
 	decline_sprite.visible = false
 
 func start_leaving():
+	# changes state so that customer starts walking to leave
 	state_machine.change_state(State.LEAVING)
 	if clickbox.button_pressed:
 		selected.emit(self, false)
+		toggle_outline.emit(false)
 
 func leave_shop():
-	leaving_shop.emit(self)
+	leaving_shop.emit(self) #connected to customer spawner to free the node and spawn slot
 	
 func _patience_timer_triggered():
 	if state_machine.current_state == State.SHOPPING:
@@ -118,12 +123,19 @@ func _patience_timer_triggered():
 			start_leaving()
 	
 func _on_clickbox_toggled(toggled_on):
-	selected.emit(self, toggled_on) # connected to selling manager to toggle haggle control and unselect other customers
+	if state_machine.current_state == State.SHOPPING:
+		selected.emit(self, toggled_on) # connected to selling manager to toggle haggle control and unselect other customers
+		toggle_outline.emit(toggled_on) # connected to the VariantSprite to tell it to turn the outline on/off
 	
 func _on_some_customer_bartering(customer: Customer):
 	if customer != self:
 		clickbox.set_pressed_no_signal(false)
+		toggle_outline.emit(false)
 
 func _on_fish_sold(fish: Fish):
 	if state_machine.current_state != State.LEAVING and fish == fish_wanted:
 		start_leaving()
+		
+func _on_state_changed(from: State, to: State, context):
+	# forward the event to the VariationSprite child
+	state_changed.emit(to) 

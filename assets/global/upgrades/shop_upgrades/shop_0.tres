@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://c3fbwa43mwjxt"]
+
+[ext_resource type="Script" uid="uid://di55dj1abu15e" path="res://assets/global/upgrades/upgrade.gd" id="1_7xauv"]
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="2_bgt4b"]
+
+[resource]
+script = ExtResource("1_7xauv")
+type = 4
+name = "shop 1"
+sprite = ExtResource("2_bgt4b")
+metadata/_custom_type_script = "uid://di55dj1abu15e"

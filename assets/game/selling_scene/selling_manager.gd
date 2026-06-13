@@ -7,12 +7,18 @@ signal fish_sold(fish: Fish)
 @export var pause_button: Button # this can go
 @export var haggle_ui: HaggleControl
 
+@export var fish_stalls: Array[PackedScene]
+
 var fish_for_sale: Array[Fish]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	PlayerManager.selling_fish_changed.emit(PlayerManager.fish_to_sell)
 	haggle_ui.offer_accepted.connect(_on_offer_accepted)
+	
+	var stall: Node2D = fish_stalls[PlayerManager.data.upgrades[Upgrade.UpgradeType.SHOP_LEVEL]].instantiate()
+	stall.position = Vector2(640, 360)
+	add_child(stall)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

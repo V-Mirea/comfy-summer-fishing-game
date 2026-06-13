@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b51juuwb4au5g"
-path="res://.godot/imported/Sign_3.PNG-ba4eb8a05cb4c72eed04f6b05a3e5c77.ctex"
+uid="uid://ml3iqr76pae5"
+path="res://.godot/imported/Ch3 front.png-2100ae61fa5ec72e0363be73992d512e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/selling_scene/Sign_3.PNG"
-dest_files=["res://.godot/imported/Sign_3.PNG-ba4eb8a05cb4c72eed04f6b05a3e5c77.ctex"]
+source_file="res://assets/game/selling_scene/customer_spawner/customer/characters/character_3/Ch3 front.png"
+dest_files=["res://.godot/imported/Ch3 front.png-2100ae61fa5ec72e0363be73992d512e.ctex"]
 
 [params]
 
