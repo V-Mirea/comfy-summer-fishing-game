@@ -41,6 +41,9 @@ func _process(delta):
 		else:
 			time_since_last_spawn = 0
 	
+func stop_spawning():
+	set_process(false) # no more rolls but existing customers still exist
+
 func calculate_customer_areas():
 	var customer_rect = customer_area.get_rect()
 	var individual_width = customer_rect.size.x / customer_slots

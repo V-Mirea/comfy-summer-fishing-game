@@ -6,6 +6,7 @@ signal fish_sold(fish: Fish)
 
 @export var pause_button: Button # this can go
 @export var haggle_ui: HaggleControl
+@export var customer_spawner: CustomerSpawner
 
 @export var fish_stalls: Array[PackedScene]
 
@@ -15,10 +16,18 @@ var fish_for_sale: Array[Fish]
 func _ready():
 	PlayerManager.selling_fish_changed.emit(PlayerManager.fish_to_sell)
 	haggle_ui.offer_accepted.connect(_on_offer_accepted)
-	
+
+	# clock carries over from 4pm; runs til 10pm
+	TimeManager.begin_selling()
+	TimeManager.selling_day_over.connect(_on_selling_day_over)
+
 	var stall: Node2D = fish_stalls[PlayerManager.data.upgrades[Upgrade.UpgradeType.SHOP_LEVEL]].instantiate()
 	stall.position = Vector2(640, 360)
 	add_child(stall)
+
+# no more new customers, but let the player finish up and leave on their own
+func _on_selling_day_over() -> void:
+	customer_spawner.stop_spawning()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

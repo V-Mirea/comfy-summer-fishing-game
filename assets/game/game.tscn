@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://l5fpvucayddo" path="res://assets/audio/music/files/MAIN MENU THEME_V2.mp3" id="7_k08a3"]
 [ext_resource type="Script" uid="uid://dadrap2dtvhow" path="res://assets/game/money_label.gd" id="7_pdf2x"]
 [ext_resource type="Script" uid="uid://bfy2euwe0xian" path="res://assets/game/pause_button.gd" id="9_k08a3"]
+[ext_resource type="Script" uid="uid://bn4t7yhqwd2pe" path="res://assets/game/time_label.gd" id="10_time"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pg74i"]
 font_size = 23
@@ -64,6 +65,19 @@ text = "$0"
 label_settings = SubResource("LabelSettings_faf0w")
 horizontal_alignment = 1
 script = ExtResource("7_pdf2x")
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=1454216211]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -164.0
+offset_top = 160.0
+offset_bottom = 205.0
+grow_horizontal = 0
+text = "6:00 AM"
+label_settings = SubResource("LabelSettings_faf0w")
+horizontal_alignment = 1
+script = ExtResource("10_time")
 
 [node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=1005989799]
 anchors_preset = -1
