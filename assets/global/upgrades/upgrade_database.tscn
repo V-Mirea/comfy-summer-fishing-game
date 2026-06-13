@@ -12,15 +12,31 @@
 [ext_resource type="Resource" uid="uid://dfe2whn6gih02" path="res://assets/global/upgrades/bait_upgrades/bait_0.tres" id="9_glhnm"]
 [ext_resource type="Resource" uid="uid://cm8odnam84qnr" path="res://assets/global/upgrades/reel_upgrades/reel_2.tres" id="9_len27"]
 [ext_resource type="Resource" uid="uid://byiguagjx5odk" path="res://assets/global/upgrades/reel_upgrades/reel_3.tres" id="10_pllfa"]
-[ext_resource type="Resource" uid="uid://1nd0b3qwm2t1" path="res://assets/global/upgrades/reel_upgrades/reel_4.tres" id="11_wn6it"]
+[ext_resource type="Resource" uid="uid://dsfe7v53ilyev" path="res://assets/global/upgrades/bait_upgrades/bait_2.tres" id="13_12e4h"]
+[ext_resource type="Resource" uid="uid://cq2a2o4udvxu5" path="res://assets/global/upgrades/bait_upgrades/bait_3.tres" id="14_vbk2t"]
 [ext_resource type="Resource" uid="uid://c3fbwa43mwjxt" path="res://assets/global/upgrades/shop_upgrades/shop_0.tres" id="14_ydrry"]
 [ext_resource type="Resource" uid="uid://bheubyw4f2jr0" path="res://assets/global/upgrades/shop_upgrades/shop_1.tres" id="15_12e4h"]
+[ext_resource type="Resource" uid="uid://bfnq6lplkorf7" path="res://assets/global/upgrades/line_upgrades/line_0.tres" id="15_y6bsn"]
+[ext_resource type="Resource" uid="uid://byl787d7gfy3k" path="res://assets/global/upgrades/line_upgrades/line_1.tres" id="16_1y4o3"]
 [ext_resource type="Resource" uid="uid://b6x2uusnx7rq4" path="res://assets/global/upgrades/shop_upgrades/shop_2.tres" id="16_vbk2t"]
+[ext_resource type="Resource" uid="uid://bdduu1kjeshfj" path="res://assets/global/upgrades/line_upgrades/line_2.tres" id="17_3ayxd"]
 [ext_resource type="Resource" uid="uid://xtnt1qeokhqf" path="res://assets/global/upgrades/shop_upgrades/shop_3.tres" id="17_jgunr"]
+[ext_resource type="Resource" uid="uid://cstruj2u7xpad" path="res://assets/global/upgrades/line_upgrades/line_3.tres" id="18_57feu"]
+[ext_resource type="Resource" uid="uid://wcrnltsbw1gp" path="res://assets/global/upgrades/advertising_upgrades/advert_0.tres" id="23_3e3ud"]
+[ext_resource type="Resource" uid="uid://dqida6bknfinw" path="res://assets/global/upgrades/advertising_upgrades/advert_1.tres" id="24_nsvqh"]
+[ext_resource type="Resource" uid="uid://di06qkgd5f4n0" path="res://assets/global/upgrades/advertising_upgrades/advert_2.tres" id="25_fei2b"]
+[ext_resource type="Resource" uid="uid://bwt3cmlq457y" path="res://assets/global/upgrades/advertising_upgrades/advert_3.tres" id="26_iy7ls"]
+[ext_resource type="Resource" uid="uid://f1gb2k47kceg" path="res://assets/global/upgrades/pollution_upgrades/pollution_0.tres" id="27_gr2nj"]
+[ext_resource type="Resource" uid="uid://cay0ksky6yjnm" path="res://assets/global/upgrades/pollution_upgrades/pollution_1.tres" id="28_ft37d"]
+[ext_resource type="Resource" uid="uid://cmswv7iqbebcr" path="res://assets/global/upgrades/pollution_upgrades/pollution_2.tres" id="29_k7hyu"]
+[ext_resource type="Resource" uid="uid://1r0l1qh208vs" path="res://assets/global/upgrades/pollution_upgrades/pollution_3.tres" id="30_2dudq"]
 
 [node name="UpgradeDatabase" type="Node" unique_id=1868595722]
 script = ExtResource("1_s6vli")
 rod_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("3_urnvp"), ExtResource("3_htyh0"), ExtResource("4_urnvp"), ExtResource("5_wla2w")])
-reel_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("7_wla2w"), ExtResource("6_glhnm"), ExtResource("9_len27"), ExtResource("10_pllfa"), ExtResource("11_wn6it")])
-bait_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("9_glhnm"), ExtResource("7_4wjjm")])
+reel_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("7_wla2w"), ExtResource("6_glhnm"), ExtResource("9_len27"), ExtResource("10_pllfa")])
+bait_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("9_glhnm"), ExtResource("7_4wjjm"), ExtResource("13_12e4h"), ExtResource("14_vbk2t")])
+line_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("15_y6bsn"), ExtResource("16_1y4o3"), ExtResource("17_3ayxd"), ExtResource("18_57feu")])
 shop_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("14_ydrry"), ExtResource("15_12e4h"), ExtResource("16_vbk2t"), ExtResource("17_jgunr")])
+advertising_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("23_3e3ud"), ExtResource("24_nsvqh"), ExtResource("25_fei2b"), ExtResource("26_iy7ls")])
+pollution_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("27_gr2nj"), ExtResource("28_ft37d"), ExtResource("29_k7hyu"), ExtResource("30_2dudq")])

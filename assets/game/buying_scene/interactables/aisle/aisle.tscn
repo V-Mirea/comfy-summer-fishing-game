@@ -1,28 +1,48 @@
 [gd_scene format=3 uid="uid://bckgy2rx84xwk"]
 
 [ext_resource type="Script" uid="uid://dys1cv4mma5ta" path="res://assets/game/buying_scene/interactables/aisle/aisle.gd" id="1_3aoq8"]
+[ext_resource type="Shader" uid="uid://byvujt6liq2ie" path="res://assets/game/shared/outline_shader.gdshader" id="2_73bbx"]
 [ext_resource type="Texture2D" uid="uid://ddmbegyt3xpwo" path="res://assets/game/buying_scene/interactables/aisle/Shelf.PNG" id="2_b2ge7"]
 [ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactables/interactable_sprite.gd" id="3_sy2aq"]
-[ext_resource type="Texture2D" uid="uid://bvymvnc7dik4v" path="res://assets/game/buying_scene/interactables/aisle/Shelf_thick_outline.PNG" id="4_3aoq8"]
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/interactables/interaction_area.gd" id="5_0fpow"]
+[ext_resource type="Texture2D" uid="uid://cmsxfut857jye" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Rod_upgrade_tag.png" id="5_byrs4"]
+[ext_resource type="Texture2D" uid="uid://c7pfepdutt5s4" path="res://assets/game/buying_scene/interactables/aisle/Shelf_variation_1.png" id="5_ykumb"]
+[ext_resource type="Texture2D" uid="uid://f0ivnm2ontvx" path="res://assets/game/buying_scene/interactables/aisle/Shelf_variation_2.png" id="6_anscq"]
+[ext_resource type="Texture2D" uid="uid://dvhvigkanp5tf" path="res://assets/game/buying_scene/interactables/aisle/Shelf_variation_3.png" id="7_ir4sk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykumb"]
+shader = ExtResource("2_73bbx")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l2yu"]
 size = Vector2(207.75, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3s4dn"]
-size = Vector2(262.5, 126)
+size = Vector2(210, 126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tnhv"]
 size = Vector2(185, 112)
 
-[node name="Aisle" type="StaticBody2D" unique_id=543733618]
+[node name="Aisle" type="StaticBody2D" unique_id=543733618 node_paths=PackedStringArray("display_tag")]
 script = ExtResource("1_3aoq8")
+display_tag = NodePath("DisplayTag")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1917228821]
+material = SubResource("ShaderMaterial_ykumb")
 position = Vector2(0, -29)
 texture = ExtResource("2_b2ge7")
 script = ExtResource("3_sy2aq")
-interactable_sprite = ExtResource("4_3aoq8")
+sprite_variations = Array[Texture2D]([ExtResource("5_ykumb"), ExtResource("6_anscq"), ExtResource("7_ir4sk")])
+
+[node name="DisplayTag" type="Sprite2D" parent="." unique_id=940180202]
+position = Vector2(0, -83)
+texture = ExtResource("5_byrs4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=308502004]
 position = Vector2(-0.875, 29)
@@ -33,7 +53,7 @@ position = Vector2(-31, -67)
 script = ExtResource("5_0fpow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1362044921]
-position = Vector2(31.75, 98)
+position = Vector2(29, 98)
 shape = SubResource("RectangleShape2D_3s4dn")
 
 [node name="TransparencyArea" type="Area2D" parent="." unique_id=1033181804]
