@@ -11,9 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://assets/game/selling_scene/customer_spawner/customer/customer.tscn" id="8_830pu"]
 [ext_resource type="PackedScene" uid="uid://dsonopfqsqudn" path="res://assets/game/selling_scene/stall/picnic_stall/picnic_stall.tscn" id="8_w1ejd"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_24tig"]
-font_size = 40
-
 [sub_resource type="LabelSettings" id="LabelSettings_7ehvh"]
 font_size = 35
 font_color = Color(0, 0, 0, 1)
@@ -35,14 +32,6 @@ offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 
-[node name="ButtonMenu" type="Button" parent="Control" unique_id=921605471]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 672.0
-offset_right = 128.0
-offset_bottom = 704.0
-text = "menu"
-
 [node name="ButtonBuy" type="Button" parent="Control" unique_id=1800644566]
 layout_mode = 0
 offset_left = 1119.0
@@ -51,18 +40,6 @@ offset_right = 1265.0
 offset_bottom = 705.0
 text = "buy
 "
-
-[node name="Title" type="Label" parent="Control" unique_id=1230235925]
-visible = false
-layout_mode = 0
-offset_left = 267.0
-offset_top = 61.0
-offset_right = 980.0
-offset_bottom = 198.0
-text = "Sell your fish"
-label_settings = SubResource("LabelSettings_24tig")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=56083680]
 
@@ -152,7 +129,6 @@ customer_area = NodePath("../CanvasLayer/CustomerSpawnArea")
 customer_scene = ExtResource("8_830pu")
 
 [connection signal="bartering_started" from="." to="CanvasLayer/HaggleControl" method="_on_customer_bartering"]
-[connection signal="pressed" from="Control/ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
 [connection signal="offer_accepted" from="CanvasLayer/HaggleControl" to="." method="_on_haggle_control_offer_accepted"]
 [connection signal="offer_declined" from="CanvasLayer/HaggleControl" to="." method="_on_offer_declined"]
