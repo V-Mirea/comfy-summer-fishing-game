@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvymvnc7dik4v"
-path="res://.godot/imported/Shelf_thick_outline.PNG-f4176f8dbcecd3c5aed89c17560b1e64.ctex"
+uid="uid://dvhvigkanp5tf"
+path="res://.godot/imported/Shelf_variation_3.png-07053328235aaf5b33fdfe92eb2c1a8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/interactables/aisle/Shelf_thick_outline.PNG"
-dest_files=["res://.godot/imported/Shelf_thick_outline.PNG-f4176f8dbcecd3c5aed89c17560b1e64.ctex"]
+source_file="res://assets/game/buying_scene/interactables/aisle/Shelf_variation_3.png"
+dest_files=["res://.godot/imported/Shelf_variation_3.png-07053328235aaf5b33fdfe92eb2c1a8b.ctex"]
 
 [params]
 

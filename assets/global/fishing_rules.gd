@@ -45,7 +45,7 @@ static func _get_good_points() -> float:
 # other 2.5 comes from the fishing game. driven entirely by rod's value now, also having random .5 variance
 # heavily weighted to be at its max 0.5 about 20% of the time to not feel impossible to get a perfect fish; maybe rod value also increases this 
 static func get_base_quality() -> float:
-	var rod_value := UpgradeDatabase.get_value(Upgrade.UpgradeType.ROD)
+	var rod_value: float = UpgradeDatabase.get_value(Upgrade.UpgradeType.ROD)
 	var bonus := 0.5 if randf() < 0.2 else randf_range(0.0, 0.5)
 	return rod_value + bonus
 

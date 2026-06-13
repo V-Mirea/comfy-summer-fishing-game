@@ -4,7 +4,7 @@ signal transition_requested(state: Global.State)
 
 @export var caught_list: ItemList
 @export var selling_list: ItemList
-@export var proceed_button: Button
+@export var proceed_button: TextureButton
 @export var slots_label: Label
 
 var caught_fish: Array[Fish] = []
