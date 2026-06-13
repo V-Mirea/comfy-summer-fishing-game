@@ -64,6 +64,16 @@ size = Vector2(267, 77)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig6k8"]
 size = Vector2(206.25, 56)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amxth"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svc6x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imu8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ov4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ice6t"]
+
 [sub_resource type="Gradient" id="Gradient_kq7pi"]
 offsets = PackedFloat32Array(0.22007042, 0.40669015)
 colors = PackedColorArray(0, 0, 0, 0.6039216, 1, 1, 1, 0)
@@ -491,6 +501,18 @@ script = ExtResource("4_uhb6p")
 position = Vector2(38, 129)
 shape = SubResource("RectangleShape2D_ig6k8")
 
+[node name="Clickbox" type="Button" parent="BoxFort" unique_id=1584006381]
+offset_left = -139.0
+offset_top = -95.0
+offset_right = 137.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_amxth")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_svc6x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_imu8t")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ov4r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ice6t")
+flat = true
+
 [node name="YSorted" type="Node2D" parent="." unique_id=1382759860]
 y_sort_enabled = true
 
@@ -904,6 +926,7 @@ shape = SubResource("RectangleShape2D_svc6x")
 [connection signal="player_entered" from="BoxFort/InteractionArea" to="BoxFort/Sprite2D" method="_on_interaction_area_player_entered"]
 [connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort" method="_on_interaction_area_player_exited"]
 [connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort/Sprite2D" method="_on_interaction_area_player_exited"]
+[connection signal="pressed" from="BoxFort/Clickbox" to="BoxFort" method="_on_clickbox_pressed"]
 [connection signal="shop_opened" from="YSorted/RodAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/ReelAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/LineAisle" to="ShopMenu" method="_on_shop_opened"]
