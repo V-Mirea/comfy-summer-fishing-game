@@ -69,7 +69,7 @@ func _process_waiting_for_bite(delta: float) -> void:
 		_roll_fish()
 
 func _roll_fish() -> void:
-	if randf() >= PlayerManager.get_fishing_roll_chance():
+	if randf() >= FishingRules.get_fishing_roll_chance():
 		return  # no fish this roll
 
 	var rod_level: int = PlayerManager.get_upgrade_level(Upgrade.UpgradeType.ROD)
@@ -142,10 +142,10 @@ func _get_status_text_for_state(state: State, _context: Dictionary) -> String:
 			return ""
 
 func _on_pattern_complete(score_data: Dictionary) -> void:
-	if not PlayerManager.did_catch_fish(score_data):
+	if not FishingRules.did_catch_fish(score_data):
 		state_machine.change_state(State.MISSED_FISH)
 		return
-	hooked_fish.quality = PlayerManager.calculate_total_quality(score_data)
+	hooked_fish.quality = FishingRules.calculate_total_quality(score_data)
 	PlayerManager.add_fish(hooked_fish)
 	character.resolve() # cells 11->12 on a successful catch
 	FishCaughtScreen.open(hooked_fish)
