@@ -7,12 +7,7 @@ signal transition_requested(state: Global.State)
 @export var proceed_button: TextureButton
 @export var slots_label: Label
 
-var caught_fish: Array[Fish] = []
-var selling_fish: Array[Fish] = []
-
 func _ready():
-	caught_fish = PlayerManager.get_all_fish().duplicate()
-	selling_fish = []
 	_refresh_lists()
 	caught_list.item_clicked.connect(_on_caught_item_clicked)
 	selling_list.item_clicked.connect(_on_selling_item_clicked)
@@ -21,35 +16,34 @@ func _ready():
 func _on_caught_item_clicked(index: int, _at_position: Vector2, mouse_button_index: int):
 	if mouse_button_index != MOUSE_BUTTON_LEFT:
 		return
-	if selling_fish.size() >= PlayerManager.max_sell_slots:
+	if PlayerManager.fish_to_sell.size() >= PlayerManager.max_sell_slots:
 		return
-	var fish = caught_fish[index]
-	caught_fish.remove_at(index)
-	selling_fish.append(fish)
+	var fish = PlayerManager.data.fish_inventory[index]
+	PlayerManager.remove_fish(fish)
+	PlayerManager.add_selling_fish(fish)
 	_refresh_lists()
 
 func _on_selling_item_clicked(index: int, _at_position: Vector2, mouse_button_index: int):
 	if mouse_button_index != MOUSE_BUTTON_LEFT:
 		return
-	var fish = selling_fish[index]
-	selling_fish.remove_at(index)
-	caught_fish.append(fish)
+	var fish = PlayerManager.fish_to_sell[index]
+	PlayerManager.remove_selling_fish(fish)
+	PlayerManager.add_fish(fish)
 	_refresh_lists()
 
 func _refresh_lists():
 	caught_list.clear()
+	var caught_fish = PlayerManager.data.fish_inventory
 	for fish in caught_fish:
 		caught_list.add_item("%s - QUALITY: %d" % [fish.species.display_name, fish.quality])
 
 	selling_list.clear()
+	var selling_fish = PlayerManager.fish_to_sell
 	for fish in selling_fish:
 		selling_list.add_item("%s - QUALITY: %d" % [fish.species.display_name, fish.quality])
 
 	slots_label.text = "%d / %d fish selected" % [selling_fish.size(), PlayerManager.max_sell_slots]
-	proceed_button.disabled = selling_fish.is_empty()
+	#proceed_button.disabled = selling_fish.is_empty()
 
 func _on_proceed():
-	PlayerManager.fish_to_sell = selling_fish.duplicate()
-	for fish in selling_fish:
-		PlayerManager.remove_fish(fish)
 	transition_requested.emit(Global.State.SELLING)

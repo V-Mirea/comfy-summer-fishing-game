@@ -24,10 +24,8 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_button_menu_pressed():
-	transition_requested.emit(Global.State.MAIN_MENU) # connected to game manager to change screen
-
 func _on_button_buy_pressed():
+	PlayerManager.fish_to_sell = []
 	transition_requested.emit(Global.State.BUYING) # connected to game manager to change screen
 
 func _on_request_spawn_customer(customer: Customer):

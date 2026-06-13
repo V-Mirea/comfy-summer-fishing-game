@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://slc13ikvkxua" path="res://assets/game/select_selling_scene/To_sell_screen_all.png" id="2_u5hd8"]
 [ext_resource type="Texture2D" uid="uid://c4ni27o2xegci" path="res://assets/game/shared/ui/button/Blue_button_large.PNG" id="3_0hryq"]
 [ext_resource type="Texture2D" uid="uid://cpn8nhgpdc7me" path="res://assets/game/shared/ui/button/Blue_button_large_pressed.PNG" id="4_1ddue"]
+[ext_resource type="Script" uid="uid://cwr23c3ay0mj1" path="res://assets/game/select_selling_scene/proceed_button.gd" id="5_1ddue"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
 font_size = 40
@@ -112,6 +113,7 @@ offset_right = 727.0
 offset_bottom = 707.0
 texture_normal = ExtResource("3_0hryq")
 texture_pressed = ExtResource("4_1ddue")
+script = ExtResource("5_1ddue")
 
 [node name="Label" type="Label" parent="ProceedButton" unique_id=55385710]
 layout_mode = 0

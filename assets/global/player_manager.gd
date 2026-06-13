@@ -44,6 +44,10 @@ func remove_fish(fish: Fish) -> void:
 func get_all_fish() -> Array[Fish]:
 	return data.fish_inventory
 
+func add_selling_fish(fish: Fish):
+	fish_to_sell.append(fish)
+	selling_fish_changed.emit(fish_to_sell)
+
 func remove_selling_fish(fish: Fish):
 	var idx := fish_to_sell.find(fish)
 	if idx >= 0:
