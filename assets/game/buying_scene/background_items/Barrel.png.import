@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bekf0mnmf50k1"
-path="res://.godot/imported/Shop_items.PNG-c72c8482b56507c3cb1c79a3a0c59a42.ctex"
+uid="uid://ddrxj5hp61wyw"
+path="res://.godot/imported/Barrel.png-c10c0e6316006eee1db8098c43748671.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/Shop_items.PNG"
-dest_files=["res://.godot/imported/Shop_items.PNG-c72c8482b56507c3cb1c79a3a0c59a42.ctex"]
+source_file="res://assets/game/buying_scene/background_items/Barrel.png"
+dest_files=["res://.godot/imported/Barrel.png-c10c0e6316006eee1db8098c43748671.ctex"]
 
 [params]
 

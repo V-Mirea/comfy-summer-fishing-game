@@ -1,15 +1,19 @@
 extends CanvasLayer
 
+signal quit_requested
+
 @export var money_label: Label
 @export var upgrades_list: VBoxContainer
 @export var fish_list: VBoxContainer
 @export var resume_button: Button
+@export var popup_window: Popup
 @export var pause_open_sfx: SfxEvent
 @export var pause_closed_sfx: SfxEvent
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
+	popup_window.hide()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -31,6 +35,7 @@ func open() -> void:
 func close() -> void:
 	AudioManager.play_sfx(pause_closed_sfx)
 	visible = false
+	popup_window.hide()
 	get_tree().paused = false
 
 func _refresh() -> void:
@@ -65,3 +70,13 @@ func _refresh() -> void:
 
 func _on_resume_button_pressed() -> void:
 	toggle()
+
+func _on_quit_button_pressed():
+	popup_window.show()
+	
+func _on_confirm_button_pressed():
+	quit_requested.emit()
+	close()
+
+func _on_cancel_button_pressed():
+	popup_window.hide()

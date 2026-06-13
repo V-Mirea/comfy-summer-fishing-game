@@ -1,19 +1,18 @@
 [gd_scene format=3 uid="uid://c7wjqhddut7hi"]
 
 [ext_resource type="Script" uid="uid://c44smfmcdrab" path="res://assets/global/pause_menu/pause_menu.gd" id="1_script"]
-[ext_resource type="Script" uid="uid://cqudc2q6k3bd1" path="res://assets/game/money_label.gd" id="2_j4ds5"]
 [ext_resource type="Resource" uid="uid://chnbgcgq7mm80" path="res://assets/audio/sfx/pause_closed.tres" id="3_47ya3"]
 [ext_resource type="Resource" uid="uid://cwkxm2e0nqb3r" path="res://assets/audio/sfx/pause_open.tres" id="3_pause"]
 
-[node name="PauseMenu" type="CanvasLayer" unique_id=1736017532 node_paths=PackedStringArray("money_label", "upgrades_list", "fish_list", "resume_button")]
+[node name="PauseMenu" type="CanvasLayer" unique_id=1736017532 node_paths=PackedStringArray("money_label", "upgrades_list", "fish_list", "resume_button", "popup_window")]
 process_mode = 2
 layer = 100
-visible = false
 script = ExtResource("1_script")
-money_label = NodePath("Panel/MarginContainer/VBox/MoneyLabel")
-upgrades_list = NodePath("Panel/MarginContainer/VBox/UpgradesList")
-fish_list = NodePath("Panel/MarginContainer/VBox/FishList")
-resume_button = NodePath("Panel/MarginContainer/VBox/ResumeButton")
+money_label = NodePath("MenuPanel/MarginContainer/VBox/MoneyLabel")
+upgrades_list = NodePath("MenuPanel/MarginContainer/VBox/UpgradesList")
+fish_list = NodePath("MenuPanel/MarginContainer/VBox/FishList")
+resume_button = NodePath("MenuPanel/MarginContainer/VBox/ResumeButton")
+popup_window = NodePath("Popup")
 pause_open_sfx = ExtResource("3_pause")
 pause_closed_sfx = ExtResource("3_47ya3")
 
@@ -25,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="Panel" type="PanelContainer" parent="." unique_id=674956615]
+[node name="MenuPanel" type="PanelContainer" parent="." unique_id=674956615]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -38,56 +37,122 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=737232827]
+[node name="MarginContainer" type="MarginContainer" parent="MenuPanel" unique_id=737232827]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=158215001]
+[node name="VBox" type="VBoxContainer" parent="MenuPanel/MarginContainer" unique_id=158215001]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Title" type="Label" parent="Panel/MarginContainer/VBox" unique_id=1900182897]
+[node name="Title" type="Label" parent="MenuPanel/MarginContainer/VBox" unique_id=1900182897]
 layout_mode = 2
 text = "PAUSED"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=1423100496]
+[node name="HSeparator" type="HSeparator" parent="MenuPanel/MarginContainer/VBox" unique_id=1423100496]
 layout_mode = 2
 
-[node name="MoneyLabel" type="Label" parent="Panel/MarginContainer/VBox" unique_id=758842710]
+[node name="MoneyLabel" type="Label" parent="MenuPanel/MarginContainer/VBox" unique_id=758842710]
 layout_mode = 2
 text = "Money: 0"
 
-[node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=827154382]
+[node name="HSeparator2" type="HSeparator" parent="MenuPanel/MarginContainer/VBox" unique_id=827154382]
 layout_mode = 2
 
-[node name="UpgradesHeader" type="Label" parent="Panel/MarginContainer/VBox" unique_id=1619852164]
+[node name="UpgradesHeader" type="Label" parent="MenuPanel/MarginContainer/VBox" unique_id=1619852164]
 layout_mode = 2
 text = "Upgrades"
 horizontal_alignment = 1
 
-[node name="UpgradesList" type="VBoxContainer" parent="Panel/MarginContainer/VBox" unique_id=657796813]
+[node name="UpgradesList" type="VBoxContainer" parent="MenuPanel/MarginContainer/VBox" unique_id=657796813]
 layout_mode = 2
 
-[node name="HSeparator3" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=1737605276]
+[node name="HSeparator3" type="HSeparator" parent="MenuPanel/MarginContainer/VBox" unique_id=1737605276]
 layout_mode = 2
 
-[node name="FishHeader" type="Label" parent="Panel/MarginContainer/VBox" unique_id=540206952]
+[node name="FishHeader" type="Label" parent="MenuPanel/MarginContainer/VBox" unique_id=540206952]
 layout_mode = 2
 text = "Fish Inventory"
 horizontal_alignment = 1
 
-[node name="FishList" type="VBoxContainer" parent="Panel/MarginContainer/VBox" unique_id=720831022]
+[node name="FishList" type="VBoxContainer" parent="MenuPanel/MarginContainer/VBox" unique_id=720831022]
 layout_mode = 2
 
-[node name="HSeparator4" type="HSeparator" parent="Panel/MarginContainer/VBox" unique_id=1148851314]
+[node name="HSeparator4" type="HSeparator" parent="MenuPanel/MarginContainer/VBox" unique_id=1148851314]
 layout_mode = 2
 
-[node name="ResumeButton" type="Button" parent="Panel/MarginContainer/VBox" unique_id=2032420336]
+[node name="ResumeButton" type="Button" parent="MenuPanel/MarginContainer/VBox" unique_id=2032420336]
 layout_mode = 2
 text = "Resume"
 
-[connection signal="pressed" from="Panel/MarginContainer/VBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[node name="QuitButton" type="Button" parent="MenuPanel/MarginContainer/VBox" unique_id=741366026]
+layout_mode = 2
+text = "Quit"
+
+[node name="Popup" type="Popup" parent="." unique_id=213549207]
+oversampling_override = 1.0
+title = "Quit?"
+initial_position = 3
+size = Vector2i(561, 145)
+current_screen = 0
+visible = true
+unresizable = false
+borderless = false
+always_on_top = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup" unique_id=725216888]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/VBoxContainer" unique_id=284778315]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/VBoxContainer/MarginContainer" unique_id=1922447503]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Popup/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1017120336]
+layout_mode = 2
+text = "Are you sure you want to quit?"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Popup/VBoxContainer/MarginContainer/VBoxContainer" unique_id=399944096]
+layout_mode = 2
+text = "You will lose all progress this current day."
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Popup/VBoxContainer" unique_id=1974258860]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxContainer/MarginContainer2" unique_id=1519522693]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1956789893]
+layout_mode = 2
+theme_override_constants/margin_right = 30
+
+[node name="ConfirmButton" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer" unique_id=1790590669]
+layout_mode = 2
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1125617680]
+layout_mode = 2
+text = "Cancel"
+
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MenuPanel/MarginContainer/VBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="Popup/VBoxContainer/MarginContainer2/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

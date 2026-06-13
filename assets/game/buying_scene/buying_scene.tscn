@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cvua02n5l4mc5" path="res://assets/game/buying_scene/buying_manager.gd" id="1_b6mu0"]
 [ext_resource type="Script" uid="uid://vgcqo6qthcdr" path="res://assets/game/buying_scene/character/character.gd" id="2_5l2yu"]
-[ext_resource type="Texture2D" uid="uid://big2lprwdx5s0" path="res://assets/game/buying_scene/Shop_no items.PNG" id="2_7sq2k"]
+[ext_resource type="Texture2D" uid="uid://bhxatw81v35tt" path="res://assets/game/buying_scene/Shop_BG.png" id="2_lh478"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://assets/game/buying_scene/virtual_joystick/virtual_joystick_scene.tscn" id="3_5l2yu"]
 [ext_resource type="PackedScene" uid="uid://bckgy2rx84xwk" path="res://assets/game/buying_scene/interactables/aisle/aisle.tscn" id="3_7o44q"]
 [ext_resource type="Texture2D" uid="uid://ixg6yjt305sy" path="res://assets/game/buying_scene/interactables/box_fort/Fort.PNG" id="3_7tnhv"]
 [ext_resource type="Script" uid="uid://cy3y7ib68st7c" path="res://assets/game/buying_scene/interactables/box_fort/box_fort.gd" id="3_ig6k8"]
 [ext_resource type="Shader" uid="uid://byvujt6liq2ie" path="res://assets/game/shared/outline_shader.gdshader" id="3_tdlj6"]
-[ext_resource type="Texture2D" uid="uid://b3eix3x2js8ql" path="res://assets/game/buying_scene/Items_only.PNG" id="4_i6cjn"]
 [ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactables/interactable_sprite.gd" id="4_ig6k8"]
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/interactables/interaction_area.gd" id="4_uhb6p"]
 [ext_resource type="Script" uid="uid://cewu6chnl35ii" path="res://assets/game/buying_scene/shop_menu/shop_menu.gd" id="8_7sq2k"]
@@ -27,11 +26,22 @@
 [ext_resource type="Texture2D" uid="uid://che7c6xixa63i" path="res://assets/game/buying_scene/character/CH1_back.PNG" id="15_4bdme"]
 [ext_resource type="Texture2D" uid="uid://c4ni27o2xegci" path="res://assets/game/shared/ui/button/Blue_button_large.PNG" id="15_8l74v"]
 [ext_resource type="PackedScene" uid="uid://dv560mmlqyjes" path="res://assets/game/shared/dialogue/dialogue_manager.tscn" id="15_t6itr"]
+[ext_resource type="Texture2D" uid="uid://bthrd2bv1a3ok" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Advertising_upgrade_tag.png" id="16_jx1gg"]
 [ext_resource type="Script" uid="uid://bhka1ncrybm0n" path="res://assets/game/shared/dialogue/dialogue_line.gd" id="16_r1xhn"]
 [ext_resource type="Texture2D" uid="uid://cpn8nhgpdc7me" path="res://assets/game/shared/ui/button/Blue_button_large_pressed.PNG" id="16_tdlj6"]
 [ext_resource type="Script" uid="uid://gtjk3o5fwq1i" path="res://assets/game/buying_scene/interact_button.gd" id="17_tdlj6"]
 [ext_resource type="Script" uid="uid://bqk3yaifei62j" path="res://assets/game/buying_scene/dialogue/give_polluted_fish.gd" id="20_utamy"]
+[ext_resource type="Texture2D" uid="uid://dvxktrcfvx0ar" path="res://assets/game/buying_scene/background_items/Vending machine.png" id="21_exdl5"]
 [ext_resource type="Script" uid="uid://bhciiix4yoeep" path="res://assets/game/buying_scene/dialogue/trigger_event.gd" id="21_omqis"]
+[ext_resource type="Texture2D" uid="uid://ddrxj5hp61wyw" path="res://assets/game/buying_scene/background_items/Barrel.png" id="22_katif"]
+[ext_resource type="Texture2D" uid="uid://d33a336o4vp41" path="res://assets/game/buying_scene/background_items/Shop_item_4.png" id="23_hcrup"]
+[ext_resource type="Texture2D" uid="uid://bgfp5nsf334hr" path="res://assets/game/buying_scene/background_items/Shop_item_5.png" id="24_n0wh5"]
+[ext_resource type="Texture2D" uid="uid://cwa061iuxufei" path="res://assets/game/buying_scene/background_items/Shop_table.png" id="25_n0wh5"]
+[ext_resource type="Texture2D" uid="uid://qtpicrxcakr3" path="res://assets/game/buying_scene/background_items/Shop_item_1.png" id="26_dalqv"]
+[ext_resource type="Texture2D" uid="uid://b4fgm11e6xipq" path="res://assets/game/buying_scene/background_items/Shop_item_3.png" id="27_o0f3u"]
+[ext_resource type="Texture2D" uid="uid://bk6esuydud5p7" path="res://assets/game/buying_scene/background_items/Shop_item_6.png" id="28_csvjf"]
+[ext_resource type="Texture2D" uid="uid://bh6u66ubfqw22" path="res://assets/game/buying_scene/background_items/Shop_item_7.png" id="29_wyfmt"]
+[ext_resource type="Texture2D" uid="uid://brsp8vsbk7pf5" path="res://assets/game/buying_scene/background_items/Shop_item_2.png" id="30_muwim"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tdlj6"]
 shader = ExtResource("3_tdlj6")
@@ -48,9 +58,6 @@ size = Vector2(267, 77)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig6k8"]
 size = Vector2(206.25, 56)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tnhv"]
-size = Vector2(68.5, 99)
 
 [sub_resource type="Gradient" id="Gradient_kq7pi"]
 offsets = PackedFloat32Array(0.22007042, 0.40669015)
@@ -213,18 +220,51 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dalqv"]
+size = Vector2(156, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muwim"]
+size = Vector2(56, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcrup"]
+size = Vector2(79, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3iabx"]
+size = Vector2(55, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wajsj"]
+size = Vector2(56, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0wh5"]
+size = Vector2(97, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0f3u"]
+size = Vector2(71, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csvjf"]
+size = Vector2(196, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyfmt"]
+size = Vector2(61, 53.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctvkh"]
+size = Vector2(49, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifiby"]
+size = Vector2(56, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amxth"]
+size = Vector2(56, 43)
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_eoi11"]
 b = Vector2(980, 0)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_i6cjn"]
-a = Vector2(1175, 12)
-
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uhb6p"]
-a = Vector2(1181, 384)
+a = Vector2(1183, 383)
 b = Vector2(1180, -51)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ig6k8"]
-a = Vector2(8, 101)
+a = Vector2(6, 24)
 b = Vector2(7, 383)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_yc5v8"]
@@ -233,7 +273,19 @@ b = Vector2(8, 102)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o1x55"]
 a = Vector2(199, -50)
-b = Vector2(194, 104)
+b = Vector2(197, 25)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o0f3u"]
+b = Vector2(845, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_csvjf"]
+b = Vector2(242, -1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wyfmt"]
+b = Vector2(-1, 142)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_muwim"]
+b = Vector2(1, 143)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xi53"]
 font_size = 25
@@ -282,16 +334,19 @@ excluded_flags = Array[int]([6])
 dialogue_scripts = Array[Resource]([SubResource("Resource_tiwff"), SubResource("Resource_4bdme")])
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svc6x"]
+size = Vector2(90, 20)
+
 [node name="BuyingScene" type="Node2D" unique_id=71390660]
 texture_filter = 1
 script = ExtResource("1_b6mu0")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2087782272]
-texture = ExtResource("2_7sq2k")
+texture = ExtResource("2_lh478")
 centered = false
 
 [node name="BoxFort" type="StaticBody2D" parent="." unique_id=430621453]
-position = Vector2(372, 219)
+position = Vector2(382, 219)
 script = ExtResource("3_ig6k8")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoxFort" unique_id=1865806437]
@@ -311,18 +366,30 @@ script = ExtResource("4_uhb6p")
 position = Vector2(38, 129)
 shape = SubResource("RectangleShape2D_ig6k8")
 
-[node name="BackgroundItems" type="StaticBody2D" parent="." unique_id=1473549544]
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundItems" unique_id=190439731]
-texture = ExtResource("4_i6cjn")
-centered = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BackgroundItems" unique_id=1508113832]
-position = Vector2(480.75, 475.5)
-shape = SubResource("RectangleShape2D_7tnhv")
-
 [node name="YSorted" type="Node2D" parent="." unique_id=1382759860]
 y_sort_enabled = true
+
+[node name="Character" type="CharacterBody2D" parent="YSorted" unique_id=1378911832 node_paths=PackedStringArray("joystick_left", "sprite_node")]
+position = Vector2(938, 686)
+motion_mode = 1
+script = ExtResource("2_5l2yu")
+joystick_left = NodePath("../../Virtual Joystick")
+sprite_node = NodePath("AnimatedSprite2D")
+
+[node name="Shadow" type="Sprite2D" parent="YSorted/Character" unique_id=842962081]
+position = Vector2(0, -2)
+texture = SubResource("GradientTexture2D_tiwff")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/Character" unique_id=238570841]
+position = Vector2(0.5, -5.75)
+shape = SubResource("RectangleShape2D_hpvk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="YSorted/Character" unique_id=1421509192]
+position = Vector2(1.5, -39.25)
+scale = Vector2(1.359375, 1.3450705)
+sprite_frames = SubResource("SpriteFrames_4bdme")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="RodAisle" parent="YSorted" unique_id=543733618 instance=ExtResource("3_7o44q")]
 position = Vector2(1126, 485)
@@ -349,83 +416,172 @@ upgrades_sold = 6
 display_tag_image = ExtResource("14_katif")
 
 [node name="ShopAisle" parent="YSorted" unique_id=312801464 instance=ExtResource("3_7o44q")]
-position = Vector2(830, 242)
+position = Vector2(828, 242)
 upgrades_sold = 4
 display_tag_image = ExtResource("11_kq7pi")
 
 [node name="AdvertisingAisle" parent="YSorted" unique_id=1035627769 instance=ExtResource("3_7o44q")]
-position = Vector2(624, 242)
+position = Vector2(620, 242)
 upgrades_sold = 5
+display_tag_image = ExtResource("16_jx1gg")
 
-[node name="Character" type="CharacterBody2D" parent="YSorted" unique_id=1378911832 node_paths=PackedStringArray("joystick_left", "sprite_node")]
-position = Vector2(1027, 654)
-motion_mode = 1
-script = ExtResource("2_5l2yu")
-joystick_left = NodePath("../../Virtual Joystick")
-sprite_node = NodePath("AnimatedSprite2D")
+[node name="VendingMachine" type="StaticBody2D" parent="YSorted" unique_id=804602707]
+position = Vector2(147, 265)
 
-[node name="Shadow" type="Sprite2D" parent="YSorted/Character" unique_id=842962081]
-position = Vector2(0, -2)
-texture = SubResource("GradientTexture2D_tiwff")
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/VendingMachine" unique_id=600577191]
+texture = ExtResource("21_exdl5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/Character" unique_id=238570841]
-position = Vector2(0.5, -5.75)
-shape = SubResource("RectangleShape2D_hpvk7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/VendingMachine" unique_id=479735570]
+position = Vector2(0, 79.5)
+shape = SubResource("RectangleShape2D_dalqv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="YSorted/Character" unique_id=1421509192]
-position = Vector2(1.5, -39.25)
-scale = Vector2(1.359375, 1.3450705)
-sprite_frames = SubResource("SpriteFrames_4bdme")
-animation = &"idle"
-autoplay = "idle"
+[node name="VendingMachineCrate" type="StaticBody2D" parent="YSorted" unique_id=931380695]
+position = Vector2(223, 383)
 
-[node name="ButtonMenu" type="Button" parent="." unique_id=792557303]
-offset_left = 11.0
-offset_top = 650.0
-offset_right = 171.0
-offset_bottom = 702.0
-text = "menu"
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/VendingMachineCrate" unique_id=1518418976]
+position = Vector2(1, 12)
+texture = ExtResource("27_o0f3u")
 
-[node name="ButtonFish" type="Button" parent="." unique_id=1024119867]
-offset_left = 571.0
-offset_top = 649.0
-offset_right = 709.0
-offset_bottom = 704.0
-text = "fish
-"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/VendingMachineCrate" unique_id=1241386791]
+position = Vector2(1, 22)
+shape = SubResource("RectangleShape2D_muwim")
+
+[node name="Barrel" type="StaticBody2D" parent="YSorted" unique_id=641278380]
+position = Vector2(1181, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/Barrel" unique_id=2062699480]
+texture = ExtResource("22_katif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/Barrel" unique_id=1096579767]
+position = Vector2(0.5, 63.5)
+shape = SubResource("RectangleShape2D_hcrup")
+
+[node name="BarrelCrates" type="StaticBody2D" parent="YSorted" unique_id=590975022]
+position = Vector2(1159, 290)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/BarrelCrates" unique_id=47596280]
+position = Vector2(0, 25)
+texture = ExtResource("29_wyfmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/BarrelCrates" unique_id=612616057]
+position = Vector2(18.5, 50.5)
+shape = SubResource("RectangleShape2D_3iabx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="YSorted/BarrelCrates" unique_id=568984244]
+position = Vector2(-16, 21)
+shape = SubResource("RectangleShape2D_wajsj")
+
+[node name="FortBoxes" type="StaticBody2D" parent="YSorted" unique_id=1760754821]
+position = Vector2(391, 328)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/FortBoxes" unique_id=820701170]
+position = Vector2(-109, -24)
+texture = ExtResource("23_hcrup")
+
+[node name="Sprite2D2" type="Sprite2D" parent="YSorted/FortBoxes" unique_id=949209284]
+position = Vector2(109, -10)
+texture = ExtResource("24_n0wh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/FortBoxes" unique_id=1665858223]
+position = Vector2(-108, -1)
+shape = SubResource("RectangleShape2D_n0wh5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="YSorted/FortBoxes" unique_id=872950829]
+position = Vector2(98, 19)
+shape = SubResource("RectangleShape2D_o0f3u")
+
+[node name="Table" type="StaticBody2D" parent="YSorted" unique_id=448225220]
+position = Vector2(154, 589)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/Table" unique_id=1669864289]
+position = Vector2(0, 30)
+texture = ExtResource("25_n0wh5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/Table" unique_id=722728505]
+position = Vector2(1, 41)
+shape = SubResource("RectangleShape2D_csvjf")
+
+[node name="MiniTable" type="StaticBody2D" parent="YSorted" unique_id=754859711]
+position = Vector2(544, 620)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/MiniTable" unique_id=1032715005]
+position = Vector2(0, 6)
+texture = ExtResource("26_dalqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/MiniTable" unique_id=1216364231]
+position = Vector2(0, 27.25)
+shape = SubResource("RectangleShape2D_wyfmt")
+
+[node name="StackedBoxes" type="StaticBody2D" parent="YSorted" unique_id=1967891557]
+position = Vector2(1197, 625)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/StackedBoxes" unique_id=1450018989]
+position = Vector2(0, 7)
+texture = ExtResource("28_csvjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/StackedBoxes" unique_id=1345725396]
+position = Vector2(-4, 24)
+shape = SubResource("RectangleShape2D_ctvkh")
+
+[node name="Crates" type="StaticBody2D" parent="YSorted" unique_id=1518946790]
+position = Vector2(89, 450)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSorted/Crates" unique_id=885513323]
+position = Vector2(0, 34)
+texture = ExtResource("30_muwim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSorted/Crates" unique_id=1927120939]
+position = Vector2(-5, 62.5)
+shape = SubResource("RectangleShape2D_ifiby")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="YSorted/Crates" unique_id=320879032]
+position = Vector2(8, 21)
+shape = SubResource("RectangleShape2D_amxth")
 
 [node name="WallBoundaries" type="StaticBody2D" parent="." unique_id=89566812]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBoundaries" unique_id=1415359365]
+[node name="Top" type="CollisionShape2D" parent="WallBoundaries" unique_id=1415359365]
 position = Vector2(247, 237)
 shape = SubResource("SegmentShape2D_eoi11")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallBoundaries" unique_id=363830096]
-position = Vector2(53, 662)
-shape = SubResource("SegmentShape2D_i6cjn")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="WallBoundaries" unique_id=19078795]
+[node name="Right" type="CollisionShape2D" parent="WallBoundaries" unique_id=19078795]
 position = Vector2(46, 288)
 shape = SubResource("SegmentShape2D_uhb6p")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="WallBoundaries" unique_id=649004374]
+[node name="Left" type="CollisionShape2D" parent="WallBoundaries" unique_id=649004374]
 position = Vector2(46, 288)
 shape = SubResource("SegmentShape2D_ig6k8")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="WallBoundaries" unique_id=1099964110]
-position = Vector2(46, 288)
+[node name="TopLeft" type="CollisionShape2D" parent="WallBoundaries" unique_id=1099964110]
+position = Vector2(45, 211)
 shape = SubResource("SegmentShape2D_yc5v8")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="WallBoundaries" unique_id=1623705321]
+[node name="TopRight" type="CollisionShape2D" parent="WallBoundaries" unique_id=1623705321]
 position = Vector2(46, 288)
 shape = SubResource("SegmentShape2D_o1x55")
 
+[node name="BottomLeft" type="CollisionShape2D" parent="WallBoundaries" unique_id=201480176]
+position = Vector2(52, 673)
+shape = SubResource("SegmentShape2D_o0f3u")
+
+[node name="BottomRight" type="CollisionShape2D" parent="WallBoundaries" unique_id=1221876636]
+position = Vector2(986, 673)
+shape = SubResource("SegmentShape2D_csvjf")
+
+[node name="EntryLeft" type="CollisionShape2D" parent="WallBoundaries" unique_id=441753066]
+position = Vector2(897, 675)
+shape = SubResource("SegmentShape2D_wyfmt")
+
+[node name="EntryRight" type="CollisionShape2D" parent="WallBoundaries" unique_id=1857702639]
+position = Vector2(986, 674)
+shape = SubResource("SegmentShape2D_muwim")
+
 [node name="InteractButton" type="TextureButton" parent="." unique_id=1312260220]
 modulate = Color(1, 1, 1, 0.83137256)
-offset_left = 126.0
-offset_top = 574.0
-offset_right = 286.0
-offset_bottom = 632.0
+offset_left = 268.0
+offset_top = 591.0
+offset_right = 428.0
+offset_bottom = 649.0
 texture_normal = ExtResource("15_8l74v")
 texture_pressed = ExtResource("16_tdlj6")
 script = ExtResource("17_tdlj6")
@@ -606,6 +762,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
+[node name="ExitArea" type="Area2D" parent="." unique_id=537219622]
+position = Vector2(907, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=749307691]
+position = Vector2(35, 0)
+shape = SubResource("RectangleShape2D_svc6x")
+
 [connection signal="open_dialogue_box" from="BoxFort" to="DialogueWindow" method="_on_open_dialogue_box"]
 [connection signal="body_entered" from="BoxFort/InteractionArea" to="BoxFort/InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="BoxFort/InteractionArea" to="BoxFort/InteractionArea" method="_on_body_exited"]
@@ -620,12 +783,16 @@ text = "Exit"
 [connection signal="shop_opened" from="YSorted/PollutionAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/ShopAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/AdvertisingAisle" to="ShopMenu" method="_on_shop_opened"]
-[connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
-[connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
 [connection signal="pressed" from="InteractButton" to="BoxFort" method="_on_interact_button_pressed"]
 [connection signal="pressed" from="InteractButton" to="YSorted/RodAisle" method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton" to="YSorted/ReelAisle" method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton" to="YSorted/LineAisle" method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton" to="YSorted/BaitAisle" method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton" to="YSorted/PollutionAisle" method="_on_interact_button_pressed"]
 [connection signal="pressed" from="InteractButton" to="YSorted/ShopAisle" method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton" to="YSorted/AdvertisingAisle" method="_on_interact_button_pressed"]
 [connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ConfirmButton" to="DialogueWindow" method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="DialogueWindow" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/PurchaseButton" to="ShopMenu" method="_on_purchase_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/ExitButton" to="ShopMenu" method="_on_exit_button_pressed"]
+[connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]

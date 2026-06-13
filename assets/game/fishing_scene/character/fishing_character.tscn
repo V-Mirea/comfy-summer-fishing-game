@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://cgeqmhoibypi2"]
+
+[ext_resource type="Script" path="res://assets/game/fishing_scene/character/fishing_character.gd" id="1_fchar"]
+[ext_resource type="Script" path="res://assets/game/fishing_scene/character/fishing_character_sprite.gd" id="2_fsprite"]
+[ext_resource type="Texture2D" uid="uid://vxc17x2pod0u" path="res://assets/game/fishing_scene/character/fishing_animation.png" id="3_fanim"]
+[ext_resource type="Texture2D" uid="uid://3c0cw5uvoqms" path="res://assets/game/fishing_scene/character/walk_in_animation.png" id="4_walk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk0"]
+atlas = ExtResource("4_walk")
+region = Rect2(0, 0, 42, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk1"]
+atlas = ExtResource("4_walk")
+region = Rect2(42, 0, 42, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk2"]
+atlas = ExtResource("4_walk")
+region = Rect2(0, 58, 42, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walk3"]
+atlas = ExtResource("4_walk")
+region = Rect2(42, 58, 42, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cast0"]
+atlas = ExtResource("3_fanim")
+region = Rect2(3, 22, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cast1"]
+atlas = ExtResource("3_fanim")
+region = Rect2(314, 22, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cast2"]
+atlas = ExtResource("3_fanim")
+region = Rect2(627, 22, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loop0"]
+atlas = ExtResource("3_fanim")
+region = Rect2(939, 22, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loop1"]
+atlas = ExtResource("3_fanim")
+region = Rect2(2, 124, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loop2"]
+atlas = ExtResource("3_fanim")
+region = Rect2(315, 124, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loop3"]
+atlas = ExtResource("3_fanim")
+region = Rect2(626, 124, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loop4"]
+atlas = ExtResource("3_fanim")
+region = Rect2(939, 124, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loop5"]
+atlas = ExtResource("3_fanim")
+region = Rect2(2, 226, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loop6"]
+atlas = ExtResource("3_fanim")
+region = Rect2(315, 226, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_res0"]
+atlas = ExtResource("3_fanim")
+region = Rect2(627, 226, 236, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_res1"]
+atlas = ExtResource("3_fanim")
+region = Rect2(938, 226, 236, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fchar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cast0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cast1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cast2")
+}],
+"loop": false,
+"name": &"cast",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loop0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loop1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loop2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loop3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loop4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loop5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loop6")
+}],
+"loop": true,
+"name": &"fishing_loop",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_res0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_res1")
+}],
+"loop": false,
+"name": &"result",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walk3")
+}],
+"loop": true,
+"name": &"walk_in",
+"speed": 8.0
+}]
+
+[node name="FishingCharacter" type="Node2D" node_paths=PackedStringArray()]
+script = ExtResource("1_fchar")
+dock_position = Vector2(430, 470)
+speed = 220
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fchar")
+animation = &"walk_in"
+script = ExtResource("2_fsprite")
+
+[connection signal="state_changed" from="." to="AnimatedSprite2D" method="_on_state_changed"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
