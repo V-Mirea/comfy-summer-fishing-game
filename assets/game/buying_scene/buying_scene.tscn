@@ -11,12 +11,15 @@
 [ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactables/interactable_sprite.gd" id="4_ig6k8"]
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/interactables/interaction_area.gd" id="4_uhb6p"]
 [ext_resource type="Script" uid="uid://cewu6chnl35ii" path="res://assets/game/buying_scene/shop_menu/shop_menu.gd" id="8_7sq2k"]
+[ext_resource type="Texture2D" uid="uid://c064v0p3p6o1d" path="res://assets/game/buying_scene/character/Ch1 front idle.PNG" id="9_3iabx"]
 [ext_resource type="PackedScene" uid="uid://hl7y71r6xpw8" path="res://assets/game/buying_scene/shop_menu/upgrade_button/upgrade_button.tscn" id="9_7sq2k"]
-[ext_resource type="Texture2D" uid="uid://bnvhy4ot7vjso" path="res://assets/game/buying_scene/character/Ch1 front idle.png" id="9_ctvkh"]
 [ext_resource type="Texture2D" uid="uid://cmsxfut857jye" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Rod_upgrade_tag.png" id="10_5xi53"]
+[ext_resource type="Texture2D" uid="uid://c5o4rrut5xojo" path="res://assets/game/buying_scene/character/Ch1 left idle.png" id="10_amxth"]
 [ext_resource type="Texture2D" uid="uid://dvgb1ct5h7lbq" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Stall_upgrade_tag.png" id="11_kq7pi"]
 [ext_resource type="Texture2D" uid="uid://cio1pjyrh7ll4" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Reel_upgrade_tag.png" id="11_lh478"]
+[ext_resource type="Texture2D" uid="uid://bdi41mtmqboe2" path="res://assets/game/buying_scene/character/Ch1 right idle.png" id="11_svc6x"]
 [ext_resource type="Texture2D" uid="uid://ekaglpfeqr3r" path="res://assets/game/buying_scene/character/CH1_front.PNG" id="12_8l74v"]
+[ext_resource type="Texture2D" uid="uid://c7lkelemoflnd" path="res://assets/game/buying_scene/character/Ch1 back idle.png" id="12_imu8t"]
 [ext_resource type="Texture2D" uid="uid://gnqft4d4ehf6" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Line_upgrade_tag.png" id="12_jx1gg"]
 [ext_resource type="Texture2D" uid="uid://dgb6unjj8ph6p" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Bait_upgrade_tag.png" id="13_exdl5"]
 [ext_resource type="Texture2D" uid="uid://cmts02n62b7in" path="res://assets/game/buying_scene/character/CH1_left.PNG" id="13_kq7pi"]
@@ -76,32 +79,68 @@ fill_from = Vector2(0.5, 0.5)
 size = Vector2(40, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amxth"]
-atlas = ExtResource("9_ctvkh")
-region = Rect2(0, 0, 114, 130)
+atlas = ExtResource("9_3iabx")
+region = Rect2(0, 0, 62, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svc6x"]
-atlas = ExtResource("9_ctvkh")
-region = Rect2(114, 0, 114, 130)
+atlas = ExtResource("9_3iabx")
+region = Rect2(62, 0, 62, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_imu8t"]
-atlas = ExtResource("9_ctvkh")
-region = Rect2(0, 130, 114, 130)
+atlas = ExtResource("9_3iabx")
+region = Rect2(0, 73, 62, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ov4r"]
-atlas = ExtResource("9_ctvkh")
-region = Rect2(114, 130, 114, 130)
+atlas = ExtResource("9_3iabx")
+region = Rect2(62, 73, 62, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3iabx"]
-atlas = ExtResource("13_kq7pi")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ice6t"]
+atlas = ExtResource("10_amxth")
+region = Rect2(0, 0, 62, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wajsj"]
-atlas = ExtResource("14_tiwff")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_38621"]
+atlas = ExtResource("10_amxth")
+region = Rect2(62, 0, 62, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifiby"]
-atlas = ExtResource("15_4bdme")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_epj27"]
+atlas = ExtResource("10_amxth")
+region = Rect2(0, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa8ky"]
+atlas = ExtResource("10_amxth")
+region = Rect2(62, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw7vv"]
+atlas = ExtResource("11_svc6x")
+region = Rect2(0, 0, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k6ug"]
+atlas = ExtResource("11_svc6x")
+region = Rect2(62, 0, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pxiv"]
+atlas = ExtResource("11_svc6x")
+region = Rect2(0, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lplsn"]
+atlas = ExtResource("11_svc6x")
+region = Rect2(62, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay42m"]
+atlas = ExtResource("12_imu8t")
+region = Rect2(0, 0, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqoel"]
+atlas = ExtResource("12_imu8t")
+region = Rect2(62, 0, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud41c"]
+atlas = ExtResource("12_imu8t")
+region = Rect2(0, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjk1w"]
+atlas = ExtResource("12_imu8t")
+region = Rect2(62, 73, 62, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdlj6"]
 atlas = ExtResource("12_8l74v")
@@ -188,7 +227,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3iabx")
+"texture": SubResource("AtlasTexture_ice6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38621")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epj27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa8ky")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -196,7 +244,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wajsj")
+"texture": SubResource("AtlasTexture_pw7vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k6ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pxiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lplsn")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -204,7 +261,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ifiby")
+"texture": SubResource("AtlasTexture_ay42m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqoel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud41c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjk1w")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -448,7 +514,7 @@ process_mode = 3
 position = Vector2(1.5, -39.25)
 scale = Vector2(1.359375, 1.3450705)
 sprite_frames = SubResource("SpriteFrames_4bdme")
-animation = &"idle_down"
+animation = &"idle_up"
 autoplay = "idle_down"
 script = ExtResource("14_3iabx")
 

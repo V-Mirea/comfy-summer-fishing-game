@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnvhy4ot7vjso"
-path="res://.godot/imported/Ch1 front idle.png-a27397b8a26221cdc9551d1fa72c2623.ctex"
+uid="uid://c064v0p3p6o1d"
+path="res://.godot/imported/Ch1 front idle.PNG-67a9837c127cfaee4d66b89cdf4d3656.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/character/Ch1 front idle.png"
-dest_files=["res://.godot/imported/Ch1 front idle.png-a27397b8a26221cdc9551d1fa72c2623.ctex"]
+source_file="res://assets/game/buying_scene/character/Ch1 front idle.PNG"
+dest_files=["res://.godot/imported/Ch1 front idle.PNG-67a9837c127cfaee4d66b89cdf4d3656.ctex"]
 
 [params]
 
