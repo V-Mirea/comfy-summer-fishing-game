@@ -6,6 +6,8 @@ extends Node
 @export var sellingScene: PackedScene
 @export var buyingScene: PackedScene
 @export var gameplay_music: AudioStream
+@export var mainmenu_music: AudioStream
+@export var buying_music: AudioStream
 
 signal toggle_global_controls
 
@@ -35,11 +37,11 @@ func _ready():
 	}
 
 	state_music = {
-		Global.State.MAIN_MENU: null,
+		Global.State.MAIN_MENU: mainmenu_music,
 		Global.State.FISHING: gameplay_music,
 		Global.State.SELECT_SELLING: gameplay_music,
 		Global.State.SELLING: gameplay_music,
-		Global.State.BUYING: null
+		Global.State.BUYING: buying_music
 	}
 
 	state_machine = StateMachine.new(valid_transitions)

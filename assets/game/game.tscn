@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmg53b45ikcyy" path="res://assets/game/selling_scene/selling_scene.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://lox5kan0hfl5" path="res://assets/game/buying_scene/buying_scene.tscn" id="5_p57ef"]
 [ext_resource type="Script" uid="uid://mpub31iptkbi" path="res://assets/game/shared/money_control.gd" id="7_faf0w"]
+[ext_resource type="AudioStream" uid="uid://l5fpvucayddo" path="res://assets/audio/music/files/MAIN MENU THEME_V2.mp3" id="7_k08a3"]
 [ext_resource type="Script" uid="uid://dadrap2dtvhow" path="res://assets/game/money_label.gd" id="7_pdf2x"]
 [ext_resource type="Script" uid="uid://bfy2euwe0xian" path="res://assets/game/pause_button.gd" id="9_k08a3"]
 
@@ -23,6 +24,8 @@ fishingScene = ExtResource("3_lnu2h")
 selectSellingScene = ExtResource("4_select")
 sellingScene = ExtResource("5_iywne")
 buyingScene = ExtResource("5_p57ef")
+gameplay_music = ExtResource("7_k08a3")
+mainmenu_music = ExtResource("7_k08a3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1361972796]
 

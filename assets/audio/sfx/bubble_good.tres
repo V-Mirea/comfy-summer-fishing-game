@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="SfxEvent" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="SfxEvent" format=3 uid="uid://dag6fdf6mlml1"]
 
-[ext_resource type="Script" path="res://assets/global/sfx_event.gd" id="1"]
+[ext_resource type="Script" uid="uid://dc6u3bp7bw4y2" path="res://assets/global/sfx_event.gd" id="1"]
 
 [resource]
 script = ExtResource("1")
