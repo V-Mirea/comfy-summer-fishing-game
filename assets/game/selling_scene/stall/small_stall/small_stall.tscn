@@ -53,6 +53,7 @@ font_size = 20
 [node name="SmallStall" type="Node2D" unique_id=338772597]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=166417885]
+process_mode = 3
 sprite_frames = SubResource("SpriteFrames_pbcui")
 autoplay = "default"
 frame_progress = 0.1838264

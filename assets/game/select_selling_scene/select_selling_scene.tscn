@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://slc13ikvkxua" path="res://assets/game/select_selling_scene/To_sell_screen_all.png" id="2_u5hd8"]
 [ext_resource type="Texture2D" uid="uid://c4ni27o2xegci" path="res://assets/game/shared/ui/button/Blue_button_large.PNG" id="3_0hryq"]
 [ext_resource type="Texture2D" uid="uid://cpn8nhgpdc7me" path="res://assets/game/shared/ui/button/Blue_button_large_pressed.PNG" id="4_1ddue"]
+[ext_resource type="Script" uid="uid://cwr23c3ay0mj1" path="res://assets/game/select_selling_scene/proceed_button.gd" id="5_1ddue"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
 font_size = 40
@@ -13,6 +14,13 @@ font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_panel"]
 font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hryq"]
+content_margin_left = 26.0
+bg_color = Color(0.6, 0.6, 0.6, 0.09019608)
+
+[sub_resource type="Theme" id="Theme_1ddue"]
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_0hryq")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ux6l5"]
 font_size = 28
@@ -65,7 +73,7 @@ layout_mode = 0
 offset_left = 130.0
 offset_top = 211.0
 offset_right = 1159.0
-offset_bottom = 606.0
+offset_bottom = 603.0
 
 [node name="TopPanel" type="VBoxContainer" parent="HSplitContainer" unique_id=74036727]
 layout_mode = 2
@@ -80,6 +88,7 @@ horizontal_alignment = 1
 [node name="CaughtList" type="ItemList" parent="HSplitContainer/TopPanel" unique_id=1175813109]
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_1ddue")
 
 [node name="BottomPanel" type="VBoxContainer" parent="HSplitContainer" unique_id=1960955440]
 layout_mode = 2
@@ -94,6 +103,7 @@ horizontal_alignment = 1
 [node name="SellingList" type="ItemList" parent="HSplitContainer/BottomPanel" unique_id=466547935]
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_1ddue")
 
 [node name="ProceedButton" type="TextureButton" parent="." unique_id=890188191]
 layout_mode = 0
@@ -103,6 +113,7 @@ offset_right = 727.0
 offset_bottom = 707.0
 texture_normal = ExtResource("3_0hryq")
 texture_pressed = ExtResource("4_1ddue")
+script = ExtResource("5_1ddue")
 
 [node name="Label" type="Label" parent="ProceedButton" unique_id=55385710]
 layout_mode = 0

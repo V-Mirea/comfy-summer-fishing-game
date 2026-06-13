@@ -5,9 +5,15 @@ extends CanvasLayer
 @export var dialogue_manager: DialogueManager
 
 var current_line: DialogueLine
-	
+
+func _input(event):
+	if visible and event.is_action_pressed("ui_close_dialog"):
+		close_window()
+		get_viewport().set_input_as_handled()
+
 func close_window():
 	visible = false
+	get_tree().paused = false
 		
 func start_conversation():
 	# we set make the panel visible after conversation has started
@@ -69,8 +75,5 @@ func _on_exit_button_pressed():
 
 func _on_open_dialogue_box():
 	start_conversation()
+	get_tree().paused = true
 	visible = true
-
-func _on_confirm_button_pressed():
-	PlayerManager.trigger_event(PlayerData.GameEvent.MET_LOUIS)
-	close_window()

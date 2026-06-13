@@ -12,10 +12,6 @@ func _ready():
 	else:
 		sprite_frames = sprite_variations.pick_random()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_state_changed(state: Customer.State):
 	match state:
 		Customer.State.ENTERING:
