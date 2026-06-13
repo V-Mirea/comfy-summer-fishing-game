@@ -7,6 +7,7 @@
 script = ExtResource("1_81yc8")
 level = 1
 price = 10
+value = 0.5
 name = "Rod 2"
 description = "another description here blah blah"
 sprite = ExtResource("2_b505e")

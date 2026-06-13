@@ -7,7 +7,7 @@ var time_since_last_roll: float = 0.0
 var time_since_bite: float = 0.0
 var state_machine: StateMachine
 var hooked_fish: Fish
-var bite_window: float = 1.0
+var can_fish: bool = false # gated until the character finishes walking onto the dock
 
 const ROLL_INTERVAL: float = 0.5 #change later per rod, or other stuff
 
@@ -15,6 +15,7 @@ const ROLL_INTERVAL: float = 0.5 #change later per rod, or other stuff
 @export var money_label: Label
 @export var pause_button: Button
 @export var bubble_manager: BubbleManager
+@export var character: FishingCharacter
 @export var cast_sfx: SfxEvent
 @export var bite_sfx: SfxEvent
 @export var fish_missed_sfx: SfxEvent
@@ -49,7 +50,7 @@ func _ready():
 func _process(delta):
 	match state_machine.current_state:
 		State.IDLE:
-			if Input.is_action_just_pressed("set_hook"):
+			if can_fish and Input.is_action_just_pressed("set_hook"):
 				state_machine.change_state(State.WAITING_FOR_BITE)
 		State.WAITING_FOR_BITE:
 			_process_waiting_for_bite(delta)
@@ -67,7 +68,7 @@ func _process_waiting_for_bite(delta: float) -> void:
 		_roll_fish()
 
 func _roll_fish() -> void:
-	if randf() >= PlayerManager.get_fishing_roll_chance():
+	if randf() >= FishingRules.get_fishing_roll_chance():
 		return  # no fish this roll
 
 	var rod_level: int = PlayerManager.get_upgrade_level(Upgrade.UpgradeType.ROD)
@@ -83,7 +84,7 @@ func _process_confirm_bite(delta: float) -> void:
 	time_since_bite += delta
 	if Input.is_action_just_pressed("set_hook"):
 		state_machine.change_state(State.MINIGAME)
-	elif time_since_bite >= bite_window:
+	elif time_since_bite >= FishingRules.get_bite_window():
 		state_machine.change_state(State.MISSED_BITE)
 
 func _on_state_changed(_from: int, to: int, context: Dictionary) -> void:
@@ -92,9 +93,12 @@ func _on_state_changed(_from: int, to: int, context: Dictionary) -> void:
 		State.IDLE:
 			time_since_last_roll = 0.0
 			hooked_fish = null
+			character.to_idle()
 		State.WAITING_FOR_BITE:
 			AudioManager.play_sfx(cast_sfx)
+			character.cast() # cells 1-3, then auto-chains into the fishing loop
 		State.MISSED_BITE:
+			character.resolve()
 			await get_tree().create_timer(2.0).timeout
 			if state_machine.current_state == State.MISSED_BITE:
 				state_machine.change_state(State.IDLE)
@@ -104,9 +108,10 @@ func _on_state_changed(_from: int, to: int, context: Dictionary) -> void:
 		State.MINIGAME:
 			AudioManager.play_sfx(fish_on_sfx)
 			await get_tree().create_timer(0.5).timeout
-			bubble_manager.start_pattern(hooked_fish.species.pattern, hooked_fish.species.bubble_lifetime)
+			bubble_manager.start_pattern(hooked_fish.species.pattern, hooked_fish.species.bubble_lifetime * FishingRules.get_bubble_lifetime_multiplier())
 		State.MISSED_FISH:
 			AudioManager.play_sfx(fish_missed_sfx)
+			character.resolve()
 			await get_tree().create_timer(2.0).timeout
 			if state_machine.current_state == State.MISSED_FISH:
 				state_machine.change_state(State.IDLE)
@@ -136,14 +141,18 @@ func _get_status_text_for_state(state: State, _context: Dictionary) -> String:
 			return ""
 
 func _on_pattern_complete(score_data: Dictionary) -> void:
-	if not PlayerManager.did_catch_fish(score_data):
+	if not FishingRules.did_catch_fish(score_data):
 		state_machine.change_state(State.MISSED_FISH)
 		return
-	hooked_fish.quality = PlayerManager.calculate_total_quality(score_data)
+	hooked_fish.quality = FishingRules.calculate_total_quality(score_data)
 	PlayerManager.add_fish(hooked_fish)
+	character.resolve() # cells 11->12 on a successful catch
 	FishCaughtScreen.open(hooked_fish)
 	await FishCaughtScreen.closed
 	state_machine.change_state(State.RESOLVED)
+
+func _on_character_walk_in_finished() -> void:
+	can_fish = true
 
 func _on_button_menu_pressed():
 	transition_requested.emit(Global.State.MAIN_MENU)

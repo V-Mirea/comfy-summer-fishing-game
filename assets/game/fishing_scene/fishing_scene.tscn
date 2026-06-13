@@ -8,14 +8,16 @@
 [ext_resource type="Resource" uid="uid://dlp8m6max7w7m" path="res://assets/audio/sfx/files/Fishing/cast.tres" id="5_cast"]
 [ext_resource type="Resource" uid="uid://h8nn8ck2y6m3" path="res://assets/audio/sfx/bite.tres" id="6_bite"]
 [ext_resource type="Resource" uid="uid://dqgiocviad8hm" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
+[ext_resource type="PackedScene" uid="uid://cgeqmhoibypi2" path="res://assets/game/fishing_scene/character/fishing_character.tscn" id="8_fchar"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
 font_size = 40
 
-[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "bubble_manager")]
+[node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "bubble_manager", "character")]
 script = ExtResource("1_ptjo3")
 status_label = NodePath("Container/StatusLabel")
 bubble_manager = NodePath("BubbleManager")
+character = NodePath("FishingCharacter")
 cast_sfx = ExtResource("5_cast")
 bite_sfx = ExtResource("6_bite")
 fish_missed_sfx = ExtResource("7_missed")
@@ -91,5 +93,10 @@ z_index = -1
 texture = ExtResource("4_fi2us")
 centered = false
 
+[node name="FishingCharacter" parent="." unique_id=821240942 instance=ExtResource("8_fchar")]
+position = Vector2(-200, 280)
+dock_position = Vector2(360, 280)
+
 [connection signal="pressed" from="Container/MenuButton" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Container/SellButton" to="." method="_on_button_sell_pressed"]
+[connection signal="walk_in_finished" from="FishingCharacter" to="." method="_on_character_walk_in_finished"]
