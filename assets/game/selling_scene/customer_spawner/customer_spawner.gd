@@ -11,14 +11,22 @@ var delay_time: int = 5 # time in seconds after a customer spawns that no new cu
 var spawn_chance: int = 100 # 0-100 % chance for a customer to spawn when rolled
 var spawn_timer: int = 2 # time in seconds that it should wait between unsuccessful spawn attempts
 
-var customer_slots: int = 6
+var customer_slots: int
 var customer_areas: Array[CustomerArea]
 
 var time_since_last_spawn: float = 0
 
 func _ready():
+	match PlayerManager.data.upgrades[Upgrade.UpgradeType.SHOP_LEVEL]:
+		0:
+			customer_slots = 3
+		1:
+			customer_slots = 4
+		2: 
+			customer_slots = 6
+		3: 
+			customer_slots = 8
 	calculate_customer_areas()
-	pass
 	
 func _process(delta):
 	time_since_last_spawn += delta

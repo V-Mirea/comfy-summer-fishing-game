@@ -13,9 +13,14 @@
 [ext_resource type="Resource" uid="uid://cm8odnam84qnr" path="res://assets/global/upgrades/reel_upgrades/reel_2.tres" id="9_len27"]
 [ext_resource type="Resource" uid="uid://byiguagjx5odk" path="res://assets/global/upgrades/reel_upgrades/reel_3.tres" id="10_pllfa"]
 [ext_resource type="Resource" uid="uid://1nd0b3qwm2t1" path="res://assets/global/upgrades/reel_upgrades/reel_4.tres" id="11_wn6it"]
+[ext_resource type="Resource" uid="uid://c3fbwa43mwjxt" path="res://assets/global/upgrades/shop_upgrades/shop_0.tres" id="14_ydrry"]
+[ext_resource type="Resource" uid="uid://bheubyw4f2jr0" path="res://assets/global/upgrades/shop_upgrades/shop_1.tres" id="15_12e4h"]
+[ext_resource type="Resource" uid="uid://b6x2uusnx7rq4" path="res://assets/global/upgrades/shop_upgrades/shop_2.tres" id="16_vbk2t"]
+[ext_resource type="Resource" uid="uid://xtnt1qeokhqf" path="res://assets/global/upgrades/shop_upgrades/shop_3.tres" id="17_jgunr"]
 
 [node name="UpgradeDatabase" type="Node" unique_id=1868595722]
 script = ExtResource("1_s6vli")
 rod_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("3_urnvp"), ExtResource("3_htyh0"), ExtResource("4_urnvp"), ExtResource("5_wla2w")])
 reel_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("7_wla2w"), ExtResource("6_glhnm"), ExtResource("9_len27"), ExtResource("10_pllfa"), ExtResource("11_wn6it")])
 bait_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("9_glhnm"), ExtResource("7_4wjjm")])
+shop_upgrades = Array[ExtResource("2_u2oq7")]([ExtResource("14_ydrry"), ExtResource("15_12e4h"), ExtResource("16_vbk2t"), ExtResource("17_jgunr")])

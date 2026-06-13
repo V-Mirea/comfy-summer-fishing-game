@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bet78kt7e645x"]
+
+[ext_resource type="Texture2D" uid="uid://c1m0fq8y8bw34" path="res://assets/game/selling_scene/stall/big_stall/Big stall_anim_nobg.png" id="1_72bjy"]
+[ext_resource type="Texture2D" uid="uid://dqwp526r570cv" path="res://assets/game/selling_scene/stall/big_stall/Big_stall_sign.png" id="2_8f5pj"]
+[ext_resource type="Script" uid="uid://dn6jc4vvv1clx" path="res://assets/game/selling_scene/stall/fish_list.gd" id="3_j488x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j488x"]
+atlas = ExtResource("1_72bjy")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o41y"]
+atlas = ExtResource("1_72bjy")
+region = Rect2(1280, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_241ky"]
+atlas = ExtResource("1_72bjy")
+region = Rect2(2560, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je7r6"]
+atlas = ExtResource("1_72bjy")
+region = Rect2(0, 720, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfrk7"]
+atlas = ExtResource("1_72bjy")
+region = Rect2(1280, 720, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbcui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j488x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o41y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_241ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je7r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfrk7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n2kyr"]
+font_size = 20
+
+[node name="BigStall" type="Node2D" unique_id=338772597]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=166417885]
+sprite_frames = SubResource("SpriteFrames_pbcui")
+autoplay = "default"
+frame_progress = 0.6061225
+
+[node name="Sign" type="Node2D" parent="." unique_id=277214793]
+position = Vector2(477, -37)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sign" unique_id=803438872]
+texture = ExtResource("2_8f5pj")
+
+[node name="Panel" type="Panel" parent="Sign" unique_id=364032813]
+offset_left = -74.0
+offset_top = -157.0
+offset_right = 118.0
+offset_bottom = 157.0
+
+[node name="ItemList" type="ItemList" parent="Sign/Panel" unique_id=244080014]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 190.0
+offset_bottom = 315.0
+script = ExtResource("3_j488x")
+
+[node name="FishLabel" type="Label" parent="Sign/Panel" unique_id=1619288173]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -2.0
+offset_right = 143.0
+offset_bottom = 26.0
+text = "Fish to Sell"
+label_settings = SubResource("LabelSettings_n2kyr")
+horizontal_alignment = 1

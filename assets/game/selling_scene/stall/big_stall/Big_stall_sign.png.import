@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu3akrrnbsbli"
-path="res://.godot/imported/Selling_stall.PNG-1afb557151c1ebd1acb51244d7280bd3.ctex"
+uid="uid://dqwp526r570cv"
+path="res://.godot/imported/Big_stall_sign.png-3cf656e5bdf031032736fd34ef9d3a38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/selling_scene/Selling_stall.PNG"
-dest_files=["res://.godot/imported/Selling_stall.PNG-1afb557151c1ebd1acb51244d7280bd3.ctex"]
+source_file="res://assets/game/selling_scene/stall/big_stall/Big_stall_sign.png"
+dest_files=["res://.godot/imported/Big_stall_sign.png-3cf656e5bdf031032736fd34ef9d3a38.ctex"]
 
 [params]
 
