@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b7y2mqd3wn0xv"]
+
+[ext_resource type="Script" uid="uid://dq8rvn5tymxk2" path="res://assets/game/shared/day_tint.gd" id="1_dytnt"]
+
+[node name="DayTint" type="CanvasModulate"]
+script = ExtResource("1_dytnt")
