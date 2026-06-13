@@ -19,3 +19,12 @@ func _ready():
 		Upgrade.UpgradeType.SHOP_LEVEL: shop_upgrades,
 		Upgrade.UpgradeType.ADVERTISING: advertising_upgrades
 	}
+
+# the effect magnitude for the player's current level of upgrade
+# need a helper method cuz we just have the level and we use this a lot in the fishing rules so it's nice to get the value out of upgrade 
+func get_value(type: Upgrade.UpgradeType) -> float:
+	var level := PlayerManager.get_upgrade_level(type)
+	var list: Array = upgrades_dictionary.get(type, [])
+	if level < 0 or level >= list.size():
+		return 0.0
+	return list[level].value

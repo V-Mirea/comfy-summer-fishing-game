@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://05at0qadnbblp"]
+
+[ext_resource type="Script" uid="uid://di55dj1abu15e" path="res://assets/global/upgrades/upgrade.gd" id="1_line2"]
+[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="2_line2"]
+
+[resource]
+script = ExtResource("1_line2")
+type = 2
+level = 2
+price = 100
+value = 0.3
+name = "Line 2"
+description = "a description for line 2"
+sprite = ExtResource("2_line2")
+metadata/_custom_type_script = "uid://di55dj1abu15e"

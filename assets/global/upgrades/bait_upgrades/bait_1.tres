@@ -7,4 +7,5 @@ script = ExtResource("1_gl18m")
 type = 3
 level = 1
 price = 15
+value = 0.08
 metadata/_custom_type_script = "uid://di55dj1abu15e"

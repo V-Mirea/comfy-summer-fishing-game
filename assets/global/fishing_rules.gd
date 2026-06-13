@@ -9,37 +9,54 @@ const BAD_POINTS: float = 0.0
 const MISS_POINTS: float = -1.0
 const MISS_THRESHOLD_RATIO: float = 0.2
 
+# bait upgrade
+# value increases chance, 1 is guarantee
 static func get_fishing_roll_chance() -> float:
-	var bait_level := PlayerManager.get_upgrade_level(Upgrade.UpgradeType.BAIT)
-	return .2 + (bait_level/5 * .2)
+	return 0.2 + UpgradeDatabase.get_value(Upgrade.UpgradeType.BAIT)
 
-# goes from 0 -> 2.5, the other 2.5 wlil come from catching the fish portion
-# at level 0, you can randomly go from 0->0.5, max level is 2 -> 2.5. this means youre responsible for 2.0 of the whole score
-#however, the  random .5 is heavily weighted to be the max value, 20% of the time.
-# we can change this weight based on some upgrades later on (probably rod)
-# weights are the following:
-# rod (6) + reel (2) + line (1) + bait (1)
+# reel upgrade
+# time in seconds, keep in mind for reel
+static func get_bite_window() -> float:
+	return 1.0 + UpgradeDatabase.get_value(Upgrade.UpgradeType.REEL)
+
+# reel upgrade
+# so reel is performiing double duty, maybe ill do some other math to sort of split this up but right now value is face
+static func get_bubble_lifetime_multiplier() -> float:
+	return 1.0 + UpgradeDatabase.get_value(Upgrade.UpgradeType.REEL)
+
+# line upgrade
+# first step in all calculation grabs, this step gives the t which is the factor of how close we get to the lerp step
+# realistically we should go from 0->0.5? we'll see how we like to tune this
+static func _get_line_t() -> float:
+	return UpgradeDatabase.get_value(Upgrade.UpgradeType.LINE)
+
+static func _get_miss_points() -> float:
+	return lerp(MISS_POINTS, BAD_POINTS, _get_line_t())
+
+static func _get_bad_points() -> float:
+	return lerp(BAD_POINTS, GOOD_POINTS, _get_line_t())
+
+static func _get_good_points() -> float:
+	return lerp(GOOD_POINTS, PERFECT_POINTS, _get_line_t())
+
+# rod upgrade
+# should go from 0->2.0
+# base quality is the equipment half of the total score, the
+# other 2.5 comes from the fishing game. driven entirely by rod's value now, also having random .5 variance
+# heavily weighted to be at its max 0.5 about 20% of the time to not feel impossible to get a perfect fish; maybe rod value also increases this 
 static func get_base_quality() -> float:
-	var rod_level := PlayerManager.get_upgrade_level(Upgrade.UpgradeType.ROD)
-	var reel_level := PlayerManager.get_upgrade_level(Upgrade.UpgradeType.REEL)
-	var line_level := PlayerManager.get_upgrade_level(Upgrade.UpgradeType.LINE)
-	var bait_level := PlayerManager.get_upgrade_level(Upgrade.UpgradeType.BAIT)
-	var weighted_sum := (float(rod_level) / 4) * 6 \
-					  + (float(reel_level) / 4) * 2 \
-					  + (float(line_level) / 4) \
-					  + (float(bait_level) / 4)
-	#currently dividing by 4 as a predetermined "max level". we might want todefined a max level per upgrade
+	var rod_value := UpgradeDatabase.get_value(Upgrade.UpgradeType.ROD)
 	var bonus := 0.5 if randf() < 0.2 else randf_range(0.0, 0.5)
-	return weighted_sum * (2.0 / 10.0) + bonus
+	return rod_value + bonus
 
 #we convert the raw amounts of perf/good/bad/miss into a number that we can easily use. this number is pit against
 # the total possible max, which is perf * numbubbles in pattern. based on that, we
 # determine if the fish is caught, as well as what score the player got.
 static func _get_raw_score(score_data: Dictionary) -> float:
 	return score_data["perfects"] * PERFECT_POINTS \
-		+ score_data["goods"] * GOOD_POINTS \
-		+ score_data["bads"] * BAD_POINTS \
-		+ score_data["misses"] * MISS_POINTS
+		+ score_data["goods"] * _get_good_points() \
+		+ score_data["bads"] * _get_bad_points() \
+		+ score_data["misses"] * _get_miss_points()
 
 static func did_catch_fish(score_data: Dictionary) -> bool:
 	var total: int = score_data["total"]

@@ -8,6 +8,7 @@ script = ExtResource("1_2d2kn")
 type = 1
 level = 4
 price = 400
+value = 0.5
 name = "Reel 4"
 description = "a description for reel 4"
 sprite = ExtResource("2_sp1mx")
