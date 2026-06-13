@@ -13,7 +13,15 @@ func _physics_process(delta):
 
 func _process(delta):
 	if velocity == Vector2.ZERO:
-		sprite_node.play("idle")
+		match sprite_node.animation:
+			"walk_right":
+				sprite_node.play("idle_right")
+			"walk_left":
+				sprite_node.play("idle_left")
+			"walk_down":
+				sprite_node.play("idle_down")
+			"walk_up":
+				sprite_node.play("idle_up")	
 	elif abs(velocity.x) > abs(velocity.y):
 		if velocity.x > 0:
 			sprite_node.play("walk_right")

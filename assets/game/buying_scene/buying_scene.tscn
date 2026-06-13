@@ -77,6 +77,18 @@ size = Vector2(40, 15)
 atlas = ExtResource("12_8l74v")
 region = Rect2(0, 0, 64, 71)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iabx"]
+atlas = ExtResource("13_kq7pi")
+region = Rect2(0, 0, 64, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wajsj"]
+atlas = ExtResource("14_tiwff")
+region = Rect2(0, 0, 64, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifiby"]
+atlas = ExtResource("15_4bdme")
+region = Rect2(0, 0, 64, 71)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdlj6"]
 atlas = ExtResource("12_8l74v")
 region = Rect2(0, 0, 64, 71)
@@ -148,7 +160,31 @@ animations = [{
 "texture": SubResource("AtlasTexture_4bdme")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iabx")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wajsj")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifiby")
+}],
+"loop": true,
+"name": &"idle_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -388,8 +424,8 @@ shape = SubResource("RectangleShape2D_hpvk7")
 position = Vector2(1.5, -39.25)
 scale = Vector2(1.359375, 1.3450705)
 sprite_frames = SubResource("SpriteFrames_4bdme")
-animation = &"idle"
-autoplay = "idle"
+animation = &"idle_down"
+autoplay = "idle_down"
 
 [node name="RodAisle" parent="YSorted" unique_id=543733618 instance=ExtResource("3_7o44q")]
 position = Vector2(1126, 485)
