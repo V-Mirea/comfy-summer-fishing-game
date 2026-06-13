@@ -334,6 +334,9 @@ excluded_flags = Array[int]([6])
 dialogue_scripts = Array[Resource]([SubResource("Resource_tiwff"), SubResource("Resource_4bdme")])
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svc6x"]
+size = Vector2(90, 20)
+
 [node name="BuyingScene" type="Node2D" unique_id=71390660]
 texture_filter = 1
 script = ExtResource("1_b6mu0")
@@ -367,7 +370,7 @@ shape = SubResource("RectangleShape2D_ig6k8")
 y_sort_enabled = true
 
 [node name="Character" type="CharacterBody2D" parent="YSorted" unique_id=1378911832 node_paths=PackedStringArray("joystick_left", "sprite_node")]
-position = Vector2(937, 661)
+position = Vector2(938, 686)
 motion_mode = 1
 script = ExtResource("2_5l2yu")
 joystick_left = NodePath("../../Virtual Joystick")
@@ -534,21 +537,6 @@ shape = SubResource("RectangleShape2D_ifiby")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="YSorted/Crates" unique_id=320879032]
 position = Vector2(8, 21)
 shape = SubResource("RectangleShape2D_amxth")
-
-[node name="ButtonMenu" type="Button" parent="." unique_id=792557303]
-offset_left = 11.0
-offset_top = 650.0
-offset_right = 171.0
-offset_bottom = 702.0
-text = "menu"
-
-[node name="ButtonFish" type="Button" parent="." unique_id=1024119867]
-offset_left = 571.0
-offset_top = 649.0
-offset_right = 709.0
-offset_bottom = 704.0
-text = "fish
-"
 
 [node name="WallBoundaries" type="StaticBody2D" parent="." unique_id=89566812]
 
@@ -774,6 +762,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
+[node name="ExitArea" type="Area2D" parent="." unique_id=537219622]
+position = Vector2(907, 760)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=749307691]
+position = Vector2(35, 0)
+shape = SubResource("RectangleShape2D_svc6x")
+
 [connection signal="open_dialogue_box" from="BoxFort" to="DialogueWindow" method="_on_open_dialogue_box"]
 [connection signal="body_entered" from="BoxFort/InteractionArea" to="BoxFort/InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="BoxFort/InteractionArea" to="BoxFort/InteractionArea" method="_on_body_exited"]
@@ -788,8 +783,6 @@ text = "Exit"
 [connection signal="shop_opened" from="YSorted/PollutionAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/ShopAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/AdvertisingAisle" to="ShopMenu" method="_on_shop_opened"]
-[connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
-[connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
 [connection signal="pressed" from="InteractButton" to="BoxFort" method="_on_interact_button_pressed"]
 [connection signal="pressed" from="InteractButton" to="YSorted/RodAisle" method="_on_interact_button_pressed"]
 [connection signal="pressed" from="InteractButton" to="YSorted/ReelAisle" method="_on_interact_button_pressed"]
@@ -802,3 +795,4 @@ text = "Exit"
 [connection signal="pressed" from="DialogueWindow/Panel/MarginContainer/HBoxContainer/VBoxContainer/ExitButton" to="DialogueWindow" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/PurchaseButton" to="ShopMenu" method="_on_purchase_button_pressed"]
 [connection signal="pressed" from="ShopMenu/Panel/MarginContainer/VBox/HBoxContainer/ExitButton" to="ShopMenu" method="_on_exit_button_pressed"]
+[connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]

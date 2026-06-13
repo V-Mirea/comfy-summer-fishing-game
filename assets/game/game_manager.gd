@@ -28,6 +28,8 @@ var state_music: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	PauseMenu.quit_requested.connect(_on_transition_requested.bind(Global.State.MAIN_MENU))
+	
 	state_scenes = {
 		Global.State.MAIN_MENU: mainMenuScene,
 		Global.State.FISHING: fishingScene,

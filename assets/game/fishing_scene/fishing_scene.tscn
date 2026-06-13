@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://rlt1oxv2of68" path="res://assets/audio/sfx/fish_on.tres" id="5_3rbgy"]
 [ext_resource type="Resource" uid="uid://dlp8m6max7w7m" path="res://assets/audio/sfx/cast.tres" id="5_cast"]
 [ext_resource type="Resource" uid="uid://h8nn8ck2y6m3" path="res://assets/audio/sfx/bite.tres" id="6_bite"]
-[ext_resource type="Resource" uid="uid://dqgiocviad8hm" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
+[ext_resource type="Resource" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
 [ext_resource type="PackedScene" uid="uid://cgeqmhoibypi2" path="res://assets/game/fishing_scene/character/fishing_character.tscn" id="8_fchar"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ptjo3"]
@@ -31,14 +31,6 @@ offset_top = 184.0
 offset_right = 1030.0
 offset_bottom = 578.0
 mouse_filter = 2
-
-[node name="MenuButton" type="Button" parent="Container" unique_id=792678934]
-layout_mode = 0
-offset_left = -203.0
-offset_top = 484.0
-offset_right = -130.0
-offset_bottom = 517.0
-text = "menu"
 
 [node name="SellButton" type="Button" parent="Container" unique_id=410807605]
 layout_mode = 0
@@ -97,6 +89,5 @@ centered = false
 position = Vector2(-200, 280)
 dock_position = Vector2(360, 280)
 
-[connection signal="pressed" from="Container/MenuButton" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Container/SellButton" to="." method="_on_button_sell_pressed"]
 [connection signal="walk_in_finished" from="FishingCharacter" to="." method="_on_character_walk_in_finished"]
