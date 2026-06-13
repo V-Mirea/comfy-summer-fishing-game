@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dsfe7v53ilyev"]
+
+[ext_resource type="Script" uid="uid://di55dj1abu15e" path="res://assets/global/upgrades/upgrade.gd" id="1_r7lo1"]
+[ext_resource type="Texture2D" uid="uid://dgb6unjj8ph6p" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Bait_upgrade_tag.png" id="2_rrbth"]
+
+[resource]
+script = ExtResource("1_r7lo1")
+type = 3
+level = 2
+price = 50
+name = "Bait 3"
+sprite = ExtResource("2_rrbth")
+metadata/_custom_type_script = "uid://di55dj1abu15e"

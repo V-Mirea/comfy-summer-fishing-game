@@ -7,16 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://bckgy2rx84xwk" path="res://assets/game/buying_scene/interactables/aisle/aisle.tscn" id="3_7o44q"]
 [ext_resource type="Texture2D" uid="uid://ixg6yjt305sy" path="res://assets/game/buying_scene/interactables/box_fort/Fort.PNG" id="3_7tnhv"]
 [ext_resource type="Script" uid="uid://cy3y7ib68st7c" path="res://assets/game/buying_scene/interactables/box_fort/box_fort.gd" id="3_ig6k8"]
+[ext_resource type="Shader" uid="uid://byvujt6liq2ie" path="res://assets/game/shared/outline_shader.gdshader" id="3_tdlj6"]
 [ext_resource type="Texture2D" uid="uid://b3eix3x2js8ql" path="res://assets/game/buying_scene/Items_only.PNG" id="4_i6cjn"]
 [ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactables/interactable_sprite.gd" id="4_ig6k8"]
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/interactables/interaction_area.gd" id="4_uhb6p"]
-[ext_resource type="Texture2D" uid="uid://c0luw26ytkmjr" path="res://assets/game/buying_scene/interactables/box_fort/Fort_thick_outline.PNG" id="6_kq7pi"]
 [ext_resource type="Script" uid="uid://cewu6chnl35ii" path="res://assets/game/buying_scene/shop_menu/shop_menu.gd" id="8_7sq2k"]
 [ext_resource type="PackedScene" uid="uid://hl7y71r6xpw8" path="res://assets/game/buying_scene/shop_menu/upgrade_button/upgrade_button.tscn" id="9_7sq2k"]
+[ext_resource type="Texture2D" uid="uid://cmsxfut857jye" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Rod_upgrade_tag.png" id="10_5xi53"]
+[ext_resource type="Texture2D" uid="uid://dvgb1ct5h7lbq" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Stall_upgrade_tag.png" id="11_kq7pi"]
+[ext_resource type="Texture2D" uid="uid://cio1pjyrh7ll4" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Reel_upgrade_tag.png" id="11_lh478"]
 [ext_resource type="Texture2D" uid="uid://ekaglpfeqr3r" path="res://assets/game/buying_scene/character/CH1_front.PNG" id="12_8l74v"]
+[ext_resource type="Texture2D" uid="uid://gnqft4d4ehf6" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Line_upgrade_tag.png" id="12_jx1gg"]
+[ext_resource type="Texture2D" uid="uid://dgb6unjj8ph6p" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Bait_upgrade_tag.png" id="13_exdl5"]
 [ext_resource type="Texture2D" uid="uid://cmts02n62b7in" path="res://assets/game/buying_scene/character/CH1_left.PNG" id="13_kq7pi"]
 [ext_resource type="Script" uid="uid://bdk7wb8u2stjc" path="res://assets/game/buying_scene/dialogue_window.gd" id="13_o1x55"]
 [ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="13_yc5v8"]
+[ext_resource type="Texture2D" uid="uid://c23h75bu8amt6" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Pollution_ magic fish_upgrade_tag.png" id="14_katif"]
 [ext_resource type="Texture2D" uid="uid://dre3pca1u07i1" path="res://assets/game/buying_scene/character/CH1_right.PNG" id="14_tiwff"]
 [ext_resource type="Texture2D" uid="uid://che7c6xixa63i" path="res://assets/game/buying_scene/character/CH1_back.PNG" id="15_4bdme"]
 [ext_resource type="Texture2D" uid="uid://c4ni27o2xegci" path="res://assets/game/shared/ui/button/Blue_button_large.PNG" id="15_8l74v"]
@@ -26,6 +32,16 @@
 [ext_resource type="Script" uid="uid://gtjk3o5fwq1i" path="res://assets/game/buying_scene/interact_button.gd" id="17_tdlj6"]
 [ext_resource type="Script" uid="uid://bqk3yaifei62j" path="res://assets/game/buying_scene/dialogue/give_polluted_fish.gd" id="20_utamy"]
 [ext_resource type="Script" uid="uid://bhciiix4yoeep" path="res://assets/game/buying_scene/dialogue/trigger_event.gd" id="21_omqis"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdlj6"]
+shader = ExtResource("3_tdlj6")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eoi11"]
 size = Vector2(267, 77)
@@ -279,9 +295,9 @@ position = Vector2(372, 219)
 script = ExtResource("3_ig6k8")
 
 [node name="Sprite2D" type="Sprite2D" parent="BoxFort" unique_id=1865806437]
+material = SubResource("ShaderMaterial_tdlj6")
 texture = ExtResource("3_7tnhv")
 script = ExtResource("4_ig6k8")
-interactable_sprite = ExtResource("6_kq7pi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxFort" unique_id=2113221798]
 position = Vector2(0.5, 52.5)
@@ -309,14 +325,40 @@ shape = SubResource("RectangleShape2D_7tnhv")
 y_sort_enabled = true
 
 [node name="RodAisle" parent="YSorted" unique_id=543733618 instance=ExtResource("3_7o44q")]
-position = Vector2(693, 403)
+position = Vector2(1126, 485)
+display_tag_image = ExtResource("10_5xi53")
+
+[node name="ReelAisle" parent="YSorted" unique_id=359384505 instance=ExtResource("3_7o44q")]
+position = Vector2(921, 485)
+upgrades_sold = 1
+display_tag_image = ExtResource("11_lh478")
+
+[node name="LineAisle" parent="YSorted" unique_id=1822958688 instance=ExtResource("3_7o44q")]
+position = Vector2(559, 484)
+upgrades_sold = 2
+display_tag_image = ExtResource("12_jx1gg")
+
+[node name="BaitAisle" parent="YSorted" unique_id=1290336565 instance=ExtResource("3_7o44q")]
+position = Vector2(354, 484)
+upgrades_sold = 3
+display_tag_image = ExtResource("13_exdl5")
+
+[node name="PollutionAisle" parent="YSorted" unique_id=1281168906 instance=ExtResource("3_7o44q")]
+position = Vector2(1036, 242)
+upgrades_sold = 6
+display_tag_image = ExtResource("14_katif")
 
 [node name="ShopAisle" parent="YSorted" unique_id=312801464 instance=ExtResource("3_7o44q")]
-position = Vector2(938, 403)
+position = Vector2(830, 242)
 upgrades_sold = 4
+display_tag_image = ExtResource("11_kq7pi")
+
+[node name="AdvertisingAisle" parent="YSorted" unique_id=1035627769 instance=ExtResource("3_7o44q")]
+position = Vector2(624, 242)
+upgrades_sold = 5
 
 [node name="Character" type="CharacterBody2D" parent="YSorted" unique_id=1378911832 node_paths=PackedStringArray("joystick_left", "sprite_node")]
-position = Vector2(400, 529)
+position = Vector2(1027, 654)
 motion_mode = 1
 script = ExtResource("2_5l2yu")
 joystick_left = NodePath("../../Virtual Joystick")
@@ -507,9 +549,9 @@ color = Color(0, 0, 0, 0.6)
 
 [node name="Panel" type="PanelContainer" parent="ShopMenu" unique_id=674956615]
 anchors_preset = -1
-anchor_left = 0.1
+anchor_left = 0.15
 anchor_top = 0.1
-anchor_right = 0.9
+anchor_right = 0.85
 anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
@@ -536,7 +578,7 @@ layout_mode = 2
 [node name="GridContainer" type="GridContainer" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=888565875]
 layout_mode = 2
 size_flags_vertical = 3
-columns = 3
+columns = 2
 
 [node name="HSeparator3" type="HSeparator" parent="ShopMenu/Panel/MarginContainer/VBox" unique_id=1536110282]
 layout_mode = 2
@@ -572,7 +614,12 @@ text = "Exit"
 [connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort" method="_on_interaction_area_player_exited"]
 [connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort/Sprite2D" method="_on_interaction_area_player_exited"]
 [connection signal="shop_opened" from="YSorted/RodAisle" to="ShopMenu" method="_on_shop_opened"]
+[connection signal="shop_opened" from="YSorted/ReelAisle" to="ShopMenu" method="_on_shop_opened"]
+[connection signal="shop_opened" from="YSorted/LineAisle" to="ShopMenu" method="_on_shop_opened"]
+[connection signal="shop_opened" from="YSorted/BaitAisle" to="ShopMenu" method="_on_shop_opened"]
+[connection signal="shop_opened" from="YSorted/PollutionAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/ShopAisle" to="ShopMenu" method="_on_shop_opened"]
+[connection signal="shop_opened" from="YSorted/AdvertisingAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="pressed" from="ButtonMenu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="ButtonFish" to="." method="_on_button_fish_pressed"]
 [connection signal="pressed" from="InteractButton" to="BoxFort" method="_on_interact_button_pressed"]
