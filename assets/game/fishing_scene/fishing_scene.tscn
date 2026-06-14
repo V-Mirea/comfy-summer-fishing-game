@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://rlt1oxv2of68" path="res://assets/audio/sfx/fish_on.tres" id="5_3rbgy"]
 [ext_resource type="Resource" uid="uid://dlp8m6max7w7m" path="res://assets/audio/sfx/files/Fishing/cast.tres" id="5_cast"]
 [ext_resource type="Resource" uid="uid://h8nn8ck2y6m3" path="res://assets/audio/sfx/bite.tres" id="6_bite"]
-[ext_resource type="Resource" uid="uid://dqgiocviad8hm" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
+[ext_resource type="Resource" path="res://assets/audio/sfx/fish_missed.tres" id="7_missed"]
 [ext_resource type="PackedScene" uid="uid://cgeqmhoibypi2" path="res://assets/game/fishing_scene/character/fishing_character.tscn" id="8_fchar"]
 [ext_resource type="PackedScene" uid="uid://b7y2mqd3wn0xv" path="res://assets/game/shared/day_tint.tscn" id="9_dytnt"]
 
@@ -15,6 +15,7 @@
 font_size = 40
 
 [node name="FishingScene" type="Node2D" unique_id=1042002354 node_paths=PackedStringArray("status_label", "bubble_manager", "character", "sell_button", "leave_early_popup")]
+texture_filter = 1
 script = ExtResource("1_ptjo3")
 status_label = NodePath("UILayer/Container/StatusLabel")
 bubble_manager = NodePath("BubbleManager")
