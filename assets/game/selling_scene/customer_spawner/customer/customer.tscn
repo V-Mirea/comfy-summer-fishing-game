@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://stuev6gp1q3v"]
 
-[ext_resource type="Texture2D" uid="uid://cwf4fbweljkqp" path="res://icon.svg" id="1_ktfjk"]
 [ext_resource type="Script" uid="uid://c8pvhubgo6r4d" path="res://assets/game/selling_scene/customer_spawner/customer/customer.gd" id="1_xss0h"]
 [ext_resource type="Script" uid="uid://cpeg5okkydb64" path="res://assets/game/selling_scene/customer_spawner/customer/characters/variation_sprite.gd" id="2_i8vkf"]
 [ext_resource type="Texture2D" uid="uid://b0utsfhbldx1x" path="res://assets/game/selling_scene/customer_spawner/customer/characters/character_2/Ch2 back idle.png" id="2_k6x6e"]
@@ -22,6 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://cnrdpa6t7ovn2" path="res://assets/game/selling_scene/customer_spawner/customer/characters/character_6/Ch6 front.png" id="12_uuuv3"]
 [ext_resource type="Texture2D" uid="uid://bwefumdl4ecav" path="res://assets/game/selling_scene/customer_spawner/customer/characters/character_5/Ch5 back idle.png" id="12_w26ew"]
 [ext_resource type="Texture2D" uid="uid://gdtfiu18ab71" path="res://assets/game/selling_scene/customer_spawner/customer/characters/character_6/Ch6 back idle.png" id="15_66uss"]
+[ext_resource type="Texture2D" uid="uid://b5fjovljk5j81" path="res://assets/game/selling_scene/customer_spawner/customer/Good_emote.png" id="22_w26ew"]
+[ext_resource type="Script" uid="uid://5bfw5gmwbr8y" path="res://assets/game/selling_scene/customer_spawner/customer/response_sprite.gd" id="23_66uss"]
+[ext_resource type="Texture2D" uid="uid://d2xfqy5vxqrfo" path="res://assets/game/selling_scene/customer_spawner/customer/Decline_emote.png" id="24_gevrx"]
+[ext_resource type="Texture2D" uid="uid://conpmxhdeom4b" path="res://assets/game/selling_scene/customer_spawner/customer/Disgruntled_emote.png" id="25_uuuv3"]
 
 [sub_resource type="Shader" id="Shader_mla8a"]
 code = "shader_type canvas_item;
@@ -613,13 +616,11 @@ animations = [{
 font_size = 11
 font_color = Color(0, 0, 0, 1)
 
-[node name="Customer" type="Node2D" unique_id=357713427 node_paths=PackedStringArray("offer_label", "clickbox", "accept_sprite", "angry_sprite", "decline_sprite")]
+[node name="Customer" type="Node2D" unique_id=357713427 node_paths=PackedStringArray("offer_label", "clickbox", "response_sprite")]
 script = ExtResource("1_xss0h")
 offer_label = NodePath("OfferControl/OfferLabel")
 clickbox = NodePath("Clickbox")
-accept_sprite = NodePath("AcceptSprite")
-angry_sprite = NodePath("AngrySprite")
-decline_sprite = NodePath("DeclineSprite")
+response_sprite = NodePath("ResponseSprite")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1777642784]
 texture_filter = 1
@@ -629,10 +630,6 @@ animation = &"idle"
 frame_progress = 0.5655154
 script = ExtResource("2_i8vkf")
 sprite_variations = Array[SpriteFrames]([SubResource("SpriteFrames_5cw5f"), SubResource("SpriteFrames_mv1rr"), SubResource("SpriteFrames_06wtu"), SubResource("SpriteFrames_ytcji"), SubResource("SpriteFrames_a83bg")])
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2062455435]
-visible = false
-texture = ExtResource("1_ktfjk")
 
 [node name="AcceptSprite" type="Sprite2D" parent="." unique_id=16045565]
 visible = false
@@ -698,6 +695,13 @@ offset_right = 64.0
 offset_bottom = 69.0
 toggle_mode = true
 flat = true
+
+[node name="ResponseSprite" type="Sprite2D" parent="." unique_id=460481164]
+position = Vector2(72, -63)
+script = ExtResource("23_66uss")
+accept_sprite = ExtResource("22_w26ew")
+decline_sprite = ExtResource("24_gevrx")
+angry_sprite = ExtResource("25_uuuv3")
 
 [connection signal="patience_changed" from="." to="PatienceBar" method="_on_customer_patience_changed"]
 [connection signal="selected" from="." to="AnimatedSprite2D" method="_on_customer_selected"]
