@@ -1,32 +1,35 @@
 [gd_scene format=3 uid="uid://bet78kt7e645x"]
 
-[ext_resource type="Texture2D" uid="uid://c1m0fq8y8bw34" path="res://assets/game/selling_scene/stall/big_stall/Big stall_anim_nobg.png" id="1_72bjy"]
+[ext_resource type="Texture2D" uid="uid://kslteb41eav4" path="res://assets/game/selling_scene/stall/big_stall/Big_stall_nobg_updated.png" id="1_72bjy"]
 [ext_resource type="Texture2D" uid="uid://dqwp526r570cv" path="res://assets/game/selling_scene/stall/big_stall/Big_stall_sign.png" id="2_8f5pj"]
 [ext_resource type="Script" uid="uid://dn6jc4vvv1clx" path="res://assets/game/selling_scene/stall/fish_list.gd" id="3_j488x"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j488x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f5pj"]
 atlas = ExtResource("1_72bjy")
 region = Rect2(0, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7o41y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j488x"]
 atlas = ExtResource("1_72bjy")
 region = Rect2(1280, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_241ky"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o41y"]
 atlas = ExtResource("1_72bjy")
 region = Rect2(2560, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_je7r6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_241ky"]
 atlas = ExtResource("1_72bjy")
 region = Rect2(0, 720, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lfrk7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_je7r6"]
 atlas = ExtResource("1_72bjy")
 region = Rect2(1280, 720, 1280, 720)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pbcui"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f5pj")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j488x")
 }, {
@@ -38,9 +41,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_je7r6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lfrk7")
 }],
 "loop": true,
 "name": &"default",

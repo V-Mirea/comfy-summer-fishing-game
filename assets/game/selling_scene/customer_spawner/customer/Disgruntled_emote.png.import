@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5o4rrut5xojo"
-path="res://.godot/imported/Ch1 left idle.png-396e9d0ae37a32b1238b45be967da2dc.ctex"
+uid="uid://conpmxhdeom4b"
+path="res://.godot/imported/Disgruntled_emote.png-395feaa2941d662cc3fbeb1b4de16126.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/character/Ch1 left idle.png"
-dest_files=["res://.godot/imported/Ch1 left idle.png-396e9d0ae37a32b1238b45be967da2dc.ctex"]
+source_file="res://assets/game/selling_scene/customer_spawner/customer/Disgruntled_emote.png"
+dest_files=["res://.godot/imported/Disgruntled_emote.png-395feaa2941d662cc3fbeb1b4de16126.ctex"]
 
 [params]
 

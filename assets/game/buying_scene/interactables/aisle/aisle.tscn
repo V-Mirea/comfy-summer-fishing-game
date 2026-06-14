@@ -24,10 +24,20 @@ shader_parameter/number_of_images = Vector2(1, 1)
 size = Vector2(207.75, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3s4dn"]
-size = Vector2(210, 126)
+size = Vector2(236, 126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tnhv"]
 size = Vector2(185, 112)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ykumb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_anscq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ir4sk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qiosp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bv3sf"]
 
 [node name="Aisle" type="StaticBody2D" unique_id=543733618 node_paths=PackedStringArray("display_tag")]
 script = ExtResource("1_3aoq8")
@@ -53,7 +63,7 @@ position = Vector2(-31, -67)
 script = ExtResource("5_0fpow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1362044921]
-position = Vector2(29, 98)
+position = Vector2(30, 98)
 shape = SubResource("RectangleShape2D_3s4dn")
 
 [node name="TransparencyArea" type="Area2D" parent="." unique_id=1033181804]
@@ -63,6 +73,18 @@ position = Vector2(0, -29)
 position = Vector2(-0.5, -7)
 shape = SubResource("RectangleShape2D_7tnhv")
 
+[node name="Clickbox" type="Button" parent="." unique_id=1492342562]
+offset_left = -102.0
+offset_top = -116.0
+offset_right = 104.0
+offset_bottom = 58.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ykumb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_anscq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ir4sk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qiosp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bv3sf")
+flat = true
+
 [connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]
 [connection signal="player_entered" from="InteractionArea" to="." method="_on_player_entered_interaction_area"]
@@ -71,3 +93,4 @@ shape = SubResource("RectangleShape2D_7tnhv")
 [connection signal="player_exited" from="InteractionArea" to="Sprite2D" method="_on_interaction_area_player_exited"]
 [connection signal="body_entered" from="TransparencyArea" to="." method="_on_transparency_area_body_entered"]
 [connection signal="body_exited" from="TransparencyArea" to="." method="_on_transparency_area_body_exited"]
+[connection signal="pressed" from="Clickbox" to="." method="_on_clickbox_pressed"]

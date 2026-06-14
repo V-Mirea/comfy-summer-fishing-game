@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c7wjqhddut7hi"]
 
 [ext_resource type="Script" uid="uid://c44smfmcdrab" path="res://assets/global/pause_menu/pause_menu.gd" id="1_script"]
-[ext_resource type="Resource" uid="uid://chnbgcgq7mm80" path="res://assets/audio/sfx/pause_closed.tres" id="3_47ya3"]
-[ext_resource type="Resource" uid="uid://cwkxm2e0nqb3r" path="res://assets/audio/sfx/pause_open.tres" id="3_pause"]
+[ext_resource type="Resource" uid="uid://chnbgcgq7mm80" path="res://assets/audio/sfx/files/UI/pause_closed.tres" id="3_47ya3"]
+[ext_resource type="Resource" uid="uid://cwkxm2e0nqb3r" path="res://assets/audio/sfx/files/UI/pause_open.tres" id="3_pause"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1736017532 node_paths=PackedStringArray("money_label", "upgrades_list", "fish_list", "resume_button", "popup_window")]
 process_mode = 2
@@ -129,7 +129,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Popup/VBoxContainer/MarginContainer/VBoxContainer" unique_id=399944096]
 layout_mode = 2
-text = "You will lose all progress this current day."
+text = "You will lose all progress since the start of the day."
 horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="Popup/VBoxContainer" unique_id=1974258860]

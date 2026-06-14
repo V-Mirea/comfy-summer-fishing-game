@@ -11,12 +11,15 @@
 [ext_resource type="Script" uid="uid://dn8vm2btk5iik" path="res://assets/game/buying_scene/interactables/interactable_sprite.gd" id="4_ig6k8"]
 [ext_resource type="Script" uid="uid://lpjgdjtpn6yf" path="res://assets/game/buying_scene/interactables/interaction_area.gd" id="4_uhb6p"]
 [ext_resource type="Script" uid="uid://cewu6chnl35ii" path="res://assets/game/buying_scene/shop_menu/shop_menu.gd" id="8_7sq2k"]
+[ext_resource type="Texture2D" uid="uid://c064v0p3p6o1d" path="res://assets/game/buying_scene/character/Ch1 front idle.PNG" id="9_3iabx"]
 [ext_resource type="PackedScene" uid="uid://hl7y71r6xpw8" path="res://assets/game/buying_scene/shop_menu/upgrade_button/upgrade_button.tscn" id="9_7sq2k"]
-[ext_resource type="Texture2D" uid="uid://bnvhy4ot7vjso" path="res://assets/game/buying_scene/character/Ch1 front idle.png" id="9_ctvkh"]
 [ext_resource type="Texture2D" uid="uid://cmsxfut857jye" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Rod_upgrade_tag.png" id="10_5xi53"]
+[ext_resource type="Texture2D" uid="uid://c5o4rrut5xojo" path="res://assets/game/buying_scene/character/Ch1 left idle.png" id="10_amxth"]
 [ext_resource type="Texture2D" uid="uid://dvgb1ct5h7lbq" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Stall_upgrade_tag.png" id="11_kq7pi"]
 [ext_resource type="Texture2D" uid="uid://cio1pjyrh7ll4" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Reel_upgrade_tag.png" id="11_lh478"]
+[ext_resource type="Texture2D" uid="uid://bdi41mtmqboe2" path="res://assets/game/buying_scene/character/Ch1 right idle.png" id="11_svc6x"]
 [ext_resource type="Texture2D" uid="uid://ekaglpfeqr3r" path="res://assets/game/buying_scene/character/CH1_front.PNG" id="12_8l74v"]
+[ext_resource type="Texture2D" uid="uid://c7lkelemoflnd" path="res://assets/game/buying_scene/character/Ch1 back idle.png" id="12_imu8t"]
 [ext_resource type="Texture2D" uid="uid://gnqft4d4ehf6" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Line_upgrade_tag.png" id="12_jx1gg"]
 [ext_resource type="Texture2D" uid="uid://dgb6unjj8ph6p" path="res://assets/game/buying_scene/interactables/aisle/display_tags/Bait_upgrade_tag.png" id="13_exdl5"]
 [ext_resource type="Texture2D" uid="uid://cmts02n62b7in" path="res://assets/game/buying_scene/character/CH1_left.PNG" id="13_kq7pi"]
@@ -44,6 +47,9 @@
 [ext_resource type="Texture2D" uid="uid://bk6esuydud5p7" path="res://assets/game/buying_scene/background_items/Shop_item_6.png" id="28_csvjf"]
 [ext_resource type="Texture2D" uid="uid://bh6u66ubfqw22" path="res://assets/game/buying_scene/background_items/Shop_item_7.png" id="29_wyfmt"]
 [ext_resource type="Texture2D" uid="uid://brsp8vsbk7pf5" path="res://assets/game/buying_scene/background_items/Shop_item_2.png" id="30_muwim"]
+[ext_resource type="Texture2D" uid="uid://dyq0srfurit3b" path="res://assets/game/buying_scene/dialogue/Weird_guy_angry.png" id="45_1ov4r"]
+[ext_resource type="Texture2D" uid="uid://cvt2ykh3mo7h" path="res://assets/game/buying_scene/dialogue/Weird_guy_neutral_.png" id="46_ice6t"]
+[ext_resource type="Texture2D" uid="uid://cjslmivli0bm5" path="res://assets/game/buying_scene/dialogue/Weird_guy_happy.png" id="46_svc6x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tdlj6"]
 shader = ExtResource("3_tdlj6")
@@ -61,6 +67,16 @@ size = Vector2(267, 77)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig6k8"]
 size = Vector2(206.25, 56)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amxth"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svc6x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imu8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ov4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ice6t"]
+
 [sub_resource type="Gradient" id="Gradient_kq7pi"]
 offsets = PackedFloat32Array(0.22007042, 0.40669015)
 colors = PackedColorArray(0, 0, 0, 0.6039216, 1, 1, 1, 0)
@@ -76,32 +92,68 @@ fill_from = Vector2(0.5, 0.5)
 size = Vector2(40, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amxth"]
-atlas = ExtResource("9_ctvkh")
-region = Rect2(0, 0, 114, 130)
+atlas = ExtResource("9_3iabx")
+region = Rect2(0, 0, 62, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svc6x"]
-atlas = ExtResource("9_ctvkh")
-region = Rect2(114, 0, 114, 130)
+atlas = ExtResource("9_3iabx")
+region = Rect2(62, 0, 62, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_imu8t"]
-atlas = ExtResource("9_ctvkh")
-region = Rect2(0, 130, 114, 130)
+atlas = ExtResource("9_3iabx")
+region = Rect2(0, 73, 62, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ov4r"]
-atlas = ExtResource("9_ctvkh")
-region = Rect2(114, 130, 114, 130)
+atlas = ExtResource("9_3iabx")
+region = Rect2(62, 73, 62, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3iabx"]
-atlas = ExtResource("13_kq7pi")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ice6t"]
+atlas = ExtResource("10_amxth")
+region = Rect2(0, 0, 62, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wajsj"]
-atlas = ExtResource("14_tiwff")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_38621"]
+atlas = ExtResource("10_amxth")
+region = Rect2(62, 0, 62, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifiby"]
-atlas = ExtResource("15_4bdme")
-region = Rect2(0, 0, 64, 71)
+[sub_resource type="AtlasTexture" id="AtlasTexture_epj27"]
+atlas = ExtResource("10_amxth")
+region = Rect2(0, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa8ky"]
+atlas = ExtResource("10_amxth")
+region = Rect2(62, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw7vv"]
+atlas = ExtResource("11_svc6x")
+region = Rect2(0, 0, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k6ug"]
+atlas = ExtResource("11_svc6x")
+region = Rect2(62, 0, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pxiv"]
+atlas = ExtResource("11_svc6x")
+region = Rect2(0, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lplsn"]
+atlas = ExtResource("11_svc6x")
+region = Rect2(62, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay42m"]
+atlas = ExtResource("12_imu8t")
+region = Rect2(0, 0, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqoel"]
+atlas = ExtResource("12_imu8t")
+region = Rect2(62, 0, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud41c"]
+atlas = ExtResource("12_imu8t")
+region = Rect2(0, 73, 62, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjk1w"]
+atlas = ExtResource("12_imu8t")
+region = Rect2(62, 73, 62, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdlj6"]
 atlas = ExtResource("12_8l74v")
@@ -188,7 +240,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3iabx")
+"texture": SubResource("AtlasTexture_ice6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38621")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epj27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa8ky")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -196,7 +257,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wajsj")
+"texture": SubResource("AtlasTexture_pw7vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k6ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pxiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lplsn")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -204,7 +274,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ifiby")
+"texture": SubResource("AtlasTexture_ay42m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqoel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud41c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjk1w")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -356,24 +435,28 @@ font_size = 29
 [sub_resource type="Resource" id="Resource_8l74v"]
 script = ExtResource("16_r1xhn")
 text = "Oh yeah."
+portrait = ExtResource("46_svc6x")
 button_text = "So are you!"
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [sub_resource type="Resource" id="Resource_tdlj6"]
 script = ExtResource("16_r1xhn")
 text = "Yuh huh!"
+portrait = ExtResource("45_1ov4r")
 button_text = "Nuh uh!"
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [sub_resource type="Resource" id="Resource_5xi53"]
 script = ExtResource("16_r1xhn")
 text = "Who am I kidding? Of course you didnt. You're a kid!"
+portrait = ExtResource("46_ice6t")
 next_lines = Array[ExtResource("16_r1xhn")]([SubResource("Resource_8l74v"), SubResource("Resource_tdlj6")])
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [sub_resource type="Resource" id="Resource_kq7pi"]
 script = ExtResource("16_r1xhn")
 text = "Hope you spent that money wisely."
+portrait = ExtResource("46_ice6t")
 next_lines = Array[ExtResource("16_r1xhn")]([SubResource("Resource_5xi53")])
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
@@ -389,6 +472,7 @@ metadata/_custom_type_script = "uid://bhciiix4yoeep"
 [sub_resource type="Resource" id="Resource_55ig4"]
 script = ExtResource("16_r1xhn")
 text = "Here's $5000 kid, have fun!"
+portrait = ExtResource("46_svc6x")
 excluded_flags = Array[int]([6])
 dialogue_scripts = Array[Resource]([SubResource("Resource_tiwff"), SubResource("Resource_4bdme")])
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
@@ -425,6 +509,18 @@ script = ExtResource("4_uhb6p")
 position = Vector2(38, 129)
 shape = SubResource("RectangleShape2D_ig6k8")
 
+[node name="Clickbox" type="Button" parent="BoxFort" unique_id=1584006381]
+offset_left = -139.0
+offset_top = -95.0
+offset_right = 137.0
+offset_bottom = 97.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_amxth")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_svc6x")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_imu8t")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ov4r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ice6t")
+flat = true
+
 [node name="YSorted" type="Node2D" parent="." unique_id=1382759860]
 y_sort_enabled = true
 
@@ -448,8 +544,8 @@ process_mode = 3
 position = Vector2(1.5, -39.25)
 scale = Vector2(1.359375, 1.3450705)
 sprite_frames = SubResource("SpriteFrames_4bdme")
-animation = &"idle_down"
-autoplay = "idle_down"
+animation = &"idle_up"
+autoplay = "idle_up"
 script = ExtResource("14_3iabx")
 
 [node name="RodAisle" parent="YSorted" unique_id=543733618 instance=ExtResource("3_7o44q")]
@@ -638,6 +734,7 @@ position = Vector2(986, 674)
 shape = SubResource("SegmentShape2D_muwim")
 
 [node name="InteractButton" type="TextureButton" parent="." unique_id=1312260220]
+visible = false
 modulate = Color(1, 1, 1, 0.83137256)
 offset_left = 268.0
 offset_top = 591.0
@@ -665,11 +762,12 @@ offset_right = 1273.0
 offset_bottom = 744.0
 visibility_mode = 1
 
-[node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421 node_paths=PackedStringArray("dialogue_label", "button_container", "dialogue_manager")]
+[node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421 node_paths=PackedStringArray("dialogue_label", "portrait_rect", "button_container", "dialogue_manager")]
 process_mode = 2
 visible = false
 script = ExtResource("13_o1x55")
 dialogue_label = NodePath("Panel/MarginContainer/HBoxContainer/MarginContainer/Label")
+portrait_rect = NodePath("Panel/MarginContainer/HBoxContainer/CenterContainer/TextureRect")
 button_container = NodePath("Panel/MarginContainer/HBoxContainer/VBoxContainer")
 dialogue_manager = NodePath("DialogueManager")
 
@@ -837,6 +935,7 @@ shape = SubResource("RectangleShape2D_svc6x")
 [connection signal="player_entered" from="BoxFort/InteractionArea" to="BoxFort/Sprite2D" method="_on_interaction_area_player_entered"]
 [connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort" method="_on_interaction_area_player_exited"]
 [connection signal="player_exited" from="BoxFort/InteractionArea" to="BoxFort/Sprite2D" method="_on_interaction_area_player_exited"]
+[connection signal="pressed" from="BoxFort/Clickbox" to="BoxFort" method="_on_clickbox_pressed"]
 [connection signal="shop_opened" from="YSorted/RodAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/ReelAisle" to="ShopMenu" method="_on_shop_opened"]
 [connection signal="shop_opened" from="YSorted/LineAisle" to="ShopMenu" method="_on_shop_opened"]

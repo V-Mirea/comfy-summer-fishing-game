@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b08bnejnwplw1"
-path="res://.godot/imported/Small_stall_anim_nobg.png-91f85acc960be6b8ad08bf94c2d25fb3.ctex"
+uid="uid://b5fjovljk5j81"
+path="res://.godot/imported/Good_emote.png-fbf155093b83077de36589f95240b4b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/selling_scene/stall/small_stall/Small_stall_anim_nobg.png"
-dest_files=["res://.godot/imported/Small_stall_anim_nobg.png-91f85acc960be6b8ad08bf94c2d25fb3.ctex"]
+source_file="res://assets/game/selling_scene/customer_spawner/customer/Good_emote.png"
+dest_files=["res://.godot/imported/Good_emote.png-fbf155093b83077de36589f95240b4b9.ctex"]
 
 [params]
 

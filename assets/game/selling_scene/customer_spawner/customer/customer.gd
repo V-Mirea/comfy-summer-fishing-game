@@ -11,9 +11,7 @@ signal state_changed(state: State)
 @export var offer_label: Label
 @export var clickbox: Button
 
-@export var accept_sprite: Sprite2D
-@export var angry_sprite: Sprite2D
-@export var decline_sprite: Sprite2D
+@export var response_sprite: ResponseSprite
 
 enum State { ENTERING, SHOPPING, LEAVING }
 var state_machine: StateMachine
@@ -32,9 +30,6 @@ var slot_position: Vector2 # where the customer should end up after walking in
 var slot_index: int
 var fish_wanted: Fish
 var patience_timer: Timer
-
-var chat_bubble_duration: int = 3
-var chat_bubble_timer: Timer
 
 func _ready():
 	var valid_transitions = {
@@ -75,34 +70,16 @@ func consider_offer(offer_price: int, max_price: int) -> Reaction:
 	var accept_chance: float = (offer_similarity_ratio * accept_chance_range) + minimum_accept_chance
 	
 	if randf() <= accept_chance:
-		accept_sprite.visible = true
+		response_sprite.show_accept_sprite()
 		return Reaction.ACCEPT
 	else:
 		var angry_chance: float = price_increase_ratio * max_angry_chance
 		if randf() <= angry_chance:
-			angry_sprite.visible = true
+			response_sprite.show_angry_sprite()
 			return Reaction.ANGRY
 		else:
-			show_decline_bubble()
+			response_sprite.show_decline_sprite()
 			return Reaction.DECLINE
-
-func show_decline_bubble():
-	decline_sprite.visible = true
-	
-	if chat_bubble_timer != null:
-		chat_bubble_timer.queue_free()
-		
-	chat_bubble_timer = Timer.new()
-	add_child(chat_bubble_timer)
-	chat_bubble_timer.one_shot = true
-	chat_bubble_timer.start(chat_bubble_duration)
-	chat_bubble_timer.timeout.connect(_chat_bubble_timer_triggered)
-
-func _chat_bubble_timer_triggered():
-	chat_bubble_timer.queue_free()
-	chat_bubble_timer = null
-	
-	decline_sprite.visible = false
 
 func start_leaving():
 	# changes state so that customer starts walking to leave

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e7abo5jd0vny"
-path="res://.godot/imported/Picnic_anim_nobg.png-329f8d6d96d6248fb38a123b633f24e8.ctex"
+uid="uid://kslteb41eav4"
+path="res://.godot/imported/Big_stall_nobg_updated.png-733374635875227b5cda3a8f04b9f415.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/selling_scene/stall/picnic_stall/Picnic_anim_nobg.png"
-dest_files=["res://.godot/imported/Picnic_anim_nobg.png-329f8d6d96d6248fb38a123b633f24e8.ctex"]
+source_file="res://assets/game/selling_scene/stall/big_stall/Big_stall_nobg_updated.png"
+dest_files=["res://.godot/imported/Big_stall_nobg_updated.png-733374635875227b5cda3a8f04b9f415.ctex"]
 
 [params]
 

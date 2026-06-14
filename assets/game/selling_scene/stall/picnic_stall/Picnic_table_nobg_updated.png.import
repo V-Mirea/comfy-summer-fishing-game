@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5o4rrut5xojo"
-path="res://.godot/imported/Ch1 left idle.png-396e9d0ae37a32b1238b45be967da2dc.ctex"
+uid="uid://bue0vdce27c4j"
+path="res://.godot/imported/Picnic_table_nobg_updated.png-2ec48933f7ded7db50f41ab9b0739948.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/buying_scene/character/Ch1 left idle.png"
-dest_files=["res://.godot/imported/Ch1 left idle.png-396e9d0ae37a32b1238b45be967da2dc.ctex"]
+source_file="res://assets/game/selling_scene/stall/picnic_stall/Picnic_table_nobg_updated.png"
+dest_files=["res://.godot/imported/Picnic_table_nobg_updated.png-2ec48933f7ded7db50f41ab9b0739948.ctex"]
 
 [params]
 

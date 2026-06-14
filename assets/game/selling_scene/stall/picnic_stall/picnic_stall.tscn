@@ -1,32 +1,35 @@
 [gd_scene format=3 uid="uid://dsonopfqsqudn"]
 
-[ext_resource type="Texture2D" uid="uid://e7abo5jd0vny" path="res://assets/game/selling_scene/stall/picnic_stall/Picnic_anim_nobg.png" id="1_roate"]
-[ext_resource type="Texture2D" uid="uid://d27xpuolmocep" path="res://assets/game/selling_scene/stall/picnic_stall/Picnic_table_sign.png" id="2_kagj6"]
+[ext_resource type="Texture2D" uid="uid://bue0vdce27c4j" path="res://assets/game/selling_scene/stall/picnic_stall/Picnic_table_nobg_updated.png" id="1_roate"]
+[ext_resource type="Texture2D" uid="uid://y65wmpyurj35" path="res://assets/game/selling_scene/stall/picnic_stall/Picnic_table_sign.PNG" id="2_roate"]
 [ext_resource type="Script" uid="uid://dn6jc4vvv1clx" path="res://assets/game/selling_scene/stall/fish_list.gd" id="3_v2rw7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2rw7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kagj6"]
 atlas = ExtResource("1_roate")
 region = Rect2(0, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l4fq6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2rw7"]
 atlas = ExtResource("1_roate")
 region = Rect2(1280, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_osvr1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4fq6"]
 atlas = ExtResource("1_roate")
 region = Rect2(2560, 0, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5hjam"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_osvr1"]
 atlas = ExtResource("1_roate")
 region = Rect2(0, 720, 1280, 720)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_frj6w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hjam"]
 atlas = ExtResource("1_roate")
 region = Rect2(1280, 720, 1280, 720)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pbcui"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kagj6")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v2rw7")
 }, {
@@ -38,9 +41,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5hjam")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_frj6w")
 }],
 "loop": true,
 "name": &"default",
@@ -48,7 +48,6 @@ animations = [{
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n2kyr"]
-font_size = 13
 
 [node name="PicnicStall" type="Node2D" unique_id=338772597]
 
@@ -62,20 +61,21 @@ frame_progress = 0.8514886
 position = Vector2(262, -6)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sign" unique_id=803438872]
-texture = ExtResource("2_kagj6")
+texture = ExtResource("2_roate")
 
 [node name="Panel" type="Panel" parent="Sign" unique_id=364032813]
 offset_left = -48.0
-offset_top = -53.0
+offset_top = -74.0
 offset_right = 50.0
-offset_bottom = 22.0
+offset_bottom = 44.0
 
 [node name="ItemList" type="ItemList" parent="Sign/Panel" unique_id=244080014]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 28.0
+offset_top = 23.0
 offset_right = 97.0
-offset_bottom = 74.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 12
 script = ExtResource("3_v2rw7")
 
 [node name="FishLabel" type="Label" parent="Sign/Panel" unique_id=1619288173]

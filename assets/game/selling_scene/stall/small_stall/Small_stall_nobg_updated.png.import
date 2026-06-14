@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4l5spl1xs1k1"
-path="res://.godot/imported/X.png-952fdb4c3e7c40334b0a25a9cbf14737.ctex"
+uid="uid://bqmcnl2vyhliv"
+path="res://.godot/imported/Small_stall_nobg_updated.png-75cb4893c5826fa9f96566fcd689bf07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/selling_scene/customer_spawner/customer/X.png"
-dest_files=["res://.godot/imported/X.png-952fdb4c3e7c40334b0a25a9cbf14737.ctex"]
+source_file="res://assets/game/selling_scene/stall/small_stall/Small_stall_nobg_updated.png"
+dest_files=["res://.godot/imported/Small_stall_nobg_updated.png-75cb4893c5826fa9f96566fcd689bf07.ctex"]
 
 [params]
 

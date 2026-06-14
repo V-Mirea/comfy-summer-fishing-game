@@ -11,6 +11,10 @@ func _unhandled_input(event):
 func _on_interact_button_pressed():
 	if player_in_range:
 		open_dialogue_box.emit()
+		
+func _on_clickbox_pressed():
+	if player_in_range:
+		open_dialogue_box.emit()
 
 func _on_interaction_area_player_entered():
 	player_in_range = true

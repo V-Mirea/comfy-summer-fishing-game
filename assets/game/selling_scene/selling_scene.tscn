@@ -11,17 +11,19 @@
 [ext_resource type="PackedScene" uid="uid://stuev6gp1q3v" path="res://assets/game/selling_scene/customer_spawner/customer/customer.tscn" id="8_830pu"]
 [ext_resource type="PackedScene" uid="uid://dsonopfqsqudn" path="res://assets/game/selling_scene/stall/picnic_stall/picnic_stall.tscn" id="8_w1ejd"]
 [ext_resource type="PackedScene" uid="uid://b7y2mqd3wn0xv" path="res://assets/game/shared/day_tint.tscn" id="9_dytnt"]
+[ext_resource type="Texture2D" uid="uid://c33pf7jn5f8ei" path="res://assets/game/selling_scene/Arrow_sign.png" id="12_iyhom"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ehvh"]
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 
 [node name="SellingScene" type="Node2D" unique_id=826753257 node_paths=PackedStringArray("haggle_ui", "customer_spawner")]
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_w1ejd")
-fish_stalls = Array[PackedScene]([ExtResource("8_w1ejd"), ExtResource("3_6hwc8"), ExtResource("4_iyhom")])
 haggle_ui = NodePath("CanvasLayer/HaggleControl")
 customer_spawner = NodePath("CustomerSpawner")
+fish_stalls = Array[PackedScene]([ExtResource("8_w1ejd"), ExtResource("3_6hwc8"), ExtResource("4_iyhom")])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1442556545]
 texture = ExtResource("2_lr7ye")
@@ -131,6 +133,10 @@ color = Color(0.011764706, 1, 1, 1)
 script = ExtResource("7_q6wlo")
 customer_area = NodePath("../CanvasLayer/CustomerSpawnArea")
 customer_scene = ExtResource("8_830pu")
+
+[node name="ArrowSignSprite" type="Sprite2D" parent="." unique_id=1599126359]
+position = Vector2(193, 629)
+texture = ExtResource("12_iyhom")
 
 [connection signal="bartering_started" from="." to="CanvasLayer/HaggleControl" method="_on_customer_bartering"]
 [connection signal="pressed" from="CanvasLayer/Control/ButtonBuy" to="." method="_on_button_buy_pressed"]
