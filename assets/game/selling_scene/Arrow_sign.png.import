@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1m0fq8y8bw34"
-path="res://.godot/imported/Big stall_anim_nobg.png-99bd0a362d72464a328da5e17e35242a.ctex"
+uid="uid://c33pf7jn5f8ei"
+path="res://.godot/imported/Arrow_sign.png-8809ae9c2021c5fba7c333fe254059ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/selling_scene/stall/big_stall/Big stall_anim_nobg.png"
-dest_files=["res://.godot/imported/Big stall_anim_nobg.png-99bd0a362d72464a328da5e17e35242a.ctex"]
+source_file="res://assets/game/selling_scene/Arrow_sign.png"
+dest_files=["res://.godot/imported/Arrow_sign.png-8809ae9c2021c5fba7c333fe254059ae.ctex"]
 
 [params]
 

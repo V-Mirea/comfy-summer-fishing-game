@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://dfftaretwk450"]
 
-[ext_resource type="Texture2D" uid="uid://b08bnejnwplw1" path="res://assets/game/selling_scene/stall/small_stall/Small_stall_anim_nobg.png" id="1_n2kyr"]
+[ext_resource type="Texture2D" uid="uid://bqmcnl2vyhliv" path="res://assets/game/selling_scene/stall/small_stall/Small_stall_nobg_updated.png" id="1_2omjo"]
 [ext_resource type="Texture2D" uid="uid://wif8itkxsdnu" path="res://assets/game/selling_scene/stall/small_stall/Small_stall_sign.png" id="2_2omjo"]
 [ext_resource type="Script" uid="uid://dn6jc4vvv1clx" path="res://assets/game/selling_scene/stall/fish_list.gd" id="3_2omjo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fyqfr"]
-atlas = ExtResource("1_n2kyr")
+atlas = ExtResource("1_2omjo")
 region = Rect2(0, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ldl7x"]
-atlas = ExtResource("1_n2kyr")
+atlas = ExtResource("1_2omjo")
 region = Rect2(1280, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bebxp"]
-atlas = ExtResource("1_n2kyr")
+atlas = ExtResource("1_2omjo")
 region = Rect2(2560, 0, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbcng"]
-atlas = ExtResource("1_n2kyr")
+atlas = ExtResource("1_2omjo")
 region = Rect2(0, 720, 1280, 720)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8pjj"]
-atlas = ExtResource("1_n2kyr")
+atlas = ExtResource("1_2omjo")
 region = Rect2(1280, 720, 1280, 720)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pbcui"]
