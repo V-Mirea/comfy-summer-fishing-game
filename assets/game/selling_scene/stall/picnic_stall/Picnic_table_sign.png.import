@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d27xpuolmocep"
-path="res://.godot/imported/Picnic_table_sign.png-b743b289ffccb0166ff149a6cf3a742c.ctex"
+uid="uid://y65wmpyurj35"
+path="res://.godot/imported/Picnic_table_sign.PNG-e3367906074c41e1c6527937a5043fa9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/selling_scene/stall/picnic_stall/Picnic_table_sign.png"
-dest_files=["res://.godot/imported/Picnic_table_sign.png-b743b289ffccb0166ff149a6cf3a742c.ctex"]
+source_file="res://assets/game/selling_scene/stall/picnic_stall/Picnic_table_sign.PNG"
+dest_files=["res://.godot/imported/Picnic_table_sign.PNG-e3367906074c41e1c6527937a5043fa9.ctex"]
 
 [params]
 
