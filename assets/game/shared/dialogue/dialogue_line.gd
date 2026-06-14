@@ -2,6 +2,7 @@ extends Resource
 class_name DialogueLine
 
 @export var text: String
+@export var portrait: Texture2D
 @export var required_flags: Array[PlayerData.GameEvent] = []    # ALL must be true
 @export var excluded_flags: Array[PlayerData.GameEvent] = []    # NONE must be true
 

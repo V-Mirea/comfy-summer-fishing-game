@@ -47,6 +47,9 @@
 [ext_resource type="Texture2D" uid="uid://bk6esuydud5p7" path="res://assets/game/buying_scene/background_items/Shop_item_6.png" id="28_csvjf"]
 [ext_resource type="Texture2D" uid="uid://bh6u66ubfqw22" path="res://assets/game/buying_scene/background_items/Shop_item_7.png" id="29_wyfmt"]
 [ext_resource type="Texture2D" uid="uid://brsp8vsbk7pf5" path="res://assets/game/buying_scene/background_items/Shop_item_2.png" id="30_muwim"]
+[ext_resource type="Texture2D" uid="uid://dyq0srfurit3b" path="res://assets/game/buying_scene/dialogue/Weird_guy_angry.png" id="45_1ov4r"]
+[ext_resource type="Texture2D" uid="uid://cvt2ykh3mo7h" path="res://assets/game/buying_scene/dialogue/Weird_guy_neutral_.png" id="46_ice6t"]
+[ext_resource type="Texture2D" uid="uid://cjslmivli0bm5" path="res://assets/game/buying_scene/dialogue/Weird_guy_happy.png" id="46_svc6x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tdlj6"]
 shader = ExtResource("3_tdlj6")
@@ -432,24 +435,28 @@ font_size = 29
 [sub_resource type="Resource" id="Resource_8l74v"]
 script = ExtResource("16_r1xhn")
 text = "Oh yeah."
+portrait = ExtResource("46_svc6x")
 button_text = "So are you!"
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [sub_resource type="Resource" id="Resource_tdlj6"]
 script = ExtResource("16_r1xhn")
 text = "Yuh huh!"
+portrait = ExtResource("45_1ov4r")
 button_text = "Nuh uh!"
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [sub_resource type="Resource" id="Resource_5xi53"]
 script = ExtResource("16_r1xhn")
 text = "Who am I kidding? Of course you didnt. You're a kid!"
+portrait = ExtResource("46_ice6t")
 next_lines = Array[ExtResource("16_r1xhn")]([SubResource("Resource_8l74v"), SubResource("Resource_tdlj6")])
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
 [sub_resource type="Resource" id="Resource_kq7pi"]
 script = ExtResource("16_r1xhn")
 text = "Hope you spent that money wisely."
+portrait = ExtResource("46_ice6t")
 next_lines = Array[ExtResource("16_r1xhn")]([SubResource("Resource_5xi53")])
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
 
@@ -465,6 +472,7 @@ metadata/_custom_type_script = "uid://bhciiix4yoeep"
 [sub_resource type="Resource" id="Resource_55ig4"]
 script = ExtResource("16_r1xhn")
 text = "Here's $5000 kid, have fun!"
+portrait = ExtResource("46_svc6x")
 excluded_flags = Array[int]([6])
 dialogue_scripts = Array[Resource]([SubResource("Resource_tiwff"), SubResource("Resource_4bdme")])
 metadata/_custom_type_script = "uid://bhka1ncrybm0n"
@@ -754,11 +762,12 @@ offset_right = 1273.0
 offset_bottom = 744.0
 visibility_mode = 1
 
-[node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421 node_paths=PackedStringArray("dialogue_label", "button_container", "dialogue_manager")]
+[node name="DialogueWindow" type="CanvasLayer" parent="." unique_id=516297421 node_paths=PackedStringArray("dialogue_label", "portrait_rect", "button_container", "dialogue_manager")]
 process_mode = 2
 visible = false
 script = ExtResource("13_o1x55")
 dialogue_label = NodePath("Panel/MarginContainer/HBoxContainer/MarginContainer/Label")
+portrait_rect = NodePath("Panel/MarginContainer/HBoxContainer/CenterContainer/TextureRect")
 button_container = NodePath("Panel/MarginContainer/HBoxContainer/VBoxContainer")
 dialogue_manager = NodePath("DialogueManager")
 

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var dialogue_label: Label
+@export var portrait_rect: TextureRect
 @export var button_container: Container
 @export var dialogue_manager: DialogueManager
 
@@ -31,6 +32,7 @@ func start_conversation():
 			(script as DialogueScript).execute()
 	
 	dialogue_label.text = current_line.text
+	portrait_rect.texture = current_line.portrait
 	create_response_buttons()
 	
 func continue_conversation(next_line: DialogueLine):
@@ -41,6 +43,7 @@ func continue_conversation(next_line: DialogueLine):
 			current_line.execute()
 	
 	dialogue_label.text = current_line.text
+	portrait_rect.texture = current_line.portrait
 	create_response_buttons()
 	
 func create_response_buttons():
